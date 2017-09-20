@@ -1,0 +1,9 @@
+Project Ideas (references)
+
+1. Mario game in Javascript + HTML5: http://mario5.florian-rappl.de/#game
+
+2. Facial expressions game (popular on Facebook): computer vision javascript library: 
+	https://trackingjs.com/
+
+
+
