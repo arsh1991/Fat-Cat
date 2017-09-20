@@ -1,0 +1,22 @@
+
+GAME ENGINE:
+
+A game engine is a software framework designed for the creation and development of video games. It can be used to create games for consoles, mobile devices and personal computers. 
+
+STUDY OF UNITY GAME ENGINE:
+
+Unity uses a 3D engine provided by NVIDIA and uses Box2D for the 2D games.
+Unity is a good tool for making 3D assets itself. You have the option to do any kind of 3D model with it and you can also use it to animate. 
+
+Scripting in Unity can be done in JS or C#. Unity also has their own scripting language but it is not very useful when you really want to do something which is more than the basics.
+
+
+STUDY OF UDK GAME ENGINE:
+
+UDK uses the Unreal Engine 3 (UE3). This engine is a bit outdated nowadays because Epic Games already released the UE4 which is currently in use. UDK is way more limited than Unity to create 3D assets. 
+
+The scripting language of UDK is named the Unrealscript and it is really good. It is very similar to Java but it has many functions you can implement with just a few lines of code.
+
+UDK is not as easy to use as Unity. From the very beginning you are expected to know at least the basics about programming and things like the graphic assets need to be developed in professional tools for that purpose.
+
+Reference: http://www.discoversdk.com/compare/unity-3d-vs-unreal-engine-3#/product-comparisons
