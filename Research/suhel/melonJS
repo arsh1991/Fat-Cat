@@ -1,0 +1,20 @@
+-melonJS
+melonJS is a lightweight yet powerful HTML5 framework designed from the ground up to provide a true plugin-free 'write-once, run-everywhere' gaming platform. 
+melonJS is an open-source project and supported by a community of enthusiasts.
+
+-Features:
+
+StandAlone library with no dependencies
+Supported on almost every Browser
+Lightweight implementation
+
+-Building melonJs
+
+Node.js JavaScript and npm package manager required
+Grunt Task Manager
+
+$ [sudo] npm install -g grunt-cli
+
+$ cd melonJS
+$ npm install
+$ grunt
