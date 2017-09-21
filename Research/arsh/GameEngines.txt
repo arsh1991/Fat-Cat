@@ -1,0 +1,40 @@
+1. What are game engines?
+
+Game engines take the weight off developing a game idea to let you focus on the idea itself. 
+Game engines provide developers with a slew of components and helpers they can use to build their games faster and with less hassle, but the most important factor games engine provide are interoperability between the various gaming systems available. Game engines are amazing, awesome things, but how do they work?
+
+2. How are they different from other frameworks?
+Game engines are complicated sets of components which provide a lot of useful features for making games. 
+Unlike general development frameworks, game engines are made specifically for creating games and have all of their components organized to do just that.
+Game engines have graphics engines optimized to be as fast as possible and they contain sound engines which place sounds in 3D space.
+
+
+3. Features to be compared in Game Engines?
+
+
+INPUT
+	- means to play it 
+	- supported input types: keyboard, mouse, gamepad and touch 
+	- listneres for input
+	
+GRAPHICS
+	- 3D games are built around 3D assetsimported into the game engine. 
+	
+SOUND
+	- Adding sound effects to games.
+
+NETWORKING
+	- Online multiplayer requires a lot of logic revolving around communicating with different servers or even other client computers,
+	
+SCRIPTS
+	- Provide developers with tools for building games. 
+
+USABILITY
+	- how easy it is to develop with
+	
+	
+4. References:
+
+https://www.gamesparks.com/blog/game-engine-analysis-and-comparison/ 
+https://www.giantbomb.com/profile/michaelenger/blog/game-engines-how-do-they-work/101529/
+https://thenextweb.com/gaming/2016/03/24/engine-dominating-gaming-industry-right-now/#.tnw_fKuIWGRI
