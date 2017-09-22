@@ -1,0 +1,43 @@
+Greenfoot:
+	- Greenfoot teaches object orientation with Java. Create 'actors' which live in 'worlds' to build games, simulations, and other graphical programs. 
+	- Greenfoot is visual and interactive. Visualisation and interaction tools are built into the environment. 
+
+API:
+	- API divided into five main things
+		1. Actor
+		2. World
+		3. Greenfoot
+		4. MouseInfo
+		5. Greenfoot image
+	
+GRAPHICS:
+	- 2D games 
+	- Add images to actors in Actors class
+	- Play with images in the GreenfootImages class
+
+INPUT:
+	- means to play it 
+		keyboard, mouse 
+	- listneres for input
+	
+SOUND:
+	- Play sound from an object with Greenfoot Class
+
+NETWORKING:
+	- Could not find much for networking
+	
+SCRIPTS and tools:
+	- Simple Programming IDE
+		- The interface is a full IDE which includes project management, auto-completion, syntax highlighting, and other tools common to most IDEs. 
+		- It provides easy transition into other environments, such as BlueJ and more professional IDEs. 
+	- Minimal learning curve
+	
+USABILITY:
+	- The interface is designed to be simple and easy to use
+	- Built with beginners in mind. 
+		
+
+REFERENCES:
+http://www.greenfoot.org
+Programming Green foot book
+https://www.greenfoot.org/doc/ tutorials
