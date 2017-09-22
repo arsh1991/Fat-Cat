@@ -1,4 +1,4 @@
-*Project Ideas (references)*
+## Project Ideas (references)
 
 1. Mario game in Javascript + HTML5. Inspiration: http://mario5.florian-rappl.de/#game
 	-Normal Mario game, but can be modified with new levels/monsters.
@@ -13,7 +13,7 @@
 	-Two (or more) users can place bets on events/game results through the application. 
 
 
-*Javascript Libraries*
+## Javascript Libraries
 
 1. Recommended computer vision Javascript library: https://trackingjs.com/
 	-TrackingJS: Offers a variety of computer vision algorithms, from facial expression detection (useful for idea #2 above), color detection, feature descriptor, and can be used for both image and video formats. This would also be helpful for idea #3, the augmented reality Sudoku app.
