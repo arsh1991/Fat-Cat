@@ -1,9 +1,26 @@
-Project Ideas (references)
+*Project Ideas (references)*
 
-1. Mario game in Javascript + HTML5: http://mario5.florian-rappl.de/#game
+1. Mario game in Javascript + HTML5. Inspiration: http://mario5.florian-rappl.de/#game
+	-Normal Mario game, but can be modified with new levels/monsters.
 
-2. Facial expressions game (popular on Facebook): computer vision javascript library: 
-	https://trackingjs.com/
+2. Facial expressions game (popular on Facebook): 
+	-A user "wins" by making the same facial expressions the game displays, with increasing difficulty and speed. 
+	
+3. Augmented reality (AR) Sudoku solver. 
+	-Upload an image of any Sudoku puzzle (or display one in front of the computer’s camera), and the application will solve the puzzle for you in real-time. Results will be displayed on the puzzle’s image itself with augmented reality.
+
+4. Betting application. 
+	-Two (or more) users can place bets on events/game results through the application. 
 
 
+*Javascript Libraries*
+
+1. Recommended computer vision Javascript library: https://trackingjs.com/
+	-TrackingJS: Offers a variety of computer vision algorithms, from facial expression detection (useful for idea #2 above), color detection, feature descriptor, and can be used for both image and video formats. This would also be helpful for idea #3, the augmented reality Sudoku app.
+
+2. Recommended audio Javascript library: http://createjs.com/soundjs
+	-SoundJS: Abstracts HTML5 sound implementation, which allows for game audio experiences to be consistent on cross-browsers.
+
+3. Recommended asset-loading Javascript library: http://createjs.com/preloadjs
+	-PreloadJS: Easy to manage when assets and data are loaded within the game, with multiple queues.
 
