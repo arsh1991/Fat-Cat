@@ -1,0 +1,19 @@
+#Phaser Game Engine Research
+
+Phaser is an HTML5 game framework which aims to help developers make powerful, cross-browser HTML5 games really quickly and, unlike some others, has solely been built to work with the mobile browsers as well. The only browser requirement is the support of the canvas tag.
+
+#Primary Language
+
+1. HTML
+2. Javascript
+
+#Multiplayer features can be used with the Engine by creating a custom Node.js server
+
+Steps of installation for Phaser:
+
+Phaser can be cloned from 
+https://github.com/photonstorm/phaser-ce/tree/v2.8.7
+or
+it can also be installed using npm as a module into the project
+
+npm install phaser-ce@2.8.7
