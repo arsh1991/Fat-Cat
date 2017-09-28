@@ -1,0 +1,25 @@
+
+Decorator Design Pattern:
+
+-It can be used to add additional functionality to an existing object without modifying its structure.
+
+-It is a Structural Pattern.
+
+
+Steps for implementing Decorator Design pattern:
+
+1. Create an interface Vehicle.
+2. Create 2 classes Car, Bike which implements Vehicle class.
+3. Create an abstract class ModifiedVehicle which implements Vehicle.
+4. Create a class SportsCar which extends class ModifiedVehicle.
+
+public class DecoratorPatternDemo {
+   public static void main(String[] args) {
+	
+	Vehicle car= new Vehicle();
+	Velicle sportsCar = new SportsCar(car);
+	
+}
+
+
+		
