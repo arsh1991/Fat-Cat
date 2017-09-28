@@ -1,0 +1,10 @@
+Observer Pattern: 
+-It is a software design pattern in which an object, called the subject, maintains the list of its dependencies called observers, and notifies them automatically of any state changes, usually by calling one of their methods.
+- The Observer Pattern maintains one to many relationship including a single subject being mapped to various observers. When the state of subject changes, all of its dependents are notified.
+
+When to use observer pattern:
+when you need many other objects to recieve an update when another object changes
+One example of this is stock market	with thousand of stocks that need to send updates to objects representing individual stocks.
+
+Benefits:
+Loose coupling: The subject doesnt need to know anything about observer	
