@@ -1,0 +1,69 @@
+1. What is Software Design Pattern?
+	- A software design pattern is a general reusable solution to a commonly occurring problem within a given context in software design. 
+	- The solution doesn't describe a particular concrete design or implementation
+	- The pattern provides an abstract description of a design problem and how a general arrangement of elements solves the design problem. 
+
+2. Why to use patterns?
+
+	- Design patterns can speed up the development process by providing tested, proven development paradigms.
+	- Effective software design requires considering issues that may not become visible until later in the implementation. 
+	- Reusing design patterns helps to prevent subtle issues that can cause major problems
+	- It also improves code readability for coders and architects who are familiar with the patterns.
+	- They can be used uniformly over many different languages and syntaxes.
+
+3. Essential Elements:
+
+	1. Pattern Name
+	2. Problem
+	3. Solution
+	4. Consequence
+
+	
+	
+4. What could be potential problem with implementing patterns?
+	- Design patterns usually introduce additional levels of indirection, which in some cases may complicate the resulting designs and hurt application performance.
+	- The design patterns may just be a sign of some missing features of a given programming language
+
+
+5. Types of patterns:
+
+Design patterns are divided into three fundamental groups: 
+	- Behavioral patterns
+		- Describe interactions between objects and focus on how objects communicate with each other. 
+		- Reduce complex flow charts to mere interconnections between objects of various classes. 
+		- Used to make the algorithm that a class uses simply another parameter that is adjustable at runtime. 
+		- They shift your focus away from the flow of control to let you concentrate just on the way objects are interconnected. 
+		- Behavioral class patterns use inheritance to distribute behavior between classes. 
+		
+	- Creational patterns
+		- Used to create objects for a suitable class that serves as a solution for a problem. 
+		- You can advantage of polymorphism and need to choose between different classes at runtime rather than compile time. 
+		- Allow objects to be created in a system without having to identify a specific class type in the code
+
+
+	- Structural patterns 
+		- Form larger structures from individual parts, generally of different classes. 
+		- Structural class patterns use inheritance to compose interfaces or implementations. 
+		
+
+6. Scopes of design pattern:
+
+There are two pattern scopes: 
+	- Object patterns 
+		- Specify the relationships between objects.
+		- The purpose of an object pattern is to allow the instances of different classes to be used in the same place in a pattern. 
+		- Object patterns avoid fixing the class that accomplishes a given task at compile time.
+		- Object patterns mostly use object composition to establish relationships between objects. 
+
+	- Class patterns 
+		- Specify the relationship between classes and their subclasses.
+		- Thus, class patterns tend to use inheritance to establish relationships.
+		- Unlike object patterns and object relationships, class patterns generally fix the relationship at compile time. 
+		- They are less flexible and dynamic and less suited to polymorphic approaches
+		
+		
+7. References:
+
+https://www.gofpatterns.com/design-patterns/module1/intro-design-patterns.php
+http://www.oodesign.com/
+https://en.wikipedia.org/wiki/Software_design_pattern
