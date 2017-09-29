@@ -17,3 +17,14 @@ or
 it can also be installed using npm as a module into the project
 
 npm install phaser-ce@2.8.7
+
+#If we are using phaser game engine, we do not need to create our own Factory class, 
+#Phaser CE (Community edition doc link)
+#Link: https://photonstorm.github.io/phaser-ce/
+
+We can use phaser GameObjectFacory class to add new object in our gameworld
+For moe reference on this GameobjectFactory class
+
+#https://photonstorm.github.io/phaser-ce/Phaser.GameObjectFactory.html
+
+
