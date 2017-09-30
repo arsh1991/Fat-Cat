@@ -1,0 +1,2 @@
+Example code from: https://sourcemaking.com/design_patterns/state/java/1
+Reference site for a detailed explanation and demo for code with and without a state design pattern implementation.
