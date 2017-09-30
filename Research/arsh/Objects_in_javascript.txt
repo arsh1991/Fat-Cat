@@ -1,0 +1,52 @@
+- Javascript mianly has two type of variables:
+
+1. Primitives: no properties or methods
+2. Objects: simply named values or mianly
+
+
+- Objects in javascript are like Hashmaps in java:
+
+- There are different ways to create new objects:
+	-	Define and create a single object, using an object literal:
+				var person = {firstName:"Arshdeep", lastName:"Singh", age:26}; 
+		
+	-	Define and create a single object, with the keyword new.
+				var person = new Object();
+				person.firstName = "Arshdeep";
+				person.lastName = "Singh";
+				person.age = 26;
+	
+	-	Define an object constructor, and then create objects of the constructed type. 
+				function person(first, last, age) {
+			    this.firstName = first;
+			    this.lastName = last;
+			    this.age = age;
+				}
+				var me = new person("Arshdeep", "Singh", 26);
+				
+				
+
+- Unlike java you can add or remove properties from object:
+			- if object exists:
+				person.nationality = "India";
+				
+			- delete person.age;
+			
+			
+			
+- Javascript prototypes:
+	
+	- Every JavaScript object has a prototype. 
+	- Inherit from the Object.prototype
+	- Prototype are created using constructor functions
+
+	- Adding a property or method to existing object(Not prototype):
+			me.name = function () {
+   			return this.firstName + " " + this.lastName;
+			}; 
+	- Adding property to prototype:
+		-	add in constructor
+	
+	- Prototype property
+		- 	Person.prototype.nationality = "Indian"; 
+	
