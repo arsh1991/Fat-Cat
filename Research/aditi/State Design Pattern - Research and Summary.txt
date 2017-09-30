@@ -1,0 +1,13 @@
+State Design Pattern - Research and Summary
+
+A state design pattern allows an object to modify its state when its "internal state" is changed. This allows for the object to appear to change its class. 
+
+This pattern is used when an object's behavior depends on the state it is in, and the object must change its behavior at runtime depending on the state. It is useful for situations where conditional statements are present, since the state pattern puts each branch of the conditonal statement in a separate class - allowing you to treat the objects state independently from other objects.
+
+The participants in this pattern are: 
+- Interface Context: which defines the interface and maintains an instance of ConcreteState defining the current state. 
+
+- Interface State: which defines the interface for encapsulating the behavior associated with a particular Context state. 
+
+- ConcreteState subclasses: where each subclass implements a different behavior associated with a state of the Context. Basically, it defines the implementation of the allowed states. 
+
