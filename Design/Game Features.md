@@ -1,7 +1,8 @@
-                                 # Game Design Documentation (GDD)
+                                     Game Design Documentation (GDD)
 
-Fat “Mario” version
-Engine: MelonJS
+<B> Fat Cat</B>
+
+<B> Engine: MelonJS</B>
 
 ## Game Features List: 
 1. Allows user to choose their characters between a cat, dog, etc
