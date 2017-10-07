@@ -10,5 +10,12 @@ game.Enemy = me.Entity.extend({
   update: function (dt) {
       this._super(me.Entity, "update", [dt]);
       return true;
-  }
+  },
+
+    chooseShipImage: function () {
+        var frame = ~~(Math.random() * 3);
+        this.renderable.addAnimation("idle", [frame], 1);
+        this.renderable.setCurrentAnimation("idle");
+    }
+
 });
