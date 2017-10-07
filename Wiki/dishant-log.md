@@ -43,3 +43,31 @@ Developed sample code for Decorator design pattern. Uploaded the code.
 
 ## September 29, 2017:
 Research on clm library which could be used for facial expressions game. Looked at a few sample games implemented using clm library.
+
+
+
+## Week 3:
+
+## September 29, 2017:
+-Team meeting
+-Discussion to finalize th game and features to be included in the game.
+-Discussed the future course of action for the team, technologies to learn and game engine to be used.
+-Listed features to be included in the game in google document.
+
+## October 2, 2017:
+Setup the environment for melonJS. Worked on installation of melonJS.
+https://github.com/melonjs/boilerplate
+http://melonjs.org/
+
+
+## October 5, 2017:
+Learnt basic javascript features. Created sample programs for the same.
+
+## October 6, 2017:
+-Completed environment setup for melonJS
+-Studied the basics of game development using melonJS.
+-Developed a game using melonJS
+https://melonjs.github.io/tutorial-space-invaders/
+
+## October 7, 2017:
+Added more features to the game. Explored different features.
