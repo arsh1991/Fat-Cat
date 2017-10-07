@@ -26,4 +26,21 @@ Studied Design patterns that can be implemented in our project. Looked through o
 
 ## 27th September 2017
 Explored Observer design pattern and uploaded a file for same.
+
+
+# Week 3
+## 30th September 2017
+Had team meeting. Finalized the team project (Fat Cat) and game engine(Melon.js). Discussed game features and created a 
+document for the same.
+
+## 3rd October 2017
+Configured melon.js on my machine .Added dependencies like npm , grunt and node. Could not run boilerplate facing issues
+with node.
+
+
+## 5th October 2017
+Successfully configured melon.js on the machine added the code for boilerplate that i was able to run on my machine .
+Now working on a sample game.
+
+
   
