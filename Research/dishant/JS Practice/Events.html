@@ -1,0 +1,39 @@
+<!-- 
+ --  Write a program to add a book on click of a button
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" >
+
+
+var book=[];
+
+var library={
+		name:"MLK library",
+		address:"1 Washington Sq. San Jose, California",
+		bookArray:book
+}
+
+function addBook(name,author){
+	book[book.length]={
+			name:name,
+			author:author
+	}
+	
+	console.log("Book Details:\n")
+	console.log(library.bookArray[book.length-1].name);
+	console.log(library.bookArray[book.length-1].author);
+
+}
+
+</script>
+</head>
+<body>
+
+<input type="button" value="Click Me" onclick="addBook('Harry Potter','JK Rowling')">
+</body>
+</html>
