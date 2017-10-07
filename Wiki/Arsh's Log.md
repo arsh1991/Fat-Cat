@@ -1,3 +1,4 @@
+
 # Adopted XP Core Value - Communication
 As of week 2, team did research on game engines, project ideas, design patterns , and object usage in javascript. We tried to keep every one on the same page by sharing the acquired knowledge and communicating the doubts. We were constantly in touch on our team project slack to discuss the problems and solve them. 
 
@@ -37,3 +38,21 @@ Learnt usage of objects in javascript using prototypes. Explored that we could a
 <br></br>
 
 ## WEEK 3:
+
+## September 29, 2017:
+Team meeting to discuss the topics the features of our selected game "FAT CAT". Discussed what we need to learn further and communicated on how to proceed for next week. Started jotting down features to be included in the game in google document.
+
+## October 2, 2017:
+Tried to setup the environment using the below mentioned links. Unable to create the setup on windows. Grunt failed
+https://github.com/melonjs/boilerplate
+http://melonjs.org/
+
+
+## October 5, 2017:
+Continued with the environment setup and finished off. Error was with system wide installation of nodejs. Able to run boilerplate code and continued with creating the sample game fowllowing tutorial:
+http://melonjs.github.io/tutorial-platformer/
+
+Problem with rendering maps right now.
+
+## October 6, 2017:
+Completed the feature list document and published it as readme on in the git hub repo. Completed the Weekly minutes for this week and communicated everyone to review it. Checked with everyone who is not able to create the melonjs environment and helped to resolve the issues.
