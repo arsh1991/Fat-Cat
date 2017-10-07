@@ -4,7 +4,7 @@ Held at: September 30, 2017, 03:00PM
 ## What did the team do last week?
 As part of project research, team completed the following tasks:
 
-1. Explored Design patternss:
+1. Explored Design patterns:
 All team members researched on design patterns in general. We explored the idea of implementing the patterns in our project learnt the merits of using them. Team decided to start picking common patterns and start getting formal with them. 
 
 2. Selection of features:
@@ -32,6 +32,6 @@ If we have time, we will also begin the UML model and sequence diagrams for our 
 **Dipro:** Set up MelonJS environment, build a sample MelonJS project, work on Features document, decide on recommended design pattern, design 1-2 mock-up screens, and begin UML model/sequence diagrams.
 
 ## What are the current blockers/challenges the team is facing?
-We have started defining the scope of our game but we are not sure how design documents are created for systems like a game. We are not sure what should be the high level diagrams that we should create as per process. Secondly, no one is master on implementing patterns in javascript, so we need more clarity on their selection and implementation in the game.
+We have started defining the scope of our game but we are not sure how design documents are created for systems like a game. We are not sure what should be the high level diagrams that we should create as per process. Secondly, no one has mastered implementing patterns in Javascript, so we need more clarity on their selection and implementation in the game. Additionally, most of us are not familiar with MelonJS, which is why one of our main tasks for this week was to build a sample game in the MelonJS environment after setting it up on our individual computers. Hopefully, after this week, we will be more familiar with the MelonJS environment and will be able to begin building a prototype game.
 
 ## Next meeting is scheduled for: Saturday, October 7th 2017
