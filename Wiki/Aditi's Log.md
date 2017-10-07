@@ -35,9 +35,9 @@ Continued work on the MelonJS environment and started writing code for the sampl
 ### Oct. 4, Wednesday
 Ran into some issues with the sample game and followed tutorials online to fix the errors I was getting. Feedback from developers online helped resolve the setup issues I had with my game, and I continued developing the game. Also, communicated with my team regarding the design of our game, which we will continue working on after everyone is familiar with MelonJS. Discussed potential design patterns for our "Fat Cat" game (new game title will soon be developed - it is a work in progress), and agreed to research other game similar to our game for design pattern inspiration.
 ### Oct. 5, Thursday
-
+Continued work on MelonJS "Space Invaders" game.
 ### Oct. 6, Friday
-
+Continued work on game, and also designed sample mockups of game UI. Sample mockups include the start of the game, where the cat/chosen character has not begun its journey yet, the cat/character eating an "unhealthy" object such as a milkshake and losing speed and health, the cat/character arriving at a "healthy" object such as a salad and gaining speed and health. Of course, in future mock-ups, the speed and health values will be more calibrated towards the character and the items eaten. Additionally, character and background development will be more visually appealing in future releases -- along with more details and screen shots of specific events in the game.
 ## Week 4
 ### Oct. 7, Saturday
 
