@@ -50,9 +50,9 @@ Research on clm library which could be used for facial expressions game. Looked 
 
 ## September 29, 2017:
 -Team meeting
--Discussion to finalize th game and features to be included in the game.
--Discussed the future course of action for the team, technologies to learn and game engine to be used.
--Listed features to be included in the game in google document.
+-Discussion to finalize th game and features to be included in the game.<br/>
+-Discussed the future course of action for the team, technologies to learn and game engine to be used.<br/>
+-Listed features to be included in the game in google document.<br/>
 
 ## October 2, 2017:
 Setup the environment for melonJS. Worked on installation of melonJS.
@@ -64,10 +64,10 @@ http://melonjs.org/
 Learnt basic javascript features. Created sample programs for the same.
 
 ## October 6, 2017:
--Completed environment setup for melonJS
--Studied the basics of game development using melonJS.
--Developed a game using melonJS
-https://melonjs.github.io/tutorial-space-invaders/
+-Completed environment setup for melonJS<br/>
+-Studied the basics of game development using melonJS.<br/>
+-Developed a game using melonJS<br/>
+https://melonjs.github.io/tutorial-space-invaders/<br/>
 
 ## October 7, 2017:
 Added more features to the game. Explored different features.
