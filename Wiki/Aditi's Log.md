@@ -37,7 +37,7 @@ Ran into some issues with the sample game and followed tutorials online to fix t
 ### Oct. 5, Thursday
 Continued work on MelonJS "Space Invaders" game.
 ### Oct. 6, Friday
-Continued work on game, and also designed sample mockups of game UI. Sample mockups include the start of the game, where the cat/chosen character has not begun its journey yet, the cat/character eating an "unhealthy" object such as a milkshake and losing speed and health, the cat/character arriving at a "healthy" object such as a salad and gaining speed and health. Of course, in future mock-ups, the speed and health values will be more calibrated towards the character and the items eaten. Additionally, character and background development will be more visually appealing in future releases -- along with more details and screen shots of specific events in the game.
+Continued work on game, and also designed sample mockups of game UI. Sample mockups include the start of the game, where the cat/chosen character has not begun its journey yet, the cat/character eating an "unhealthy" object such as a milkshake and losing speed and health, the cat/character arriving at a "healthy" object such as a salad and gaining speed and health. Of course, in future mock-ups, the speed and health values will be more calibrated towards the character and the items eaten. Additionally, character and background development will be more visually appealing in future releases -- along with more details and screen shots of specific events in the game. Future feedback from the team and other people we show this game in development to will be noted and implemented in other releases.
 ## Week 4
 ### Oct. 7, Saturday
 
