@@ -5,12 +5,20 @@ game.Enemy = me.Entity.extend({
           width : 32,
           height : 32
       }]);
+      this.body.setVelocity(0, 0);
+this.body.collisionType = me.collision.types.ENEMY_OBJECT;
+
   },
 
-  update: function (dt) {
-      this._super(me.Entity, "update", [dt]);
-      return true;
-  },
+
+
+  update : function (time) {
+    this._super(me.Entity, "update", [time]);
+
+    this.body.update();
+
+    return true;
+},
 
     chooseShipImage: function () {
         var frame = ~~(Math.random() * 3);

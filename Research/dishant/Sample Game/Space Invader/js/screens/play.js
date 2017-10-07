@@ -16,6 +16,7 @@ game.PlayScreen = me.ScreenObject.extend({
       me.input.bindKey(me.input.KEY.RIGHT, "right");
       me.input.bindKey(me.input.KEY.A, "left");
       me.input.bindKey(me.input.KEY.D, "right");
+      me.input.bindKey(me.input.KEY.SPACE, "shoot", true);
     },
 
     /**
@@ -24,7 +25,7 @@ game.PlayScreen = me.ScreenObject.extend({
     onDestroyEvent: function() {
         // remove the HUD from the game world
         me.game.world.removeChild(this.HUD);
-
+me.input.unbindKey(me.input.KEY.SPACE);
          me.input.unbindKey(me.input.KEY.LEFT);
       me.input.unbindKey(me.input.KEY.RIGHT);
       me.input.unbindKey(me.input.KEY.A);
