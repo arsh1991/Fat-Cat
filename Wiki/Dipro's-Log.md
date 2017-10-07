@@ -29,3 +29,6 @@ Decided on the Game Features and Use Cases- Team Meeting
 
 ### Oct-4  2017 
 Basic Game installaion and development environment setup. Meeting on Uml Design and mockups. Ideas on using other javascript frameworks like React.js/Vuew js in the project.
+
+### Oct-6 2017
+Run MelonJs Library - Rendred images and created MVP with the customized Mario Game.
