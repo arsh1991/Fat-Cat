@@ -1,6 +1,6 @@
 
 # Adopted XP Core Value - Communication
-As of week 2, team did research on game engines, project ideas, design patterns , and object usage in javascript. We tried to keep every one on the same page by sharing the acquired knowledge and communicating the doubts. We were constantly in touch on our team project slack to discuss the problems and solve them. 
+As of week 3, team did research on game engines, project ideas, design patterns , and object usage in javascript. We tried to keep every one on the same page by sharing the acquired knowledge and communicating the doubts. We were constantly in touch on our team project slack to discuss the problems and solve them. 
 
 
 <br></br>
@@ -56,3 +56,6 @@ Problem with rendering maps right now.
 
 ## October 6, 2017:
 Completed the feature list document and published it as readme on in the git hub repo. Completed the Weekly minutes for this week and communicated everyone to review it. Checked with everyone who is not able to create the melonjs environment and helped to resolve the issues.
+
+## October 7, 2017:
+Resolved the rendering of issue with tile map. Continued to develop the sample and completed it. Learnt the flow in creating the games in melonjs and able to modify the sample as per need. Explored the TILED tool and tried to create sample screens in it.
