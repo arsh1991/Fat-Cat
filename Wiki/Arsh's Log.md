@@ -59,3 +59,13 @@ Completed the feature list document and published it as readme on in the git hub
 
 ## October 7, 2017:
 Resolved the rendering of issue with tile map. Continued to develop the sample and completed it. Learnt the flow in creating the games in melonjs and able to modify the sample as per need. Explored the TILED tool and tried to create sample screens in it.
+
+<br></br>
+
+## WEEK 4:
+
+## October 8, 2017:
+Team meeting to discuss the problems faced by team in creating MelonJS sample game. Discussed the problems we could face while developing the module and define what different components are required. Started to define the different componnets of the game.
+
+## October 11, 2017:
+Explored the features of TILED tool and tried to create and play with tile maps and tile sets. Under stood the basic concepts and now we need to deign our different objects required in the game graphics so that maps could be created.
