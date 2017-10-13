@@ -1,0 +1,6 @@
+http://blog.mapeditor.org/2011/07/melonjs-tiled-based-games-in-html5.html
+
+
+http://www.sharpfellows.com/post/skeletal-animations-in-javascript-with-spine-and-melonjs
+
+http://www.informit.com/articles/article.aspx?p=2027857&seqNum=2
