@@ -32,3 +32,7 @@ Basic Game installaion and development environment setup. Meeting on Uml Design 
 
 ### Oct-6 2017
 Run MelonJs Library - Rendred images and created MVP with the customized Mario Game.
+
+### Oct-10 2017
+Uml diagrams created. Mockups created.
+
