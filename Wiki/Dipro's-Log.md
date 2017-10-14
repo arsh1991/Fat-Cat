@@ -36,3 +36,5 @@ Run MelonJs Library - Rendred images and created MVP with the customized Mario G
 ### Oct-10 2017
 Uml diagrams created. Mockups created.
 
+### Oct-13 2017
+Uml diagrams finalized. Team Meeting, hands on coding.
