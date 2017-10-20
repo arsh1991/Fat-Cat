@@ -40,15 +40,16 @@ Continued work on MelonJS "Space Invaders" game.
 Continued work on game, and also designed sample mockups of game UI. Sample mockups include the start of the game, where the cat/chosen character has not begun its journey yet, the cat/character eating an "unhealthy" object such as a milkshake and losing speed and health, the cat/character arriving at a "healthy" object such as a salad and gaining speed and health. Of course, in future mock-ups, the speed and health values will be more calibrated towards the character and the items eaten. Additionally, character and background development will be more visually appealing in future releases -- along with more details and screen shots of specific events in the game. Future feedback from the team and other people we show this game in development to will be noted and implemented in other releases.
 ## Week 4
 ### Oct. 7, Saturday
-Meeting with team to discuss current progress and provide feedback on progress so far. 
+Meeting with team to discuss current progress and provide feedback on progress so far. Based on team feedback, we have decided to continue working on the sample game in the MelonJS environment for the upcoming week as well, since we do not feel adequately comfortable with the environment yet. We will also need to look into making our game with Tiled functionality in order to achieve the "Mario-like" effect of character movement.
 ### Oct. 9, Monday
-
+Continued work on MelonJS "Space Invaders" game.
 ### Oct. 11, Wednesday
-
+Added additional features and looked further into the Tiled functionality in Javascript/MelonJS.
 ### Oct. 14, Saturday
-
+Had our weekly team meeting to discuss progress from last week (which was less than most weeks, comparatively, due to the midterm). Due to the short past week, we will continue working on the sample demo as well as the Use Cases document and the Features Document.
 ### Oct. 17, Tuesday
+Debugged issues in my sample game based off of feedback from developers online. Other people's previous experiences helped me learn more about the game development process and helped me gain some insight in the errors I was making.
 ### Oct. 18, Wednesday
+
 ### Oct. 19, Thursday
-development to will be noted and implemented in other releases.
 ## Week 5
