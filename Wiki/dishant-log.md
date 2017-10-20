@@ -50,7 +50,7 @@ Research on clm library which could be used for facial expressions game. Looked 
 
 ## September 29, 2017:
 -Team meeting
--Discussion to finalize th game and features to be included in the game.<br/>
+-Discussion to finalize the game and features to be included in the game.<br/>
 -Discussed the future course of action for the team, technologies to learn and game engine to be used.<br/>
 -Listed features to be included in the game in google document.<br/>
 
@@ -71,3 +71,26 @@ https://melonjs.github.io/tutorial-space-invaders/<br/>
 
 ## October 7, 2017:
 Added more features to the game. Explored different features.
+
+## Week 4
+
+### Oct. 7, Saturday
+Team Meeting<br/>
+-Discussed current progress and provide feedback on progress so far. <br/>
+-Decided to continue working on the sample game in the MelonJS environment for the upcoming week to get comfortable working with the environment yet. <br/>
+-Discussed about Tiled functionality to achieve Mario like effect of character movement.<br/>
+
+### Oct. 10, Tuesday
+Learnt basics of design paterns using JS. Developed sample code for design patterns using JS.
+
+### Oct. 11, Wednesday
+Worked on more deign patterns using JS.
+
+### Oct. 14, Saturday
+Team Meeting<br/>
+-Discussed current progress and provide feedback on progress. <br/>
+-Due to mid term there was not any significant progress so we decided to continue working on the sample demo in the MelonJS environment, use case diagrams and features document. <br/>
+
+### Oct. 17, Tuesday
+Helped in debugging issues faced by other team members. Studied about tiled functionality
+
