@@ -44,3 +44,8 @@ Now working on a sample game.
 
 
   
+## Oct. 14 2017
+As we were not able to work on project last week due to midterm, we decided to complete the usecase diagrams and other blue prints required for the game.
+
+## Oct. 18 2017
+Trying to debug issues in the exiting sample game project created. The movement of the object was not visible and tried to search online for the solution but could not find any proper solution. Looked for design patterns as well side by side and found state design pattern suitable for our game because functions of the main object differ when its state are changed.
