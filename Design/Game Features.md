@@ -7,13 +7,14 @@
 <B> Design Pattern: Decorator and State Patterns </B>
 ## Game Features List: 
 1. Allows user to choose their characters between a cat, dog, etc (TBD).
-2. Enemies: pizza, hamburger: makes you slower, fatter, and bigger.
+2. Enemies: a collision with pizza, hamburger: makes you slower, fatter, and bigger.
 3. “Coins” or Rewards/Incentives: Smoothie and salads to make you faster and thinner.
-4. An exit condition where player needs to cover some specific distance.
-5. Score depends on time and is given at the end. Time and speed depends on health of character and player skill.
+4. An exit condition where player needs to complete the level by covering some specific distance.
+5. Score depends on time taken to complete the level and is given at the end. Time and speed depends on health of character and player skill.
 6. Scoring -> Health/Cholesterol(+/- 5pts), make it to the exit faster.
-7. Eat healthy, health increases and character gets faster. Eat junk food, health decreases and character gets slower.
-8. End screen shows total score up until current time. Will include time in which game is completed and health level.
+7. Excessive collision with pizza, hamburger will result in zero health and ultimately death of the character. Level failed, restart the level.
+8. Eat healthy, health increases and character gets faster. Eat junk food, health decreases and character gets slower.
+9. End screen shows total score up until current time. Will include time in which game is completed and health level.
 
 ## Mario “character” Object attributes and Functions: 
 
