@@ -1,6 +1,6 @@
 
 # Weekly Meeting-4
-Held at: October 8th, 12:00PM and October
+Held at: October 8th, 12:00PM and October 14th, 3:30PM
 
 ## What did the team do last week?
 Last week, we all set up our MelonJS environment and began developing sample games based off of tutorials online.
