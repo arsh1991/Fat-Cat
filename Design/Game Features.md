@@ -3,7 +3,8 @@
 <B> "Fat Cat" </B>
 
 <B> Engine: MelonJS </B>
-<B> Design Pattern: </B>
+
+<B> Design Pattern: Decorator and State Patterns </B>
 ## Game Features List: 
 1. Allows user to choose their characters between a cat, dog, etc (TBD).
 2. Enemies: pizza, hamburger: makes you slower, fatter, and bigger.
