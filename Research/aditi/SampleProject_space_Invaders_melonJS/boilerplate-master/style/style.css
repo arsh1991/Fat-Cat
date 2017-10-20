@@ -1,0 +1,121 @@
+html {
+  height: 100%;
+}
+pre,
+pre[class*="language-"] {
+  margin: .5em 0 2em;
+}
+
+#sidebar h3 {
+  margin-left: 10px;
+}
+#sidebar .logo {
+  display: block;
+  background-color: #55aa00;
+  padding: 5px;
+}
+#sidebar .logo img {
+  height: 35px;
+}
+
+#content {
+  padding: 20px 40px 20px 15px;
+  min-width: 400px;
+  max-width: 960px;
+}
+.subcontent {
+  padding: 15px;
+}
+.subcontent h1 {
+  margin-top: 8px;
+}
+.subcontent img {
+  margin: 12px 0;
+}
+
+.subcontent hr {
+  border-top-color:#ccc;
+}
+
+.offset-anchor {
+  display: block;
+  position: relative;
+  visibility: hidden;
+  top: -104px;
+}
+
+@-webkit-keyframes highlight {
+  0% { background-color: #C8F7C5; }
+  100% { background-color: #fff; }
+}
+@-moz-keyframes highlight {
+  0% { background-color: #C8F7C5; }
+  100% { background-color: #fff; }
+}
+@-o-keyframes highlight {
+  0% { background-color: #C8F7C5; }
+  100% { background-color: #fff; }
+}
+@keyframes highlight {
+  0% { background-color: #C8F7C5; }
+  100% { background-color: #fff; }
+}
+:target + .subcontent {
+  -webkit-animation: highlight 1s ease;
+  -moz-animation: highlight 1s ease;
+  -o-animation: highlight 1s ease;
+  animation: highlight 1s ease;
+}
+
+
+/* OVERRIDING BOOTSTRAP ===================================== */
+.row {
+  margin: 0;
+}
+
+/* sidebar */
+.sidebar {
+  display: none;
+}
+
+.subcontent td {
+  border:1px solid black;
+  padding: 5px 10px;
+}
+
+.subcontent table {
+  margin-bottom: 10px;
+}
+
+@media (min-width: 992px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+    padding: 0;
+  }
+}
+.nav-sidebar {
+  margin-bottom: 20px;
+}
+
+aside {
+  background: #f5f5f5;
+  border:1px solid #ccc;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  padding: 6px 15px;
+  margin: 15px 0;
+}
+
+aside h5 {
+  font-size: 1em;
+  font-weight:bold;
+}

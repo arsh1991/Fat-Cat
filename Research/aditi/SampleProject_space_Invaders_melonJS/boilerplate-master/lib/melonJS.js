@@ -1,13 +1,13 @@
 /**
- * melonJS Game Engine v4.1.1
+ * melonJS Game Engine v4.0.0
  * http://www.melonjs.org
  * @license {@link http://www.opensource.org/licenses/mit-license.php|MIT}
- * @copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * @copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  */
 
 /**
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 
@@ -80,7 +80,7 @@
      * Specify a function to execute when the DOM is fully loaded
      * @memberOf external:window#
      * @alias onReady
-     * @param {Function} fn A function to execute after the DOM is ready.
+     * @param {Function} handler A function to execute after the DOM is ready.
      * @example
      * // small main skeleton
      * var game = {
@@ -159,9 +159,6 @@
         });
     }
     else {
-        /**
-         * @ignore
-         */
         me.init = function () {
             me.boot();
             domReady();
@@ -223,7 +220,7 @@
 
 /**
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 
@@ -244,7 +241,7 @@ if (!Function.prototype.bind) {
      * Also optionally curries arguments for the function.
      * @memberof! external:Function#
      * @alias bind
-     * @param {Object} that the object to bind to.
+     * @param {Object} context the object to bind to.
      * @param {} [arguments...] Optional additional arguments to curry for the function.
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind|Function.bind}
      * @example
@@ -302,7 +299,7 @@ Function.prototype.defer = function () {
 
 /**
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 
@@ -345,7 +342,7 @@ if (!Object.create) {
      * @name create
      * @memberOf external:Object#
      * @function
-     * @param {Object} o
+     * @param {Object} Object
      * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create|Object.create}
      * @example
      * // declare oldObject
@@ -391,44 +388,45 @@ if (!Object.is) {
      * var a = {}, b = a;
      * Object.is(a, b); //> true
      */
-    Object.is = function(a, b) {
+    Object.is = function(x, y) {
         // SameValue algorithm
-        if (a === b) { // Steps 1-5, 7-10
+        if (x === y) { // Steps 1-5, 7-10
             // Steps 6.b-6.e: +0 != -0
-            return a !== 0 || 1 / a === 1 / b;
+            return x !== 0 || 1 / x === 1 / y;
         } else {
             // Step 6.a: NaN == NaN
-            return a !== a && b !== b;
+            return x !== x && y !== y;
         }
   };
 }
 
 if (!Object.assign) {
+    /**
+     * The Object.assign() method is used to copy the values of all enumerable own properties from one or more source objects to a target object.
+     * The Object.assign method only copies enumerable and own properties from a source object to a target object.
+     * It uses [[Get]] on the source and [[Put]] on the target, so it will invoke getters and setters.
+     * Therefore it assigns properties versus just copying or defining new properties.
+     * This may make it unsuitable for merging new properties into a prototype if the merge sources contain getters.
+     * For copying propertiy definitions, including their enumerability, into prototypes Object.getOwnPropertyDescriptor and Object.defineProperty should be used instead.
+     * @name assign
+     * @memberOf external:Object#
+     * @function
+     * @param {Object} target The target object.
+     * @param {Object[]} sources The source object(s).
+     * @return {Object} The target object gets returned.
+     * @see {@link https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign}
+     * @example
+     * // Merging objects
+     * var o1 = { a: 1 };
+     * var o2 = { b: 2 };
+     * var o3 = { c: 3 };
+     *
+     * var obj = Object.assign(o1, o2, o3);
+     * console.log(obj);
+     * // { a: 1, b: 2, c: 3 }
+     */
+
     (function () {
-        /**
-         * The Object.assign() method is used to copy the values of all enumerable own properties from one or more source objects to a target object.
-         * The Object.assign method only copies enumerable and own properties from a source object to a target object.
-         * It uses [[Get]] on the source and [[Put]] on the target, so it will invoke getters and setters.
-         * Therefore it assigns properties versus just copying or defining new properties.
-         * This may make it unsuitable for merging new properties into a prototype if the merge sources contain getters.
-         * For copying propertiy definitions, including their enumerability, into prototypes Object.getOwnPropertyDescriptor and Object.defineProperty should be used instead.
-         * @name assign
-         * @memberOf external:Object#
-         * @function
-         * @param {Object} target The target object.
-         * @param {Object[]} sources The source object(s).
-         * @return {Object} The target object gets returned.
-         * @see {@link https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign}
-         * @example
-         * // Merging objects
-         * var o1 = { a: 1 };
-         * var o2 = { b: 2 };
-         * var o3 = { c: 3 };
-         *
-         * var obj = Object.assign(o1, o2, o3);
-         * console.log(obj);
-         * // { a: 1, b: 2, c: 3 }
-         */
         Object.assign = function (target) {
             "use strict";
             // We must check against these specific cases.
@@ -621,7 +619,7 @@ if (!Object.assign) {
 
 /**
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 
@@ -639,9 +637,6 @@ if (!Object.assign) {
  * @param {String} msg Error message.
  */
 me.Error = me.Object.extend.bind(Error)({
-    /**
-     * @ignore
-     */
     init : function (msg) {
         this.name = "me.Error";
         this.message = msg;
@@ -650,7 +645,7 @@ me.Error = me.Object.extend.bind(Error)({
 
 /**
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 
@@ -669,14 +664,9 @@ if (!Math.sign) {
      * @return {number} sign of the number
      */
     Math.sign = function(x) {
-        // If x is NaN, the result is NaN.
-        // If x is -0, the result is -0.
-        // If x is +0, the result is +0.
-        // If x is negative and not -0, the result is -1.
-        // If x is positive and not +0, the result is +1.
         x = +x; // convert to a number
         if (x === 0 || isNaN(x)) {
-            return Number(x);
+            return x;
         }
         return x > 0 ? 1 : -1;
     };
@@ -684,7 +674,7 @@ if (!Math.sign) {
 
 /**
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 
@@ -791,8 +781,8 @@ Number.prototype.weightedRandom = function (min, max) {
  */
 Number.prototype.round = function (num, dec) {
     // if only one argument use the object value
-    var powres = Math.pow(10, dec || num || 0);
     num = (arguments.length < 2) ? this : num;
+    var powres = Math.pow(10, dec || num || 0);
     return (~~(0.5 + num * powres) / powres);
 };
 
@@ -844,7 +834,7 @@ Number.prototype.radToDeg = function (angle) {
 
 /**
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 
@@ -857,16 +847,16 @@ Number.prototype.radToDeg = function (angle) {
 /* eslint-disable no-extend-native, yoda */
 
 if (!String.prototype.trim) {
+    /**
+     * removes whitespace from both ends of a string. Whitespace in this context is all the whitespace characters (space, tab, no-break space, etc.) and all the line terminator characters (LF, CR, etc.).
+     * @memberof! external:String#
+     * @alias trim
+     * @return {string} the string stripped of whitespace from both ends.
+     */
     if (!String.prototype.trim) {
       (function() {
         // Make sure we trim BOM and NBSP
         var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
-        /**
-         * removes whitespace from both ends of a string. Whitespace in this context is all the whitespace characters (space, tab, no-break space, etc.) and all the line terminator characters (LF, CR, etc.).
-         * @memberof! external:String#
-         * @alias trim
-         * @return {string} the string stripped of whitespace from both ends.
-         */
         String.prototype.trim = function() {
           return this.replace(rtrim, "");
         };
@@ -951,7 +941,7 @@ String.prototype.toHex = function () {
 
 /**
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 
@@ -1098,7 +1088,7 @@ window.Uint32Array = window.Uint32Array || me.TypedArray;
 
 /**
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 
@@ -2354,7 +2344,7 @@ THE SOFTWARE.
 
 /**
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 
@@ -2365,7 +2355,7 @@ THE SOFTWARE.
      * @ignore
      */
     me.mod = "melonJS";
-    me.version = "4.1.1";
+    me.version = "4.0.0";
     /**
      * global system settings and browser capabilities
      * @namespace
@@ -2481,14 +2471,14 @@ THE SOFTWARE.
          * @public
          * @function
          * @param {String} first First version string to compare
-         * @param {String} [second="4.1.1"] Second version string to compare
+         * @param {String} [second="4.0.0"] Second version string to compare
          * @return {Number} comparison result <br>&lt; 0 : first &lt; second<br>
          * 0 : first == second<br>
          * &gt; 0 : first &gt; second
          * @example
-         * if (me.sys.checkVersion("4.1.1") > 0) {
+         * if (me.sys.checkVersion("4.0.0") > 0) {
          *     console.error(
-         *         "melonJS is too old. Expected: 4.1.1, Got: " + me.version
+         *         "melonJS is too old. Expected: 4.0.0, Got: " + me.version
          *     );
          * }
          */
@@ -2532,19 +2522,15 @@ THE SOFTWARE.
     var me_initialized = false;
 
     Object.defineProperty(me, "initialized", {
-        /**
-         * @ignore
-         */
         get : function get() {
             return me_initialized;
         }
     });
 
-
-    /**
+    /*
      * initial boot function
-     * @ignore
      */
+
     me.boot = function () {
         // don't do anything if already initialized (should not happen anyway)
         if (me_initialized) {
@@ -2589,7 +2575,7 @@ THE SOFTWARE.
 
 /**
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 
@@ -2683,6 +2669,16 @@ THE SOFTWARE.
          * @memberOf me.game
          */
         api.sortOn = "z";
+
+        /**
+         * default layer tmxRenderer
+         * @private
+         * @ignore
+         * @type {me.TMXRenderer}
+         * @name tmxRenderer
+         * @memberOf me.game
+         */
+        api.tmxRenderer = null;
 
         /**
          * Fired when a level is fully loaded and <br>
@@ -2900,49 +2896,35 @@ THE SOFTWARE.
          * @private
          * @ignore
          * @function
-         * @param {me.Viewport} viewport viewport object
          */
-        api.draw = function (viewport) {
+        api.draw = function () {
             if (isDirty || isAlwaysDirty) {
-                viewport = viewport || api.viewport;
                 // cache the viewport rendering position, so that other object
                 // can access it later (e,g. entityContainer when drawing floating objects)
-                var translateX = viewport.pos.x + viewport.offset.x;
-                var translateY = viewport.pos.y + viewport.offset.y;
+                var translateX = api.viewport.pos.x + api.viewport.offset.x;
+                var translateY = api.viewport.pos.y + api.viewport.offset.y;
 
                 // translate the world coordinates by default to screen coordinates
                 api.world.currentTransform.translate(-translateX, -translateY);
 
                 // prepare renderer to draw a new frame
-                renderer.clear();
-
-                // save the current state
-                me.video.renderer.save();
-
-                // apply viewport transform if needed
-                if (!viewport.currentTransform.isIdentity()) {
-                    renderer.transform(viewport.currentTransform);
-                }
+                me.video.renderer.clear();
 
                 // update all objects,
                 // specifying the viewport as the rectangle area to redraw
-                api.world.draw(renderer, viewport);
+                api.world.draw(renderer, api.viewport);
 
-                // restore
-                renderer.restore();
-
-                // translate the world coordinates by default to screen coordinates
+                // translate back
                 api.world.currentTransform.translate(translateX, translateY);
 
-                // draw the viewpor/camera effects
-                viewport.draw(renderer);
-
+                // draw our camera/viewport
+                api.viewport.draw(renderer);
             }
 
             isDirty = false;
 
             // flush/render our frame
-            renderer.flush();
+            me.video.renderer.flush();
         };
 
         // return our object
@@ -2952,7 +2934,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org/
  *
  */
@@ -3044,7 +3026,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -3062,15 +3044,6 @@ THE SOFTWARE.
         var deviceOrientationInitialized = false;
         var devicePixelRatio = null;
 
-        // swipe utility fn & flag
-        var swipeEnabled = true;
-        var disableSwipeFn = function (e) {
-            e.preventDefault();
-            window.scroll(0, 0);
-            return false;
-        };
-
-
         /**
          * check the device capapbilities
          * @ignore
@@ -3083,7 +3056,11 @@ THE SOFTWARE.
             // Mobile browser hacks
             if (me.device.isMobile && !me.device.cocoon) {
                 // Prevent the webview from moving on a swipe
-                api.enableSwipe(false);
+                window.document.addEventListener("touchmove", function (e) {
+                    e.preventDefault();
+                    window.scroll(0, 0);
+                    return false;
+                }, false);
             }
 
             // future proofing (MS) feature detection
@@ -3094,10 +3071,6 @@ THE SOFTWARE.
             // detect touch capabilities
             me.device.touch = ("createTouch" in document) || ("ontouchstart" in window) ||
                               (me.device.cocoon) || (me.device.pointerEvent && (me.device.maxTouchPoints > 0));
-
-            // detect wheel event support
-            // Modern browsers support "wheel", Webkit and IE support at least "mousewheel
-            me.device.wheel = ("onwheel" in document.createElement("div"));
 
             // accelerometer detection
             me.device.hasAccelerometer = (
@@ -3204,26 +3177,25 @@ THE SOFTWARE.
          */
         api._detectDevice = function () {
             // iOS Device ?
-            me.device.iOS = /iPhone|iPad|iPod/i.test(me.device.ua);
+            me.device.iOS = me.device.ua.match(/iPhone|iPad|iPod/i) || false;
             // Android Device ?
-            me.device.android = /Android/i.test(me.device.ua);
-            me.device.android2 = /Android 2/i.test(me.device.ua);
-            // Chrome OS ?
-            me.device.chromeOS = /CrOS/.test(me.device.ua);
+            me.device.android = me.device.ua.match(/Android/i) || false;
+            me.device.android2 = me.device.ua.match(/Android 2/i) || false;
             // Windows Device ?
-            me.device.wp = /Windows Phone/i.test(me.device.ua);
+            me.device.wp = me.device.ua.match(/Windows Phone/i) || false;
             // Kindle device ?
-            me.device.BlackBerry = /BlackBerry/i.test(me.device.ua);
+            me.device.BlackBerry = me.device.ua.match(/BlackBerry/i) || false;
             // Kindle device ?
-            me.device.Kindle = /Kindle|Silk.*Mobile Safari/i.test(me.device.ua);
+            me.device.Kindle = me.device.ua.match(/Kindle|Silk.*Mobile Safari/i) || false;
 
             // Mobile platform
-            me.device.isMobile = /Mobi/i.test(me.device.ua) ||
+            me.device.isMobile = me.device.ua.match(/Mobi/i) ||
                                  me.device.iOS ||
                                  me.device.android ||
                                  me.device.wp ||
                                  me.device.BlackBerry ||
-                                 me.device.Kindle || false;
+                                 me.device.Kindle ||
+                                 me.device.iOS || false;
             // ejecta
             me.device.ejecta = (typeof window.ejecta !== "undefined");
 
@@ -3240,8 +3212,8 @@ THE SOFTWARE.
         // Browser capabilities
 
         /**
-         * the `ua` read-only property returns the user agent string for the current browser.
-         * @type String
+         * Browser User Agent
+         * @type Boolean
          * @readonly
          * @name ua
          * @memberOf me.device
@@ -3322,15 +3294,6 @@ THE SOFTWARE.
         api.touch = false;
 
         /**
-         * W3C standard wheel events
-         * @type Boolean
-         * @readonly
-         * @name wheel
-         * @memberOf me.device
-         */
-        api.wheel = false;
-
-        /**
          * equals to true if a mobile device <br>
          * (Android | iPhone | iPad | iPod | BlackBerry | Windows Phone | Kindle)
          * @type Boolean
@@ -3386,15 +3349,6 @@ THE SOFTWARE.
          * @memberOf me.device
          */
          api.cocoon = false;
-
-        /**
-         * equals to true if the device is running on ChromeOS.
-         * @type Boolean
-         * @readonly
-         * @name chromeOS
-         * @memberOf me.device
-         */
-        api.chromeOS = false;
 
          /**
          * equals to true if the device is a Windows Phone platform.
@@ -3508,25 +3462,6 @@ THE SOFTWARE.
          * @memberOf me.device
          */
         api.language = navigator.language || navigator.browserLanguage || navigator.userLanguage || "en";
-
-        /**
-         * enable/disable swipe on WebView.
-         * @name enableSwipe
-         * @memberOf me.device
-         * @function
-         * @param {boolean} [enable=true] enable or disable swipe.
-         */
-        api.enableSwipe = function (enable) {
-            if (enable !== false) {
-                if (swipeEnabled === false) {
-                    window.document.removeEventListener("touchmove", disableSwipeFn, false);
-                    swipeEnabled = true;
-                }
-            } else if (swipeEnabled === true) {
-                window.document.addEventListener("touchmove", disableSwipeFn, false);
-                swipeEnabled = false;
-            }
-        };
 
         /**
          * Triggers a fullscreen request. Requires fullscreen support from the browser/device.
@@ -3821,9 +3756,6 @@ THE SOFTWARE.
      * @return {boolean}
      */
     Object.defineProperty(me.device, "isFullscreen", {
-        /**
-         * @ignore
-         */
         get: function () {
             if (me.device.hasFullscreenSupport) {
                 var el = me.agent.prefixed("fullscreenElement", document) ||
@@ -3845,18 +3777,15 @@ THE SOFTWARE.
      * @return {boolean}
      */
     Object.defineProperty(me.device, "sound", {
-        /**
-         * @ignore
-         */
         get: function () {
                 return !Howler.noAudio;
-        }
+            }
     });
 })();
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -3952,7 +3881,7 @@ THE SOFTWARE.
          * @memberOf me.timer
          */
         api.fps = 0;
-
+        
         /**
          * Last update time.<br/>
          * Use this value to implement frame prediction in drawing events,
@@ -4125,7 +4054,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -4194,16 +4123,12 @@ THE SOFTWARE.
          * me.pool.register("heartentity", HeartEntity, true);
          * me.pool.register("starentity", StarEntity, true);
          */
-         api.register = function (className, classObj, pooling) {
-             if (typeof (classObj) !== "undefined") {
-                 entityClass[className] = {
-                     "class" : classObj,
-                     "pool" : (pooling ? [] : undefined)
-                 };
-             } else {
-                 throw new me.Error("Cannot register object '" + className + "', invalid class");
-             }
-         };
+        api.register = function (className, entityObj, pooling) {
+            entityClass[className] = {
+                "class" : entityObj,
+                "pool" : (pooling ? [] : undefined)
+            };
+        };
 
         /**
          * Pull a new instance of the requested object (if added into the object pool)
@@ -4325,7 +4250,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -4450,28 +4375,6 @@ THE SOFTWARE.
          */
         scale : function (x, y) {
             return this._set(this.x * x, this.y * (typeof (y) !== "undefined" ? y : x));
-        },
-
-        /**
-         * Convert this vector into isometric coordinate space
-         * @name toIso
-         * @memberOf me.Vector2d
-         * @function
-         * @return {me.Vector2d} Reference to this object for method chaining
-         */
-        toIso : function () {
-            return this._set(this.x - this.y, (this.x + this.y) * 0.5);
-        },
-
-        /**
-         * Convert this vector into 2d coordinate space
-         * @name to2d
-         * @memberOf me.Vector2d
-         * @function
-         * @return {me.Vector2d} Reference to this object for method chaining
-         */
-        to2d : function () {
-            return this._set(this.y + this.x / 2, this.y - this.x / 2);
         },
 
         /**
@@ -4806,9 +4709,6 @@ THE SOFTWARE.
      * @param {String} msg Error message.
      */
     me.Vector2d.Error = me.Error.extend({
-        /**
-         * @ignore
-         */
         init : function (msg) {
             me.Error.prototype.init.apply(this, [ msg ]);
             this.name = "me.Vector2d.Error";
@@ -4818,7 +4718,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -4973,28 +4873,6 @@ THE SOFTWARE.
         },
 
         /**
-         * Convert this vector into isometric coordinate space
-         * @name toIso
-         * @memberOf me.Vector3d
-         * @function
-         * @return {me.Vector3d} Reference to this object for method chaining
-         */
-        toIso : function () {
-            return this._set(this.x - this.y, (this.x + this.y) * 0.5, this.z);
-        },
-
-        /**
-         * Convert this vector into 2d coordinate space
-         * @name to2d
-         * @memberOf me.Vector3d
-         * @function
-         * @return {me.Vector3d} Reference to this object for method chaining
-         */
-        to2d : function () {
-            return this._set(this.y + this.x / 2, this.y - this.x / 2, this.z);
-        },
-
-        /**
          * Divide this vector values by the passed value
          * @name div
          * @memberOf me.Vector3d
@@ -5014,7 +4892,7 @@ THE SOFTWARE.
          * @return {me.Vector3d} Reference to this object for method chaining
          */
         abs : function () {
-            return this._set((this.x < 0) ? -this.x : this.x, (this.y < 0) ? -this.y : this.y, (this.z < 0) ? -this.z : this.z);
+            return this._set((this.x < 0) ? -this.x : this.x, (this.y < 0) ? -this.y : this.y, (this.z < 0) ? -this.Z : this.z);
         },
 
         /**
@@ -5316,9 +5194,6 @@ THE SOFTWARE.
      * @param {String} msg Error message.
      */
     me.Vector3d.Error = me.Error.extend({
-        /**
-         * @ignore
-         */
         init : function (msg) {
             me.Error.prototype.init.apply(this, [ msg ]);
             this.name = "me.Vector3d.Error";
@@ -5328,7 +5203,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -5356,15 +5231,10 @@ THE SOFTWARE.
              * @memberOf me.ObservableVector2d
              */
             Object.defineProperty(this, "x", {
-                /**
-                 * @ignore
-                 */
                 get : function () {
                     return this._x;
                 },
-                /**
-                 * @ignore
-                 */
+
                 set : function (value) {
                     this.onUpdate(value, this._y, this._x, this._y);
                     this._x = value;
@@ -5379,15 +5249,10 @@ THE SOFTWARE.
              * @memberOf me.ObservableVector2d
              */
             Object.defineProperty(this, "y", {
-                /**
-                 * @ignore
-                 */
                 get : function () {
                     return this._y;
                 },
-                /**
-                 * @ignore
-                 */
+
                 set : function (value) {
                     this.onUpdate(this._x, value, this._x, this._y);
                     this._y = value;
@@ -5766,9 +5631,6 @@ THE SOFTWARE.
      * @param {String} msg Error message.
      */
     me.ObservableVector2d.Error = me.Error.extend({
-        /**
-         * @ignore
-         */
         init : function (msg) {
             me.Error.prototype.init.apply(this, [ msg ]);
             this.name = "me.ObservableVector2d.Error";
@@ -5778,7 +5640,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -5797,9 +5659,7 @@ THE SOFTWARE.
     me.ObservableVector3d = me.Vector3d.extend({
     /** @scope me.ObservableVector3d.prototype */
 
-        /**
-         * @ignore
-         */
+        /** @ignore */
         init : function (x, y, z, settings) {
             /**
              * x value of the vector
@@ -5809,15 +5669,10 @@ THE SOFTWARE.
              * @memberOf me.ObservableVector3d
              */
             Object.defineProperty(this, "x", {
-                /**
-                 * @ignore
-                 */
                 get : function () {
                     return this._x;
                 },
-                /**
-                 * @ignore
-                 */
+
                 set : function (value) {
                     this.onUpdate(value, this._y, this._z, this._x, this._y, this._z);
                     this._x = value;
@@ -5832,15 +5687,10 @@ THE SOFTWARE.
              * @memberOf me.ObservableVector3d
              */
             Object.defineProperty(this, "y", {
-                /**
-                 * @ignore
-                 */
                 get : function () {
                     return this._y;
                 },
-                /**
-                 * @ignore
-                 */
+
                 set : function (value) {
                     this.onUpdate(this._x, value, this._z, this._x, this._y, this._z);
                     this._y = value;
@@ -5855,15 +5705,10 @@ THE SOFTWARE.
              * @memberOf me.ObservableVector3d
              */
             Object.defineProperty(this, "z", {
-                /**
-                 * @ignore
-                 */
                 get : function () {
                     return this._z;
                 },
-                /**
-                 * @ignore
-                 */
+
                 set : function (value) {
                     this.onUpdate(this._x, this._y, value, this._x, this._y, this._z);
                     this._z = value;
@@ -6298,9 +6143,6 @@ THE SOFTWARE.
      * @param {String} msg Error message.
      */
     me.ObservableVector3d.Error = me.Error.extend({
-        /**
-         * @ignore
-         */
         init : function (msg) {
             me.Error.prototype.init.apply(this, [ msg ]);
             this.name = "me.ObservableVector3d.Error";
@@ -6310,7 +6152,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -6341,8 +6183,13 @@ THE SOFTWARE.
                 this.setTransform.apply(this, arguments);
             }
             else {
-                this.identity();
+                this.onResetEvent();
             }
+        },
+
+        /** @ignore */
+        onResetEvent : function() {
+            this.identity();
         },
 
         /**
@@ -6517,7 +6364,7 @@ THE SOFTWARE.
         * @function
         * @param {me.Vector2d} vector the vector object to be transformed
         * @return {me.Vector2d} result vector object. Useful for chaining method calls.
-        */
+        **/
         multiplyVector : function (v) {
             var a = this.val,
                 x = v.x,
@@ -6525,27 +6372,6 @@ THE SOFTWARE.
 
             v.x = x * a[0] + y * a[3] + a[6];
             v.y = x * a[1] + y * a[4] + a[7];
-
-            return v;
-        },
-
-        /**
-         * Transforms the given vector using the inverted current matrix.
-         * @name multiplyVector
-         * @memberOf me.Matrix2d
-         * @function
-         * @param {me.Vector2d} vector the vector object to be transformed
-         * @return {me.Vector2d} result vector object. Useful for chaining method calls.
-         */
-        multiplyVectorInverse : function (v) {
-            var a = this.val,
-                x = v.x,
-                y = v.y;
-
-            var invD = 1 / ((a[0] * a[4]) + (a[3] * -a[1]));
-
-            v.x = (a[4] * invD * x) + (-a[3] * invD * y) + (((a[7] * a[3]) - (a[6] * a[4])) * invD);
-            v.y = (a[0] * invD * y) + (-a[1] * invD * x) + (((-a[7] * a[0]) + (a[6] * a[1])) * invD);
 
             return v;
         },
@@ -6695,7 +6521,7 @@ THE SOFTWARE.
          * @return {me.Matrix2d}
          */
         clone : function () {
-            return me.pool.pull("me.Matrix2d", this);
+            return me.pool.pull("me.Matrix2d").copy(this);
         },
 
         /**
@@ -6719,7 +6545,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -6995,7 +6821,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -7031,7 +6857,7 @@ THE SOFTWARE.
 
             /**
              * The bounding rectangle for this shape
-             * @ignore
+             * @private
              * @type {me.Rect}
              * @name _bounds
              * @memberOf me.Polygon
@@ -7087,28 +6913,6 @@ THE SOFTWARE.
             this.recalc();
             this.updateBounds();
             return this;
-        },
-
-        /**
-         * apply an isometric projection to this shape
-         * @name toIso
-         * @memberOf me.Polygon
-         * @function
-         * @return {me.Polygon} Reference to this object for method chaining
-         */
-        toIso : function () {
-            return this.rotate(Math.PI / 4).scale(Math.SQRT2, Math.SQRT1_2);
-        },
-
-        /**
-         * apply a 2d projection to this shape
-         * @name to2d
-         * @memberOf me.Polygon
-         * @function
-         * @return {me.Polygon} Reference to this object for method chaining
-         */
-        to2d : function () {
-            return this.scale(Math.SQRT1_2, Math.SQRT2).rotate(-Math.PI / 4);
         },
 
         /**
@@ -7172,7 +6976,6 @@ THE SOFTWARE.
          * @name recalc
          * @memberOf me.Polygon
          * @function
-         * @return {me.Polygon} Reference to this object for method chaining
          */
         recalc : function () {
             var i;
@@ -7223,7 +7026,7 @@ THE SOFTWARE.
          * @memberOf me.Polygon
          * @function
          * @param {me.Vector2d} v vector offset
-         * @return {me.Polygon} Reference to this object for method chaining
+         * @return {me.Polygon} this Polygon
          */
         translateV : function (v) {
             this.pos.add(v);
@@ -7324,9 +7127,6 @@ THE SOFTWARE.
      * @param {String} msg Error message.
      */
     me.Polygon.Error = me.Error.extend({
-        /**
-         * @ignore
-         */
         init : function (msg) {
             me.Error.prototype.init.apply(this, [ msg ]);
             this.name = "me.Polygon.Error";
@@ -7336,7 +7136,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -7617,9 +7417,6 @@ THE SOFTWARE.
      * @memberOf me.Rect
      */
     Object.defineProperty(me.Rect.prototype, "left", {
-        /**
-         * @ignore
-         */
         get : function () {
             return this.pos.x;
         },
@@ -7634,9 +7431,6 @@ THE SOFTWARE.
      * @memberOf me.Rect
      */
     Object.defineProperty(me.Rect.prototype, "right", {
-        /**
-         * @ignore
-         */
         get : function () {
             var w = this._width;
             return (this.pos.x + w) || w;
@@ -7652,9 +7446,6 @@ THE SOFTWARE.
      * @memberOf me.Rect
      */
     Object.defineProperty(me.Rect.prototype, "top", {
-        /**
-         * @ignore
-         */
         get : function () {
             return this.pos.y;
         },
@@ -7669,9 +7460,6 @@ THE SOFTWARE.
      * @memberOf me.Rect
      */
     Object.defineProperty(me.Rect.prototype, "bottom", {
-        /**
-         * @ignore
-         */
         get : function () {
             var h = this._height;
             return (this.pos.y + h) || h;
@@ -7687,15 +7475,9 @@ THE SOFTWARE.
      * @memberOf me.Rect
      */
     Object.defineProperty(me.Rect.prototype, "width", {
-        /**
-         * @ignore
-         */
         get : function () {
             return this._width;
         },
-        /**
-         * @ignore
-         */
         set : function (value) {
             this.points[1].x = this.points[2].x = value;
             // _width updated in recalc
@@ -7712,15 +7494,9 @@ THE SOFTWARE.
      * @memberOf me.Rect
      */
     Object.defineProperty(me.Rect.prototype, "height", {
-        /**
-         * @ignore
-         */
         get : function () {
             return this._height;
         },
-        /**
-         * @ignore
-         */
         set : function (value) {
             this.points[2].y = this.points[3].y = value;
             // _height updated in recalc
@@ -7733,7 +7509,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -7840,9 +7616,6 @@ THE SOFTWARE.
      * @param {String} msg Error message.
      */
     me.Line.Error = me.Error.extend({
-        /**
-         * @ignore
-         */
         init : function (msg) {
             me.Error.prototype.init.apply(this, [ msg ]);
             this.name = "me.Line.Error";
@@ -7852,7 +7625,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -8216,9 +7989,8 @@ THE SOFTWARE.
                 this.vel.y = ~~(0.5 + this.vel.y - overlap.y) || 0;
 
                 // cancel the falling an jumping flags if necessary
-                var dir = Math.sign(this.gravity) || 1;
-                this.falling = overlap.y >= dir;
-                this.jumping = overlap.y <= -dir;
+                this.falling = overlap.y >= 1;
+                this.jumping = overlap.y <= -1;
             }
         },
 
@@ -8329,7 +8101,7 @@ THE SOFTWARE.
                 vel.y += this.gravity * me.timer.tick;
 
                 // check if falling / jumping
-                this.falling = (vel.y * Math.sign(this.gravity)) > 0;
+                this.falling = (vel.y > 0);
                 this.jumping = (this.falling ? false : this.jumping);
             }
 
@@ -8384,9 +8156,6 @@ THE SOFTWARE.
      * @param {String} msg Error message.
      */
     me.Body.Error = me.Error.extend({
-        /**
-         * @ignore
-         */
         init : function (msg) {
             me.Error.prototype.init.apply(this, [ msg ]);
             this.name = "me.Body.Error";
@@ -8396,7 +8165,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  * A QuadTree implementation in JavaScript, a 2d spatial subdivision algorithm.
@@ -8577,7 +8346,7 @@ THE SOFTWARE.
     Quadtree.prototype.insertContainer = function (container) {
 
         for (var i = container.children.length, child; i--, (child = container.children[i]);) {
-            if (child instanceof me.Container && !(child instanceof me.ParticleContainer)) {
+            if (child instanceof me.Container) {
                 if (child.name !== "rootContainer") {
                     this.insert(child);
                 }
@@ -8777,7 +8546,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  * Separating Axis Theorem implementation, based on the SAT.js library by Jim Riecken <jimr@jimr.ca>
@@ -9564,7 +9333,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -9601,11 +9370,11 @@ THE SOFTWARE.
              * @name currentTransform
              * @memberOf me.Renderable
              */
-            if (typeof this.currentTransform !== "undefined") {
-                this.currentTransform.identity();
-            } else {
-                this.currentTransform = me.pool.pull("me.Matrix2d");
-            }
+             if (typeof this.currentTransform !== "undefined") {
+                 this.currentTransform.identity();
+             } else {
+                 this.currentTransform = me.pool.pull("me.Matrix2d");
+             }
 
            /**
             * (G)ame (U)nique (Id)entifier" <br>
@@ -9671,10 +9440,11 @@ THE SOFTWARE.
             this.floating = false;
 
             /**
-             * The anchor point is used for attachment behavior, and/or when applying transformations.<br>
-             * The coordinate system places the origin at the top left corner of the frame (0, 0) and (1, 1) means the bottom-right corner<br>
-             * <img src="images/anchor_point.png"/> :<br>
-             * a Renderable's anchor point defaults to (0.5,0.5), which corresponds to the center position.<br>
+             * Define the object anchoring point<br>
+             * This is used when positioning, or scaling the object<br>
+             * The anchor point is a value between 0.0 and 1.0 (1.0 being the maximum size of the object) <br>
+             * (0, 0) means the top-left corner, <br>
+             * (1, 1) means the bottom-right corner, <br>
              * @public
              * @type me.Vector2d
              * @default <0.5,0.5>
@@ -9889,7 +9659,7 @@ THE SOFTWARE.
 
         /**
          * update the renderable's bounding rect (private)
-         * @ignore
+         * @private
          * @name updateBoundsPos
          * @memberOf me.Renderable
          * @function
@@ -9960,15 +9730,9 @@ THE SOFTWARE.
      * @memberOf me.Renderable
      */
     Object.defineProperty(me.Renderable.prototype, "width", {
-        /**
-         * @ignore
-         */
         get : function () {
             return this._width;
         },
-        /**
-         * @ignore
-         */
         set : function (value) {
             this.getBounds().width = value;
             this._width = value;
@@ -9984,15 +9748,9 @@ THE SOFTWARE.
      * @memberOf me.Renderable
      */
     Object.defineProperty(me.Renderable.prototype, "height", {
-        /**
-         * @ignore
-         */
         get : function () {
             return this._height;
         },
-        /**
-         * @ignore
-         */
         set : function (value) {
             this.getBounds().height = value;
             this._height = value;
@@ -10009,9 +9767,6 @@ THE SOFTWARE.
      * @param {String} msg Error message.
      */
     me.Renderable.Error = me.Error.extend({
-        /**
-         * @ignore
-         */
         init : function (msg) {
             me.Error.prototype.init.apply(this, [ msg ]);
             this.name = "me.Renderable.Error";
@@ -10021,7 +9776,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -10072,15 +9827,6 @@ THE SOFTWARE.
              * @name me.Sprite#animationspeed
              */
             this.animationspeed = 100;
-
-            /**
-             * global offset for the position to draw from on the source image.
-             * @public
-             * @type me.Vector2d
-             * @name offset
-             * @memberOf me.Sprite
-             */
-            this.offset = new me.Vector2d();
 
             // hold all defined animation
             this.anim = {};
@@ -10138,8 +9884,10 @@ THE SOFTWARE.
                     // use a texture atlas
                     var region = settings.image.getRegion(settings.region);
                     if (region) {
-                        // set the sprite region within the texture
-                        this.setRegion(region);
+                        // set the sprite offset within the texture
+                        this.current.offset.setV(region.offset);
+                        // set angle if defined
+                        this.current.angle = region.angle;
                         settings.framewidth = settings.framewidth || region.width;
                         settings.frameheight = settings.frameheight || region.height;
                     } else {
@@ -10430,27 +10178,6 @@ THE SOFTWARE.
         },
 
         /**
-         * change the current texture atlas region for this sprite
-         * @see me.Texture.getRegion
-         * @name setRegion
-         * @memberOf me.Sprite
-         * @function
-         * @param {Object} region typically returned through me.Texture.getRegion()
-         * @example
-         * // change the sprite to "shadedDark13.png";
-         * mySprite.setRegion(game.texture.getRegion("shadedDark13.png"));
-         */
-        setRegion : function (region) {
-            // set the sprite offset within the texture
-            this.current.offset.setV(region.offset);
-            // set angle if defined
-            this.current.angle = region.angle;
-            // update the default "current" size
-            this.current.width = region.width;
-            this.current.height = region.height;
-        },
-
-        /**
          * force the current animation frame index.
          * @name setAnimationFrame
          * @memberOf me.Sprite
@@ -10462,13 +10189,9 @@ THE SOFTWARE.
          */
         setAnimationFrame : function (idx) {
             this.current.idx = (idx || 0) % this.current.length;
-            // XXX this should not be overwritten
-            var name = this.current.name;
             var frame = this.getAnimationFrameObjectByIndex(this.current.idx);
             // copy all properties of the current frame into current
             Object.assign(this.current, frame);
-            // XXX this should not be overwritten
-            this.current.name = name;
             // set global anchortPoint if defined
             if (frame.anchorPoint) {
                 this.anchorPoint.setV(frame.anchorPoint);
@@ -10583,9 +10306,7 @@ THE SOFTWARE.
             var w = frame.width,
                 h = frame.height;
 
-            // frame offset in the texture/atlas
-            var frame_offset = frame.offset;
-            var g_offset = this.offset;
+            var offset = frame.offset;
 
             // save context
             renderer.save();
@@ -10615,16 +10336,33 @@ THE SOFTWARE.
 
             renderer.drawImage(
                 this.image,
-                g_offset.x + frame_offset.x, // sx
-                g_offset.y + frame_offset.y, // sy
-                w, h,                        // sw,sh
-                xpos, ypos,                  // dx,dy
-                w, h                         // dw,dh
+                offset.x, offset.y,   // sx,sy
+                w, h,                 // sw,sh
+                xpos, ypos,           // dx,dy
+                w, h                  // dw,dh
             );
 
             // restore context
             renderer.restore();
         }
+    });
+
+    /**
+     * The position to draw from on the source image.
+     * @public
+     * @type {me.Vector2d}
+     * @name offset
+     * @memberOf me.Sprite
+     */
+    Object.defineProperty(me.Sprite.prototype, "offset", {
+        /* for backward compatiblity */
+        get : function () {
+            return this.current.offset;
+        },
+        set : function (value) {
+            this.current.offset.setV(value);
+        },
+        configurable : true
     });
 
     // for backward compatiblity
@@ -10633,7 +10371,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -10766,9 +10504,6 @@ THE SOFTWARE.
 
             // reset default axis value for follow
             this.follow_axis = null;
-
-            // reset the transformation matrix
-            this.currentTransform.identity();
         },
 
         /**
@@ -10895,6 +10630,7 @@ THE SOFTWARE.
          * @param {Number} x
          * @param {Number} y
          */
+
         moveTo : function (x, y) {
             this.pos.x = x.clamp(
                 this.bounds.pos.x,
@@ -11130,10 +10866,10 @@ THE SOFTWARE.
          * render the camera effects
          * @ignore
          */
-        draw : function (renderer) {
+        draw : function () {
             // fading effect
             if (this._fadeIn.tween) {
-                renderer.clearColor(this._fadeIn.color);
+                me.video.renderer.clearColor(this._fadeIn.color);
                 // remove the tween if over
                 if (this._fadeIn.color.alpha === 1.0) {
                     this._fadeIn.tween = null;
@@ -11144,7 +10880,7 @@ THE SOFTWARE.
 
             // flashing effect
             if (this._fadeOut.tween) {
-                renderer.clearColor(this._fadeOut.color);
+                me.video.renderer.clearColor(this._fadeOut.color);
                 // remove the tween if over
                 if (this._fadeOut.color.alpha === 0.0) {
                     this._fadeOut.tween = null;
@@ -11158,7 +10894,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -11427,7 +11163,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -11911,9 +11647,6 @@ THE SOFTWARE.
             return this.getBounds();
         },
 
-        /**
-         * @ignore
-         */
         onActivateEvent : function () {
           for (var i = this.children.length, child; i--, (child = this.children[i]);) {
               if (typeof child.onActivateEvent === "function") {
@@ -12091,9 +11824,6 @@ THE SOFTWARE.
             }
         },
 
-        /**
-         * @ignore
-         */
         onDeactivateEvent : function () {
             for (var i = this.children.length, child; i--, (child = this.children[i]);) {
                 if (typeof child.onDeactivateEvent === "function") {
@@ -12302,9 +12032,6 @@ THE SOFTWARE.
      * @param {String} msg Error message.
      */
     me.Container.Error = me.Renderable.Error.extend({
-        /**
-         * @ignore
-         */
         init : function (msg) {
             me.Renderable.Error.prototype.init.apply(this, [ msg ]);
             this.name = "me.Container.Error";
@@ -12314,7 +12041,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -12685,9 +12412,6 @@ THE SOFTWARE.
      * @param {String} msg Error message.
      */
     me.Entity.Error = me.Renderable.Error.extend({
-        /**
-         * @ignore
-         */
         init : function (msg) {
             me.Renderable.Error.prototype.init.apply(this, [ msg ]);
             this.name = "me.Entity.Error";
@@ -12697,7 +12421,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  * Screens objects & State machine
@@ -13261,9 +12985,6 @@ THE SOFTWARE.
          * me.state.set(me.state.MENU, new MenuScreen());
          */
         api.set = function (state, so) {
-            if (!(so instanceof me.ScreenObject)) {
-                throw new me.Error(so + " is not an instance of me.ScreenObject");
-            }
             _screenObject[state] = {};
             _screenObject[state].screen = so;
             _screenObject[state].transition = true;
@@ -13383,15 +13104,13 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 (function () {
     // a basic progress bar object
     var ProgressBar = me.Renderable.extend({
-        /**
-         * @ignore
-         */
+
         init: function (v, w, h) {
             me.Renderable.prototype.init.apply(this, [v.x, v.y, w, h]);
             // flag to know if we need to refresh the display
@@ -13404,18 +13123,13 @@ THE SOFTWARE.
             this.progress = 0;
         },
 
-        /**
-         * make sure the screen is refreshed every frame
-         * @ignore
-         */
+        // make sure the screen is refreshed every frame
         onProgressUpdate : function (progress) {
             this.progress = ~~(progress * this.width);
             this.invalidate = true;
         },
 
-        /**
-         * @ignore
-         */
+        // make sure the screen is refreshed every frame
         update : function () {
             if (this.invalidate === true) {
                 // clear the flag
@@ -13427,10 +13141,7 @@ THE SOFTWARE.
             return false;
         },
 
-        /**
-         * draw function
-         * @ignore
-         */
+         // draw function
         draw : function (renderer) {
             // draw the progress bar
             renderer.setColor("black");
@@ -13445,20 +13156,14 @@ THE SOFTWARE.
 
     // the melonJS Logo
     var IconLogo = me.Renderable.extend({
-        /**
-         * @ignore
-         */
-        init : function (x, y) {
+        init : function (iconCanvas, x, y) {
             me.Renderable.prototype.init.apply(this, [x, y, 100, 85]);
 
-            this.iconCanvas = me.video.createCanvas(
-                me.utils.nextPowerOfTwo(this.width),
-                me.utils.nextPowerOfTwo(this.height),
-            false);
-
+            this.iconCanvas = iconCanvas;
 
             var context = me.video.renderer.getContext2d(this.iconCanvas);
 
+            context.translate(this.pos.x, this.pos.y);
             context.beginPath();
             context.moveTo(0.7, 48.9);
             context.bezierCurveTo(10.8, 68.9, 38.4, 75.8, 62.2, 64.5);
@@ -13486,57 +13191,33 @@ THE SOFTWARE.
             context.miterLimit = 4.0;
             context.stroke();
         },
-        /**
-         * @ignore
-         */
+
         draw : function (renderer) {
-            renderer.drawImage(this.iconCanvas, this.pos.x, this.pos.y);
+            renderer.drawImage(this.iconCanvas, 0, 0);
         }
     });
 
     // the melonJS Text Logo
     var TextLogo = me.Renderable.extend({
-        /**
-         * @ignore
-         */
+        // constructor
         init : function (w, h) {
             me.Renderable.prototype.init.apply(this, [0, 0, w, h]);
-
-            // offscreen cache canvas
-            this.fontCanvas = me.video.createCanvas(128, 32);
-            this.drawFont(me.video.renderer.getContext2d(this.fontCanvas));
+            this.logo1 = new me.Font("century gothic", 32, "white", "middle");
+            this.logo2 = new me.Font("century gothic", 32, "#55aa00", "middle");
+            this.logo2.bold();
+            this.logo1.textBaseline = this.logo2.textBaseline = "alphabetic";
         },
 
-        drawFont : function (context) {
-            var logo1 = new me.Font("century gothic", 32, "white", "middle");
-            var logo2 = new me.Font("century gothic", 32, "#55aa00", "middle");
-            var logo1_width = 0;
-
-            // configure the font
-            logo2.bold();
-            logo1.textBaseline = logo2.textBaseline = "top";
-
-            // measure the logo size (using standard 2d context)
-            context.font = logo1.font;
-            context.fillStyle = logo1.fillStyle.toRGBA();
-            context.textAlign = logo1.textAlign;
-            context.textBaseline = logo1.textBaseline;
-            logo1_width = context.measureText("melon").width;
-
-            // calculate the final rendering position
-            this.pos.x = Math.round((this.width - logo1_width - context.measureText("JS").width) / 2);
-            this.pos.y = this.height / 2 + 16;
-
-            // use the private _drawFont method to directly draw on the canvas context
-            logo1._drawFont(context, "melon", 0, 0);
-            logo2._drawFont(context, "JS", logo1_width, 0);
-        },
-
-        /**
-         * @ignore
-         */
         draw : function (renderer) {
-            renderer.drawImage(this.fontCanvas, this.pos.x, this.pos.y);
+            // measure the logo size
+            var logo1_width = this.logo1.measureText(renderer, "melon").width;
+            var xpos = (this.width - logo1_width - this.logo2.measureText(renderer, "JS").width) / 2;
+            var ypos = (this.height / 2) + (this.logo2.measureText(renderer, "melon").height);
+
+            // draw the melonJS string
+            this.logo1.draw(renderer, "melon", xpos, ypos);
+            xpos += logo1_width;
+            this.logo2.draw(renderer, "JS", xpos, ypos);
         }
 
     });
@@ -13548,10 +13229,7 @@ THE SOFTWARE.
      * @constructor
      */
     me.DefaultLoadingScreen = me.ScreenObject.extend({
-        /**
-         * call when the loader is resetted
-         * @ignore
-         */
+        // call when the loader is resetted
         onResetEvent : function () {
             // background color
             me.game.world.addChild(new me.ColorLayer("background", "#202020", 0), 0);
@@ -13574,8 +13252,10 @@ THE SOFTWARE.
             );
 
             me.game.world.addChild(progressBar, 1);
+            this.iconCanvas = me.video.createCanvas(me.game.viewport.width, me.game.viewport.height, false);
             // melonJS text & logo
             var icon = new IconLogo(
+                this.iconCanvas,
                 (me.video.renderer.getWidth() - 100) / 2,
                 (me.video.renderer.getHeight() / 2) - (progressBar.barHeight / 2) - 90
             );
@@ -13583,10 +13263,7 @@ THE SOFTWARE.
             me.game.world.addChild(new TextLogo(me.video.renderer.getWidth(), me.video.renderer.getHeight()), 1);
         },
 
-        /**
-         * destroy object at end of loading
-         * @ignore
-         */
+        // destroy object at end of loading
         onDestroyEvent : function () {
             // cancel the callback
             me.event.unsubscribe(this.loaderHdlr);
@@ -13598,7 +13275,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -13621,9 +13298,6 @@ THE SOFTWARE.
         var binList = {};
         // contains all the JSON files
         var jsonList = {};
-        // baseURL
-        var baseURL = {};
-
         // flag to check loading status
         var resourceCount = 0;
         var loadCount = 0;
@@ -13633,17 +13307,15 @@ THE SOFTWARE.
          * check the loading status
          * @ignore
          */
-        function checkLoadStatus(onload) {
+        function checkLoadStatus() {
             if (loadCount === resourceCount) {
                 // wait 1/2s and execute callback (cheap workaround to ensure everything is loaded)
-                if (onload || api.onload) {
+                if (api.onload) {
                     // make sure we clear the timer
                     clearTimeout(timerId);
                     // trigger the onload callback
-                    // we call either the supplied callback (which takes precedence) or the global one
-                    var callback = onload || api.onload;
                     setTimeout(function () {
-                        callback();
+                        api.onload();
                         me.event.publish(me.event.LOADER_COMPLETE);
                     }, 300);
                 }
@@ -13652,9 +13324,7 @@ THE SOFTWARE.
                 }
             }
             else {
-                timerId = setTimeout(function() {
-                    checkLoadStatus(onload);
-                }, 100);
+                timerId = setTimeout(checkLoadStatus, 100);
             }
         }
 
@@ -13674,9 +13344,6 @@ THE SOFTWARE.
             imgList[img.name] = new Image();
             imgList[img.name].onload = onload;
             imgList[img.name].onerror = onerror;
-            if (typeof (api.crossOrigin) === "string") {
-                imgList[img.name].crossOrigin = api.crossOrigin;
-            }
             imgList[img.name].src = img.src + api.nocache;
         }
 
@@ -13879,26 +13546,6 @@ THE SOFTWARE.
          */
         api.onProgress = undefined;
 
-
-        /**
-         * crossOrigin attribute to configure the CORS requests for Image data element.<br>
-         * By default (that is, when the attribute is not specified), CORS is not used at all. <br>
-         * The "anonymous" keyword means that there will be no exchange of user credentials via cookies, <br>
-         * client-side SSL certificates or HTTP authentication as described in the Terminology section of the CORS specification.<br>
-         * @public
-         * @type String
-         * @name crossOrigin
-         * @memberOf me.loader
-         * @see https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes
-         * @example
-         *  // allow for cross-origin texture loading in WebGL
-         * me.loader.crossOrigin = "anonymous";
-         *
-         * // set all ressources to be loaded
-         * me.loader.preload(game.resources, this.loaded.bind(this));
-         */
-        api.crossOrigin = undefined;
-
         /**
          * Base class for Loader exception handling.
          * @name Error
@@ -13908,9 +13555,6 @@ THE SOFTWARE.
          * @param {String} msg Error message.
          */
         api.Error = me.Error.extend({
-            /**
-             * @ignore
-             */
             init : function (msg) {
                 me.Error.prototype.init.apply(this, [ msg ]);
                 this.name = "me.loader.Error";
@@ -13948,35 +13592,6 @@ THE SOFTWARE.
          */
         api.setNocache = function (enable) {
             api.nocache = enable ? "?" + ~~(Math.random() * 10000000) : "";
-        };
-
-        /**
-         * change the default baseURL for the given asset type.<br>
-         * (this will prepend the asset URL and must finish with a '/')
-         * @name setBaseURL
-         * @memberOf me.loader
-         * @public
-         * @function
-         * @param {String} type  "*", "audio", binary", "image", "json", "tmx", "tsx"
-         * @param {String} [url="./"] default base URL
-         * @example
-         * // change the base URL relative address
-         * me.loader.setBaseURL("audio", "data/audio/");
-         * // change the base URL absolute address for all object types
-         * me.loader.setBaseURL("*", "http://myurl.com/")
-         */
-        api.setBaseURL = function (type, url) {
-            if (type !== "*") {
-                baseURL[type] = url;
-            } else {
-                // "wildcards"
-                baseURL["audio"] = url;
-                baseURL["binary"] = url;
-                baseURL["image"] = url;
-                baseURL["json"] = url;
-                baseURL["tmx"] = url;
-                baseURL["tsx"] = url;
-            }
         };
 
 
@@ -14038,7 +13653,7 @@ THE SOFTWARE.
             }
 
             // check load status
-            checkLoadStatus(onload);
+            checkLoadStatus();
         };
 
         /**
@@ -14068,10 +13683,6 @@ THE SOFTWARE.
          * });
          */
         api.load = function (res, onload, onerror) {
-            // transform the url if necessary
-            if (typeof (baseURL[res.type]) !== "undefined") {
-                res.src = baseURL[res.type] + res.src;
-            }
             // check ressource type
             switch (res.type) {
                 case "binary":
@@ -14320,7 +13931,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  * Font / Bitmap font
@@ -14501,7 +14112,7 @@ THE SOFTWARE.
          * @return {Object} returns an object, with two attributes: width (the width of the text) and height (the height of the text).
          */
         measureText : function (renderer, text) {
-            var context = renderer.getFontContext();
+            var context = renderer.fontContext2D;
 
             // draw the text
             context.font = this.font;
@@ -14532,6 +14143,7 @@ THE SOFTWARE.
          * @param {Number} x
          * @param {Number} y
          */
+
         draw : function (renderer, text, x, y) {
             // save the previous global alpha value
             var _alpha = renderer.globalAlpha();
@@ -14539,7 +14151,7 @@ THE SOFTWARE.
             renderer.setGlobalAlpha(_alpha * this.getOpacity());
 
             // draw the text
-            renderer.drawFont(this._drawFont(renderer.getFontContext(), text, ~~x, ~~y, false));
+            renderer.drawFont(this._drawFont(renderer.fontContext2D, text, ~~x, ~~y, false));
 
             // restore the previous global alpha value
             renderer.setGlobalAlpha(_alpha);
@@ -14564,7 +14176,7 @@ THE SOFTWARE.
             renderer.setGlobalAlpha(_alpha * this.getOpacity());
 
             // draw the text
-            renderer.drawFont(this._drawFont(renderer.getFontContext(), text, ~~x, ~~y, true));
+            renderer.drawFont(this._drawFont(renderer.fontContext2D, text, ~~x, ~~y, true));
 
             // restore the previous global alpha value
             renderer.setGlobalAlpha(_alpha);
@@ -14619,7 +14231,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  * Font / Bitmap font
@@ -14841,219 +14453,209 @@ THE SOFTWARE.
     });
 })();
 
-/*
- * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
- * http://www.melonjs.org
- *
+/**
+ * Class for storing relevant data from the font file.
+ * @class me.BitmapFontData
+ * @memberOf me
+ * @param data {String} - The bitmap font data pulled from the resource loader using me.loader.getBinary()
+ * @constructor
  */
-(function() {
+me.BitmapFontData = me.Object.extend({
+    init: function (data) {
+        this.padTop = 0;
+        this.padRight = 0;
+        this.padBottom = 0;
+        this.padLeft = 0;
+        this.lineHeight = 0;
+        // The distance from the top of most uppercase characters to the baseline. Since the drawing position is the cap height of
+        // the first line, the cap height can be used to get the location of the baseline.
+        this.capHeight = 1;
+        // The distance from the bottom of the glyph that extends the lowest to the baseline. This number is negative.
+        this.descent = 0;
+        this.scale = new me.Vector2d();
+
+        /**
+         * The map of glyphs, each key is a char code.
+         * @name glyphs
+         * @type {Object}
+         * @memberOf me.BitmapFontData
+         */
+        this.glyphs = {};
+
+
+        this.xChars = ["x", "e", "a", "o", "n", "s", "r", "c", "u", "m", "v", "w", "z"];
+        this.capChars = ["M", "N", "B", "D", "C", "E", "F", "K", "A", "G", "H", "I", "J", "L", "O", "P", "Q", "R", "S",
+            "T", "U", "V", "W", "X", "Y", "Z"];
+
+        // parse the data
+        this.parse(data);
+    },
+
     /**
-     * Class for storing relevant data from the font file.
-     * @class me.BitmapFontData
-     * @memberOf me
-     * @param data {String} - The bitmap font data pulled from the resource loader using me.loader.getBinary()
-     * @constructor
+     * Creates a glyph to use for the space character
+     * @private
+     * @name _createSpaceGlyph
+     * @memberOf me.BitmapFontData
+     * @function
      */
-    me.BitmapFontData = me.Object.extend({
-        /**
-         * @ignore
-         */
-        init: function (data) {
-            this.padTop = 0;
-            this.padRight = 0;
-            this.padBottom = 0;
-            this.padLeft = 0;
-            this.lineHeight = 0;
-            // The distance from the top of most uppercase characters to the baseline. Since the drawing position is the cap height of
-            // the first line, the cap height can be used to get the location of the baseline.
-            this.capHeight = 1;
-            // The distance from the bottom of the glyph that extends the lowest to the baseline. This number is negative.
-            this.descent = 0;
-            this.scale = new me.Vector2d();
+    _createSpaceGlyph: function () {
+        var spaceCharCode = " ".charCodeAt(0);
+        var glyph = this.glyphs[spaceCharCode];
+        if (!glyph) {
+            glyph = me.pool.pull("me.Glyph");
+            glyph.id = spaceCharCode;
+            glyph.xadvance = this._getFirstGlyph().xadvance;
+            this.glyphs[spaceCharCode] = glyph;
+        }
+    },
 
-            /**
-             * The map of glyphs, each key is a char code.
-             * @name glyphs
-             * @type {Object}
-             * @memberOf me.BitmapFontData
-             */
-            this.glyphs = {};
-
-
-            this.xChars = ["x", "e", "a", "o", "n", "s", "r", "c", "u", "m", "v", "w", "z"];
-            this.capChars = ["M", "N", "B", "D", "C", "E", "F", "K", "A", "G", "H", "I", "J", "L", "O", "P", "Q", "R", "S",
-                "T", "U", "V", "W", "X", "Y", "Z"];
-
-            // parse the data
-            this.parse(data);
-        },
-
-        /**
-         * Creates a glyph to use for the space character
-         * @private
-         * @name _createSpaceGlyph
-         * @memberOf me.BitmapFontData
-         * @function
-         */
-        _createSpaceGlyph: function () {
-            var spaceCharCode = " ".charCodeAt(0);
-            var glyph = this.glyphs[spaceCharCode];
-            if (!glyph) {
-                glyph = me.pool.pull("me.Glyph");
-                glyph.id = spaceCharCode;
-                glyph.xadvance = this._getFirstGlyph().xadvance;
-                this.glyphs[spaceCharCode] = glyph;
+    /**
+     * Gets the first glyph in the map that is not a space character
+     * @private
+     * @name _getFirstGlyph
+     * @memberOf me.BitmapFontData
+     * @function
+     * @returns {me.Glyph}
+     */
+    _getFirstGlyph: function () {
+        var keys = Object.keys(this.glyphs);
+        for (var i = 0; i < keys.length; i++) {
+            if (keys[i] > 32) {
+                return this.glyphs[keys[i]];
             }
-        },
+        }
+        return null;
+    },
 
-        /**
-         * Gets the first glyph in the map that is not a space character
-         * @private
-         * @name _getFirstGlyph
-         * @memberOf me.BitmapFontData
-         * @function
-         * @returns {me.Glyph}
-         */
-        _getFirstGlyph: function () {
-            var keys = Object.keys(this.glyphs);
-            for (var i = 0; i < keys.length; i++) {
-                if (keys[i] > 32) {
-                    return this.glyphs[keys[i]];
-                }
+    /**
+     * Gets the value from a string of pairs. For example: one=1 two=2 something=hi. Can accept the regex of /one={d}/
+     * and returns the value of d
+     * @private
+     * @name _getValueFromPair
+     * @memberOf me.BitmapFontData
+     * @function
+     * @returns {String}
+     */
+    _getValueFromPair: function (string, pattern) {
+        var value = string.match(pattern);
+        if (!value) {
+            throw "Could not find pattern " + pattern + " in string: " + string;
+        }
+
+        return value[0].split("=")[1];
+    },
+
+    /**
+     * This parses the font data text and builds a map of glyphs containing the data for each character
+     * @name parse
+     * @memberOf me.BitmapFontData
+     * @function
+     * @param {String} fontData
+     */
+    parse: function (fontData) {
+        if (!fontData) {
+            throw "File containing font data was empty, cannot load the bitmap font.";
+        }
+        var lines = fontData.split(/\r\n|\n/);
+        var padding = fontData.match(/padding\=\d+,\d+,\d+,\d+/g);
+        if (!padding) {
+            throw "Padding not found in first line";
+        }
+        var paddingValues = padding[0].split("=")[1].split(",");
+        this.padTop = parseFloat(paddingValues[0]);
+        this.padLeft = parseFloat(paddingValues[1]);
+        this.padBottom = parseFloat(paddingValues[2]);
+        this.padRight = parseFloat(paddingValues[3]);
+
+        this.lineHeight = parseFloat(this._getValueFromPair(lines[1], /lineHeight\=\d+/g));
+
+        var baseLine = parseFloat(this._getValueFromPair(lines[1], /base\=\d+/g));
+
+        var padY = this.padTop + this.padBottom;
+
+        var glyph = null;
+
+        for (var i = 4; i < lines.length; i++) {
+            var line = lines[i];
+            var characterValues = line.split(/=|\s+/);
+            if (!line || /^kernings/.test(line)) {
+                continue;
             }
-            return null;
-        },
+            if (/^kerning\s/.test(line)) {
+                var first = parseFloat(characterValues[2]);
+                var second = parseFloat(characterValues[4]);
+                var amount = parseFloat(characterValues[6]);
 
-        /**
-         * Gets the value from a string of pairs. For example: one=1 two=2 something=hi. Can accept the regex of /one={d}/
-         * and returns the value of d
-         * @private
-         * @name _getValueFromPair
-         * @memberOf me.BitmapFontData
-         * @function
-         * @returns {String}
-         */
-        _getValueFromPair: function (string, pattern) {
-            var value = string.match(pattern);
-            if (!value) {
-                throw "Could not find pattern " + pattern + " in string: " + string;
-            }
-
-            return value[0].split("=")[1];
-        },
-
-        /**
-         * This parses the font data text and builds a map of glyphs containing the data for each character
-         * @name parse
-         * @memberOf me.BitmapFontData
-         * @function
-         * @param {String} fontData
-         */
-        parse: function (fontData) {
-            if (!fontData) {
-                throw "File containing font data was empty, cannot load the bitmap font.";
-            }
-            var lines = fontData.split(/\r\n|\n/);
-            var padding = fontData.match(/padding\=\d+,\d+,\d+,\d+/g);
-            if (!padding) {
-                throw "Padding not found in first line";
-            }
-            var paddingValues = padding[0].split("=")[1].split(",");
-            this.padTop = parseFloat(paddingValues[0]);
-            this.padLeft = parseFloat(paddingValues[1]);
-            this.padBottom = parseFloat(paddingValues[2]);
-            this.padRight = parseFloat(paddingValues[3]);
-
-            this.lineHeight = parseFloat(this._getValueFromPair(lines[1], /lineHeight\=\d+/g));
-
-            var baseLine = parseFloat(this._getValueFromPair(lines[1], /base\=\d+/g));
-
-            var padY = this.padTop + this.padBottom;
-
-            var glyph = null;
-
-            for (var i = 4; i < lines.length; i++) {
-                var line = lines[i];
-                var characterValues = line.split(/=|\s+/);
-                if (!line || /^kernings/.test(line)) {
-                    continue;
-                }
-                if (/^kerning\s/.test(line)) {
-                    var first = parseFloat(characterValues[2]);
-                    var second = parseFloat(characterValues[4]);
-                    var amount = parseFloat(characterValues[6]);
-
-                    glyph = this.glyphs[first];
-                    if (glyph !== null && typeof glyph !== "undefined") {
-                        glyph.setKerning(second, amount);
-                    }
-                } else {
-                    glyph = me.pool.pull("me.Glyph");
-
-                    var ch = parseFloat(characterValues[2]);
-                    glyph.id = ch;
-                    glyph.src.set(parseFloat(characterValues[4]), parseFloat(characterValues[6]));
-                    glyph.width = parseFloat(characterValues[8]);
-                    glyph.height = parseFloat(characterValues[10]);
-                    var y = parseFloat(characterValues[14]);
-                    glyph.offset.set(parseFloat(characterValues[12]), y);
-
-                    glyph.xadvance = parseFloat(characterValues[16]);
-
-                    if (glyph.width > 0 && glyph.height > 0) {
-                        this.descent = Math.min(baseLine + glyph.yoffset, this.descent);
-                    }
-
-                    this.glyphs[ch] = glyph;
-                }
-            }
-
-            this.descent += this.padBottom;
-
-            this._createSpaceGlyph();
-
-            var xGlyph = null;
-            for (i = 0; i < this.xChars.length; i++) {
-                var xChar = this.xChars[i];
-                xGlyph = this.glyphs[xChar.charCodeAt(0)];
-                if (xGlyph) {
-                    break;
-                }
-            }
-            if (!xGlyph) {
-                xGlyph = this._getFirstGlyph();
-            }
-
-            var capGlyph = null;
-            for (i = 0; i < this.capChars.length; i++) {
-                var capChar = this.capChars[i];
-                capGlyph = this.glyphs[capChar.charCodeAt(0)];
-                if (capGlyph) {
-                    break;
-                }
-            }
-            if (!capGlyph) {
-                for (var charCode in this.glyphs) {
-                    if (this.glyphs.hasOwnProperty(charCode)) {
-                        glyph = this.glyphs[charCode];
-                        if (glyph.height === 0 || glyph.width === 0) {
-                            continue;
-                        }
-                        this.capHeight = Math.max(this.capHeight, glyph.height);
-                    }
+                glyph = this.glyphs[first];
+                if (glyph !== null && typeof glyph !== "undefined") {
+                    glyph.setKerning(second, amount);
                 }
             } else {
-                this.capHeight = capGlyph.height;
+                glyph = me.pool.pull("me.Glyph");
+
+                var ch = parseFloat(characterValues[2]);
+                glyph.id = ch;
+                glyph.src.set(parseFloat(characterValues[4]), parseFloat(characterValues[6]));
+                glyph.width = parseFloat(characterValues[8]);
+                glyph.height = parseFloat(characterValues[10]);
+                var y = parseFloat(characterValues[14]);
+                glyph.offset.set(parseFloat(characterValues[12]), y);
+
+                glyph.xadvance = parseFloat(characterValues[16]);
+
+                if (glyph.width > 0 && glyph.height > 0) {
+                    this.descent = Math.min(baseLine + glyph.yoffset, this.descent);
+                }
+
+                this.glyphs[ch] = glyph;
             }
-            this.capHeight -= padY;
         }
-    });
-})();
+
+        this.descent += this.padBottom;
+
+        this._createSpaceGlyph();
+
+        var xGlyph = null;
+        for (i = 0; i < this.xChars.length; i++) {
+            var xChar = this.xChars[i];
+            xGlyph = this.glyphs[xChar.charCodeAt(0)];
+            if (xGlyph) {
+                break;
+            }
+        }
+        if (!xGlyph) {
+            xGlyph = this._getFirstGlyph();
+        }
+
+        var capGlyph = null;
+        for (i = 0; i < this.capChars.length; i++) {
+            var capChar = this.capChars[i];
+            capGlyph = this.glyphs[capChar.charCodeAt(0)];
+            if (capGlyph) {
+                break;
+            }
+        }
+        if (!capGlyph) {
+            for (var charCode in this.glyphs) {
+                if (this.glyphs.hasOwnProperty(charCode)) {
+                    glyph = this.glyphs[charCode];
+                    if (glyph.height === 0 || glyph.width === 0) {
+                        continue;
+                    }
+                    this.capHeight = Math.max(this.capHeight, glyph.height);
+                }
+            }
+        } else {
+            this.capHeight = capGlyph.height;
+        }
+
+        this.capHeight -= padY;
+    }
+});
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  * Glyph
@@ -15069,18 +14671,12 @@ THE SOFTWARE.
      * @constructor
      */
     me.Glyph = me.Object.extend({
-        /**
-         * @ignore
-         */
         init: function () {
             this.src = new me.Vector2d();
             this.offset = new me.Vector2d();
             this.onResetEvent();
         },
 
-        /**
-         * @ignore
-         */
         onResetEvent: function () {
             this.id = 0;
             this.src.set(0, 0);
@@ -15095,9 +14691,6 @@ THE SOFTWARE.
             this.fixedWidth = false;
         },
 
-        /**
-         * @ignore
-         */
         getKerning: function (ch) {
             if (this.kerning) {
                 var page = this.kerning[ch >>> LOG2_PAGE_SIZE];
@@ -15108,9 +14701,6 @@ THE SOFTWARE.
             return 0;
         },
 
-        /**
-         * @ignore
-         */
         setKerning: function (ch, value) {
             if (!this.kerning) {
                 this.kerning = {};
@@ -15127,7 +14717,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  * Audio Mngt Objects
@@ -15178,7 +14768,7 @@ THE SOFTWARE.
                 }
                 else {
                     // throw an exception and stop everything !
-                    throw new me.audio.Error(errmsg);
+                    throw new api.Error(errmsg);
                 }
             // else try loading again !
             }
@@ -15190,6 +14780,21 @@ THE SOFTWARE.
         /*
          * PUBLIC STUFF
          */
+
+        /**
+         * Base class for Audio exception handling.
+         * @name Error
+         * @class
+         * @memberOf me.audio
+         * @constructor
+         * @param {String} msg Error message.
+         */
+        api.Error = me.Error.extend({
+            init : function (msg) {
+                me.Error.prototype.init.apply(this, [ msg ]);
+                this.name = "me.audio.Error";
+            }
+        });
 
         /**
          * configure and initialize the audio engine<br>
@@ -15215,7 +14820,7 @@ THE SOFTWARE.
          */
         api.init = function (audioFormat) {
             if (!me.initialized) {
-                throw new me.audio.Error("me.audio.init() called before engine initialization.");
+                throw new api.Error("me.audio.init() called before engine initialization.");
             }
             // if no param is given to init we use mp3 by default
             audioFormat = typeof audioFormat === "string" ? audioFormat : "mp3";
@@ -15262,7 +14867,7 @@ THE SOFTWARE.
         api.load = function (sound, html5, onload_cb, onerror_cb) {
             var urls = [];
             if (typeof(this.audioFormats) === "undefined" || this.audioFormats.length === 0) {
-                throw new me.audio.Error("target audio extension(s) should be set through me.audio.init() before calling the preloader.");
+                throw new api.Error("target audio extension(s) should be set through me.audio.init() before calling the preloader.");
             }
             for (var i = 0; i < this.audioFormats.length; i++) {
                 urls.push(sound.src + sound.name + "." + this.audioFormats[i] + me.loader.nocache);
@@ -15271,15 +14876,9 @@ THE SOFTWARE.
                 src : urls,
                 volume : Howler.volume(),
                 html5 : html5 === true,
-                /**
-                 * @ignore
-                 */
                 onloaderror : function () {
                     soundLoadError.call(me.audio, sound.name, onerror_cb);
                 },
-                /**
-                 * @ignore
-                 */
                 onload : function () {
                     retry_counter = 0;
                     if (onload_cb) {
@@ -15315,23 +14914,21 @@ THE SOFTWARE.
         api.play = function (sound_name, loop, onend, volume) {
             var sound = audioTracks[sound_name];
             if (sound && typeof sound !== "undefined") {
-                var id = sound.play();
+                var instance_id = sound.play();
                 if (typeof loop === "boolean") {
                     // arg[0] can take different types in howler 2.0
-                    sound.loop(loop, id);
+                    sound.loop(loop, instance_id);
                 }
-                sound.volume(typeof(volume) === "number" ? volume.clamp(0.0, 1.0) : Howler.volume(), id);
+                sound.volume(typeof(volume) === "number" ? volume.clamp(0.0, 1.0) : Howler.volume(), instance_id);
                 if (typeof(onend) === "function") {
                     if (loop === true) {
-                        sound.on("end", onend, id);
+                        sound.on("end", onend, instance_id);
                     }
                     else {
-                        sound.once("end", onend, id);
+                        sound.once("end", onend, instance_id);
                     }
                 }
-                return id;
-            } else {
-                throw new me.audio.Error("audio clip " + sound_name + " does not exist");
+                return instance_id;
             }
         };
 
@@ -15347,42 +14944,15 @@ THE SOFTWARE.
          * @param {Number} duration Time in milliseconds to fade.
          * @param {Number} [id] the sound instance ID. If none is passed, all sounds in group will fade.
          */
-        api.fade = function (sound_name, from, to, duration, id) {
+        api.fade = function (sound_name, from, to, duration, instance_id) {
             var sound = audioTracks[sound_name];
             if (sound && typeof sound !== "undefined") {
-                sound.fade(from, to, duration, id);
-            } else {
-                throw new me.audio.Error("audio clip " + sound_name + " does not exist");
+                sound.fade(from, to, duration, instance_id);
             }
         };
 
         /**
-         * get/set the position of playback for a sound.
-         * @name seek
-         * @memberOf me.audio
-         * @public
-         * @function
-         * @param {String} sound_name audio clip name - case sensitive
-         * @param {Number} [seek]  The position to move current playback to (in seconds).
-         * @param {Number} [id] the sound instance ID. If none is passed, all sounds in group will changed.
-         * @return return the current seek position (if no extra parameters were given)
-         * @example
-         * // return the current position of the background music
-         * var current_pos = me.audio.seek("dst-gameforest");
-         * // set back the position of the background music to the beginning
-         * me.audio.seek("dst-gameforest", 0);
-         */
-        api.seek = function (sound_name, seek, id) {
-            var sound = audioTracks[sound_name];
-            if (sound && typeof sound !== "undefined") {
-                return sound.seek.apply(sound, Array.prototype.slice.call(arguments, 1));
-            } else {
-                throw new me.audio.Error("audio clip " + sound_name + " does not exist");
-            }
-        };
-
-        /**
-         * get or set the rate of playback for a sound.
+         * change the playback rate of a sound.
          * @name rate
          * @memberOf me.audio
          * @public
@@ -15390,19 +14960,23 @@ THE SOFTWARE.
          * @param {String} sound_name audio clip name - case sensitive
          * @param {Number} [rate] playback rate : 0.5 to 4.0, with 1.0 being normal speed.
          * @param {Number} [id] the sound instance ID. If none is passed, all sounds in group will be changed.
-         * @return return the current playback rate (if no extra parameters were given)
+         * @return current playback rate.
          * @example
-         * // get the playback rate of the background music
-         * var rate = me.audio.rate("dst-gameforest");
          * // speed up the playback of the background music
          * me.audio.rate("dst-gameforest", 2.0);
+         *
          */
-        api.rate = function (sound_name, rate, id) {
+        api.rate = function (sound_name, rate, instance_id) {
             var sound = audioTracks[sound_name];
             if (sound && typeof sound !== "undefined") {
-                return sound.rate.apply(sound, Array.prototype.slice.call(arguments, 1));
-            } else {
-                throw new me.audio.Error("audio clip " + sound_name + " does not exist");
+                var _args = [];
+                if (typeof rate !== "undefined") {
+                    _args[_args.length] = rate;
+                }
+                if (typeof instance_id !== "undefined") {
+                    _args[_args.length] = instance_id;
+                }
+                return sound.rate.apply(sound, _args);
             }
         };
 
@@ -15417,14 +14991,12 @@ THE SOFTWARE.
          * @example
          * me.audio.stop("cling");
          */
-        api.stop = function (sound_name, id) {
+        api.stop = function (sound_name, instance_id) {
             var sound = audioTracks[sound_name];
             if (sound && typeof sound !== "undefined") {
-                sound.stop(id);
+                sound.stop(instance_id);
                 // remove the defined onend callback (if any defined)
-                sound.off("end", undefined, id);
-            } else {
-                throw new me.audio.Error("audio clip " + sound_name + " does not exist");
+                sound.off("end", instance_id);
             }
         };
 
@@ -15440,12 +15012,10 @@ THE SOFTWARE.
          * @example
          * me.audio.pause("cling");
          */
-        api.pause = function (sound_name, id) {
+        api.pause = function (sound_name, instance_id) {
             var sound = audioTracks[sound_name];
             if (sound && typeof sound !== "undefined") {
-                sound.pause(id);
-            } else {
-                throw new me.audio.Error("audio clip " + sound_name + " does not exist");
+                sound.pause(instance_id);
             }
         };
 
@@ -15467,12 +15037,10 @@ THE SOFTWARE.
          * // resume
          * me.audio.resume("myClip", id);
          */
-        api.resume = function (sound_name, id) {
+        api.resume = function (sound_name, instance_id) {
             var sound = audioTracks[sound_name];
             if (sound && typeof sound !== "undefined") {
-                sound.play(id);
-            } else {
-                throw new me.audio.Error("audio clip " + sound_name + " does not exist");
+                sound.play(instance_id);
             }
         };
 
@@ -15595,26 +15163,20 @@ THE SOFTWARE.
         };
 
         /**
-         * mute or unmute the specified sound, but does not pause the playback.
+         * mute the specified sound
          * @name mute
          * @memberOf me.audio
          * @public
          * @function
          * @param {String} sound_name audio clip name - case sensitive
          * @param {Number} [id] the sound instance ID. If none is passed, all sounds in group will mute.
-         * @param {Boolean} [muted=true] True to mute and false to unmute
-         * @example
-         * // mute the background music
-         * me.audio.mute("awesome_music");
          */
-        api.mute = function (sound_name, id, mute) {
+        api.mute = function (sound_name, instance_id, mute) {
             // if not defined : true
             mute = (typeof(mute) === "undefined" ? true : !!mute);
             var sound = audioTracks[sound_name];
             if (sound && typeof(sound) !== "undefined") {
-                sound.mute(mute, id);
-            } else {
-                throw new me.audio.Error("audio clip " + sound_name + " does not exist");
+                sound.mute(mute, instance_id);
             }
         };
 
@@ -15627,8 +15189,8 @@ THE SOFTWARE.
          * @param {String} sound_name audio clip name
          * @param {Number} [id] the sound instance ID. If none is passed, all sounds in group will unmute.
          */
-        api.unmute = function (sound_name, id) {
-            api.mute(sound_name, id, false);
+        api.unmute = function (sound_name, instance_id) {
+            api.mute(sound_name, instance_id, false);
         };
 
         /**
@@ -15702,29 +15264,11 @@ THE SOFTWARE.
         // return our object
         return api;
     })();
-
-    /**
-     * Base class for audio exception handling.
-     * @name Error
-     * @class
-     * @memberOf me.audio
-     * @constructor
-     * @param {String} msg Error message.
-     */
-    me.audio.Error = me.Error.extend({
-        /**
-         * @ignore
-         */
-        init : function (msg) {
-            me.Error.prototype.init.apply(this, [ msg ]);
-            this.name = "me.audio.Error";
-        }
-    });
 })();
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -15793,9 +15337,6 @@ THE SOFTWARE.
          * @param {String} msg Error message.
          */
         api.Error = me.Error.extend({
-            /**
-             * @ignore
-             */
             init : function (msg) {
                 me.Error.prototype.init.apply(this, [ msg ]);
                 this.name = "me.video.Error";
@@ -15842,19 +15383,15 @@ THE SOFTWARE.
          * @function
          * @param {Number} width the width of the canvas viewport
          * @param {Number} height the height of the canvas viewport
-         * @param {Object} [options] The optional video/renderer parameters.<br> (see Renderer(s) documentation for further specific options)
+         * @param {Object} [options] The optional video/renderer parameters
          * @param {String} [options.wrapper=document.body] the "div" element name to hold the canvas in the HTML file
          * @param {Number} [options.renderer=me.video.CANVAS] renderer to use.
          * @param {Boolean} [options.doubleBuffering=false] enable/disable double buffering
          * @param {Number|String} [options.scale=1.0] enable scaling of the canvas ('auto' for automatic scaling)
          * @param {String} [options.scaleMethod="fit"] ('fit','fill-min','fill-max','flex','flex-width','flex-height','stretch') screen scaling modes
-         * @param {Boolean} [options.useParentDOMSize=false] on browser devices, limit the canvas width and height to its parent container dimensions as returned by getBoundingClientRect(),
-         *                                                   as opposed to the browser window dimensions
          * @param {Boolean} [options.transparent=false] whether to allow transparent pixels in the front buffer (screen)
          * @param {Boolean} [options.antiAlias=false] whether to enable or not video scaling interpolation
          * @return {Boolean} false if initialization failed (canvas not supported)
-         * @see me.CanvasRenderer
-         * @see me.WebGLRenderer
          * @example
          * // init the video with a 640x480 canvas
          * me.video.init(640, 480, {
@@ -15876,7 +15413,6 @@ THE SOFTWARE.
 
             // sanitize potential given parameters
             settings.doubleBuffering = !!(settings.doubleBuffering);
-            settings.useParentDOMSize = !!(settings.useParentDOMSize);
             settings.autoScale = (settings.scale === "auto") || false;
             if (settings.scaleMethod.search(/^(fill-(min|max)|fit|flex(-(width|height))?|stretch)$/) !== 0) {
                 settings.scaleMethod = "fit";
@@ -16102,15 +15638,9 @@ THE SOFTWARE.
                 var parentNodeHeight;
                 var parentNode = me.video.renderer.getScreenCanvas().parentNode;
                 if (typeof (parentNode) !== "undefined") {
-                    if (settings.useParentDOMSize && typeof parentNode.getBoundingClientRect === "function") {
-                        var rect = parentNode.getBoundingClientRect();
-                        parentNodeWidth = rect.width || (rect.right - rect.left);
-                        parentNodeHeight = rect.height || (rect.bottom - rect.top);
-                    } else {
-                        // for cased where DOM is not implemented and so parentNode (e.g. Ejecta)
-                        parentNodeWidth = parentNode.width;
-                        parentNodeHeight = parentNode.height;
-                    }
+                    // for cased where DOM is not implemented and so parentNode (e.g. Ejecta)
+                    parentNodeWidth = parentNode.width;
+                    parentNodeHeight = parentNode.height;
                 }
                 var _max_width = Math.min(maxWidth, parentNodeWidth || window.innerWidth);
                 var _max_height = Math.min(maxHeight, parentNodeHeight || window.innerHeight);
@@ -16221,7 +15751,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -16523,7 +16053,7 @@ THE SOFTWARE.
 
 /*
 * MelonJS Game Engine
-* Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+* Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
 * http://www.melonjs.org
 *
 */
@@ -16601,7 +16131,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017 Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016 Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -16653,6 +16183,8 @@ THE SOFTWARE.
                 this.backBufferCanvas = this.canvas;
                 this.backBufferContext2D = this.context;
             }
+
+            this.fontContext2D = this.backBufferContext2D;
 
             // apply the default color to the 2d context
             this.setColor(this.currentColor);
@@ -16879,15 +16411,6 @@ THE SOFTWARE.
          */
         getContext : function () {
             return this.backBufferContext2D;
-        },
-
-        /**
-         * return a reference to the font 2d Context
-         * @ignore
-         */
-        getFontContext : function () {
-            // in canvas more we can directly use the 2d context
-            return this.getContext();
         },
 
         /**
@@ -17233,7 +16756,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -17610,9 +17133,6 @@ THE SOFTWARE.
      * @param {String} msg Error message.
      */
     me.CanvasRenderer.prototype.Texture.Error = me.Error.extend({
-        /**
-         * @ignore
-         */
         init : function (msg) {
             me.Error.prototype.init.apply(this, [ msg ]);
             this.name = "me.CanvasRenderer.Texture.Error";
@@ -17622,7 +17142,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017 Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016 Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -17797,13 +17317,6 @@ THE SOFTWARE.
         api.createTexture = function (gl, unit, image, filter, repeat, w, h, b) {
             repeat = repeat || "no-repeat";
 
-            if (!me.utils.isPowerOfTwo(w || image.width) || !me.utils.isPowerOfTwo(h || image.height)) {
-                console.warn(
-                    "[WebGL Renderer] " + image + " is not a POT texture " +
-                    "(" + (w || image.width) + "x" + (h || image.height) + ")"
-                );
-            }
-
             var texture = gl.createTexture(),
                 rs = (repeat.search(/^repeat(-x)?$/) === 0) ? gl.REPEAT : gl.CLAMP_TO_EDGE,
                 rt = (repeat.search(/^repeat(-y)?$/) === 0) ? gl.REPEAT : gl.CLAMP_TO_EDGE;
@@ -17831,7 +17344,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017 Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016 Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -17874,7 +17387,7 @@ THE SOFTWARE.
             /**
              * @ignore
              */
-            this._colorStack = [];
+            this.colorStack = [];
 
             /**
              * @ignore
@@ -17909,6 +17422,7 @@ THE SOFTWARE.
             );
 
             this.createFillTexture(this.cache);
+            this.createFontTexture(this.cache);
 
             // Configure the WebGL viewport
             this.scaleCanvas(1, 1);
@@ -17948,8 +17462,8 @@ THE SOFTWARE.
          */
         createFontTexture : function (cache) {
             var image = me.video.createCanvas(
-                me.utils.nextPowerOfTwo(this.backBufferCanvas.width),
-                me.utils.nextPowerOfTwo(this.backBufferCanvas.height)
+                this.backBufferCanvas.width,
+                this.backBufferCanvas.height
             );
 
             /**
@@ -17973,7 +17487,7 @@ THE SOFTWARE.
         },
 
         /**
-         * Create a pattern with the specified repetition
+         * Create a pattern with the specified repition
          * @name createPattern
          * @memberOf me.WebGLRenderer
          * @function
@@ -17988,14 +17502,6 @@ THE SOFTWARE.
          * var basic      = renderer.createPattern(image, "no-repeat");
          */
         createPattern : function (image, repeat) {
-
-            if (!me.utils.isPowerOfTwo(image.width) || !me.utils.isPowerOfTwo(image.height)) {
-                throw new me.video.Error(
-                    "[WebGL Renderer] " + image + " is not a POT texture " +
-                    "(" + image.width + "x" + image.height + ")"
-                );
-            }
-
             var texture = new this.Texture(
                 this.Texture.prototype.createAtlas.apply(
                     this.Texture.prototype,
@@ -18069,8 +17575,6 @@ THE SOFTWARE.
          * @ignore
          */
         drawFont : function (bounds) {
-            var fontContext = this.getFontContext();
-
             // Flush the compositor so we can upload a new texture
             this.compositor.flush();
 
@@ -18089,7 +17593,7 @@ THE SOFTWARE.
             );
 
             // Clear font context2D
-            fontContext.clearRect(0, 0, this.backBufferCanvas.width, this.backBufferCanvas.height);
+            this.fontContext2D.clearRect(0, 0, this.backBufferCanvas.width, this.backBufferCanvas.height);
         },
 
         /**
@@ -18233,20 +17737,6 @@ THE SOFTWARE.
         },
 
         /**
-         * return a reference to the font 2d Context
-         * @ignore
-         */
-        getFontContext : function () {
-            if (typeof (this.fontContext2D) === "undefined" ) {
-                // warn the end user about performance impact
-                console.warn("[WebGL Renderer] WARNING : Using Standard me.Font with WebGL will severly impact performances !");
-                // create the font texture if not done yet
-                this.createFontTexture(this.cache);
-            }
-            return this.fontContext2D;
-        },
-
-        /**
          * resets the gl transform to identity
          * @name resetTransform
          * @memberOf me.WebGLRenderer
@@ -18267,9 +17757,7 @@ THE SOFTWARE.
             this.cache.reset();
             this.compositor.reset();
             this.createFillTexture();
-            if (typeof (this.fontContext2D) !== "undefined" ) {
-                this.createFontTexture();
-            }
+            this.createFontTexture();
         },
 
         /**
@@ -18302,30 +17790,10 @@ THE SOFTWARE.
          * @function
          */
         restore : function () {
-            // do nothing if there is no saved states
-            if (this._matrixStack.length !== 0) {
-                var color = this._colorStack.pop();
-                var matrix = this._matrixStack.pop();
-
-                // restore the previous context
-                this.currentColor.copy(color);
-                this.currentTransform.copy(matrix);
-
-                // recycle objects
-                me.pool.push(color);
-                me.pool.push(matrix);
-            }
-        },
-
-        /**
-         * saves the canvas context
-         * @name save
-         * @memberOf me.WebGLRenderer
-         * @function
-         */
-        save : function () {
-            this._colorStack.push(this.currentColor.clone());
-            this._matrixStack.push(this.currentTransform.clone());
+            var color = this.colorStack.pop();
+            me.pool.push(color);
+            this.currentColor.copy(color);
+            this.currentTransform.copy(this._matrixStack.pop());
         },
 
         /**
@@ -18337,6 +17805,17 @@ THE SOFTWARE.
          */
         rotate : function (angle) {
             this.currentTransform.rotate(angle);
+        },
+
+        /**
+         * save the canvas context
+         * @name save
+         * @memberOf me.WebGLRenderer
+         * @function
+         */
+        save : function () {
+            this.colorStack.push(this.currentColor.clone());
+            this._matrixStack.push(this.currentTransform.clone());
         },
 
         /**
@@ -18577,7 +18056,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -18692,9 +18171,6 @@ THE SOFTWARE.
     * @ignore
     */
     me.WebGLRenderer.prototype.Texture.Error = me.Error.extend({
-        /**
-         * @ignore
-         */
         init : function (msg) {
             me.Error.prototype.init.apply(this, [ msg ]);
             this.name = "me.WebGLRenderer.Texture.Error";
@@ -18704,7 +18180,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017 Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016 Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 (function () {
@@ -19257,7 +18733,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org/
  *
  */
@@ -19319,7 +18795,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org/
  *
  */
@@ -19690,11 +19166,12 @@ THE SOFTWARE.
      * @public
      * @function
      * @param {me.input.KEY} keycode
-     * @param {Boolean} [status=false] true to trigger a key press, or false for key release
+     * @param {Boolean} true to trigger a key press, or false for key release
      * @example
      * // trigger a key press
      * me.input.triggerKeyEvent(me.input.KEY.LEFT, true);
      */
+
     api.triggerKeyEvent = function (keycode, status) {
         if (status) {
             api._keydown({}, keycode);
@@ -19780,7 +19257,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org/
  *
  */
@@ -19878,74 +19355,67 @@ THE SOFTWARE.
     // some useful flags
     var pointerInitialized = false;
 
+    // to keep track of the supported wheel event
+    var wheeltype = "mousewheel";
+
     // Track last event timestamp to prevent firing events out of order
     var lastTimeStamp = 0;
 
     // "active" list of supported events
-    var activeEventList = [];
-
-    // internal constants
-    var WHEEL = ["wheel"];
-    var POINTER_MOVE = ["pointermove", "MSPointerMove", "mousemove", "touchmove"];
-    var POINTER_DOWN = ["pointerdown", "MSPointerDown", "mousedown", "touchstart"];
-    var POINTER_UP = ["pointerup", "MSPointerUp", "mouseup", "touchend"];
-    var POINTER_CANCEL = ["pointercancel", "MSPointerCancel", "mousecancel", "touchcancel"];
-    var POINTER_ENTER = ["pointerenter", "MSPointerEnter", "mouseenter", "touchenter"];
-    var POINTER_LEAVE = ["pointerleave", "MSPointerLeave", "mouseleave", "touchleave"];
+    var activeEventList = null;
 
     // list of standard pointer event type
     var pointerEventList = [
-        WHEEL[0],
-        POINTER_MOVE[0],
-        POINTER_DOWN[0],
-        POINTER_UP[0],
-        POINTER_CANCEL[0],
-        POINTER_ENTER[0],
-        POINTER_LEAVE[0]
+        "mousewheel",
+        "pointermove",
+        "pointerdown",
+        "pointerup",
+        "pointercancel",
+        "pointerenter",
+        "pointerleave"
     ];
 
     // previous MS prefixed pointer event type
     var MSPointerEventList = [
-        WHEEL[0],
-        POINTER_MOVE[1],
-        POINTER_DOWN[1],
-        POINTER_UP[1],
-        POINTER_CANCEL[1],
-        POINTER_ENTER[1],
-        POINTER_LEAVE[1]
+        "mousewheel",
+        "MSPointerMove",
+        "MSPointerDown",
+        "MSPointerUp",
+        "MSPointerCancel",
+        "MSPointerEnter",
+        "MSPointerLeave"
     ];
 
     // legacy mouse event type
     var mouseEventList = [
-        WHEEL[0],
-        POINTER_MOVE[2],
-        POINTER_DOWN[2],
-        POINTER_UP[2],
-        POINTER_CANCEL[2],
-        POINTER_ENTER[2],
-        POINTER_LEAVE[2]
+        "mousewheel",
+        "mousemove",
+        "mousedown",
+        "mouseup",
+        "mousecancel",
+        "mouseenter",
+        "mouseleave"
     ];
 
     // iOS style touch event type
     var touchEventList = [
-        POINTER_MOVE[3],
-        POINTER_DOWN[3],
-        POINTER_UP[3],
-        POINTER_CANCEL[3],
-        POINTER_ENTER[3],
-        POINTER_LEAVE[3]
+        undefined,
+        "touchmove",
+        "touchstart",
+        "touchend",
+        "touchcancel",
+        "touchenter",
+        "touchleave"
     ];
 
-    var pointerEventMap = {
-        wheel : WHEEL,
-        mousewheel : WHEEL, /* XXX: mousewheel is deprecated */
-        pointermove: POINTER_MOVE,
-        pointerdown: POINTER_DOWN,
-        pointerup: POINTER_UP,
-        pointercancel: POINTER_CANCEL,
-        pointerenter: POINTER_ENTER,
-        pointerleave: POINTER_LEAVE
-    };
+    // internal constants
+    // var MOUSE_WHEEL   = 0;
+    var POINTER_MOVE    = 1;
+    var POINTER_DOWN    = 2;
+    var POINTER_UP      = 3;
+    var POINTER_CANCEL  = 4;
+    var POINTER_ENTER   = 5;
+    var POINTER_LEAVE   = 6;
 
     /**
      * cache value for the offset of the canvas position within the page
@@ -19970,8 +19440,8 @@ THE SOFTWARE.
      * @ignore
      */
     function registerEventListener(eventList, callback) {
-        for (var x = 0; x < eventList.length; x++) {
-            if (POINTER_MOVE.indexOf(eventList[x]) === -1) {
+        for (var x = 2; x < eventList.length; ++x) {
+            if (typeof(eventList[x]) !== "undefined") {
                 me.video.renderer.getScreenCanvas().addEventListener(eventList[x], callback, false);
             }
         }
@@ -20000,20 +19470,19 @@ THE SOFTWARE.
             else if (window.MSPointerEvent) { // check for backward compatibility with the 'MS' prefix
                 activeEventList = MSPointerEventList;
             }
+            else if (me.device.touch && me.device.isMobile) { //  `touch****` events for iOS/Android devices
+                activeEventList = touchEventList;
+            }
             else { // Regular Mouse events
                 activeEventList = mouseEventList;
             }
 
-            if (me.device.touch && me.device.isMobile) { //  `touch****` events for iOS/Android devices
-                activeEventList = activeEventList.concat(touchEventList);
-            }
-
             registerEventListener(activeEventList, onPointerEvent);
 
-            // If W3C standard wheel events are not available, use non-standard
-            if (!me.device.wheel) {
-                window.addEventListener("mousewheel", onMouseWheel, false);
-            }
+            // detect wheel event support
+            // Modern browsers support "wheel", Webkit and IE support at least "mousewheel
+            wheeltype = "onwheel" in document.createElement("div") ? "wheel" : "mousewheel";
+            window.addEventListener(wheeltype, onMouseWheel, false);
 
             // set the PointerMove/touchMove/MouseMove event
             if (typeof(api.throttlingInterval) === "undefined") {
@@ -20021,64 +19490,28 @@ THE SOFTWARE.
                 api.throttlingInterval = ~~(1000 / me.sys.fps);
             }
             // if time interval <= 16, disable the feature
-            var i;
-            var events = findAllActiveEvents(activeEventList, POINTER_MOVE);
             if (api.throttlingInterval < 17) {
-                for (i = 0; i < events.length; i++) {
-                    if (activeEventList.indexOf(events[i]) !== -1) {
-                        me.video.renderer.getScreenCanvas().addEventListener(
-                            events[i],
-                            onMoveEvent,
-                            false
-                        );
-                    }
-
-                }
+                me.video.renderer.getScreenCanvas().addEventListener(
+                    activeEventList[POINTER_MOVE],
+                    onMoveEvent,
+                    false
+                );
             }
             else {
-                for (i = 0; i < events.length; i++) {
-                    if (activeEventList.indexOf(events[i]) !== -1) {
-                        me.video.renderer.getScreenCanvas().addEventListener(
-                            events[i],
-                            throttle(
-                                api.throttlingInterval,
-                                false,
-                                onMoveEvent
-                            ),
-                            false
-                        );
-                    }
-                }
+                me.video.renderer.getScreenCanvas().addEventListener(
+                    activeEventList[POINTER_MOVE],
+                    throttle(
+                        api.throttlingInterval,
+                        false,
+                        function (e) {
+                            onMoveEvent(e);
+                        }
+                    ),
+                    false
+                );
             }
             pointerInitialized = true;
         }
-    }
-
-    /**
-     * @ignore
-     */
-    function findActiveEvent(activeEventList, eventTypes) {
-        for (var i = 0; i < eventTypes.length; i++) {
-            var event = activeEventList.indexOf(eventTypes[i]);
-            if (event !== -1) {
-                return eventTypes[i];
-            }
-        }
-    }
-
-    /**
-     * @ignore
-     */
-    function findAllActiveEvents(activeEventList, eventTypes) {
-        var events = [];
-        for (var i = 0; i < eventTypes.length; i++) {
-            var event = activeEventList.indexOf(eventTypes[i]);
-            if (event !== -1) {
-                events.push(eventTypes[i]);
-            }
-        }
-
-        return events;
     }
 
     /**
@@ -20088,7 +19521,7 @@ THE SOFTWARE.
         var callback;
         if (handlers.callbacks[type]) {
             handlers.pointerId = pointerId;
-            for (var i = handlers.callbacks[type].length - 1; (i >= 0) && (callback = handlers.callbacks[type][i]); i--) {
+            for (var i = handlers.callbacks[type].length - 1; (callback = handlers.callbacks[type][i]); i--) {
                 if (callback(e) === false) {
                     // stop propagating the event if return false
                     return true;
@@ -20145,7 +19578,7 @@ THE SOFTWARE.
             var candidates = me.collision.quadTree.retrieve(currentPointer, me.Container.prototype._sortReverseZ);
 
             // add the viewport to the list of candidates
-            candidates = candidates.concat([ me.game.viewport ]);
+            candidates.push( me.game.viewport );
 
             for (var c = candidates.length, candidate; c--, (candidate = candidates[c]);) {
 
@@ -20176,21 +19609,18 @@ THE SOFTWARE.
                         // then check more precisely if needed
                         (bounds === region || region.containsPoint(e.gameLocalX, e.gameLocalY));
 
-                    switch (e.type) {
-                        case POINTER_MOVE[0]:
-                        case POINTER_MOVE[1]:
-                        case POINTER_MOVE[2]:
-                        case POINTER_MOVE[3]:
+                    switch (activeEventList.indexOf(e.type)) {
+                        case POINTER_MOVE:
                             // moved out of bounds: trigger the POINTER_LEAVE callbacks
                             if (handlers.pointerId === e.pointerId && !eventInBounds) {
-                                if (triggerEvent(handlers, findActiveEvent(activeEventList, POINTER_LEAVE), e, null)) {
+                                if (triggerEvent(handlers, activeEventList[POINTER_LEAVE], e, null)) {
                                     handled = true;
                                     break;
                                 }
                             }
                             // no pointer & moved inside of bounds: trigger the POINTER_ENTER callbacks
                             else if (handlers.pointerId === null && eventInBounds) {
-                                if (triggerEvent(handlers, findActiveEvent(activeEventList, POINTER_ENTER), e, e.pointerId)) {
+                                if (triggerEvent(handlers, activeEventList[POINTER_ENTER], e, e.pointerId)) {
                                     handled = true;
                                     break;
                                 }
@@ -20203,10 +19633,7 @@ THE SOFTWARE.
                             }
                             break;
 
-                        case POINTER_UP[0]:
-                        case POINTER_UP[1]:
-                        case POINTER_UP[2]:
-                        case POINTER_UP[3]:
+                        case POINTER_UP:
                             // pointer defined & inside of bounds: trigger the POINTER_UP callback
                             if (handlers.pointerId === e.pointerId && eventInBounds) {
                                 // trigger the corresponding callback
@@ -20217,10 +19644,7 @@ THE SOFTWARE.
                             }
                             break;
 
-                        case POINTER_CANCEL[0]:
-                        case POINTER_CANCEL[1]:
-                        case POINTER_CANCEL[2]:
-                        case POINTER_CANCEL[3]:
+                        case POINTER_CANCEL:
                             // pointer defined: trigger the POINTER_CANCEL callback
                             if (handlers.pointerId === e.pointerId) {
                                 // trigger the corresponding callback
@@ -20232,15 +19656,16 @@ THE SOFTWARE.
                             break;
 
                         default:
-                            // event inside of bounds: trigger the POINTER_DOWN or WHEEL callback
+                            // event inside of bounds: trigger the POINTER_DOWN or MOUSE_WHEEL callback
                             if (eventInBounds) {
 
                                 // trigger the corresponding callback
-                                if (triggerEvent(handlers, e.type, e, e.pointerId)) {
+                                var type = e.type;
+                                if (type === "wheel") {
+                                    type = "mousewheel";
+                                }
+                                if (triggerEvent(handlers, type, e, e.pointerId)) {
                                     handled = true;
-                                    if (e.type === "wheel") {
-                                        api._preventDefault(e);
-                                    }
                                     break;
                                 }
                             }
@@ -20261,21 +19686,21 @@ THE SOFTWARE.
      * @ignore
      */
     function updateCoordFromEvent(event) {
+        var local = T_VECTORS.pop();
+
         // PointerEvent or standard Mouse event
         if (!event.touches) {
-            var pointerV = T_VECTORS.pop();
-            api.globalToLocal(event.clientX, event.clientY, pointerV);
-            pointerV.id = event.pointerId || 1;
-            changedTouches.push(pointerV);
+            api.globalToLocal(event.clientX, event.clientY, local);
+            local.id = event.pointerId || 1;
+            changedTouches.push(local);
         }
         // iOS/Android like touch event
         else {
             for (var i = 0, l = event.changedTouches.length; i < l; i++) {
-                var touchV = T_VECTORS.pop();
                 var t = event.changedTouches[i];
-                api.globalToLocal(t.clientX, t.clientY, touchV);
-                touchV.id = t.identifier;
-                changedTouches.push(touchV);
+                api.globalToLocal(t.clientX, t.clientY, local);
+                local.id = t.identifier;
+                changedTouches.push(local);
             }
         }
         // if event.isPrimary is defined and false, return
@@ -20300,7 +19725,6 @@ THE SOFTWARE.
 
     /**
      * mouse event management (mousewheel)
-     * XXX: mousewheel is deprecated
      * @ignore
      */
     function onMouseWheel(e) {
@@ -20308,13 +19732,17 @@ THE SOFTWARE.
         if (e.target === me.video.renderer.getScreenCanvas()) {
             // create a (fake) normalized event object
             updateCoordFromEvent(e);
-            e.type = "wheel";
             e.deltaMode = 1;
-            e.deltaY = - 1 / 40 * e.wheelDelta;
-            // Webkit also support wheelDeltaX
-            e.wheelDeltaX && (e.deltaX = - 1 / 40 * e.wheelDeltaX);
+            if (wheeltype === "mousewheel") {
+                e.deltaY = - 1 / 40 * e.wheelDelta;
+                // Webkit also support wheelDeltaX
+                e.wheelDeltaX && (e.deltaX = - 1 / 40 * e.wheelDeltaX);
+            }
             // dispatch mouse event to registered object
-            return dispatchEvent(e);
+            if (dispatchEvent(e)) {
+                // prevent default action
+                return api._preventDefault(e);
+            }
         }
         return true;
     }
@@ -20355,7 +19783,7 @@ THE SOFTWARE.
 
         // check if mapped to a key
         if (keycode) {
-            if (POINTER_DOWN.indexOf(e.type) !== -1) {
+            if (e.type === activeEventList[POINTER_DOWN]) {
                 return api._keydown(e, keycode, button + 1);
             }
             else { // 'mouseup' or 'touchend'
@@ -20504,8 +19932,7 @@ THE SOFTWARE.
      *   <li><code>"pointerenter"</code></li>
      *   <li><code>"pointerleave"</code></li>
      *   <li><code>"pointercancel"</code></li>
-     *   <li><code>"wheel"</code></li>
-     *   <li><code>"mousewheel"</code> (Deprecated)</li>
+     *   <li><code>"mousewheel"</code></li>
      * </ul>
      * @param {me.Rect|me.Polygon|me.Line|me.Ellipse} region a shape representing the region to register on
      * @param {Function} callback methods to be called when the event occurs.
@@ -20529,14 +19956,14 @@ THE SOFTWARE.
         // make sure the mouse/touch events are initialized
         enablePointerEvent();
 
-        // XXX: mousewheel is deprecated
-        if (eventType === "mousewheel") {
-            console.error("`mousewheel` events are deprecated; use `wheel`")
-        } else if (pointerEventList.indexOf(eventType) === -1) {
+        if (pointerEventList.indexOf(eventType) === -1) {
             throw new me.Error("invalid event type : " + eventType);
         }
 
-        var eventTypes = findAllActiveEvents(activeEventList, pointerEventMap[eventType]);
+        // convert to supported event type if pointerEvent not natively supported
+        if (pointerEventList !== activeEventList) {
+            eventType = activeEventList[pointerEventList.indexOf(eventType)];
+        }
 
         // register the event
         if (!evtHandlers.has(region)) {
@@ -20549,14 +19976,12 @@ THE SOFTWARE.
 
         // allocate array if not defined
         var handlers = evtHandlers.get(region);
-        for (var i = 0; i < eventTypes.length; i++) {
-            eventType = eventTypes[i];
-            if (handlers.callbacks[eventType]) {
-                handlers.callbacks[eventType].push(callback);
-            } else {
-                handlers.callbacks[eventType] = [callback];
-            }
+        if (!handlers.callbacks[eventType]) {
+            handlers.callbacks[eventType] = [];
         }
+
+        // initialize the handler
+        handlers.callbacks[eventType].push(callback);
     };
 
     /**
@@ -20574,32 +19999,23 @@ THE SOFTWARE.
      * me.input.releasePointerEvent('pointerdown', this);
      */
     api.releasePointerEvent = function (eventType, region, callback) {
-        // XXX: mousewheel is deprecated
-        if (eventType === "mousewheel") {
-            console.error("`mousewheel` events are deprecated; use `wheel`")
-        } else if (pointerEventList.indexOf(eventType) === -1) {
+        if (pointerEventList.indexOf(eventType) === -1) {
             throw new me.Error("invalid event type : " + eventType);
         }
 
         // convert to supported event type if pointerEvent not natively supported
-        var eventTypes = findAllActiveEvents(activeEventList, pointerEventMap[eventType]);
+        if (pointerEventList !== activeEventList) {
+            eventType = activeEventList[pointerEventList.indexOf(eventType)];
+        }
 
         var handlers = evtHandlers.get(region);
-        for (var i = 0; i < eventTypes.length; i++) {
-            eventType = eventTypes[i];
-            if (handlers.callbacks[eventType]) {
-                if (typeof (callback) !== "undefined") {
-                    handlers.callbacks[eventType].remove(callback);
-                } else {
-                    while (handlers.callbacks[eventType].length > 0) {
-                        handlers.callbacks[eventType].pop();
-                    }
-                }
-                // free the array if empty
-                if (handlers.callbacks[eventType].length === 0) {
-                    delete handlers.callbacks[eventType];
-                }
+        if (typeof(callback) === "undefined") {
+            // unregister all callbacks of "eventType" for the given region
+            while (handlers.callbacks[eventType].length > 0) {
+                handlers.callbacks[eventType].pop();
             }
+        } else {
+            handlers.callbacks[eventType].remove(callback);
         }
         if (Object.keys(handlers.callbacks).length === 0) {
             evtHandlers.delete(region);
@@ -20625,7 +20041,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org/
  *
  */
@@ -21134,7 +20550,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -21435,39 +20851,6 @@ THE SOFTWARE.
             return GUID_base + "-" + (index || GUID_index);
         };
 
-        /**
-         * returns true if the given value is a power of two
-         * @public
-         * @function
-         * @memberOf me.utils
-         * @name isPowerOfTwo
-         * @param {Number} val
-         * @return {boolean}
-         */
-        api.isPowerOfTwo = function (val) {
-            return (val & (val - 1)) === 0;
-        };
-
-        /**
-         * returns the next power of two for the given value
-         * @public
-         * @function
-         * @memberOf me.utils
-         * @name nextPowerOfTwo
-         * @param {Number} val
-         * @return {boolean}
-         */
-        api.nextPowerOfTwo = function (val) {
-            val --;
-            val |= val >> 1;
-            val |= val >> 2;
-            val |= val >> 4;
-            val |= val >> 8;
-            val |= val >> 16;
-            val ++;
-            return val;
-        };
-
         // return our object
         return api;
     })();
@@ -21475,7 +20858,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 (function () {
@@ -21657,9 +21040,7 @@ THE SOFTWARE.
     /** @scope me.Color.prototype */
     {
 
-        /**
-         * @ignore
-         */
+        /** @ignore */
         init : function (r, g, b, alpha) {
 
             /**
@@ -21989,13 +21370,7 @@ THE SOFTWARE.
      * @memberOf me.Color
      */
     Object.defineProperty(me.Color.prototype, "r", {
-        /**
-         * @ignore
-         */
         get : function () { return ~~(this.glArray[0] * 255); },
-        /**
-         * @ignore
-         */
         set : function (value) { this.glArray[0] = (~~value || 0).clamp(0, 255) / 255.0; },
         enumerable : true,
         configurable : true
@@ -22009,13 +21384,7 @@ THE SOFTWARE.
      * @memberOf me.Color
      */
     Object.defineProperty(me.Color.prototype, "g", {
-        /**
-         * @ignore
-         */
         get : function () { return ~~(this.glArray[1] * 255); },
-        /**
-         * @ignore
-         */
         set : function (value) { this.glArray[1] = (~~value || 0).clamp(0, 255) / 255.0; },
         enumerable : true,
         configurable : true
@@ -22029,13 +21398,7 @@ THE SOFTWARE.
      * @memberOf me.Color
      */
     Object.defineProperty(me.Color.prototype, "b", {
-        /**
-         * @ignore
-         */
         get : function () { return ~~(this.glArray[2] * 255); },
-        /**
-         * @ignore
-         */
         set : function (value) { this.glArray[2] = (~~value || 0).clamp(0, 255) / 255.0; },
         enumerable : true,
         configurable : true
@@ -22049,13 +21412,7 @@ THE SOFTWARE.
      * @memberOf me.Color
      */
     Object.defineProperty(me.Color.prototype, "alpha", {
-        /**
-         * @ignore
-         */
         get : function () { return this.glArray[3]; },
-        /**
-         * @ignore
-         */
         set : function (value) { this.glArray[3] = typeof(value) === "undefined" ? 1.0 : (+value).clamp(0, 1); },
         enumerable : true,
         configurable : true
@@ -22070,9 +21427,6 @@ THE SOFTWARE.
      * @param {String} msg Error message.
      */
     me.Color.Error = me.Error.extend({
-        /**
-         * @ignore
-         */
         init : function (msg) {
             me.Error.prototype.init.apply(this, [ msg ]);
             this.name = "me.Color.Error";
@@ -22082,7 +21436,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -22162,15 +21516,9 @@ THE SOFTWARE.
                         Object.defineProperty(api, prop, {
                             configurable : true,
                             enumerable : true,
-                            /**
-                             * @ignore
-                             */
                             get : function () {
                                 return data[prop];
                             },
-                            /**
-                             * @ignore
-                             */
                             set : function (value) {
                                 data[prop] = value;
                                 if (me.device.localStorage === true) {
@@ -22221,7 +21569,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  * Tile QT 0.7.x format
@@ -22529,7 +21877,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  * Tile QT 0.7.x format
@@ -22549,11 +21897,7 @@ THE SOFTWARE.
      * @constructor
      */
     me.TMXObjectGroup = me.Object.extend({
-        /**
-         * @ignore
-         */
-        init : function (map, data, z) {
-
+        init : function (name, tmxObjGroup, orientation, tilesets, z) {
             /**
              * group name
              * @public
@@ -22561,7 +21905,7 @@ THE SOFTWARE.
              * @name name
              * @memberOf me.TMXObjectGroup
              */
-            this.name = data.name;
+            this.name = name;
 
             /**
              * group width
@@ -22570,7 +21914,7 @@ THE SOFTWARE.
              * @name width
              * @memberOf me.TMXObjectGroup
              */
-            this.width = data.width;
+            this.width = tmxObjGroup.width;
 
             /**
              * group height
@@ -22579,7 +21923,7 @@ THE SOFTWARE.
              * @name height
              * @memberOf me.TMXObjectGroup
              */
-            this.height = data.height;
+            this.height = tmxObjGroup.height;
 
             /**
              * group z order
@@ -22600,19 +21944,18 @@ THE SOFTWARE.
              */
             this.objects = [];
 
-            var visible = typeof(data.visible) !== "undefined" ? data.visible : true;
-            this.opacity = (visible === true) ? (+data.opacity || 1.0).clamp(0.0, 1.0) : 0;
+            var visible = typeof(tmxObjGroup.visible) !== "undefined" ? tmxObjGroup.visible : true;
+            this.opacity = (visible === true) ? (+tmxObjGroup.opacity || 1.0).clamp(0.0, 1.0) : 0;
 
             // check if we have any user-defined properties
-            me.TMXUtils.applyTMXProperties(this, data);
+            me.TMXUtils.applyTMXProperties(this, tmxObjGroup);
 
             // parse all objects
-            var _objects = data.objects;
+            var _objects = tmxObjGroup.objects;
             if (_objects) {
                 var self = this;
                 _objects.forEach(function (tmxObj) {
-                    //self.objects.push(new me.TMXObject(tmxObj, map.orientation, map.tilesets, z));
-                    self.objects.push(new me.TMXObject(map, tmxObj, z));
+                    self.objects.push(new me.TMXObject(tmxObj, orientation, tilesets, z));
                 });
             }
         },
@@ -22657,10 +22000,7 @@ THE SOFTWARE.
      * @constructor
      */
     me.TMXObject = me.Object.extend({
-        /**
-         * @ignore
-         */
-        init :  function (map, tmxObj, z) {
+        init :  function (tmxObj, orientation, tilesets, z) {
 
             /**
              * object point list (for Polygon and PolyLine)
@@ -22769,7 +22109,7 @@ THE SOFTWARE.
              * @name orientation
              * @memberOf me.TMXObject
              */
-            this.orientation = map.orientation;
+            this.orientation = orientation;
 
             /**
              * the collision shapes defined for this object
@@ -22809,7 +22149,7 @@ THE SOFTWARE.
 
             // check if the object has an associated gid
             if (typeof this.gid === "number") {
-                this.setTile(map.tilesets);
+                this.setTile(tilesets);
             }
             else {
                 if (typeof(tmxObj.ellipse) !== "undefined") {
@@ -22837,7 +22177,7 @@ THE SOFTWARE.
             }
 
             // Adjust the Position to match Tiled
-            map.getRenderer().adjustPosition(this);
+            me.game.tmxRenderer.adjustPosition(this);
 
             // set the object properties
             me.TMXUtils.applyTMXProperties(this, tmxObj);
@@ -22924,7 +22264,7 @@ THE SOFTWARE.
             // Apply isometric projection
             if (this.orientation === "isometric") {
                 for (i = 0; i < shapes.length; i++) {
-                    shapes[i].toIso();
+                    shapes[i].rotate(Math.PI / 4).scale(Math.SQRT2, Math.SQRT1_2);
                 }
             }
 
@@ -22943,7 +22283,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  * Tile QT 0.7.x format
@@ -23121,7 +22461,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  * Tile QT 0.7.x format
@@ -23142,10 +22482,7 @@ THE SOFTWARE.
      * @param {Object} tileset tileset JSON definition
      */
     me.TMXTileset = me.Object.extend({
-        /**
-         * constructor
-         * @ignore
-         */
+        // constructor
         init: function (tileset) {
             var i = 0;
             // first gid
@@ -23380,35 +22717,19 @@ THE SOFTWARE.
      * @constructor
      */
     me.TMXTilesetGroup = me.Object.extend({
-        /**
-         * constructor
-         * @ignore
-         */
+        // constructor
         init: function () {
             this.tilesets = [];
             this.length = 0;
         },
 
-        /**
-         * add a tileset to the tileset group
-         * @name me.TMXTilesetGroup#add
-         * @public
-         * @function
-         * @param  {me.TMXTileset} tileset
-         */
+        //add a tileset to the tileset group
         add : function (tileset) {
             this.tilesets.push(tileset);
             this.length++;
         },
 
-        /**
-         * return the tileset at the specified index
-         * @name me.TMXTilesetGroup#getTilesetByIndex
-         * @public
-         * @function
-         * @param {Number} i
-         * @return {me.TMXTileset} corresponding tileset
-         */
+        //return the tileset at the specified index
         getTilesetByIndex : function (i) {
             return this.tilesets[i];
         },
@@ -23460,9 +22781,6 @@ THE SOFTWARE.
      * @param {String} msg Error message.
      */
     me.TMXTileset.Error = me.Error.extend({
-        /**
-         * @ignore
-         */
         init : function (msg) {
             me.Error.prototype.init.apply(this, [ msg ]);
             this.name = "me.TMXTileset.Error";
@@ -23473,10 +22791,10 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
- * Tiled (0.7+) format
+ * Tile QT 0.7.x format
  * http://www.mapeditor.org/
  *
  */
@@ -23497,15 +22815,10 @@ THE SOFTWARE.
     ];
 
     /**
-     * The map renderer base class
-     * @class
-     * @extends me.Object
+     * The map renderder base class
      * @memberOf me
+     * @ignore
      * @constructor
-     * @param {Number} cols width of the tilemap in tiles
-     * @param {Number} rows height of the tilemap in tiles
-     * @param {Number} tilewidth width of each tile in pixels
-     * @param {Number} tileheight height of each tile in pixels
      */
     me.TMXRenderer = me.Object.extend({
         // constructor
@@ -23518,108 +22831,26 @@ THE SOFTWARE.
 
         /**
          * return true if the renderer can render the specified layer
-         * @name me.TMXRenderer#canRender
-         * @public
-         * @function
-         * @param {me.TMXTileMap|me.TMXLayer} component TMX Map or Layer
-         * @return {boolean}
+         * @ignore
          */
-        canRender : function (component) {
+        canRender : function (layer) {
             return (
-                (this.cols === component.cols) &&
-                (this.rows === component.rows) &&
-                (this.tilewidth === component.tilewidth) &&
-                (this.tileheight === component.tileheight)
+                (this.cols === layer.cols) &&
+                (this.rows === layer.rows) &&
+                (this.tilewidth === layer.tilewidth) &&
+                (this.tileheight === layer.tileheight)
             );
-        },
-
-        /**
-         * return the tile position corresponding to the specified pixel
-         * @name me.TMXRenderer#pixelToTileCoords
-         * @public
-         * @function
-         * @param {Number} x X coordinate
-         * @param {Number} y Y coordinate
-         * @param {me.Vector2d} [vector] an optional vector object where to put the return values
-         * @return {me.Vector2d}
-         */
-        pixelToTileCoords : function (x, y, v) {
-            return v;
-        },
-
-        /**
-         * return the pixel position corresponding of the specified tile
-         * @name me.TMXRenderer#tileToPixelCoords
-         * @public
-         * @function
-         * @param {Number} col tile horizontal position
-         * @param {Number} row tile vertical position
-         * @param {me.Vector2d} [vector] an optional vector object where to put the return values
-         * @return {me.Vector2d}
-         */
-        tileToPixelCoords : function (x, y, v) {
-            return v;
-        },
-
-        /**
-         * return the tile position corresponding for the given X coordinate
-         * @name me.TMXRenderer#pixelToTileX
-         * @public
-         * @function
-         * @param {Number} x X coordinate
-         * @return {Number} tile vertical position
-         */
-        pixelToTileX : function (x) {
-        },
-
-        /**
-         * return the tile position corresponding for the given Y coordinates
-         * @name me.TMXRenderer#pixelToTileY
-         * @public
-         * @function
-         * @param {Number} y Y coordinate
-         * @return {Number} tile horizontal position
-         */
-        pixelToTileY : function (y) {
-        },
-
-        /**
-         * draw the given tile at the specified layer
-         * @name me.TMXRenderer#drawTile
-         * @public
-         * @function
-         * @param {me.CanvasRenderer|me.WebGLRenderer} renderer a renderer object
-         * @param {Number} x X coordinate where to draw the tile
-         * @param {Number} y Y coordinate where to draw the tile
-         * @param {me.Tile} tile the tile object to draw
-         */
-        drawTile : function (renderer, x, y, tile) {
-        },
-
-        /**
-         * draw the given TMX Layer for the given area
-         * @name me.TMXRenderer#drawTileLayer
-         * @public
-         * @function
-         * @param {me.CanvasRenderer|me.WebGLRenderer} renderer a renderer object
-         * @param {me.TMXLayer} layer a TMX Layer object
-         * @param {me.Rect} rect the area of the layer to draw
-         */
-        drawTileLayer : function (renderer, layer, rect) {
         }
-
     });
+
 
     /**
      * an Orthogonal Map Renderder
+     * Tiled QT 0.7.x format
      * @memberOf me
      * @extends me.TMXRenderer
-     * @memberOf me
+     * @ignore
      * @constructor
-     * @param {Number} cols width of the tilemap in tiles
-     * @param {Number} rows height of the tilemap in tiles
-     * @param {Number} tilewidth width of each tile in pixels
-     * @param {Number} tileheight height of each tile in pixels
      */
     me.TMXOrthogonalRenderer = me.TMXRenderer.extend({
         /**
@@ -23691,8 +22922,7 @@ THE SOFTWARE.
          * draw the tile map
          * @ignore
          */
-        drawTile : function (renderer, x, y, tmxTile) {
-            var tileset = tmxTile.tileset;
+        drawTile : function (renderer, x, y, tmxTile, tileset) {
             // draw the tile
             tileset.drawTile(
                 renderer,
@@ -23729,7 +22959,7 @@ THE SOFTWARE.
                 for (var x = start.x; x < end.x; x++) {
                     var tmxTile = layer.layerData[x][y];
                     if (tmxTile) {
-                        this.drawTile(renderer, x, y, tmxTile);
+                        this.drawTile(renderer, x, y, tmxTile, tmxTile.tileset);
                     }
                 }
             }
@@ -23742,14 +22972,11 @@ THE SOFTWARE.
 
     /**
      * an Isometric Map Renderder
+     * Tiled QT 0.7.x format
      * @memberOf me
      * @extends me.TMXRenderer
-     * @memberOf me
+     * @ignore
      * @constructor
-     * @param {Number} cols width of the tilemap in tiles
-     * @param {Number} rows height of the tilemap in tiles
-     * @param {Number} tilewidth width of each tile in pixels
-     * @param {Number} tileheight height of each tile in pixels
      */
     me.TMXIsometricRenderer = me.TMXRenderer.extend({
         // constructor
@@ -23823,24 +23050,19 @@ THE SOFTWARE.
          * @ignore
          */
         adjustPosition: function (obj) {
-            var tileX = obj.x / this.hTilewidth;
-            var tileY = obj.y / this.tileheight;
-            var isoPos = me.pool.pull("me.Vector2d");
-
-            this.tileToPixelCoords(tileX, tileY, isoPos);
+            var tilex = obj.x / this.hTilewidth;
+            var tiley = obj.y / this.tileheight;
+            var isoPos = this.tileToPixelCoords(tilex, tiley);
 
             obj.x = isoPos.x;
             obj.y = isoPos.y;
-
-            me.pool.push(isoPos);
         },
 
         /**
          * draw the tile map
          * @ignore
          */
-        drawTile : function (renderer, x, y, tmxTile) {
-            var tileset = tmxTile.tileset;
+        drawTile : function (renderer, x, y, tmxTile, tileset) {
             // draw the tile
             tileset.drawTile(
                 renderer,
@@ -23957,14 +23179,11 @@ THE SOFTWARE.
 
     /**
      * an Hexagonal Map Renderder
+     * Tiled QT 0.7.x format
      * @memberOf me
      * @extends me.TMXRenderer
-     * @memberOf me
+     * @ignore
      * @constructor
-     * @param {Number} cols width of the tilemap in tiles
-     * @param {Number} rows height of the tilemap in tiles
-     * @param {Number} tilewidth width of each tile in pixels
-     * @param {Number} tileheight height of each tile in pixels
      */
     me.TMXHexagonalRenderer = me.TMXRenderer.extend({
         // constructor
@@ -24175,8 +23394,7 @@ THE SOFTWARE.
          * draw the tile map
          * @ignore
          */
-        drawTile : function (renderer, x, y, tmxTile) {
-            var tileset = tmxTile.tileset;
+        drawTile : function (renderer, x, y, tmxTile, tileset) {
             var point = this.tileToPixelCoords(x, y, me.pool.pull("me.Vector2d"));
 
             // draw the tile
@@ -24217,7 +23435,7 @@ THE SOFTWARE.
                 for (var x = start.x; x < end.x; x++) {
                     var tmxTile = layer.layerData[x][y];
                     if (tmxTile) {
-                        this.drawTile(renderer, x, y, tmxTile);
+                        this.drawTile(renderer, x, y, tmxTile, tmxTile.tileset);
                     }
                 }
             }
@@ -24228,7 +23446,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -24245,10 +23463,7 @@ THE SOFTWARE.
      * @param {Number} z z-index position
      */
     me.ColorLayer = me.Renderable.extend({
-        /**
-         * Constructor
-         * @ignore
-         */
+        // constructor
         init: function (name, color, z) {
             // parent constructor
             me.Renderable.prototype.init.apply(this, [0, 0, Infinity, Infinity]);
@@ -24311,6 +23526,7 @@ THE SOFTWARE.
         /**
          * constructor
          * @ignore
+         * @function
          */
         init: function (x, y, settings) {
             // layer name
@@ -24406,15 +23622,9 @@ THE SOFTWARE.
              * @name me.ImageLayer#repeat
              */
             Object.defineProperty(this, "repeat", {
-                /**
-                 * @ignore
-                 */
                 get : function get() {
                     return this._repeat;
                 },
-                /**
-                 * @ignore
-                 */
                 set : function set(val) {
                     this._repeat = val;
                     switch (this._repeat) {
@@ -24592,9 +23802,8 @@ THE SOFTWARE.
      * @param {Number} z z-index position
      */
     me.TMXLayer = me.Renderable.extend({
-        /**
-         * @ignore
-         */
+
+        /** @ignore */
         init: function (tilewidth, tileheight, orientation, tilesets, z) {
             // super constructor
             me.Renderable.prototype.init.apply(this, [0, 0, 0, 0]);
@@ -24736,28 +23945,13 @@ THE SOFTWARE.
             this.animatedTilesets = undefined;
         },
 
+
         /**
-         * Se the TMX renderer for this layer object
-         * @name setRenderer
-         * @memberOf me.TMXLayer
-         * @public
-         * @function
-         * @param {me.TMXRenderer} renderer
+         * set the layer renderer
+         * @ignore
          */
         setRenderer : function (renderer) {
             this.renderer = renderer;
-        },
-
-        /**
-         * Return the layer current renderer object
-         * @name getRenderer
-         * @memberOf me.TMXLayer
-         * @public
-         * @function
-         * @return {me.TMXRenderer} renderer
-         */
-        getRenderer : function (renderer) {
-            return this.renderer;
         },
 
         /**
@@ -24783,7 +23977,7 @@ THE SOFTWARE.
          * @function
          * @param {Number} x X coordinate (in world/pixels coordinates)
          * @param {Number} y Y coordinate (in world/pixels coordinates)
-         * @return {Number} TileId or null if there is no Tile at the given position
+         * @return {Number} TileId
          */
         getTileId : function (x, y) {
             var tile = this.getTile(x, y);
@@ -24798,7 +23992,7 @@ THE SOFTWARE.
          * @function
          * @param {Number} x X coordinate (in world/pixels coordinates)
          * @param {Number} y Y coordinate (in world/pixels coordinates)
-         * @return {me.Tile} corresponding tile or null if outside of the map area
+         * @return {me.Tile} Tile Object
          * @example
          * // get the TMX Map Layer called "Front layer"
          * var layer = me.game.world.getChildByName("Front Layer")[0];
@@ -24806,16 +24000,7 @@ THE SOFTWARE.
          * var tile = layer.getTile(me.input.pointer.pos.x, me.input.pointer.pos.y);
          */
         getTile : function (x, y) {
-            if (this.containsPoint(x, y)) {
-                var renderer = this.renderer;
-                var col = ~~renderer.pixelToTileX(x, y);
-                var row = ~~renderer.pixelToTileY(y, x);
-                if ((col >= 0 && col < renderer.cols) && (row >= 0 && row < renderer.rows)) {
-                    return this.layerData[col][row];
-                }
-            }
-            // return null if no corresponding tile
-            return null;
+            return this.layerData[~~this.renderer.pixelToTileX(x, y)][~~this.renderer.pixelToTileY(y, x)];
         },
 
         /**
@@ -24837,7 +24022,7 @@ THE SOFTWARE.
             var tile = this.layerData[x][y] = new me.Tile(x, y, tileId, this.tileset);
             // draw the corresponding tile
             if (this.preRender) {
-                this.renderer.drawTile(this.canvasRenderer, x, y, tile);
+                this.renderer.drawTile(this.canvasRenderer, x, y, tile, tile.tileset);
             }
             return tile;
         },
@@ -24918,7 +24103,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  * Tile QT +0.7.x format
@@ -24999,12 +24184,12 @@ THE SOFTWARE.
         // init the layer properly
         layer.initFromJSON(data);
         // set a renderer
-        if (!map.getRenderer().canRender(layer)) {
+        if (!me.game.tmxRenderer.canRender(layer)) {
             layer.setRenderer(getNewDefaultRenderer(layer));
         }
         else {
             // use the default one
-            layer.setRenderer(map.getRenderer());
+            layer.setRenderer(me.game.tmxRenderer);
         }
         // parse the layer data
         setLayerData(layer,
@@ -25056,7 +24241,7 @@ THE SOFTWARE.
      * @ignore
      */
     function readObjectGroup(map, data, z) {
-        return (new me.TMXObjectGroup(map, data, z));
+        return (new me.TMXObjectGroup(data.name, data, map.orientation, map.tilesets, z));
     }
 
 
@@ -25163,24 +24348,14 @@ THE SOFTWARE.
             // set additional map properties (if any)
             me.TMXUtils.applyTMXProperties(this, data);
 
+            // initialize a default TMX renderer
+            if ((me.game.tmxRenderer === null) || !me.game.tmxRenderer.canRender(this)) {
+                me.game.tmxRenderer = getNewDefaultRenderer(this);
+            }
+
             // internal flag
             this.initialized = false;
 
-        },
-
-        /**
-         * Return the map default renderer
-         * @name getRenderer
-         * @memberOf me.TMXTileMap
-         * @public
-         * @function
-         * @return {me.TMXRenderer} renderer
-         */
-        getRenderer : function (renderer) {
-            if ((typeof(this.renderer) === "undefined") || (!this.renderer.canRender(this))) {
-                this.renderer = getNewDefaultRenderer(this);
-            }
-            return this.renderer;
         },
 
         /**
@@ -25440,7 +24615,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -25830,18 +25005,13 @@ THE SOFTWARE.
         var _onCompleteCallback = null;
         var _tweenTimeTracker = null;
 
-        /**
-         * @ignore
-         */
+
         this._resumeCallback = function (elapsed) {
             if (_startTime) {
                 _startTime += elapsed;
             }
         };
 
-        /**
-         * @ignore
-         */
         this.setProperties = function (object) {
             _object = object;
             _valuesStart = {};
@@ -25927,14 +25097,14 @@ THE SOFTWARE.
          * @public
          * @function
          */
-        this.start = function ( _time ) {
+        this.start = function ( time ) {
 
             _onStartCallbackFired = false;
 
             // add the tween to the object pool on start
             me.game.world.addChild(this);
 
-            _startTime = (typeof(_time) === 'undefined' ? me.timer.getTime() : _time) + _delayTime;
+            _startTime = (typeof(time) === 'undefined' ? me.timer.getTime() : time) + _delayTime;
 
             for ( var property in _valuesEnd ) {
 
@@ -26659,9 +25829,6 @@ THE SOFTWARE.
      * @param {String} msg Error message.
      */
     me.Tween.Error = me.Error.extend({
-        /**
-         * @ignore
-         */
         init : function (msg) {
             me.Error.prototype.init.apply(this, [ msg ]);
             this.name = "me.Tween.Error";
@@ -27044,7 +26211,7 @@ THE SOFTWARE.
 })();
 
 /*!
- *  howler.js v2.0.2
+ *  howler.js v2.0.1
  *  howlerjs.com
  *
  *  (c) 2013-2016, James Simpson of GoldFire Studios
@@ -27202,7 +26369,7 @@ THE SOFTWARE.
       }
 
       // Create a new AudioContext to make sure it is fully reset.
-      if (self.usingWebAudio && self.ctx && typeof self.ctx.close !== 'undefined') {
+      if (self.usingWebAudio && typeof self.ctx.close !== 'undefined') {
         self.ctx.close();
         self.ctx = null;
         setupAudioContext();
@@ -27233,33 +26400,6 @@ THE SOFTWARE.
       // Automatically begin the 30-second suspend process
       self._autoSuspend();
 
-      // Check if audio is available.
-      if (!self.usingWebAudio) {
-        // No audio is available on this system if noAudio is set to true.
-        if (typeof Audio !== 'undefined') {
-          try {
-            var test = new Audio();
-
-            // Check if the canplaythrough event is available.
-            if (typeof test.oncanplaythrough === 'undefined') {
-              self._canPlayEvent = 'canplay';
-            }
-          } catch(e) {
-            self.noAudio = true;
-          }
-        } else {
-          self.noAudio = true;
-        }
-      }
-
-      // Test to make sure audio isn't disabled in Internet Explorer.
-      try {
-        var test = new Audio();
-        if (test.muted) {
-          self.noAudio = true;
-        }
-      } catch (e) {}
-
       // Check for supported codecs.
       if (!self.noAudio) {
         self._setupCodecs();
@@ -27274,14 +26414,7 @@ THE SOFTWARE.
      */
     _setupCodecs: function() {
       var self = this || Howler;
-      var audioTest = null;
-
-      // Must wrap in a try/catch because IE11 in server mode throws an error.
-      try {
-        audioTest = (typeof Audio !== 'undefined') ? new Audio() : null;
-      } catch (err) {
-        return self;
-      }
+      var audioTest = (typeof Audio !== 'undefined') ? new Audio() : null;
 
       if (!audioTest || typeof audioTest.canPlayType !== 'function') {
         return self;
@@ -27444,11 +26577,6 @@ THE SOFTWARE.
         self.state = 'resuming';
         self.ctx.resume().then(function() {
           self.state = 'running';
-
-          // Emit to all Howls that the audio has resumed.
-          for (var i=0; i<self._howls.length; i++) {
-            self._howls[i]._emit('resume');
-          }
         });
 
         if (self._suspendTimer) {
@@ -27530,7 +26658,6 @@ THE SOFTWARE.
       self._onvolume = o.onvolume ? [{fn: o.onvolume}] : [];
       self._onrate = o.onrate ? [{fn: o.onrate}] : [];
       self._onseek = o.onseek ? [{fn: o.onseek}] : [];
-      self._onresume = [];
 
       // Web Audio or HTML5 Audio?
       self._webAudio = Howler.usingWebAudio && !self._html5;
@@ -27542,16 +26669,6 @@ THE SOFTWARE.
 
       // Keep track of this Howl group in the global controller.
       Howler._howls.push(self);
-
-      // If they selected autoplay, add a play event to the load queue.
-      if (self._autoplay) {
-        self._queue.push({
-          event: 'play',
-          action: function() {
-            self.play();
-          }
-        });
-      }
 
       // Load the source file unless otherwise specified.
       if (self._preload) {
@@ -27721,8 +26838,8 @@ THE SOFTWARE.
       }
 
       // Determine how long to play for and where to start playing.
-      var seek = Math.max(0, sound._seek > 0 ? sound._seek : self._sprite[sprite][0] / 1000);
-      var duration = Math.max(0, ((self._sprite[sprite][0] + self._sprite[sprite][1]) / 1000) - seek);
+      var seek = sound._seek > 0 ? sound._seek : self._sprite[sprite][0] / 1000;
+      var duration = ((self._sprite[sprite][0] + self._sprite[sprite][1]) / 1000) - seek;
       var timeout = (duration * 1000) / Math.abs(sound._rate);
 
       // Update the parameters of the sound
@@ -27765,12 +26882,11 @@ THE SOFTWARE.
           }
         };
 
-        var isRunning = (Howler.state === 'running');
-        if (self._state === 'loaded' && isRunning) {
+        if (self._state === 'loaded') {
           playWebAudio();
         } else {
           // Wait for the audio to load and then begin playback.
-          self.once(isRunning ? 'load' : 'resume', playWebAudio, isRunning ? sound._id : null);
+          self.once('load', playWebAudio, sound._id);
 
           // Cancel the end timer.
           self._clearTimer(sound._id);
@@ -27877,11 +26993,11 @@ THE SOFTWARE.
               sound._node.pause();
             }
           }
-        }
 
-        // Fire the pause event, unless `true` is passed as the 2nd argument.
-        if (!arguments[1]) {
-          self._emit('pause', sound ? sound._id : null);
+          // Fire the pause event, unless `true` is passed as the 2nd argument.
+          if (!arguments[1]) {
+            self._emit('pause', sound._id);
+          }
         }
       }
 
@@ -29046,6 +28162,10 @@ THE SOFTWARE.
         parent._loadQueue();
       }
 
+      if (parent._autoplay) {
+        parent.play();
+      }
+
       // Clear the event listener.
       self._node.removeEventListener(Howler._canPlayEvent, self._loadFn, false);
     }
@@ -29163,12 +28283,19 @@ THE SOFTWARE.
       self._emit('load');
       self._loadQueue();
     }
+
+    // Begin playback if specified.
+    if (self._autoplay) {
+      self.play();
+    }
   };
 
   /**
    * Setup the audio context when available, or switch to HTML5 Audio mode.
    */
   var setupAudioContext = function() {
+    Howler.noAudio = false;
+
     // Check if we are using Web Audio and setup the AudioContext if we are.
     try {
       if (typeof AudioContext !== 'undefined') {
@@ -29181,6 +28308,32 @@ THE SOFTWARE.
     } catch(e) {
       Howler.usingWebAudio = false;
     }
+
+    if (!Howler.usingWebAudio) {
+      // No audio is available on this system if noAudio is set to true.
+      if (typeof Audio !== 'undefined') {
+        try {
+          var test = new Audio();
+
+          // Check if the canplaythrough event is available.
+          if (typeof test.oncanplaythrough === 'undefined') {
+            Howler._canPlayEvent = 'canplay';
+          }
+        } catch(e) {
+          Howler.noAudio = true;
+        }
+      } else {
+        Howler.noAudio = true;
+      }
+    }
+
+    // Test to make sure audio isn't disabled in Internet Explorer
+    try {
+      var test = new Audio();
+      if (test.muted) {
+        Howler.noAudio = true;
+      }
+    } catch (e) {}
 
     // Check if a webview is being used on iOS8 or earlier (rather than the browser).
     // If it is, disable Web Audio as it causes crashing.
@@ -29238,7 +28391,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 (function () {
@@ -29285,10 +28438,10 @@ THE SOFTWARE.
                  * this can be overridden by the plugin
                  * @public
                  * @type String
-                 * @default "4.1.1"
+                 * @default "4.0.0"
                  * @name me.plugin.Base#version
                  */
-                this.version = "4.1.1";
+                this.version = "4.0.0";
             }
         });
 
@@ -29392,7 +28545,7 @@ THE SOFTWARE.
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 
@@ -29443,15 +28596,9 @@ me.DraggableEntity = (function (Entity, Input, Event, Vector) {
          */
         initEvents: function () {
             var self = this;
-            /**
-             * @ignore
-             */
             this.mouseDown = function (e) {
                 this.translatePointerEvent(e, Event.DRAGSTART);
             };
-            /**
-             * @ignore
-             */
             this.mouseUp = function (e) {
                 this.translatePointerEvent(e, Event.DRAGEND);
             };
@@ -29549,7 +28696,7 @@ me.DraggableEntity = (function (Entity, Input, Event, Vector) {
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  */
 
@@ -29663,152 +28810,154 @@ me.DroptargetEntity = (function (Entity, Event) {
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
 
- (function () {
+/*
+ * A Collectable entity
+ */
 
-    /**
-     * @class
-     * @extends me.Entity
-     * @memberOf me
-     * @constructor
-     * @param {Number} x the x coordinates of the entity object
-     * @param {Number} y the y coordinates of the entity object
-     * @param {Object} settings See {@link me.Entity}
-     */
-    me.CollectableEntity = me.Entity.extend(
-    /** @scope me.CollectableEntity.prototype */
-    {
-        /** @ignore */
-        init : function (x, y, settings) {
-            // call the super constructor
-            me.Entity.prototype.init.apply(this, [x, y, settings]);
-            this.body.collisionType = me.collision.types.COLLECTABLE_OBJECT;
-        }
-    });
-})();
+/**
+ * @class
+ * @extends me.Entity
+ * @memberOf me
+ * @constructor
+ * @param {Number} x the x coordinates of the entity object
+ * @param {Number} y the y coordinates of the entity object
+ * @param {Object} settings See {@link me.Entity}
+ */
+me.CollectableEntity = me.Entity.extend(
+/** @scope me.CollectableEntity.prototype */
+{
+    /** @ignore */
+    init : function (x, y, settings) {
+        // call the super constructor
+        me.Entity.prototype.init.apply(this, [x, y, settings]);
+        this.body.collisionType = me.collision.types.COLLECTABLE_OBJECT;
+    }
+});
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
 
-(function () {
+/*
+ * A level entity
+ */
+
+/**
+ * @class
+ * @extends me.Entity
+ * @memberOf me
+ * @constructor
+ * @param {Number} x the x coordinates of the object
+ * @param {Number} y the y coordinates of the object
+ * @param {Object} settings See {@link me.Entity}
+ * @param {String} [settings.duration] Fade duration (in ms)
+ * @param {String|me.Color} [settings.color] Fade color
+ * @param {String} [settings.to] TMX level to load
+ * @param {String|me.Container} [settings.container] Target container. See {@link me.levelDirector.loadLevel}
+ * @param {Function} [settings.onLoaded] Level loaded callback. See {@link me.levelDirector.loadLevel}
+ * @param {Boolean} [settings.flatten] Flatten all objects into the target container. See {@link me.levelDirector.loadLevel}
+ * @param {Boolean} [settings.setViewportBounds] Resize the viewport to match the level. See {@link me.levelDirector.loadLevel}
+ * @example
+ * me.game.world.addChild(new me.LevelEntity(
+ *     x, y, {
+ *         "duration" : 250,
+ *         "color" : "#000",
+ *         "to" : "mymap2"
+ *     }
+ * ));
+ */
+me.LevelEntity = me.Entity.extend(
+/** @scope me.LevelEntity.prototype */
+{
+    /** @ignore */
+    init : function (x, y, settings) {
+        me.Entity.prototype.init.apply(this, [x, y, settings]);
+
+        this.nextlevel = settings.to;
+
+        this.fade = settings.fade;
+        this.duration = settings.duration;
+        this.fading = false;
+
+        this.name = "levelEntity";
+
+        // a temp variable
+        this.gotolevel = settings.to;
+
+        // Collect the defined level settings
+        this.loadLevelSettings = {};
+        [ "container", "onLoaded", "flatten", "setViewportBounds" ].forEach(function (v) {
+            if (typeof(settings[v]) !== "undefined") {
+                this.loadLevelSettings[v] = settings[v];
+            }
+        }.bind(this));
+
+        this.body.collisionType = me.collision.types.ACTION_OBJECT;
+    },
 
     /**
-     * @class
-     * @extends me.Entity
-     * @memberOf me
-     * @constructor
-     * @param {Number} x the x coordinates of the object
-     * @param {Number} y the y coordinates of the object
-     * @param {Object} settings See {@link me.Entity}
-     * @param {String} [settings.duration] Fade duration (in ms)
-     * @param {String|me.Color} [settings.color] Fade color
-     * @param {String} [settings.to] TMX level to load
-     * @param {String|me.Container} [settings.container] Target container. See {@link me.levelDirector.loadLevel}
-     * @param {Function} [settings.onLoaded] Level loaded callback. See {@link me.levelDirector.loadLevel}
-     * @param {Boolean} [settings.flatten] Flatten all objects into the target container. See {@link me.levelDirector.loadLevel}
-     * @param {Boolean} [settings.setViewportBounds] Resize the viewport to match the level. See {@link me.levelDirector.loadLevel}
-     * @example
-     * me.game.world.addChild(new me.LevelEntity(
-     *     x, y, {
-     *         "duration" : 250,
-     *         "color" : "#000",
-     *         "to" : "mymap2"
-     *     }
-     * ));
+     * @ignore
      */
-    me.LevelEntity = me.Entity.extend(
-    /** @scope me.LevelEntity.prototype */
-    {
-        /** @ignore */
-        init : function (x, y, settings) {
-            me.Entity.prototype.init.apply(this, [x, y, settings]);
+     getlevelSettings : function () {
+         // Lookup for the container instance
+         if (typeof(this.loadLevelSettings.container) === "string") {
+             this.loadLevelSettings.container = me.game.world.getChildByName(this.loadLevelSettings.container)[0];
+         }
+         return this.loadLevelSettings;
+     },
 
-            this.nextlevel = settings.to;
+    /**
+     * @ignore
+     */
+    onFadeComplete : function () {
 
-            this.fade = settings.fade;
-            this.duration = settings.duration;
-            this.fading = false;
+        me.levelDirector.loadLevel(this.gotolevel, this.getlevelSettings());
+        me.game.viewport.fadeOut(this.fade, this.duration);
+    },
 
-            this.name = "levelEntity";
-
-            // a temp variable
-            this.gotolevel = settings.to;
-
-            // Collect the defined level settings
-            this.loadLevelSettings = {};
-            [ "container", "onLoaded", "flatten", "setViewportBounds" ].forEach(function (v) {
-                if (typeof(settings[v]) !== "undefined") {
-                    this.loadLevelSettings[v] = settings[v];
-                }
-            }.bind(this));
-
-            this.body.collisionType = me.collision.types.ACTION_OBJECT;
-        },
-
-        /**
-         * @ignore
-         */
-         getlevelSettings : function () {
-             // Lookup for the container instance
-             if (typeof(this.loadLevelSettings.container) === "string") {
-                 this.loadLevelSettings.container = me.game.world.getChildByName(this.loadLevelSettings.container)[0];
-             }
-             return this.loadLevelSettings;
-         },
-
-        /**
-         * @ignore
-         */
-        onFadeComplete : function () {
-
+    /**
+     * go to the specified level
+     * @name goTo
+     * @memberOf me.LevelEntity
+     * @function
+     * @param {String} [level=this.nextlevel] name of the level to load
+     * @protected
+     */
+    goTo : function (level) {
+        this.gotolevel = level || this.nextlevel;
+        // load a level
+        //console.log("going to : ", to);
+        if (this.fade && this.duration) {
+            if (!this.fading) {
+                this.fading = true;
+                me.game.viewport.fadeIn(this.fade, this.duration,
+                        this.onFadeComplete.bind(this));
+            }
+        } else {
             me.levelDirector.loadLevel(this.gotolevel, this.getlevelSettings());
-            me.game.viewport.fadeOut(this.fade, this.duration);
-        },
-
-        /**
-         * go to the specified level
-         * @name goTo
-         * @memberOf me.LevelEntity
-         * @function
-         * @param {String} [level=this.nextlevel] name of the level to load
-         * @protected
-         */
-        goTo : function (level) {
-            this.gotolevel = level || this.nextlevel;
-            // load a level
-            //console.log("going to : ", to);
-            if (this.fade && this.duration) {
-                if (!this.fading) {
-                    this.fading = true;
-                    me.game.viewport.fadeIn(this.fade, this.duration,
-                            this.onFadeComplete.bind(this));
-                }
-            } else {
-                me.levelDirector.loadLevel(this.gotolevel, this.getlevelSettings());
-            }
-        },
-
-        /** @ignore */
-        onCollision : function () {
-            if (this.name === "levelEntity") {
-                this.goTo.apply(this);
-            }
-            return false;
         }
-    });
-})();
+    },
+
+    /** @ignore */
+    onCollision : function () {
+        if (this.name === "levelEntity") {
+            this.goTo.apply(this);
+        }
+        return false;
+    }
+});
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -30176,13 +29325,7 @@ me.DroptargetEntity = (function (Entity, Event) {
              * @ignore
              */
             Object.defineProperty(this.pos, "z", {
-                /**
-                 * @ignore
-                 */
                 get : (function () { return this.container.pos.z; }).bind(this),
-                /**
-                 * @ignore
-                 */
                 set : (function (value) { this.container.pos.z = value; }).bind(this),
                 enumerable : true,
                 configurable : true
@@ -30195,13 +29338,7 @@ me.DroptargetEntity = (function (Entity, Event) {
              * @memberOf me.ParticleEmitter
              */
             Object.defineProperty(this, "floating", {
-                /**
-                 * @ignore
-                 */
                 get : function () { return this.container.floating; },
-                /**
-                 * @ignore
-                 */
                 set : function (value) { this.container.floating = value; },
                 enumerable : true,
                 configurable : true
@@ -30211,9 +29348,6 @@ me.DroptargetEntity = (function (Entity, Event) {
             this.reset(settings);
         },
 
-        /**
-         * @ignore
-         */
         onActivateEvent: function() {
             this.ancestor.addChild(this.container);
             this.container.pos.z = this.pos.z;
@@ -30222,18 +29356,12 @@ me.DroptargetEntity = (function (Entity, Event) {
             }
         },
 
-        /**
-         * @ignore
-         */
         onDeactivateEvent: function() {
             if (this.ancestor.hasChild(this.container)) {
                 this.ancestor.removeChildNow(this.container);
             }
         },
 
-        /**
-         * @ignore
-         */
         destroy: function () {
             this.reset();
         },
@@ -30382,7 +29510,7 @@ me.DroptargetEntity = (function (Entity, Event) {
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -30490,7 +29618,7 @@ me.DroptargetEntity = (function (Entity, Event) {
 
 /*
  * MelonJS Game Engine
- * Copyright (C) 2011 - 2017, Olivier Biot, Jason Oster, Aaron McLeod
+ * Copyright (C) 2011 - 2016, Olivier Biot, Jason Oster, Aaron McLeod
  * http://www.melonjs.org
  *
  */
@@ -30626,9 +29754,6 @@ me.DroptargetEntity = (function (Entity, Event) {
             return (this.inViewport || !this.onlyInViewport) && (this.life > 0);
         },
 
-        /**
-         * @ignore
-         */
         draw : function (renderer) {
             renderer.save();
 

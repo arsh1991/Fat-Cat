@@ -1,6 +1,16 @@
+/*!
+ *
+ *   melonJS
+ *   http://www.melonjs.org
+ *
+ *   Step by step game creation tutorial
+ *
+ **/
+
 var game = {
+
     // Run on page load.
-    onload : function () {
+    "onload" : function () {
         // Initialize the video.
         if (!me.video.init(640, 480, {wrapper : "screen", scale : 'auto'})) {
             alert("Your browser does not support HTML5 canvas.");
@@ -27,11 +37,18 @@ var game = {
         me.state.change(me.state.LOADING);
     },
 
+
+
     // Run on game resources loaded.
-    loaded : function () {
+    "loaded" : function () {
         // set the "Play/Ingame" Screen Object
         this.playScreen = new game.PlayScreen();
         me.state.set(me.state.PLAY, this.playScreen);
+
+        // add our player entity in the entity pool
+        me.pool.register("player", game.Player);
+        me.pool.register("laser", game.Laser);
+        me.pool.register("enemy", game.Enemy);
 
         // start the game
         me.state.change(me.state.PLAY);

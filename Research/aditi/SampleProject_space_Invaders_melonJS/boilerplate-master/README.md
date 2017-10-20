@@ -1,63 +1,18 @@
-melonJS boilerplate
+a space invaders clone step by step tutorial for [melonJS](http://melonjs.org/)
+===============================================================================
+
+How to create a space invaders game using [melonJS](http://melonjs.org/)
 -------------------------------------------------------------------------------
 
-features :
-- video autoscaling
-- mobile optimized HTML/CSS
-- swiping disabled on iOS devices
-- debug Panel (if #debug)
-- default icons
-- distribution build
-- standalone build for desktop operating systems
+Note that due to the 'cross-origin request' policy implemented in most browsers (that prevents from accessing local files), you will need to either disable this security check (see the tutorial), or better use a "personal" local web server.
 
-## To run distribution
+Questions, need help ?
+-------------------------------------------------------------------------------
+If you need help, you can try the [melonJS developer forum](http://groups.google.com/group/melonjs), or in #melonjs on irc.freenode.net.
+For any other questions, feel free to send us an [email](mailto:contact@melonjs.org).
 
-To build, be sure you have [node](http://nodejs.org) installed. Clone the project:
-
-    git clone https://github.com/melonjs/boilerplate.git
-
-Then in the cloned directory, simply run:
-
-    npm install
-
-You must also have `grunt-cli` installed globally:
-
-    npm install -g grunt-cli
-
-Running the game:
-
-	grunt serve
-
-And you will have the boilerplate example running on http://localhost:8000
-
-## Building Release Versions
-
-To build:
-
-    grunt
-
-This will create a `build` directory containing the files that can be uploaded to a server, or packaged into a mobile app.
-
-----
-
-Building a standalone desktop release:
-
-    grunt dist
-
-Running the desktop release on Windows:
-
-    .\bin\electron.exe
-
-Running the desktop release on macOS:
-
-    open ./bin/Electron.app
-
-Running the desktop release on Linux:
-
-    ./bin/electron
-
-Note that you may have to edit the file `Gruntfile.js` if you need to better dictate the order your files load in. Note how by default the game.js and resources.js are specified in a specific order.
 
 -------------------------------------------------------------------------------
-Copyright (C) 2011 - 2015 Olivier Biot, Jason Oster, Aaron McLeod
+Copyright (C) 2011 - 2015, Olivier Biot, Jason Oster, Aaron McLeod
+
 melonJS is licensed under the [MIT License](http://www.opensource.org/licenses/mit-license.php)
