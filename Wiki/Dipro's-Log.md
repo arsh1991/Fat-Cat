@@ -38,3 +38,6 @@ Uml diagrams created. Mockups created.
 
 ### Oct-13 2017
 Uml diagrams finalized. Team Meeting, hands on coding.
+
+### Oct-20 2017
+Mario js running on Boilerplate created and tested.
