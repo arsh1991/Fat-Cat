@@ -94,3 +94,6 @@ Team Meeting<br/>
 ### Oct. 17, Tuesday
 Helped in debugging issues faced by other team members. Studied about tiled functionality
 
+### Oct. 20, Friday
+-Developed a sample for tiled functionality and commited the sample<br/>
+-Updated game features
