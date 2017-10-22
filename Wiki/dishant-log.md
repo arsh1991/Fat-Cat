@@ -74,26 +74,30 @@ Added more features to the game. Explored different features.
 
 ## Week 4
 
-### Oct. 7, Saturday
+### October 7, Saturday
 Team Meeting<br/>
 -Discussed current progress and provide feedback on progress so far. <br/>
 -Decided to continue working on the sample game in the MelonJS environment for the upcoming week to get comfortable working with the environment yet. <br/>
 -Discussed about Tiled functionality to achieve Mario like effect of character movement.<br/>
 
-### Oct. 10, Tuesday
+### October 10, Tuesday
 Learnt basics of design paterns using JS. Developed sample code for design patterns using JS.
 
-### Oct. 11, Wednesday
+### October 11, Wednesday
 Worked on more deign patterns using JS.
 
-### Oct. 14, Saturday
+### October 14, Saturday
 Team Meeting<br/>
 -Discussed current progress and provide feedback on progress. <br/>
 -Due to mid term there was not any significant progress so we decided to continue working on the sample demo in the MelonJS environment, use case diagrams and features document. <br/>
 
-### Oct. 17, Tuesday
+### October 17, Tuesday
 Helped in debugging issues faced by other team members. Studied about tiled functionality
 
-### Oct. 20, Friday
+### October 19, Thursday
 -Developed a sample for tiled functionality and commited the sample<br/>
 -Updated game features
+
+### October 20, Friday
+Worked with team to build a common base game which we can further extend. Did the setup in my machine and tested the setup. Helped other team members in setup.
+
