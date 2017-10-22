@@ -69,3 +69,18 @@ Team meeting to discuss the problems faced by team in creating MelonJS sample ga
 
 ## October 11, 2017:
 Explored the features of TILED tool and tried to create and play with tile maps and tile sets. Under stood the basic concepts and now we need to deign our different objects required in the game graphics so that maps could be created.
+
+### October 14, 2017:
+Weekly team meeting to discuss progress from last week (Midterm week). We decided to keep working on the sample demo as well as  the features Document to solidify the understanding of the system.
+
+### October 18, 2017:
+Helped other who were not able to setup the environment and resolving the errors in rendering the game on browser. Tried to help others so that we can kick start coding from next week.
+
+### October 19, 2017:
+Researched more on design patterns and implemented some in javascript using the class slides as reference. We could use observer pattern for recording score and state pattern for main objects state changes. Tried to figure out more scenarios for which we can implement patterns
+
+### October 20, 2017:
+Worked with team to build a common base game which we will use to build on and helped evryone run that base on their system. Segregated whole game into chunks and helped in assigning key parts to the team. Started working on my part.
+<br></br>
+
+## WEEK 5:
