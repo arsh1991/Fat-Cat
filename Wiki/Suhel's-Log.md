@@ -43,9 +43,20 @@ Successfully configured melon.js on the machine added the code for boilerplate t
 Now working on a sample game.
 
 
-  
+# Week 4
+
+## Oct. 7 2017
+Team Meeting
+-Discussed current progress and provide feedback on progress so far.
+-Decided to continue working on the sample game in the MelonJS environment for the upcoming week to get comfortable working with the environment yet.
+-Discussed about Tiled functionality to achieve Mario like effect of character movement.
+
+## Oct.10 2017
+Worked on Design patterns in design patterns for extra credits assignment.
+
 ## Oct. 14 2017
 As we were not able to work on project last week due to midterm, we decided to complete the usecase diagrams and other blue prints required for the game.
 
 ## Oct. 18 2017
 Trying to debug issues in the exiting sample game project created. The movement of the object was not visible and tried to search online for the solution but could not find any proper solution. Looked for design patterns as well side by side and found state design pattern suitable for our game because functions of the main object differ when its state are changed.
+
