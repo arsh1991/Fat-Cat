@@ -1,6 +1,6 @@
 
 # Adopted XP Core Value - Communication
-As of week 3, team did research on game engines, project ideas, design patterns , and object usage in javascript. We tried to keep every one on the same page by sharing the acquired knowledge and communicating the doubts. We were constantly in touch on our team project slack to discuss the problems and solve them. 
+As of week 4, team finalised a MelonJS game engines, project ideas, design patterns , and object usage in javascript. We tried to keep every one on the same page by sharing the acquired knowledge and communicating the doubts. We were constantly in touch on our team project slack to discuss the problems and solve them. 
 
 
 <br></br>
