@@ -101,3 +101,9 @@ Helped in debugging issues faced by other team members. Studied about tiled func
 ### October 20, Friday
 Worked with team to build a common base game which we can further extend. Did the setup in my machine and tested the setup. Helped other team members in setup.
 
+### Week 5
+
+### October 22, Sunday
+Studied the collision feature in MelonJs
+Checked in the base code for game
+
