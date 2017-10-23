@@ -84,3 +84,9 @@ Worked with team to build a common base game which we will use to build on and h
 <br></br>
 
 ## WEEK 5:
+
+
+## October 22, 2017:
+Created an proof of concept by developing a game with main player, enemy, and collectables. Understood various components required to build the game. Checked in the created version and screenshot of working version in repository:
+https://github.com/nguyensjsu/cmpe202-oceans11/tree/master/Research/arsh/Platformer_v2
+
