@@ -1,0 +1,2948 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/vendors/es6-promise.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">src/vendors/</a> es6-promise.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">29.67% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>108/364</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">12.2% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>20/164</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">5.71% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>4/70</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">30.25% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>108/357</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+702
+703
+704
+705
+706
+707
+708
+709
+710
+711
+712
+713
+714
+715
+716
+717
+718
+719
+720
+721
+722
+723
+724
+725
+726
+727
+728
+729
+730
+731
+732
+733
+734
+735
+736
+737
+738
+739
+740
+741
+742
+743
+744
+745
+746
+747
+748
+749
+750
+751
+752
+753
+754
+755
+756
+757
+758
+759
+760
+761
+762
+763
+764
+765
+766
+767
+768
+769
+770
+771
+772
+773
+774
+775
+776
+777
+778
+779
+780
+781
+782
+783
+784
+785
+786
+787
+788
+789
+790
+791
+792
+793
+794
+795
+796
+797
+798
+799
+800
+801
+802
+803
+804
+805
+806
+807
+808
+809
+810
+811
+812
+813
+814
+815
+816
+817
+818
+819
+820
+821
+822
+823
+824
+825
+826
+827
+828
+829
+830
+831
+832
+833
+834
+835
+836
+837
+838
+839
+840
+841
+842
+843
+844
+845
+846
+847
+848
+849
+850
+851
+852
+853
+854
+855
+856
+857
+858
+859
+860
+861
+862
+863
+864
+865
+866
+867
+868
+869
+870
+871
+872
+873
+874
+875
+876
+877
+878
+879
+880
+881
+882
+883
+884
+885
+886
+887
+888
+889
+890
+891
+892
+893
+894
+895
+896
+897
+898
+899
+900
+901
+902
+903
+904
+905
+906
+907
+908
+909
+910
+911
+912
+913
+914
+915
+916
+917
+918
+919
+920
+921
+922
+923
+924
+925
+926
+927
+928
+929
+930
+931
+932
+933
+934
+935
+936
+937
+938
+939
+940
+941
+942
+943
+944
+945
+946
+947
+948
+949
+950
+951
+952
+953
+954
+955
+956
+957
+958
+959
+960
+961
+962</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*!
+ * @overview es6-promise - a tiny implementation of Promises/A+.
+ * @copyright Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors (Conversion to ES6 API by Jake Archibald)
+ * @license   Licensed under MIT license
+ *            See https://github.com/stefanpenner/es6-promise
+ * @version   3.2.1
+ */
+&nbsp;
+/* eslint-disable no-unused-vars, no-new-func, space-before-blocks, quotes, space-infix-ops, new-cap, keyword-spacing, no-redeclare, no-undef, no-new*/
+&nbsp;
+(function() {
+    "use strict";
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$utils$$objectOrFunction(x) {</span>
+<span class="cstat-no" title="statement not covered" >      return typeof x === 'function' || (typeof x === 'object' &amp;&amp; x !== null);</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$utils$$isFunction(x) {</span>
+<span class="cstat-no" title="statement not covered" >      return typeof x === 'function';</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$utils$$isMaybeThenable(x) {</span>
+<span class="cstat-no" title="statement not covered" >      return typeof x === 'object' &amp;&amp; x !== null;</span>
+    }
+&nbsp;
+    var lib$es6$promise$utils$$_isArray;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!Array.isArray) {
+<span class="cstat-no" title="statement not covered" >      lib$es6$promise$utils$$_isArray = <span class="fstat-no" title="function not covered" >function (x) {</span></span>
+<span class="cstat-no" title="statement not covered" >        return Object.prototype.toString.call(x) === '[object Array]';</span>
+      };
+    } else {
+      lib$es6$promise$utils$$_isArray = Array.isArray;
+    }
+&nbsp;
+    var lib$es6$promise$utils$$isArray = lib$es6$promise$utils$$_isArray;
+    var lib$es6$promise$asap$$len = 0;
+    var lib$es6$promise$asap$$vertxNext;
+    var lib$es6$promise$asap$$customSchedulerFn;
+&nbsp;
+    var lib$es6$promise$asap$$asap = <span class="fstat-no" title="function not covered" >function asap(callback, arg) {</span>
+<span class="cstat-no" title="statement not covered" >      lib$es6$promise$asap$$queue[lib$es6$promise$asap$$len] = callback;</span>
+<span class="cstat-no" title="statement not covered" >      lib$es6$promise$asap$$queue[lib$es6$promise$asap$$len + 1] = arg;</span>
+<span class="cstat-no" title="statement not covered" >      lib$es6$promise$asap$$len += 2;</span>
+<span class="cstat-no" title="statement not covered" >      if (lib$es6$promise$asap$$len === 2) {</span>
+        // If len is 2, that means that we need to schedule an async flush.
+        // If additional callbacks are queued before the queue is flushed, they
+        // will be processed by this flush that we are scheduling.
+<span class="cstat-no" title="statement not covered" >        if (lib$es6$promise$asap$$customSchedulerFn) {</span>
+<span class="cstat-no" title="statement not covered" >          lib$es6$promise$asap$$customSchedulerFn(lib$es6$promise$asap$$flush);</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          lib$es6$promise$asap$$scheduleFlush();</span>
+        }
+      }
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$asap$$setScheduler(scheduleFn) {</span>
+<span class="cstat-no" title="statement not covered" >      lib$es6$promise$asap$$customSchedulerFn = scheduleFn;</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$asap$$setAsap(asapFn) {</span>
+<span class="cstat-no" title="statement not covered" >      lib$es6$promise$asap$$asap = asapFn;</span>
+    }
+&nbsp;
+    var lib$es6$promise$asap$$browserWindow = (typeof window !== 'undefined') ? window : <span class="branch-1 cbranch-no" title="branch not covered" >undefined;</span>
+    var lib$es6$promise$asap$$browserGlobal = lib$es6$promise$asap$$browserWindow || <span class="branch-1 cbranch-no" title="branch not covered" >{};</span>
+    var lib$es6$promise$asap$$BrowserMutationObserver = lib$es6$promise$asap$$browserGlobal.MutationObserver || <span class="branch-1 cbranch-no" title="branch not covered" >lib$es6$promise$asap$$browserGlobal.WebKitMutationObserver;</span>
+    var lib$es6$promise$asap$$isNode = typeof self === 'undefined' &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >typeof process !== 'undefined' </span>&amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >{}.toString.call(process) === '[object process]';</span>
+&nbsp;
+    // test for web worker but not in IE10
+    var lib$es6$promise$asap$$isWorker = typeof Uint8ClampedArray !== 'undefined' &amp;&amp;
+      typeof importScripts !== 'undefined' &amp;&amp;
+<span class="branch-2 cbranch-no" title="branch not covered" >      typeof MessageChannel !== 'undefined';</span>
+&nbsp;
+    // node
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$asap$$useNextTick() {</span>
+      // node version 0.10.x displays a deprecation warning when nextTick is used recursively
+      // see https://github.com/cujojs/when/issues/410 for details
+<span class="cstat-no" title="statement not covered" >      return <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >        process.nextTick(lib$es6$promise$asap$$flush);</span>
+      };
+    }
+&nbsp;
+    // vertx
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$asap$$useVertxTimer() {</span>
+<span class="cstat-no" title="statement not covered" >      return <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >        lib$es6$promise$asap$$vertxNext(lib$es6$promise$asap$$flush);</span>
+      };
+    }
+&nbsp;
+    function lib$es6$promise$asap$$useMutationObserver() {
+      var iterations = 0;
+      var observer = new lib$es6$promise$asap$$BrowserMutationObserver(lib$es6$promise$asap$$flush);
+      var node = document.createTextNode('');
+      observer.observe(node, { characterData: true });
+&nbsp;
+      return <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >        node.data = (iterations = ++iterations % 2);</span>
+      };
+    }
+&nbsp;
+    // web worker
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$asap$$useMessageChannel() {</span>
+<span class="cstat-no" title="statement not covered" >      var channel = new MessageChannel();</span>
+<span class="cstat-no" title="statement not covered" >      channel.port1.onmessage = lib$es6$promise$asap$$flush;</span>
+<span class="cstat-no" title="statement not covered" >      return <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >        channel.port2.postMessage(0);</span>
+      };
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$asap$$useSetTimeout() {</span>
+<span class="cstat-no" title="statement not covered" >      return <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >        setTimeout(lib$es6$promise$asap$$flush, 1);</span>
+      };
+    }
+&nbsp;
+    var lib$es6$promise$asap$$queue = new Array(1000);
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$asap$$flush() {</span>
+<span class="cstat-no" title="statement not covered" >      for (var i = 0; i &lt; lib$es6$promise$asap$$len; i+=2) {</span>
+<span class="cstat-no" title="statement not covered" >        var callback = lib$es6$promise$asap$$queue[i];</span>
+<span class="cstat-no" title="statement not covered" >        var arg = lib$es6$promise$asap$$queue[i+1];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        callback(arg);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        lib$es6$promise$asap$$queue[i] = undefined;</span>
+<span class="cstat-no" title="statement not covered" >        lib$es6$promise$asap$$queue[i+1] = undefined;</span>
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      lib$es6$promise$asap$$len = 0;</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$asap$$attemptVertx() {</span>
+<span class="cstat-no" title="statement not covered" >      try {</span>
+<span class="cstat-no" title="statement not covered" >        var r = require;</span>
+<span class="cstat-no" title="statement not covered" >        var vertx = r('vertx');</span>
+<span class="cstat-no" title="statement not covered" >        lib$es6$promise$asap$$vertxNext = vertx.runOnLoop || vertx.runOnContext;</span>
+<span class="cstat-no" title="statement not covered" >        return lib$es6$promise$asap$$useVertxTimer();</span>
+      } catch(e) {
+<span class="cstat-no" title="statement not covered" >        return lib$es6$promise$asap$$useSetTimeout();</span>
+      }
+    }
+&nbsp;
+    var lib$es6$promise$asap$$scheduleFlush;
+    // Decide what async method to use to triggering processing of queued callbacks:
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (lib$es6$promise$asap$$isNode) {
+<span class="cstat-no" title="statement not covered" >      lib$es6$promise$asap$$scheduleFlush = lib$es6$promise$asap$$useNextTick();</span>
+    } else <span class="missing-if-branch" title="else path not taken" >E</span>if (lib$es6$promise$asap$$BrowserMutationObserver) {
+      lib$es6$promise$asap$$scheduleFlush = lib$es6$promise$asap$$useMutationObserver();
+    } else <span class="cstat-no" title="statement not covered" >if (lib$es6$promise$asap$$isWorker) {</span>
+<span class="cstat-no" title="statement not covered" >      lib$es6$promise$asap$$scheduleFlush = lib$es6$promise$asap$$useMessageChannel();</span>
+    } else <span class="cstat-no" title="statement not covered" >if (lib$es6$promise$asap$$browserWindow === undefined &amp;&amp; typeof require === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >      lib$es6$promise$asap$$scheduleFlush = lib$es6$promise$asap$$attemptVertx();</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      lib$es6$promise$asap$$scheduleFlush = lib$es6$promise$asap$$useSetTimeout();</span>
+    }
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$then$$then(onFulfillment, onRejection) {</span>
+<span class="cstat-no" title="statement not covered" >      var parent = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      var child = new this.constructor(lib$es6$promise$$internal$$noop);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (child[lib$es6$promise$$internal$$PROMISE_ID] === undefined) {</span>
+<span class="cstat-no" title="statement not covered" >        lib$es6$promise$$internal$$makePromise(child);</span>
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      var state = parent._state;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (state) {</span>
+<span class="cstat-no" title="statement not covered" >        var callback = arguments[state - 1];</span>
+<span class="cstat-no" title="statement not covered" >        lib$es6$promise$asap$$asap(<span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >          lib$es6$promise$$internal$$invokeCallback(state, child, callback, parent._result);</span>
+        });
+      } else {
+<span class="cstat-no" title="statement not covered" >        lib$es6$promise$$internal$$subscribe(parent, child, onFulfillment, onRejection);</span>
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      return child;</span>
+    }
+    var lib$es6$promise$then$$default = lib$es6$promise$then$$then;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$promise$resolve$$resolve(object) {</span>
+      /*jshint validthis:true */
+<span class="cstat-no" title="statement not covered" >      var Constructor = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (object &amp;&amp; typeof object === 'object' &amp;&amp; object.constructor === Constructor) {</span>
+<span class="cstat-no" title="statement not covered" >        return object;</span>
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      var promise = new Constructor(lib$es6$promise$$internal$$noop);</span>
+<span class="cstat-no" title="statement not covered" >      lib$es6$promise$$internal$$resolve(promise, object);</span>
+<span class="cstat-no" title="statement not covered" >      return promise;</span>
+    }
+    var lib$es6$promise$promise$resolve$$default = lib$es6$promise$promise$resolve$$resolve;
+    var lib$es6$promise$$internal$$PROMISE_ID = Math.random().toString(36).substring(16);
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$$internal$$noop() {</span>}
+&nbsp;
+    var lib$es6$promise$$internal$$PENDING   = void 0;
+    var lib$es6$promise$$internal$$FULFILLED = 1;
+    var lib$es6$promise$$internal$$REJECTED  = 2;
+&nbsp;
+    var lib$es6$promise$$internal$$GET_THEN_ERROR = new lib$es6$promise$$internal$$ErrorObject();
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$$internal$$selfFulfillment() {</span>
+<span class="cstat-no" title="statement not covered" >      return new TypeError("You cannot resolve a promise with itself");</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$$internal$$cannotReturnOwn() {</span>
+<span class="cstat-no" title="statement not covered" >      return new TypeError('A promises callback cannot return that same promise.');</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$$internal$$getThen(promise) {</span>
+<span class="cstat-no" title="statement not covered" >      try {</span>
+<span class="cstat-no" title="statement not covered" >        return promise.then;</span>
+      } catch(error) {
+<span class="cstat-no" title="statement not covered" >        lib$es6$promise$$internal$$GET_THEN_ERROR.error = error;</span>
+<span class="cstat-no" title="statement not covered" >        return lib$es6$promise$$internal$$GET_THEN_ERROR;</span>
+      }
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$$internal$$tryThen(then, value, fulfillmentHandler, rejectionHandler) {</span>
+<span class="cstat-no" title="statement not covered" >      try {</span>
+<span class="cstat-no" title="statement not covered" >        then.call(value, fulfillmentHandler, rejectionHandler);</span>
+      } catch(e) {
+<span class="cstat-no" title="statement not covered" >        return e;</span>
+      }
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$$internal$$handleForeignThenable(promise, thenable, then) {</span>
+<span class="cstat-no" title="statement not covered" >       lib$es6$promise$asap$$asap(<span class="fstat-no" title="function not covered" >function(promise) {</span></span>
+<span class="cstat-no" title="statement not covered" >        var sealed = false;</span>
+<span class="cstat-no" title="statement not covered" >        var error = lib$es6$promise$$internal$$tryThen(then, thenable, <span class="fstat-no" title="function not covered" >function(value) {</span></span>
+<span class="cstat-no" title="statement not covered" >          if (sealed) { <span class="cstat-no" title="statement not covered" >return; </span>}</span>
+<span class="cstat-no" title="statement not covered" >          sealed = true;</span>
+<span class="cstat-no" title="statement not covered" >          if (thenable !== value) {</span>
+<span class="cstat-no" title="statement not covered" >            lib$es6$promise$$internal$$resolve(promise, value);</span>
+          } else {
+<span class="cstat-no" title="statement not covered" >            lib$es6$promise$$internal$$fulfill(promise, value);</span>
+          }
+        }, <span class="fstat-no" title="function not covered" >function(reason) {</span>
+<span class="cstat-no" title="statement not covered" >          if (sealed) { <span class="cstat-no" title="statement not covered" >return; </span>}</span>
+<span class="cstat-no" title="statement not covered" >          sealed = true;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          lib$es6$promise$$internal$$reject(promise, reason);</span>
+        }, 'Settle: ' + (promise._label || ' unknown promise'));
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!sealed &amp;&amp; error) {</span>
+<span class="cstat-no" title="statement not covered" >          sealed = true;</span>
+<span class="cstat-no" title="statement not covered" >          lib$es6$promise$$internal$$reject(promise, error);</span>
+        }
+      }, promise);
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$$internal$$handleOwnThenable(promise, thenable) {</span>
+<span class="cstat-no" title="statement not covered" >      if (thenable._state === lib$es6$promise$$internal$$FULFILLED) {</span>
+<span class="cstat-no" title="statement not covered" >        lib$es6$promise$$internal$$fulfill(promise, thenable._result);</span>
+      } else <span class="cstat-no" title="statement not covered" >if (thenable._state === lib$es6$promise$$internal$$REJECTED) {</span>
+<span class="cstat-no" title="statement not covered" >        lib$es6$promise$$internal$$reject(promise, thenable._result);</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        lib$es6$promise$$internal$$subscribe(thenable, undefined, <span class="fstat-no" title="function not covered" >function(value) {</span></span>
+<span class="cstat-no" title="statement not covered" >          lib$es6$promise$$internal$$resolve(promise, value);</span>
+        }, <span class="fstat-no" title="function not covered" >function(reason) {</span>
+<span class="cstat-no" title="statement not covered" >          lib$es6$promise$$internal$$reject(promise, reason);</span>
+        });
+      }
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$$internal$$handleMaybeThenable(promise, maybeThenable, then) {</span>
+<span class="cstat-no" title="statement not covered" >      if (maybeThenable.constructor === promise.constructor &amp;&amp;</span>
+          then === lib$es6$promise$then$$default &amp;&amp;
+          constructor.resolve === lib$es6$promise$promise$resolve$$default) {
+<span class="cstat-no" title="statement not covered" >        lib$es6$promise$$internal$$handleOwnThenable(promise, maybeThenable);</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        if (then === lib$es6$promise$$internal$$GET_THEN_ERROR) {</span>
+<span class="cstat-no" title="statement not covered" >          lib$es6$promise$$internal$$reject(promise, lib$es6$promise$$internal$$GET_THEN_ERROR.error);</span>
+        } else <span class="cstat-no" title="statement not covered" >if (then === undefined) {</span>
+<span class="cstat-no" title="statement not covered" >          lib$es6$promise$$internal$$fulfill(promise, maybeThenable);</span>
+        } else <span class="cstat-no" title="statement not covered" >if (lib$es6$promise$utils$$isFunction(then)) {</span>
+<span class="cstat-no" title="statement not covered" >          lib$es6$promise$$internal$$handleForeignThenable(promise, maybeThenable, then);</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          lib$es6$promise$$internal$$fulfill(promise, maybeThenable);</span>
+        }
+      }
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$$internal$$resolve(promise, value) {</span>
+<span class="cstat-no" title="statement not covered" >      if (promise === value) {</span>
+<span class="cstat-no" title="statement not covered" >        lib$es6$promise$$internal$$reject(promise, lib$es6$promise$$internal$$selfFulfillment());</span>
+      } else <span class="cstat-no" title="statement not covered" >if (lib$es6$promise$utils$$objectOrFunction(value)) {</span>
+<span class="cstat-no" title="statement not covered" >        lib$es6$promise$$internal$$handleMaybeThenable(promise, value, lib$es6$promise$$internal$$getThen(value));</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        lib$es6$promise$$internal$$fulfill(promise, value);</span>
+      }
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$$internal$$publishRejection(promise) {</span>
+<span class="cstat-no" title="statement not covered" >      if (promise._onerror) {</span>
+<span class="cstat-no" title="statement not covered" >        promise._onerror(promise._result);</span>
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      lib$es6$promise$$internal$$publish(promise);</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$$internal$$fulfill(promise, value) {</span>
+<span class="cstat-no" title="statement not covered" >      if (promise._state !== lib$es6$promise$$internal$$PENDING) { <span class="cstat-no" title="statement not covered" >return; </span>}</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      promise._result = value;</span>
+<span class="cstat-no" title="statement not covered" >      promise._state = lib$es6$promise$$internal$$FULFILLED;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (promise._subscribers.length !== 0) {</span>
+<span class="cstat-no" title="statement not covered" >        lib$es6$promise$asap$$asap(lib$es6$promise$$internal$$publish, promise);</span>
+      }
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$$internal$$reject(promise, reason) {</span>
+<span class="cstat-no" title="statement not covered" >      if (promise._state !== lib$es6$promise$$internal$$PENDING) { <span class="cstat-no" title="statement not covered" >return; </span>}</span>
+<span class="cstat-no" title="statement not covered" >      promise._state = lib$es6$promise$$internal$$REJECTED;</span>
+<span class="cstat-no" title="statement not covered" >      promise._result = reason;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      lib$es6$promise$asap$$asap(lib$es6$promise$$internal$$publishRejection, promise);</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$$internal$$subscribe(parent, child, onFulfillment, onRejection) {</span>
+<span class="cstat-no" title="statement not covered" >      var subscribers = parent._subscribers;</span>
+<span class="cstat-no" title="statement not covered" >      var length = subscribers.length;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      parent._onerror = null;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      subscribers[length] = child;</span>
+<span class="cstat-no" title="statement not covered" >      subscribers[length + lib$es6$promise$$internal$$FULFILLED] = onFulfillment;</span>
+<span class="cstat-no" title="statement not covered" >      subscribers[length + lib$es6$promise$$internal$$REJECTED]  = onRejection;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (length === 0 &amp;&amp; parent._state) {</span>
+<span class="cstat-no" title="statement not covered" >        lib$es6$promise$asap$$asap(lib$es6$promise$$internal$$publish, parent);</span>
+      }
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$$internal$$publish(promise) {</span>
+<span class="cstat-no" title="statement not covered" >      var subscribers = promise._subscribers;</span>
+<span class="cstat-no" title="statement not covered" >      var settled = promise._state;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (subscribers.length === 0) { <span class="cstat-no" title="statement not covered" >return; </span>}</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      var child, callback, detail = promise._result;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      for (var i = 0; i &lt; subscribers.length; i += 3) {</span>
+<span class="cstat-no" title="statement not covered" >        child = subscribers[i];</span>
+<span class="cstat-no" title="statement not covered" >        callback = subscribers[i + settled];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (child) {</span>
+<span class="cstat-no" title="statement not covered" >          lib$es6$promise$$internal$$invokeCallback(settled, child, callback, detail);</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          callback(detail);</span>
+        }
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      promise._subscribers.length = 0;</span>
+    }
+&nbsp;
+    function lib$es6$promise$$internal$$ErrorObject() {
+      this.error = null;
+    }
+&nbsp;
+    var lib$es6$promise$$internal$$TRY_CATCH_ERROR = new lib$es6$promise$$internal$$ErrorObject();
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$$internal$$tryCatch(callback, detail) {</span>
+<span class="cstat-no" title="statement not covered" >      try {</span>
+<span class="cstat-no" title="statement not covered" >        return callback(detail);</span>
+      } catch(e) {
+<span class="cstat-no" title="statement not covered" >        lib$es6$promise$$internal$$TRY_CATCH_ERROR.error = e;</span>
+<span class="cstat-no" title="statement not covered" >        return lib$es6$promise$$internal$$TRY_CATCH_ERROR;</span>
+      }
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$$internal$$invokeCallback(settled, promise, callback, detail) {</span>
+<span class="cstat-no" title="statement not covered" >      var hasCallback = lib$es6$promise$utils$$isFunction(callback),</span>
+          value, error, succeeded, failed;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (hasCallback) {</span>
+<span class="cstat-no" title="statement not covered" >        value = lib$es6$promise$$internal$$tryCatch(callback, detail);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (value === lib$es6$promise$$internal$$TRY_CATCH_ERROR) {</span>
+<span class="cstat-no" title="statement not covered" >          failed = true;</span>
+<span class="cstat-no" title="statement not covered" >          error = value.error;</span>
+<span class="cstat-no" title="statement not covered" >          value = null;</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          succeeded = true;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (promise === value) {</span>
+<span class="cstat-no" title="statement not covered" >          lib$es6$promise$$internal$$reject(promise, lib$es6$promise$$internal$$cannotReturnOwn());</span>
+<span class="cstat-no" title="statement not covered" >          return;</span>
+        }
+&nbsp;
+      } else {
+<span class="cstat-no" title="statement not covered" >        value = detail;</span>
+<span class="cstat-no" title="statement not covered" >        succeeded = true;</span>
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (promise._state !== lib$es6$promise$$internal$$PENDING) {</span>
+        // noop
+      } else <span class="cstat-no" title="statement not covered" >if (hasCallback &amp;&amp; succeeded) {</span>
+<span class="cstat-no" title="statement not covered" >        lib$es6$promise$$internal$$resolve(promise, value);</span>
+      } else <span class="cstat-no" title="statement not covered" >if (failed) {</span>
+<span class="cstat-no" title="statement not covered" >        lib$es6$promise$$internal$$reject(promise, error);</span>
+      } else <span class="cstat-no" title="statement not covered" >if (settled === lib$es6$promise$$internal$$FULFILLED) {</span>
+<span class="cstat-no" title="statement not covered" >        lib$es6$promise$$internal$$fulfill(promise, value);</span>
+      } else <span class="cstat-no" title="statement not covered" >if (settled === lib$es6$promise$$internal$$REJECTED) {</span>
+<span class="cstat-no" title="statement not covered" >        lib$es6$promise$$internal$$reject(promise, value);</span>
+      }
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$$internal$$initializePromise(promise, resolver) {</span>
+<span class="cstat-no" title="statement not covered" >      try {</span>
+<span class="cstat-no" title="statement not covered" >        resolver(<span class="fstat-no" title="function not covered" >function resolvePromise(value){</span></span>
+<span class="cstat-no" title="statement not covered" >          lib$es6$promise$$internal$$resolve(promise, value);</span>
+        }, <span class="fstat-no" title="function not covered" >function rejectPromise(reason) {</span>
+<span class="cstat-no" title="statement not covered" >          lib$es6$promise$$internal$$reject(promise, reason);</span>
+        });
+      } catch(e) {
+<span class="cstat-no" title="statement not covered" >        lib$es6$promise$$internal$$reject(promise, e);</span>
+      }
+    }
+&nbsp;
+    var lib$es6$promise$$internal$$id = 0;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$$internal$$nextId() {</span>
+<span class="cstat-no" title="statement not covered" >      return lib$es6$promise$$internal$$id++;</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$$internal$$makePromise(promise) {</span>
+<span class="cstat-no" title="statement not covered" >      promise[lib$es6$promise$$internal$$PROMISE_ID] = lib$es6$promise$$internal$$id++;</span>
+<span class="cstat-no" title="statement not covered" >      promise._state = undefined;</span>
+<span class="cstat-no" title="statement not covered" >      promise._result = undefined;</span>
+<span class="cstat-no" title="statement not covered" >      promise._subscribers = [];</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$promise$all$$all(entries) {</span>
+<span class="cstat-no" title="statement not covered" >      return new lib$es6$promise$enumerator$$default(this, entries).promise;</span>
+    }
+    var lib$es6$promise$promise$all$$default = lib$es6$promise$promise$all$$all;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$promise$race$$race(entries) {</span>
+      /*jshint validthis:true */
+<span class="cstat-no" title="statement not covered" >      var Constructor = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (!lib$es6$promise$utils$$isArray(entries)) {</span>
+<span class="cstat-no" title="statement not covered" >        return new Constructor(<span class="fstat-no" title="function not covered" >function(resolve, reject) {</span></span>
+<span class="cstat-no" title="statement not covered" >          reject(new TypeError('You must pass an array to race.'));</span>
+        });
+      } else {
+<span class="cstat-no" title="statement not covered" >        return new Constructor(<span class="fstat-no" title="function not covered" >function(resolve, reject) {</span></span>
+<span class="cstat-no" title="statement not covered" >          var length = entries.length;</span>
+<span class="cstat-no" title="statement not covered" >          for (var i = 0; i &lt; length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >            Constructor.resolve(entries[i]).then(resolve, reject);</span>
+          }
+        });
+      }
+    }
+    var lib$es6$promise$promise$race$$default = lib$es6$promise$promise$race$$race;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$promise$reject$$reject(reason) {</span>
+      /*jshint validthis:true */
+<span class="cstat-no" title="statement not covered" >      var Constructor = this;</span>
+<span class="cstat-no" title="statement not covered" >      var promise = new Constructor(lib$es6$promise$$internal$$noop);</span>
+<span class="cstat-no" title="statement not covered" >      lib$es6$promise$$internal$$reject(promise, reason);</span>
+<span class="cstat-no" title="statement not covered" >      return promise;</span>
+    }
+    var lib$es6$promise$promise$reject$$default = lib$es6$promise$promise$reject$$reject;
+&nbsp;
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$promise$$needsResolver() {</span>
+<span class="cstat-no" title="statement not covered" >      throw new TypeError('You must pass a resolver function as the first argument to the promise constructor');</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$promise$$needsNew() {</span>
+<span class="cstat-no" title="statement not covered" >      throw new TypeError("Failed to construct 'Promise': Please use the 'new' operator, this object constructor cannot be called as a function.");</span>
+    }
+&nbsp;
+    var lib$es6$promise$promise$$default = lib$es6$promise$promise$$Promise;
+    /**
+      Promise objects represent the eventual result of an asynchronous operation. The
+      primary way of interacting with a promise is through its `then` method, which
+      registers callbacks to receive either a promise's eventual value or the reason
+      why the promise cannot be fulfilled.
+&nbsp;
+      Terminology
+      -----------
+&nbsp;
+      - `promise` is an object or function with a `then` method whose behavior conforms to this specification.
+      - `thenable` is an object or function that defines a `then` method.
+      - `value` is any legal JavaScript value (including undefined, a thenable, or a promise).
+      - `exception` is a value that is thrown using the throw statement.
+      - `reason` is a value that indicates why a promise was rejected.
+      - `settled` the final resting state of a promise, fulfilled or rejected.
+&nbsp;
+      A promise can be in one of three states: pending, fulfilled, or rejected.
+&nbsp;
+      Promises that are fulfilled have a fulfillment value and are in the fulfilled
+      state.  Promises that are rejected have a rejection reason and are in the
+      rejected state.  A fulfillment value is never a thenable.
+&nbsp;
+      Promises can also be said to *resolve* a value.  If this value is also a
+      promise, then the original promise's settled state will match the value's
+      settled state.  So a promise that *resolves* a promise that rejects will
+      itself reject, and a promise that *resolves* a promise that fulfills will
+      itself fulfill.
+&nbsp;
+&nbsp;
+      Basic Usage:
+      ------------
+&nbsp;
+      ```js
+      var promise = new Promise(function(resolve, reject) {
+        // on success
+        resolve(value);
+&nbsp;
+        // on failure
+        reject(reason);
+      });
+&nbsp;
+      promise.then(function(value) {
+        // on fulfillment
+      }, function(reason) {
+        // on rejection
+      });
+      ```
+&nbsp;
+      Advanced Usage:
+      ---------------
+&nbsp;
+      Promises shine when abstracting away asynchronous interactions such as
+      `XMLHttpRequest`s.
+&nbsp;
+      ```js
+      function getJSON(url) {
+        return new Promise(function(resolve, reject){
+          var xhr = new XMLHttpRequest();
+&nbsp;
+          xhr.open('GET', url);
+          xhr.onreadystatechange = handler;
+          xhr.responseType = 'json';
+          xhr.setRequestHeader('Accept', 'application/json');
+          xhr.send();
+&nbsp;
+          function handler() {
+            if (this.readyState === this.DONE) {
+              if (this.status === 200) {
+                resolve(this.response);
+              } else {
+                reject(new Error('getJSON: `' + url + '` failed with status: [' + this.status + ']'));
+              }
+            }
+          };
+        });
+      }
+&nbsp;
+      getJSON('/posts.json').then(function(json) {
+        // on fulfillment
+      }, function(reason) {
+        // on rejection
+      });
+      ```
+&nbsp;
+      Unlike callbacks, promises are great composable primitives.
+&nbsp;
+      ```js
+      Promise.all([
+        getJSON('/posts'),
+        getJSON('/comments')
+      ]).then(function(values){
+        values[0] // =&gt; postsJSON
+        values[1] // =&gt; commentsJSON
+&nbsp;
+        return values;
+      });
+      ```
+&nbsp;
+      @class Promise
+      @param {function} resolver
+      Useful for tooling.
+      @constructor
+    */
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$promise$$Promise(resolver) {</span>
+<span class="cstat-no" title="statement not covered" >      this[lib$es6$promise$$internal$$PROMISE_ID] = lib$es6$promise$$internal$$nextId();</span>
+<span class="cstat-no" title="statement not covered" >      this._result = this._state = undefined;</span>
+<span class="cstat-no" title="statement not covered" >      this._subscribers = [];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (lib$es6$promise$$internal$$noop !== resolver) {</span>
+<span class="cstat-no" title="statement not covered" >        typeof resolver !== 'function' &amp;&amp; lib$es6$promise$promise$$needsResolver();</span>
+<span class="cstat-no" title="statement not covered" >        this instanceof lib$es6$promise$promise$$Promise ? lib$es6$promise$$internal$$initializePromise(this, resolver) : lib$es6$promise$promise$$needsNew();</span>
+      }
+    }
+&nbsp;
+    lib$es6$promise$promise$$Promise.all = lib$es6$promise$promise$all$$default;
+    lib$es6$promise$promise$$Promise.race = lib$es6$promise$promise$race$$default;
+    lib$es6$promise$promise$$Promise.resolve = lib$es6$promise$promise$resolve$$default;
+    lib$es6$promise$promise$$Promise.reject = lib$es6$promise$promise$reject$$default;
+    lib$es6$promise$promise$$Promise._setScheduler = lib$es6$promise$asap$$setScheduler;
+    lib$es6$promise$promise$$Promise._setAsap = lib$es6$promise$asap$$setAsap;
+    lib$es6$promise$promise$$Promise._asap = lib$es6$promise$asap$$asap;
+&nbsp;
+    lib$es6$promise$promise$$Promise.prototype = {
+      constructor: lib$es6$promise$promise$$Promise,
+&nbsp;
+    /**
+      The primary way of interacting with a promise is through its `then` method,
+      which registers callbacks to receive either a promise's eventual value or the
+      reason why the promise cannot be fulfilled.
+&nbsp;
+      ```js
+      findUser().then(function(user){
+        // user is available
+      }, function(reason){
+        // user is unavailable, and you are given the reason why
+      });
+      ```
+&nbsp;
+      Chaining
+      --------
+&nbsp;
+      The return value of `then` is itself a promise.  This second, 'downstream'
+      promise is resolved with the return value of the first promise's fulfillment
+      or rejection handler, or rejected if the handler throws an exception.
+&nbsp;
+      ```js
+      findUser().then(function (user) {
+        return user.name;
+      }, function (reason) {
+        return 'default name';
+      }).then(function (userName) {
+        // If `findUser` fulfilled, `userName` will be the user's name, otherwise it
+        // will be `'default name'`
+      });
+&nbsp;
+      findUser().then(function (user) {
+        throw new Error('Found user, but still unhappy');
+      }, function (reason) {
+        throw new Error('`findUser` rejected and we're unhappy');
+      }).then(function (value) {
+        // never reached
+      }, function (reason) {
+        // if `findUser` fulfilled, `reason` will be 'Found user, but still unhappy'.
+        // If `findUser` rejected, `reason` will be '`findUser` rejected and we're unhappy'.
+      });
+      ```
+      If the downstream promise does not specify a rejection handler, rejection reasons will be propagated further downstream.
+&nbsp;
+      ```js
+      findUser().then(function (user) {
+        throw new PedagogicalException('Upstream error');
+      }).then(function (value) {
+        // never reached
+      }).then(function (value) {
+        // never reached
+      }, function (reason) {
+        // The `PedgagocialException` is propagated all the way down to here
+      });
+      ```
+&nbsp;
+      Assimilation
+      ------------
+&nbsp;
+      Sometimes the value you want to propagate to a downstream promise can only be
+      retrieved asynchronously. This can be achieved by returning a promise in the
+      fulfillment or rejection handler. The downstream promise will then be pending
+      until the returned promise is settled. This is called *assimilation*.
+&nbsp;
+      ```js
+      findUser().then(function (user) {
+        return findCommentsByAuthor(user);
+      }).then(function (comments) {
+        // The user's comments are now available
+      });
+      ```
+&nbsp;
+      If the assimliated promise rejects, then the downstream promise will also reject.
+&nbsp;
+      ```js
+      findUser().then(function (user) {
+        return findCommentsByAuthor(user);
+      }).then(function (comments) {
+        // If `findCommentsByAuthor` fulfills, we'll have the value here
+      }, function (reason) {
+        // If `findCommentsByAuthor` rejects, we'll have the reason here
+      });
+      ```
+&nbsp;
+      Simple Example
+      --------------
+&nbsp;
+      Synchronous Example
+&nbsp;
+      ```javascript
+      var result;
+&nbsp;
+      try {
+        result = findResult();
+        // success
+      } catch(reason) {
+        // failure
+      }
+      ```
+&nbsp;
+      Errback Example
+&nbsp;
+      ```js
+      findResult(function(result, err){
+        if (err) {
+          // failure
+        } else {
+          // success
+        }
+      });
+      ```
+&nbsp;
+      Promise Example;
+&nbsp;
+      ```javascript
+      findResult().then(function(result){
+        // success
+      }, function(reason){
+        // failure
+      });
+      ```
+&nbsp;
+      Advanced Example
+      --------------
+&nbsp;
+      Synchronous Example
+&nbsp;
+      ```javascript
+      var author, books;
+&nbsp;
+      try {
+        author = findAuthor();
+        books  = findBooksByAuthor(author);
+        // success
+      } catch(reason) {
+        // failure
+      }
+      ```
+&nbsp;
+      Errback Example
+&nbsp;
+      ```js
+&nbsp;
+      function foundBooks(books) {
+&nbsp;
+      }
+&nbsp;
+      function failure(reason) {
+&nbsp;
+      }
+&nbsp;
+      findAuthor(function(author, err){
+        if (err) {
+          failure(err);
+          // failure
+        } else {
+          try {
+            findBoooksByAuthor(author, function(books, err) {
+              if (err) {
+                failure(err);
+              } else {
+                try {
+                  foundBooks(books);
+                } catch(reason) {
+                  failure(reason);
+                }
+              }
+            });
+          } catch(error) {
+            failure(err);
+          }
+          // success
+        }
+      });
+      ```
+&nbsp;
+      Promise Example;
+&nbsp;
+      ```javascript
+      findAuthor().
+        then(findBooksByAuthor).
+        then(function(books){
+          // found books
+      }).catch(function(reason){
+        // something went wrong
+      });
+      ```
+      @ignore
+      @method then
+      @param {Function} onFulfilled
+      @param {Function} onRejected
+      Useful for tooling.
+      @return {Promise}
+    */
+      then: lib$es6$promise$then$$default,
+&nbsp;
+    /**
+      `catch` is simply sugar for `then(undefined, onRejection)` which makes it the same
+      as the catch block of a try/catch statement.
+&nbsp;
+      ```js
+      function findAuthor(){
+        throw new Error('couldn't find that author');
+      }
+&nbsp;
+      // synchronous
+      try {
+        findAuthor();
+      } catch(reason) {
+        // something went wrong
+      }
+&nbsp;
+      // async with promises
+      findAuthor().catch(function(reason){
+        // something went wrong
+      });
+      ```
+      @ignore
+      @method catch
+      @param {Function} onRejection
+      Useful for tooling.
+      @return {Promise}
+    */
+      'catch': <span class="fstat-no" title="function not covered" >function(onRejection) {</span>
+<span class="cstat-no" title="statement not covered" >        return this.then(null, onRejection);</span>
+      }
+    };
+    var lib$es6$promise$enumerator$$default = lib$es6$promise$enumerator$$Enumerator;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$enumerator$$Enumerator(Constructor, input) {</span>
+<span class="cstat-no" title="statement not covered" >      this._instanceConstructor = Constructor;</span>
+<span class="cstat-no" title="statement not covered" >      this.promise = new Constructor(lib$es6$promise$$internal$$noop);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (!this.promise[lib$es6$promise$$internal$$PROMISE_ID]) {</span>
+<span class="cstat-no" title="statement not covered" >        lib$es6$promise$$internal$$makePromise(this.promise);</span>
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (Array.isArray(input)) {</span>
+<span class="cstat-no" title="statement not covered" >        this._input     = input;</span>
+<span class="cstat-no" title="statement not covered" >        this.length     = input.length;</span>
+<span class="cstat-no" title="statement not covered" >        this._remaining = input.length;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this._result = new Array(this.length);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (this.length === 0) {</span>
+<span class="cstat-no" title="statement not covered" >          lib$es6$promise$$internal$$fulfill(this.promise, this._result);</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          this.length = this.length || 0;</span>
+<span class="cstat-no" title="statement not covered" >          this._enumerate();</span>
+<span class="cstat-no" title="statement not covered" >          if (this._remaining === 0) {</span>
+<span class="cstat-no" title="statement not covered" >            lib$es6$promise$$internal$$fulfill(this.promise, this._result);</span>
+          }
+        }
+      } else {
+<span class="cstat-no" title="statement not covered" >        lib$es6$promise$$internal$$reject(this.promise, lib$es6$promise$enumerator$$validationError());</span>
+      }
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function lib$es6$promise$enumerator$$validationError() {</span>
+<span class="cstat-no" title="statement not covered" >      return new Error('Array Methods must be provided an Array');</span>
+    }
+&nbsp;
+    lib$es6$promise$enumerator$$Enumerator.prototype._enumerate = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >      var length  = this.length;</span>
+<span class="cstat-no" title="statement not covered" >      var input   = this._input;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      for (var i = 0; this._state === lib$es6$promise$$internal$$PENDING &amp;&amp; i &lt; length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >        this._eachEntry(input[i], i);</span>
+      }
+    };
+&nbsp;
+    lib$es6$promise$enumerator$$Enumerator.prototype._eachEntry = <span class="fstat-no" title="function not covered" >function(entry, i) {</span>
+<span class="cstat-no" title="statement not covered" >      var c = this._instanceConstructor;</span>
+<span class="cstat-no" title="statement not covered" >      var resolve = c.resolve;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (resolve === lib$es6$promise$promise$resolve$$default) {</span>
+<span class="cstat-no" title="statement not covered" >        var then = lib$es6$promise$$internal$$getThen(entry);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (then === lib$es6$promise$then$$default &amp;&amp;</span>
+            entry._state !== lib$es6$promise$$internal$$PENDING) {
+<span class="cstat-no" title="statement not covered" >          this._settledAt(entry._state, i, entry._result);</span>
+        } else <span class="cstat-no" title="statement not covered" >if (typeof then !== 'function') {</span>
+<span class="cstat-no" title="statement not covered" >          this._remaining--;</span>
+<span class="cstat-no" title="statement not covered" >          this._result[i] = entry;</span>
+        } else <span class="cstat-no" title="statement not covered" >if (c === lib$es6$promise$promise$$default) {</span>
+<span class="cstat-no" title="statement not covered" >          var promise = new c(lib$es6$promise$$internal$$noop);</span>
+<span class="cstat-no" title="statement not covered" >          lib$es6$promise$$internal$$handleMaybeThenable(promise, entry, then);</span>
+<span class="cstat-no" title="statement not covered" >          this._willSettleAt(promise, i);</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          this._willSettleAt(new c(<span class="fstat-no" title="function not covered" >function(resolve) {</span> <span class="cstat-no" title="statement not covered" >resolve(entry); </span>}), i);</span>
+        }
+      } else {
+<span class="cstat-no" title="statement not covered" >        this._willSettleAt(resolve(entry), i);</span>
+      }
+    };
+&nbsp;
+    lib$es6$promise$enumerator$$Enumerator.prototype._settledAt = <span class="fstat-no" title="function not covered" >function(state, i, value) {</span>
+<span class="cstat-no" title="statement not covered" >      var promise = this.promise;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (promise._state === lib$es6$promise$$internal$$PENDING) {</span>
+<span class="cstat-no" title="statement not covered" >        this._remaining--;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (state === lib$es6$promise$$internal$$REJECTED) {</span>
+<span class="cstat-no" title="statement not covered" >          lib$es6$promise$$internal$$reject(promise, value);</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          this._result[i] = value;</span>
+        }
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (this._remaining === 0) {</span>
+<span class="cstat-no" title="statement not covered" >        lib$es6$promise$$internal$$fulfill(promise, this._result);</span>
+      }
+    };
+&nbsp;
+    lib$es6$promise$enumerator$$Enumerator.prototype._willSettleAt = <span class="fstat-no" title="function not covered" >function(promise, i) {</span>
+<span class="cstat-no" title="statement not covered" >      var enumerator = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      lib$es6$promise$$internal$$subscribe(promise, undefined, <span class="fstat-no" title="function not covered" >function(value) {</span></span>
+<span class="cstat-no" title="statement not covered" >        enumerator._settledAt(lib$es6$promise$$internal$$FULFILLED, i, value);</span>
+      }, <span class="fstat-no" title="function not covered" >function(reason) {</span>
+<span class="cstat-no" title="statement not covered" >        enumerator._settledAt(lib$es6$promise$$internal$$REJECTED, i, reason);</span>
+      });
+    };
+    function lib$es6$promise$polyfill$$polyfill() {
+      var local;
+&nbsp;
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (typeof global !== 'undefined') {
+<span class="cstat-no" title="statement not covered" >          local = global;</span>
+      } else <span class="missing-if-branch" title="else path not taken" >E</span>if (typeof self !== 'undefined') {
+          local = self;
+      } else {
+<span class="cstat-no" title="statement not covered" >          try {</span>
+<span class="cstat-no" title="statement not covered" >              local = Function('return this')();</span>
+          } catch (e) {
+<span class="cstat-no" title="statement not covered" >              throw new Error('polyfill failed because global object is unavailable in this environment');</span>
+          }
+      }
+&nbsp;
+      var P = local.Promise;
+&nbsp;
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (P &amp;&amp; Object.prototype.toString.call(P.resolve()) === '[object Promise]' &amp;&amp; !P.cast) {
+        return;
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      local.Promise = lib$es6$promise$promise$$default;</span>
+    }
+    var lib$es6$promise$polyfill$$default = lib$es6$promise$polyfill$$polyfill;
+&nbsp;
+    var lib$es6$promise$umd$$ES6Promise = {
+      'Promise': lib$es6$promise$promise$$default,
+      'polyfill': lib$es6$promise$polyfill$$default
+    };
+&nbsp;
+    /* global define:true module:true window: true */
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (typeof define === 'function' &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >define['amd'])</span> {
+<span class="cstat-no" title="statement not covered" >      define(<span class="fstat-no" title="function not covered" >function() {</span> <span class="cstat-no" title="statement not covered" >return lib$es6$promise$umd$$ES6Promise; </span>});</span>
+    } else <span class="missing-if-branch" title="if path not taken" >I</span>if (typeof module !== 'undefined' &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >module['exports'])</span> {
+<span class="cstat-no" title="statement not covered" >      module['exports'] = lib$es6$promise$umd$$ES6Promise;</span>
+    } else <span class="missing-if-branch" title="else path not taken" >E</span>if (typeof this !== 'undefined') {
+      this['ES6Promise'] = lib$es6$promise$umd$$ES6Promise;
+    }
+&nbsp;
+    lib$es6$promise$polyfill$$default();
+}).call(this);
+/* eslint-enable no-unused-vars, no-new-func, space-before-blocks, quotes, space-infix-ops, new-cap, keyword-spacing, no-redeclare, no-undef, no-new */
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Oct 21 2017 15:15:44 GMT-0700 (PDT)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>
