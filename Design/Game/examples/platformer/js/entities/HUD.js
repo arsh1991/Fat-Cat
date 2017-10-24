@@ -48,7 +48,7 @@ game.HUD.FSControl = me.GUI_Object.extend({
     init: function(x, y) {
         this._super(me.GUI_Object, "init", [ x, y, {
             image: game.texture,
-            region : "shadedDark30.png"
+            region : "pause-button.png"
         } ]);
         this.setOpacity(0.5);
         this.anchorPoint.set(0, 0);
@@ -80,6 +80,66 @@ game.HUD.FSControl = me.GUI_Object.extend({
         return false;
     }
 });
+
+
+
+
+
+
+
+
+
+
+/**
+ * a basic control to toggle pause game - Aditi
+ */
+game.HUD.FSControl = me.GUI_Object.extend({
+    /**
+     * constructor
+     */
+    init: function(x, y) {
+        this._super(me.GUI_Object, "init", [ x, y, {
+            image: game.texture,
+            region : "pause-button.png"
+        } ]);
+        this.setOpacity(0.5);
+        this.anchorPoint.set(0, 0);
+    },
+
+    /**
+     * function called when the pointer is over the object
+     */
+    onOver : function (/* event */) {
+        this.setOpacity(1.0);
+    },
+
+    /**
+     * function called when the pointer is leaving the object area
+     */
+    onOut : function (/* event */) {
+        this.setOpacity(0.5);
+    },
+
+    /**
+     * function called when the object is clicked on
+     */
+    onClick : function (/* event */) {
+        if (!me.device.isFullscreen) {
+            me.device.requestFullscreen();
+        } else {
+            me.device.exitFullscreen();
+        }
+        return false;
+    }
+});
+
+
+
+
+
+
+
+
 
 /**
  * a basic control to toggle fullscreen on/off

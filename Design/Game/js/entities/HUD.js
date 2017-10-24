@@ -38,6 +38,22 @@ game.HUD.Container = me.Container.extend({
     }
 });
 
+
+
+
+if (me.input.isKeyPressed("pause")) {
+    me.state.pause();
+
+    var resume_loop = setInterval(function check_resume() {
+        if (me.state.input.isKeyPressed("pause")) {
+            clearInterval(resume_loop);
+            me.state.resume();
+        }
+    }, 100);
+}
+
+
+
 /**
  * a basic control to toggle fullscreen on/off
  */
