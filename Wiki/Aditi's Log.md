@@ -51,6 +51,11 @@ Had our weekly team meeting to discuss progress from last week (which was less t
 Debugged issues in my sample game based off of feedback from developers online. Other people's previous experiences helped me learn more about the game development process and helped me gain some insight in the errors I was making.
 ### Oct. 18, Wednesday
 Researched design patterns and concluded that the Decorator Design pattern + the State Design pattern would be the best options for the project. I believe these would be good choices because each interface in our project will have multiple small attributes which will have important attributes that need to change.
-### Oct. 19, Thursday
+### Oct. 19, Thursday and Oct. 20, Friday
 Continued research on design patterns and began designing a sample UML diagram, based on feedback from team and learning materials. Finished work on the sample Space Invaders game and pushed code. Updated the Features Document with clarifications and design patterns.
 ## Week 5
+### Oct. 21, Saturday
+Team meeting was held and we worked together and provided feedback on things that need to get done. 
+### Oct. 23, Monday
+
+### Oct. 24, Tuesday
