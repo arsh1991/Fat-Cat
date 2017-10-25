@@ -87,6 +87,12 @@ Worked with team to build a common base game which we will use to build on and h
 
 
 ## October 22, 2017:
-Created an proof of concept by developing a game with main player, enemy, and collectables. Understood various components required to build the game. Checked in the created version and screenshot of working version in repository:
+Created a proof of concept by developing a game with main player, enemy, and collectables. Understood various components required to build the game. Checked in the created version and screenshot of working version in repository:
 https://github.com/nguyensjsu/cmpe202-oceans11/tree/master/Research/arsh/Platformer_v2
 
+## October 24, 2017:
+As we need to render all the objects in TILEMAP, we will need to create a new texture sheet for the project with all the selected sprite sheets. LEarnt a new tool "Texturepacker" for creating the new texture sheet with new sprite resouces. Incorporated the new texture sheet in the code base and successfully rendered new objects in tilemaps object layer. Checked in the created version and screenshot of working version in repository:
+https://github.com/nguyensjsu/cmpe202-oceans11/tree/master/Design/Game%20Source%20Code/data/img
+
+Texture packer:
+https://www.codeandweb.com/texturepacker
