@@ -1,14 +1,7 @@
  ---
 
-Platformer graphics by Kenney Vleugels (www.kenney.nl)
-
-You may use these graphics in personal and commercial projects.
-Credit (www.kenney.nl) would be nice but is not mandatory.
-
- --
-
  ## Update 1 ##
 
- Added a character (+ poses), walk animation and two enemies
-
+- Moved the old texture files in the old folder and kept the current files in the image folder
+- Changed the main player, enemy and collectables
  --
