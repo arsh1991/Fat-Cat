@@ -1,8 +1,9 @@
+
+## Week 1:
+
 ## XP Core Value: Simplicity
 
 Simplicity in Extreme programming refers to replacing complex tasks with simpler ones. A simple task is always easier to understand and process when compared to a complex task. We will start with a simple design and refactor the code as we move on with the project.
-
-## Week 1:
 
 ## September 18, 2017:
 
@@ -29,6 +30,11 @@ Betfair is an online gambling application. We can implement something similar wi
 
 ## Week 2:
 
+## XP Core Value: Simplicity
+
+Simplicity in Extreme programming refers to replacing complex tasks with simpler ones. A simple task is always easier to understand and process when compared to a complex task. We will start with a simple design and refactor the code as we move on with the project.
+
+
 ## September 23, 2017:
 Team meeting to discuss the project topics and their implementation. Listed down the tasks we need to work on for the upcoming week and created issues.
 
@@ -47,6 +53,11 @@ Research on clm library which could be used for facial expressions game. Looked 
 
 
 ## Week 3:
+
+## XP Core Value: Simplicity
+
+Simplicity in Extreme programming refers to replacing complex tasks with simpler ones. A simple task is always easier to understand and process when compared to a complex task. In week 3, team worked on simpler tasks like learning the basics of Javascript, studying the basics of game development and setting up the environment for MelonJs.
+
 
 ## September 29, 2017:
 -Team meeting
@@ -73,6 +84,11 @@ https://melonjs.github.io/tutorial-space-invaders/<br/>
 Added more features to the game. Explored different features.
 
 ## Week 4
+
+
+## XP Core Value: Simplicity
+
+Simplicity in Extreme programming refers to replacing complex tasks with simpler ones. A simple task is always easier to understand and process when compared to a complex task. In week 4, team worked on simple game features like tiled functionality, character movement in a game, learning design patterns.
 
 ### October 7, Saturday
 Team Meeting<br/>

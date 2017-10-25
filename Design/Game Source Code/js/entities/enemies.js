@@ -77,6 +77,7 @@ game.PathEnemyEntity = me.Entity.extend({
     onCollision : function (response) {
         // res.y >0 means touched by something on the bottom
         // which mean at top position for this one
+        console.log(game.data.score);
         if (this.alive && (response.overlapV.y > 0) && response.a.body.falling) {
             // make it dead
             this.alive = false;
@@ -92,6 +93,7 @@ game.PathEnemyEntity = me.Entity.extend({
             // dead sfx
             me.audio.play("enemykill", false);
             // give some score
+            console.log(game.data.score);
             game.data.score += 150;
         }
 
