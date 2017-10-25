@@ -104,12 +104,17 @@ game.PlayerEntity = me.Entity.extend({
                 me.audio.play("die", false);
 
 
+                //<aditi>    
                // me.levelDirector.reloadLevel();
                 me.state.pause(); //aditi - prevents game from restarting.
                 //setTimeout(function(){
-       window.location.href = 'end-game.html';
+                window.location.href = 'end-game.html';
                   //  }, 5000);
-//</aditi>
+                healthLevel = 1;
+                timeCompleted = 1;
+                game.data.score = (game.data.score * 100 * healthLevel)/(timeCompleted);
+                //</aditi>
+
 
 
                 me.game.viewport.fadeOut("#fff", 150);

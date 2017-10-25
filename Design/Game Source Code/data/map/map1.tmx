@@ -62,12 +62,6 @@
     <property name="framewidth" value="55"/>
    </properties>
   </object>
-   <object id="120" name="SlimeEntity" x="960" y="945" width="220" height="35">
-   <properties>
-    <property name="frameheight" value="35"/>
-    <property name="framewidth" value="55"/>
-   </properties>
-  </object>
   <object id="6" name="SlimeEntity" x="1330" y="875" width="350" height="35">
    <properties>
     <property name="frameheight" value="35"/>
@@ -77,7 +71,6 @@
  </objectgroup>
  <objectgroup color="#ffff00" name="Coins">
   <object id="3" name="CoinEntity" x="700" y="805" width="35" height="35"/>
-  <object id="121" name="CoinEntity" x="1100" y="805" width="35" height="35"/>
  </objectgroup>
  <layer name="Front Layer" width="50" height="30">
   <data encoding="base64">
