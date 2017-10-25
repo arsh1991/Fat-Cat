@@ -1,3 +1,4 @@
+var speed={xvel:6, yvel:18};
 game.PlayerEntity = me.Entity.extend({
     init: function(x, y, settings) {
         // call the constructor
@@ -7,7 +8,7 @@ game.PlayerEntity = me.Entity.extend({
         this.alwaysUpdate = true;
 
         // walking & jumping speed
-        this.body.setVelocity(3, 15);
+        this.body.setVelocity(speed.xvel, speed.yvel);
         this.body.setFriction(0.4,0);
 
         this.dying = false;
@@ -173,20 +174,21 @@ game.PlayerEntity = me.Entity.extend({
                 break;
 
             case me.collision.types.ENEMY_OBJECT:
+            
                 if (!other.isMovingEnemy) {
+                    
                     // spike or any other fixed danger
                     this.body.vel.y -= this.body.maxVel.y * me.timer.tick;
                     this.hurt();
                 }
                 else {
-                    // a regular moving enemy entity
-                    if ((response.overlapV.y > 0) && this.body.falling) {
-                        // jump
-                        this.body.vel.y -= this.body.maxVel.y * 1.5 * me.timer.tick;
-                    }
-                    else {
+
+                        
+                       speed.xvel-=1;
+                       speed.yvel-=2;
+                        this.body.setVelocity(speed.xvel, speed.yvel);
                         this.hurt();
-                    }
+                    
                     // Not solid
                     return false;
                 }
