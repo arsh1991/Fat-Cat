@@ -187,12 +187,19 @@ game.PlayerEntity = me.Entity.extend({
                        speed.xvel-=1;
                        speed.yvel-=2;
                         this.body.setVelocity(speed.xvel, speed.yvel);
-                        this.hurt();
+                       // this.hurt();
                     
                     // Not solid
-                    return false;
+                    //return false;
                 }
                 break;
+
+            case me.collision.types.COLLECTABLE_OBJECT:
+
+                       speed.xvel+=0.5;
+                       speed.yvel+=1;
+                        this.body.setVelocity(speed.xvel, speed.yvel);
+                        break;
 
             default:
                 // Do not respond to other objects (e.g. coins)

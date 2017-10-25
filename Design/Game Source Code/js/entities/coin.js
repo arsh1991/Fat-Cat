@@ -10,6 +10,8 @@ game.CoinEntity = me.CollectableEntity.extend({
         // add the coin sprite as renderable
         this.renderable = game.texture.createSpriteFromName("coin.png");
 
+        this.body.collisionType = me.collision.types.COLLECTABLE_OBJECT;
+
         // set the renderable position to center
         this.anchorPoint.set(0.5, 0.5);
     },
