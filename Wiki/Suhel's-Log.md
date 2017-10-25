@@ -1,4 +1,5 @@
-## # XP Core Value: Courage
+## Week 1
+## XP Core Value: Courage
 
 ## 18th September 2017
 Started exploring different game engines for our application like Melon.js,Greenfoot
@@ -14,7 +15,9 @@ https://gik.laboratorium.ee/(good UI)
 ## 21st September 2017
 Researched Melon.js , their various implementations and dependencies required to be installed. Checked API documentation and updated Kanban Flow Diagram with suitable backlog items.       
 
-# Week 2
+## Week 2
+
+## XP Core Value: Courage
 ## 23rd September 2017
 Had team meeting. Looked back and reviewed the tasks of last week and created new issues for the upcoming week.
 
@@ -28,7 +31,9 @@ Studied Design patterns that can be implemented in our project. Looked through o
 Explored Observer design pattern and uploaded a file for same.
 
 
-# Week 3
+## Week 3
+
+## XP Core Value: Courage
 ## 30th September 2017
 Had team meeting. Finalized the team project (Fat Cat) and game engine(Melon.js). Discussed game features and created a 
 document for the same.
@@ -43,8 +48,8 @@ Successfully configured melon.js on the machine added the code for boilerplate t
 Now working on a sample game.
 
 
-# Week 4
-
+## Week 4
+## XP Core Value: Courage
 ## Oct. 7 2017
 Team Meeting
 -Discussed current progress and provide feedback on progress so far.
@@ -60,6 +65,8 @@ As we were not able to work on project last week due to midterm, we decided to c
 ## Oct. 18 2017
 Trying to debug issues in the exiting sample game project created. The movement of the object was not visible and tried to search online for the solution but could not find any proper solution. Looked for design patterns as well side by side and found state design pattern suitable for our game because functions of the main object differ when its state are changed.
 
+## Week5
+## XP Core Value: Courage
 ## Oct. 21 2017
 Had team meeting. Created various modules of the game which were divided between the team members and will work on UML diagram collectively this week.
 
