@@ -1,7 +1,7 @@
 {"frames": [
 
 {
-	"filename": "coin.png",
+	"filename": "coin",
 	"frame": {"x":70,"y":303,"w":61,"h":73},
 	"rotated": false,
 	"trimmed": true,
@@ -10,7 +10,7 @@
 	"pivot": {"x":0.45,"y":0.86}
 },
 {
-	"filename": "fly_dead.png",
+	"filename": "fly_dead",
 	"frame": {"x":72,"y":378,"w":74,"h":56},
 	"rotated": false,
 	"trimmed": true,
@@ -19,7 +19,7 @@
 	"pivot": {"x":0.43,"y":0.77}
 },
 {
-	"filename": "fly_fly.png",
+	"filename": "fly_fly",
 	"frame": {"x":72,"y":378,"w":74,"h":56},
 	"rotated": false,
 	"trimmed": true,
@@ -28,7 +28,7 @@
 	"pivot": {"x":0.44,"y":0.77}
 },
 {
-	"filename": "fly_normal.png",
+	"filename": "fly_normal",
 	"frame": {"x":72,"y":378,"w":74,"h":56},
 	"rotated": false,
 	"trimmed": true,
@@ -37,7 +37,7 @@
 	"pivot": {"x":0.46,"y":0.77}
 },
 {
-	"filename": "shadedDark13.png",
+	"filename": "shadedDark13",
 	"frame": {"x":133,"y":303,"w":48,"h":48},
 	"rotated": false,
 	"trimmed": false,
@@ -46,7 +46,7 @@
 	"pivot": {"x":0.5,"y":1}
 },
 {
-	"filename": "shadedDark15.png",
+	"filename": "shadedDark15",
 	"frame": {"x":148,"y":353,"w":48,"h":48},
 	"rotated": false,
 	"trimmed": false,
@@ -55,7 +55,7 @@
 	"pivot": {"x":0.5,"y":1}
 },
 {
-	"filename": "shadedDark30.png",
+	"filename": "shadedDark30",
 	"frame": {"x":148,"y":403,"w":48,"h":48},
 	"rotated": false,
 	"trimmed": false,
@@ -64,7 +64,7 @@
 	"pivot": {"x":0.5,"y":1}
 },
 {
-	"filename": "slime_dead.png",
+	"filename": "slime_dead",
 	"frame": {"x":1,"y":408,"w":69,"h":43},
 	"rotated": false,
 	"trimmed": true,
@@ -73,7 +73,7 @@
 	"pivot": {"x":0.5,"y":0.74}
 },
 {
-	"filename": "slime_normal.png",
+	"filename": "slime_normal",
 	"frame": {"x":1,"y":408,"w":69,"h":43},
 	"rotated": false,
 	"trimmed": true,
@@ -82,7 +82,7 @@
 	"pivot": {"x":0.45,"y":0.79}
 },
 {
-	"filename": "slime_walk.png",
+	"filename": "slime_walk",
 	"frame": {"x":1,"y":408,"w":69,"h":43},
 	"rotated": false,
 	"trimmed": true,
@@ -91,7 +91,7 @@
 	"pivot": {"x":0.5,"y":0.78}
 },
 {
-	"filename": "walk0001.png",
+	"filename": "walk0001",
 	"frame": {"x":1,"y":103,"w":66,"h":100},
 	"rotated": false,
 	"trimmed": true,
@@ -100,7 +100,7 @@
 	"pivot": {"x":0.5,"y":1}
 },
 {
-	"filename": "walk0002.png",
+	"filename": "walk0002",
 	"frame": {"x":70,"y":1,"w":67,"h":99},
 	"rotated": false,
 	"trimmed": true,
@@ -109,7 +109,7 @@
 	"pivot": {"x":0.491667,"y":0.952381}
 },
 {
-	"filename": "walk0003.png",
+	"filename": "walk0003",
 	"frame": {"x":69,"y":103,"w":67,"h":98},
 	"rotated": false,
 	"trimmed": true,
@@ -118,7 +118,7 @@
 	"pivot": {"x":0.45,"y":0.92381}
 },
 {
-	"filename": "walk0004.png",
+	"filename": "walk0004",
 	"frame": {"x":69,"y":203,"w":67,"h":98},
 	"rotated": false,
 	"trimmed": true,
@@ -127,7 +127,7 @@
 	"pivot": {"x":0.458333,"y":0.942857}
 },
 {
-	"filename": "walk0005.png",
+	"filename": "walk0005",
 	"frame": {"x":139,"y":1,"w":67,"h":99},
 	"rotated": false,
 	"trimmed": true,
@@ -136,7 +136,7 @@
 	"pivot": {"x":0.491667,"y":0.980952}
 },
 {
-	"filename": "walk0006.png",
+	"filename": "walk0006",
 	"frame": {"x":1,"y":205,"w":66,"h":100},
 	"rotated": false,
 	"trimmed": true,
@@ -145,7 +145,7 @@
 	"pivot": {"x":0.5,"y":1}
 },
 {
-	"filename": "walk0007.png",
+	"filename": "walk0007",
 	"frame": {"x":1,"y":1,"w":67,"h":100},
 	"rotated": false,
 	"trimmed": true,
@@ -154,7 +154,7 @@
 	"pivot": {"x":0.475,"y":0.971429}
 },
 {
-	"filename": "walk0008.png",
+	"filename": "walk0008",
 	"frame": {"x":138,"y":102,"w":67,"h":98},
 	"rotated": false,
 	"trimmed": true,
@@ -163,7 +163,7 @@
 	"pivot": {"x":0.475,"y":0.961905}
 },
 {
-	"filename": "walk0009.png",
+	"filename": "walk0009",
 	"frame": {"x":138,"y":202,"w":67,"h":98},
 	"rotated": false,
 	"trimmed": true,
@@ -172,7 +172,7 @@
 	"pivot": {"x":0.5,"y":0.961905}
 },
 {
-	"filename": "walk0010.png",
+	"filename": "walk0010",
 	"frame": {"x":1,"y":307,"w":67,"h":99},
 	"rotated": false,
 	"trimmed": true,
@@ -181,7 +181,7 @@
 	"pivot": {"x":0.5,"y":1}
 },
 {
-	"filename": "walk0011.png",
+	"filename": "walk0011",
 	"frame": {"x":1,"y":103,"w":66,"h":100},
 	"rotated": false,
 	"trimmed": true,
