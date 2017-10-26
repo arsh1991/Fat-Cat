@@ -72,3 +72,7 @@ Had team meeting. Created various modules of the game which were divided between
 
 ## Oct. 23 2017
 Working on scoring metrics of the game.Made changes in the on collison function which updates score on head to head collision with enemy. Created one more scoring metric on the head-up display in HUD.js, though not working yet but will be used in counting the number of burgers or protein bars eaten by fat cat.
+
+## Oct. 25 2017
+Working on creating a timer for the game level. The main player has to complete the whole chart within the prescribed time.
+Created timer objects within the HeadUpDisplay(HUD.js). Troubleshooting and making the app stable(facing some errors when including the timer objects in the main container).
