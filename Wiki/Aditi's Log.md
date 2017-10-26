@@ -55,7 +55,9 @@ Researched design patterns and concluded that the Decorator Design pattern + the
 Continued research on design patterns and began designing a sample UML diagram, based on feedback from team and learning materials. Finished work on the sample Space Invaders game and pushed code. Updated the Features Document with clarifications and design patterns.
 ## Week 5
 ### Oct. 21, Saturday
-Team meeting was held and we worked together and provided feedback on things that need to get done. 
+Team meeting was held and we worked together and provided feedback on things that need to get done. I began work on a UML diagram with the specifics of each object, and began designing one with the following design patterns I found suitable: State, Factory Method, and Decorator. As a team, we worked together to get a demo working of the game, and we split the portions of work so that we could work on our parts individually.
 ### Oct. 23, Monday
-
+Worked on creating an "end" to the game -- either when the character dies or when the game level is completed. Also worked to create a "pause" state to the game so that the player can pause the game and resume. Tested these functions and also worked on adding "pause" and "stop" buttons to the screen, but there were issues with the texture being used.
 ### Oct. 24, Tuesday
+Spoke with my team member and we provided feedback to one another about difficulties we ran into while working on the game. We agreed to split up the issues and tackle them separately for more efficient results. I continued work on "end" game and created a HTML file that the player would be redirected to when the game ends.
+### Oct. 25, Wednesday
