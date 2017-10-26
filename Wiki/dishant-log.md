@@ -121,5 +121,15 @@ Worked with team to build a common base game which we can further extend. Did th
 
 ### October 22, Sunday
 Studied the collision feature in MelonJs
-Checked in the base code for game
+Checked in base source code for the game
+
+### October 23, Monday
+Refactored the code by removing unwanted files. Worked on making the code stable.
+
+### October 24, Tuesday
+Pushed the updated code on github so that team could work on updated code. Added slime entities and coins and worked on integrating the changes with work done by other teaam members.
+
+### October 25, Wednesday
+Worked on collision feature assigned to me. Modified code for collision with enemy and coin entities. Added a feature for increasing and decreasing the speed of the player on each collision.
+
 
