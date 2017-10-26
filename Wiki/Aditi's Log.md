@@ -61,3 +61,4 @@ Worked on creating an "end" to the game -- either when the character dies or whe
 ### Oct. 24, Tuesday
 Spoke with my team member and we provided feedback to one another about difficulties we ran into while working on the game. We agreed to split up the issues and tackle them separately for more efficient results. I continued work on "end" game and created a HTML file that the player would be redirected to when the game ends.
 ### Oct. 25, Wednesday
+Worked on modifying the formula for score calculation and also worked on "end" game sequence. Communicated with team and provided feedback about required a stop and pause button in the new texture we are generating.
