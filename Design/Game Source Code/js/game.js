@@ -8,7 +8,8 @@ var game = {
      */
     data : {
         // score
-        score : 0
+        score : 0,
+	time : ''
     },
 
     /**

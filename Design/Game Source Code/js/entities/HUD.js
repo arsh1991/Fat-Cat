@@ -35,6 +35,7 @@ game.HUD.Container = me.Container.extend({
             // add our fullscreen control object
             this.addChild(new game.HUD.FSControl(10 + 48 + 10, 10));
         }
+        this.addChild(new game.HUD.TimerItem(-50,-10));
     }
 });
 
@@ -195,3 +196,98 @@ game.HUD.ScoreItem = me.Renderable.extend({
     }
 
 });
+
+
+/**
+ * a basic HUD item for timer
+ */
+game.HUD.TimerItem = me.Renderable.extend({
+    /**
+     * constructor
+     */
+    init: function(x, y) {
+        this.relative = new me.Vector2d(x, y);
+
+        // call the super constructor
+        // (size does not matter here)
+        this._super(me.Renderable, "init", [
+            me.game.viewport.width + x,
+            me.game.viewport.height + y,
+            1100,
+            1100
+        ]);
+
+        // create a font
+        this.font = new me.BitmapFont(me.loader.getBinary('PressStart2P'), me.loader.getImage('PressStart2P'), 1.0, "right", "bottom");
+
+        timer = new TimerObject(0.5 * 60 * 1000, true, 10, 10, "timer");
+    },
+
+    /**
+     * update function
+     */
+    update : function (/*dt*/) {
+        this.pos.x = me.game.viewport.width + this.relative.x;
+        this.pos.y = me.game.viewport.height + this.relative.y;
+
+        // we don't draw anything fancy here, so just
+        // return true if the score has been updated
+        timer.update();
+
+        return true;
+    },
+
+    /**
+     * draw the score
+     */
+    draw : function (renderer) {
+        this.font.draw (renderer, game.data.time, this.pos.x, this.pos.y);
+    }
+
+});
+
+
+
+
+var TimerObject = (function() {
+  function TimerObject(time, countdown, x, y, name) {
+    this.time = time;
+    this.countdown = countdown;
+    this.x = x;
+    this.y = y;
+    this.name = name;
+    game.data.time = this.convert();
+    this.start_time = me.timer.getTime();
+
+  }
+
+  TimerObject.prototype.convert = function() {
+    var x = this.time / 1000;
+    var seconds = x % 60;
+    x /= 60;
+    var minutes = x % 60;
+    if(Math.floor(seconds) < 10){
+        return Math.floor(minutes) + ":0" + Math.floor(seconds);
+    }
+    else{
+        return Math.floor(minutes) + ":" + Math.floor(seconds);
+    }
+  }
+
+  TimerObject.prototype.update = function() {
+    if(this.countdown) {   
+      //this.time -= 0.01*(me.timer.getTime() - this.start_time);
+      for (i = 0; i < 300; i++) {
+        this.time -= 0.05;
+        } 
+    }
+    game.data.time=this.convert();
+    if(game.data.time < "0:00"){
+        me.state.change(me.state.GAMEOVER());
+       // window.location.href= 'end-game.html';
+
+    }
+  }
+
+  return TimerObject;
+})();
