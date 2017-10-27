@@ -36,6 +36,9 @@ var game = {
      */
     loaded: function ()    {
 
+         // set the "Play/Ingame" Screen Object
+        me.state.set(me.state.MENU, new game.TitleScreen());
+
         // set the "Play/Ingame" Screen Object
         me.state.set(me.state.PLAY, new game.PlayScreen());
 
@@ -77,7 +80,7 @@ var game = {
             }
         });
 
-        // switch to PLAY state
-        me.state.change(me.state.PLAY);
+         // display the menu title
+         me.state.change(me.state.MENU);
     }
 };
