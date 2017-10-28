@@ -3,7 +3,7 @@
 Held at: October 19th, 2:00PM
 
 ## What did the team do last week?
-Last week, 
+Last week, we worked on some sample game development in MelonJS so that we could become more familiar with the environment and have portions of the game ready for the actual game. We worked on deciding the design patterns and creating TILED objects, as well as choosing sprites.
 
 ## What is the team going to do next week?
 This week, we will be working on a multitude of areas in order to get our demo up and running. First off, we will be working to find good sprite characters and objects, and using these to create textures for our game. We will use these sprites as our main character and will also have the sprites include "enemies" and "good things". In addition, we will have to figure out a way to end the game, display the score, and provide the user options to restart or exit the game. We will also work on creating the menu for the start of the game, character collisions, and adding a game timer.
