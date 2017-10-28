@@ -113,8 +113,19 @@ game.PlayerEntity = me.Entity.extend({
                    // document.write("<a href='end-game.html'>HELLOOOO</a>");
 
                                      healthLevel = 1;
+                if(game.data.time > "0:00"){
+                        var a = game.data.time.split(':'); // split it at the colons
 
-                   //game.data.score = (game.data.score * 100 * healthLevel)/(game.data.time);
+                // minutes are worth 60 seconds. Hours are worth 60 minutes.
+                    var seconds = (+a[0]) * 60 * 60 + (+a[1]);
+                    game.data.score = (game.data.score * 1000 * healthLevel)/(300 - seconds);
+
+                }
+                else{ //if 0 seconds were left
+                      game.data.score = (game.data.score * 1000 * healthLevel)/(300);
+
+                }
+                     game.data.score = Math.round(game.data.score);
                     document.write("You completed the game in " + game.data.time + " seconds. \n");
                     document.write("Your score is " + game.data.score + " points. \n");
                     document.write("<a href='end-game.html'>Continue</a>");
