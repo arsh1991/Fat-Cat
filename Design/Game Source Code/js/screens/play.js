@@ -24,6 +24,7 @@ game.PlayScreen = me.ScreenObject.extend({
 
         // remove the HUD from the game world
         me.game.world.removeChild(this.HUD);
+        me.state.change(me.state.GAMEOVER);
 
         // stop some music
         me.audio.stopTrack("dst-gameforest");

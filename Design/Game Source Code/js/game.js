@@ -83,5 +83,6 @@ var game = {
 
          // display the menu title
          me.state.change(me.state.PLAY);
+
     }
 };

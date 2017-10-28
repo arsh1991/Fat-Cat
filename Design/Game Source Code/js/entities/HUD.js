@@ -55,6 +55,8 @@ if (me.input.isKeyPressed("pause")) {
 
 
 
+
+
 /**
  * a basic control to toggle fullscreen on/off
  */
@@ -220,7 +222,7 @@ game.HUD.TimerItem = me.Renderable.extend({
         // create a font
         this.font = new me.BitmapFont(me.loader.getBinary('PressStart2P'), me.loader.getImage('PressStart2P'), 1.0, "right", "bottom");
 
-        timer = new TimerObject(0.5 * 60 * 1000, true, 10, 10, "timer");
+        timer = new TimerObject(1 * 60 * 1000, true, 10, 10, "timer");
     },
 
     /**
@@ -281,13 +283,13 @@ var TimerObject = (function() {
         this.time -= 0.05;
         } 
     }
-    game.data.time=this.convert();
-    if(game.data.time < "0:00"){
-        me.state.change(me.state.GAMEOVER());
-        document.getElementById("score").innerHTML = "write me to the screen";
-       // window.location.href= 'end-game.html';
 
+    game.data.time=this.convert();
+    if(game.data.time  < "0:00"){
+        me.state.pause();
+        window.location.href = 'end-game.html';
     }
+
   }
 
   return TimerObject;
