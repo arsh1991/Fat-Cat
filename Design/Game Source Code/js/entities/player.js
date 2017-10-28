@@ -50,7 +50,7 @@ game.PlayerEntity = me.Entity.extend({
             "walk0004.png", "walk0005.png", "walk0006.png",
             "walk0007.png", "walk0008.png", "walk0009.png",
             "walk0010.png", "walk0011.png"
-        ]);
+            ]);
 
         // define a basic walking animatin
         this.renderable.addAnimation ("walk",  [{ name: "walk0001.png", delay: 100 }, { name: "walk0002.png", delay: 100 }, { name: "walk0003.png", delay: 100 }]);
@@ -65,21 +65,21 @@ game.PlayerEntity = me.Entity.extend({
 
         update the player pos
 
-    ------            */
-    update : function (dt) {
+        ------            */
+        update : function (dt) {
 
-        if (me.input.isKeyPressed("left"))    {
-            this.body.vel.x -= this.body.accel.x * me.timer.tick;
-            this.renderable.flipX(true);
-        } else if (me.input.isKeyPressed("right")) {
-            this.body.vel.x += this.body.accel.x * me.timer.tick;
-            this.renderable.flipX(false);
-        }
+            if (me.input.isKeyPressed("left"))    {
+                this.body.vel.x -= this.body.accel.x * me.timer.tick;
+                this.renderable.flipX(true);
+            } else if (me.input.isKeyPressed("right")) {
+                this.body.vel.x += this.body.accel.x * me.timer.tick;
+                this.renderable.flipX(false);
+            }
 
-        if (me.input.isKeyPressed("jump")) {
-            this.body.jumping = true;
+            if (me.input.isKeyPressed("jump")) {
+                this.body.jumping = true;
 
-            if (this.multipleJump <= 2) {
+                if (this.multipleJump <= 2) {
                 // easy "math" for double jump
                 this.body.vel.y -= (this.body.maxVel.y * this.multipleJump++) * me.timer.tick;
                 me.audio.play("jump", false);
@@ -108,16 +108,19 @@ game.PlayerEntity = me.Entity.extend({
                 //<aditi>    
                // me.levelDirector.reloadLevel();
                 me.state.pause(); //aditi - prevents game from restarting.
-                //setTimeout(function(){
 
+                    window.location.href = 'end-game.html';
+                   // document.write("<a href='end-game.html'>HELLOOOO</a>");
 
-                document.getElementById("insert").innerHTML = "write me to the screen";
+                                     healthLevel = 1;
 
-                window.location.href = 'end-game.html';
-                  //  }, 5000);
-                healthLevel = 1;
-              //  timeCompleted = me.;
-                game.data.score = (game.data.score * 100 * healthLevel)/(game.data.time);
+                   //game.data.score = (game.data.score * 100 * healthLevel)/(game.data.time);
+                    document.write("You completed the game in " + game.data.time + " seconds. \n");
+                    document.write("Your score is " + game.data.score + " points. \n");
+                    document.write("<a href='end-game.html'>Continue</a>");
+
+                    
+                
                 //</aditi>
 
 
@@ -133,19 +136,19 @@ game.PlayerEntity = me.Entity.extend({
         // check if we moved (an "idle" animation would definitely be cleaner)
         if (this.body.vel.x !== 0 || this.body.vel.y !== 0 ||
             (this.renderable && this.renderable.isFlickering())
-        ) {
+            ) {
             this._super(me.Entity, "update", [dt]);
-            return true;
-        }
+        return true;
+    }
 
-        return false;
-    },
+    return false;
+},
 
 
     /**
      * colision handler
      */
-    onCollision : function (response, other) {
+     onCollision : function (response, other) {
         switch (other.body.collisionType) {
             case me.collision.types.WORLD_SHAPE:
                 // Simulate a platform object
@@ -156,9 +159,9 @@ game.PlayerEntity = me.Entity.extend({
                         (response.overlapV.y > 0) &&
                         // The velocity is reasonably fast enough to have penetrated to the overlap depth
                         (~~this.body.vel.y >= ~~response.overlapV.y)
-                    ) {
+                        ) {
                         // Disable collision on the x axis
-                        response.overlapV.x = 0;
+                    response.overlapV.x = 0;
                         // Repond to the platform (it is solid)
                         return true;
                     }
@@ -177,38 +180,38 @@ game.PlayerEntity = me.Entity.extend({
                 }
                 break;
 
-            case me.collision.types.ENEMY_OBJECT:
-            
+                case me.collision.types.ENEMY_OBJECT:
+
                 if (!other.isMovingEnemy) {
-                    
+
                     // spike or any other fixed danger
                     this.body.vel.y -= this.body.maxVel.y * me.timer.tick;
                     this.hurt();
                 }
                 else {
 
-                        
-                       speed.xvel-=1;
-                       speed.yvel-=2;
-                        this.body.setVelocity(speed.xvel, speed.yvel);
+
+                 speed.xvel-=1;
+                 speed.yvel-=2;
+                 this.body.setVelocity(speed.xvel, speed.yvel);
                        // this.hurt();
-                    
+
                     // Not solid
                     //return false;
                 }
                 break;
 
-            case me.collision.types.COLLECTABLE_OBJECT:
+                case me.collision.types.COLLECTABLE_OBJECT:
 
-                       speed.xvel+=0.5;
-                       speed.yvel+=1;
-                        this.body.setVelocity(speed.xvel, speed.yvel);
-                        break;
+                speed.xvel+=0.5;
+                speed.yvel+=1;
+                this.body.setVelocity(speed.xvel, speed.yvel);
+                break;
 
-            default:
+                default:
                 // Do not respond to other objects (e.g. coins)
                 return false;
-        }
+            }
 
         // Make the object solid
         return true;
@@ -218,7 +221,7 @@ game.PlayerEntity = me.Entity.extend({
     /**
      * ouch
      */
-    hurt : function () {
+     hurt : function () {
         if (!this.renderable.isFlickering())
         {
             this.renderable.flicker(750);
