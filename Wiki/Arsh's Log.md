@@ -96,3 +96,6 @@ https://github.com/nguyensjsu/cmpe202-oceans11/tree/master/Design/Game%20Source%
 
 Texture packer:
 https://www.codeandweb.com/texturepacker
+
+## October 26, 2017:
+Found TILE SETS to create new levels for the game. The next level will be urban(city) setup and started with creating the new tile map. Looked into the timer functionality as it was an impediment in the current week. Collaborated with the team to get it completed. 
