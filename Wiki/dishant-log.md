@@ -119,6 +119,16 @@ Worked with team to build a common base game which we can further extend. Did th
 
 ### Week 5
 
+## XP Core Value: Simplicity
+
+Simplicity in Extreme programming refers to replacing complex tasks with simpler ones. In week 5, we divided the work by taking up one feature of the game. Each team member was assigned one functionality.
+Dishant- Collision feature
+Aditi- End Game
+Arshdeep- Character replacement
+Dipro- Start Game
+Suhel-Game scoring
+
+
 ### October 22, Sunday
 Studied the collision feature in MelonJs
 Checked in base source code for the game
@@ -131,5 +141,7 @@ Pushed the updated code on github so that team could work on updated code. Added
 
 ### October 25, Wednesday
 Worked on collision feature assigned to me. Modified code for collision with enemy and coin entities. Added a feature for increasing and decreasing the speed of the player on each collision.
+
+### October 26, Thursday
 
 
