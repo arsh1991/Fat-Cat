@@ -62,3 +62,7 @@ Worked on creating an "end" to the game -- either when the character dies or whe
 Spoke with my team member and we provided feedback to one another about difficulties we ran into while working on the game. We agreed to split up the issues and tackle them separately for more efficient results. I continued work on "end" game and created a HTML file that the player would be redirected to when the game ends.
 ### Oct. 25, Wednesday
 Worked on modifying the formula for score calculation and also worked on "end" game sequence. Communicated with team and provided feedback about required a stop and pause button in the new texture we are generating.
+### Oct. 26, Thursday
+Continued work on end game sequence and developed buttons for "restart" or "quit" once the player reaches the end of the game. Communicated and provided feedback to other team members about having a "start up" splash screen for the game where I can also add the "exit" or "restart" game functionality.
+### Oct. 27, Friday
+After some issues, I was able to get the score and time needed to complete to display to the user. There are now 2 end game screens where the user can see their performance level and decide whether to continue on with the game. The functionality is there but the pages will need to look prettier -- which is something I can work on next week.
