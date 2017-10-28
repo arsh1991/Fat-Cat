@@ -109,11 +109,15 @@ game.PlayerEntity = me.Entity.extend({
                // me.levelDirector.reloadLevel();
                 me.state.pause(); //aditi - prevents game from restarting.
                 //setTimeout(function(){
+
+
+                document.getElementById("insert").innerHTML = "write me to the screen";
+
                 window.location.href = 'end-game.html';
                   //  }, 5000);
                 healthLevel = 1;
-                timeCompleted = 1;
-                game.data.score = (game.data.score * 100 * healthLevel)/(timeCompleted);
+              //  timeCompleted = me.;
+                game.data.score = (game.data.score * 100 * healthLevel)/(game.data.time);
                 //</aditi>
 
 

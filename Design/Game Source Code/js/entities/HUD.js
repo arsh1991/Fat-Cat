@@ -283,7 +283,8 @@ var TimerObject = (function() {
     }
     game.data.time=this.convert();
     if(game.data.time < "0:00"){
-        me.state.change(me.state.GAMEOVER());
+        //me.state.change(me.state.GAMEOVER());
+        document.getElementById("insert").innerHTML = "write me to the screen";
        // window.location.href= 'end-game.html';
 
     }
