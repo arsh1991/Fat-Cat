@@ -2,14 +2,10 @@
 <header><title>Game Over!</title></header>
 <body>
 
-
-<p>Want to play again?</p>
-<button onclick="playAgain()">Yes :D</button>
-<button onclick="exit()">No :(</button>
-<p id="endgame"></p>
-
-
-
+	<p>Want to play again?</p>
+	<button onclick="playAgain()">Yes :D</button>
+	<button onclick="exit()">No :(</button>
+	<p id="endgame"></p>
 
 </body>
 </html>
@@ -18,14 +14,13 @@
 
 
 
-
 <script>
-function playAgain() {
-	//restarts game
-	 
-}
-function exit() {
-  //exit screen
+	function playAgain() {
+		window.location.href = 'index.html';
+	}
+
+	function exit() {
+		//redirect to main menu -- can't close tabs. depends on browser
 }
 </script>
 
