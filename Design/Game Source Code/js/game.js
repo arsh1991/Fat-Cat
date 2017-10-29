@@ -38,7 +38,7 @@ var game = {
     loaded: function ()    {
 
          // set the "Play/Ingame" Screen Object
-        //me.state.set(me.state.MENU, new game.TitleScreen());
+        me.state.set(me.state.MENU, new game.TitleScreen());
 
         // set the "Play/Ingame" Screen Object
         me.state.set(me.state.PLAY, new game.PlayScreen());
@@ -55,8 +55,10 @@ var game = {
         // load the texture atlas file
         // this will be used by object entities later
         game.texture = new me.video.renderer.Texture(
-            me.loader.getJSON("texture"),
-            me.loader.getImage("texture")
+            me.loader.getJSON("UI_Assets"),
+            me.loader.getImage("UI_Assets"),
+            //me.loader.getJSON("texture"),
+           // me.loader.getImage("texture")
         );
 
         // add some keyboard shortcuts
@@ -82,7 +84,7 @@ var game = {
         });
 
          // display the menu title
-         me.state.change(me.state.PLAY);
+         me.state.change(me.state.MENU);
 
     }
 };

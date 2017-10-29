@@ -8,6 +8,7 @@ game.resources = [
     { name: "tileset",         type:"image",   src: "data/img/tileset.png" },
     { name: "background",      type:"image",   src: "data/img/background.png" },
     { name: "clouds",          type:"image",   src: "data/img/clouds.png" },
+  
 
     /* Maps.
      * @example
@@ -49,6 +50,8 @@ game.resources = [
     // texturePacker
     { name: "texture",         type: "json",   src: "data/img/texture.json" },
     { name: "texture",         type: "image",  src: "data/img/texture.png" },
+    { name: "UI_Assets",       type: "image",  src: "data/img/UI_Assets.png" },
+    { name: "UI_Assets",       type: "json",   src: "data/img/UI_Assets.json" },
 
     /* Bitmap Font
     * @example

@@ -4,15 +4,22 @@ game.TitleScreen = me.ScreenObject.extend({
    */
   onResetEvent : function () {
     // title screen
-    var backgroundImage = new me.Sprite(0, 0, {
-            image: me.loader.getImage('title_screen'),
-        }
-    );
+    //var backgroundImage = new me.Sprite(0, 0, {
+          //  image: me.loader.getImage('title_screen'),
+       // }
+    //);
 
     // position and scale to fit with the viewport size
-    backgroundImage.anchorPoint.set(0, 0);
-    backgroundImage.scale(me.game.viewport.width / backgroundImage.width, me.game.viewport.height / backgroundImage.height);
-
+    //backgroundImage.anchorPoint.set(0, 0);
+   // backgroundImage.scale(me.game.viewport.width / backgroundImage.width, me.game.viewport.height / backgroundImage.height);
+   // clear the background
+   me.game.world.addChild(new me.ColorLayer("background", "rgba(210, 104, 40, 255)"), 0);
+   
+   this.SelectPlayerButton = new game.UI.ButtonUI(500, 175, "green", "Select Player");
+   this.PlayButton = new game.UI.ButtonUI(500, 250,"blue","Play Game");
+   me.game.world.addChild(this.SelectPlayerButton);
+   me.game.world.addChild(this.PlayButton);
+   
 
     // change to play state on press Enter or click/tap
     me.input.bindKey(me.input.KEY.ENTER, "enter", true);
