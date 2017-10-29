@@ -41,3 +41,12 @@ Uml diagrams finalized. Team Meeting, hands on coding.
 
 ### Oct-20 2017
 Mario js running on Boilerplate created and tested.
+
+### Oct-22 2017
+UI sprite created for the splash screen
+
+### Oct-24 2017
+New texture generated for the Splash screen and button
+
+### Oct-27 2017
+New button methods and background screen adeed for the start menu
