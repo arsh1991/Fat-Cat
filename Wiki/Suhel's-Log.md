@@ -66,7 +66,7 @@ As we were not able to work on project last week due to midterm, we decided to c
 Trying to debug issues in the exiting sample game project created. The movement of the object was not visible and tried to search online for the solution but could not find any proper solution. Looked for design patterns as well side by side and found state design pattern suitable for our game because functions of the main object differ when its state are changed.
 
 ## Week5
-
+## XP Core Value: Courage
 ## Oct. 21 2017
 Had team meeting. Created various modules of the game which were divided between the team members and will work on UML diagram collectively this week.
 
@@ -76,3 +76,7 @@ Working on scoring metrics of the game.Made changes in the on collison function 
 ## Oct. 25 2017
 Working on creating a timer for the game level. The main player has to complete the whole chart within the prescribed time.
 Created timer objects within the HeadUpDisplay(HUD.js). Troubleshooting and making the app stable(facing some errors when including the timer objects in the main container).
+
+## Oct. 27 2017
+Timer created on game board and game ends at timer exhaustion.
+

@@ -143,5 +143,11 @@ Pushed the updated code on github so that team could work on updated code. Added
 Worked on collision feature assigned to me. Modified code for collision with enemy and coin entities. Added a feature for increasing and decreasing the speed of the player on each collision.
 
 ### October 26, Thursday
+Refactored the code by removing redundant code. Helped other team members in dealing with issues.
 
+### October 27, Friday
+Discussed with team regarding the progress and started working on Health bar for scoring.
+
+### October 28, Saturday
+Continued working on Health bar for scoring. Studied melonjs documentation for implementation.
 
