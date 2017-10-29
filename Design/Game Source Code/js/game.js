@@ -55,10 +55,8 @@ var game = {
         // load the texture atlas file
         // this will be used by object entities later
         game.texture = new me.video.renderer.Texture(
-            me.loader.getJSON("UI_Assets"),
-            me.loader.getImage("UI_Assets"),
-            //me.loader.getJSON("texture"),
-           // me.loader.getImage("texture")
+           me.loader.getJSON("texture"),
+           me.loader.getImage("texture")
         );
 
         // add some keyboard shortcuts
