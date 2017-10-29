@@ -130,3 +130,37 @@ game.HUD.HPDisplay = me.Renderable.extend({
         return this.dirty;
     },*/
 });
+
+
+Game.Enemy = me.ObjectEntity.extend({
+  init:function() {
+    var settings = {
+      spritewidth: 128,
+      spriteheight: 128,
+      image: "enemy"
+    };
+    this.updateColRect(40, 46, -1);
+    this.parent(100, 100, settings);
+    this.health = 10;
+    this.maxHealth = 10;
+  },
+  
+  draw: function(context, rect) {
+    this.parent(context, rect);
+    this.drawHealth(context);
+  },
+  drawHealth: function(context) {
+    var percent = this.health / this.maxHealth;
+    var width = this.getCollisionBox().width;
+    context.fillStyle = 'green';
+    context.fillRect(this.getCollisionBox().x, this.pos.y - 12, width, 10);
+  },
+  getCollisionBox: function() {
+    return {
+      x: this.pos.x + this.collisionBox.colPos.x,
+      y: this.pos.y + this.collisionBox.colPos.y,
+      width: this.collisionBox.width,
+      height: this.collisionBox.height
+    };
+  },
+});
