@@ -99,3 +99,9 @@ https://www.codeandweb.com/texturepacker
 
 ## October 26, 2017:
 Found TILE SETS to create new levels for the game. The next level will be urban(city) setup and started with creating the new tile map. Looked into the timer functionality as it was an impediment in the current week. Collaborated with the team to get it completed. 
+
+## October 27, 2017:
+Worked on the Health Graph feature with Dishant in order to create custom progress bar which is not available in MelonJS game engine. We found a problem in rendering the new images externally without using the texture file. Constantly running into error but defined the logic. Completed the weekly minutes.
+
+## October 28, 2017:
+There was current requirement for adding new objects on the game so need to recreate a new texture and render all the objects correctly. I created the texture again and worked with Dipro to the menu screen working. Checked in all the resources for further reference. Created Burndown chart with team as part of the deliverables
