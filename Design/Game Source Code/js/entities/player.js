@@ -46,14 +46,14 @@ game.PlayerEntity = me.Entity.extend({
 
         // set a renderable
         this.renderable = game.texture.createAnimationFromName([
-            "walk0001.png", "walk0002.png", "walk0003.png",
-            "walk0004.png", "walk0005.png", "walk0006.png",
-            "walk0007.png", "walk0008.png", "walk0009.png",
-            "walk0010.png", "walk0011.png"
+            "walk0001", "walk0002", "walk0003",
+            "walk0004", "walk0005", "walk0006",
+            "walk0007", "walk0008", "walk0009",
+            "walk0010", "walk0011"
             ]);
 
         // define a basic walking animatin
-        this.renderable.addAnimation ("walk",  [{ name: "walk0001.png", delay: 100 }, { name: "walk0002.png", delay: 100 }, { name: "walk0003.png", delay: 100 }]);
+        this.renderable.addAnimation ("walk",  [{ name: "walk0001", delay: 100 }, { name: "walk0002", delay: 100 }, { name: "walk0003", delay: 100 }]);
         // set as default
         this.renderable.setCurrentAnimation("walk");
 
