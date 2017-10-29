@@ -130,17 +130,18 @@ Suhel-Game scoring
 
 
 ### October 22, Sunday
-Studied the collision feature in MelonJs
+Studied the collision feature in MelonJs using melonJS API.
+Ref: https://melonjs.github.io/melonJS/docs/me.Renderable.html#anchorPoint
 Checked in base source code for the game
 
 ### October 23, Monday
 Refactored the code by removing unwanted files. Worked on making the code stable.
 
 ### October 24, Tuesday
-Pushed the updated code on github so that team could work on updated code. Added slime entities and coins and worked on integrating the changes with work done by other teaam members.
+Pushed the updated code on github so that team could work on updated code. Added slime entities and coins and worked on integrating the changes with work done by other team members.
 
 ### October 25, Wednesday
-Worked on collision feature assigned to me. Modified code for collision with enemy and coin entities. Added a feature for increasing and decreasing the speed of the player on each collision.
+Worked on collision feature assigned to me. Modified code for collision with heal and coin entities. Added a feature for increasing and decreasing the speed of the player on each collision.
 
 ### October 26, Thursday
 Refactored the code by removing redundant code. Helped other team members in dealing with issues.
@@ -149,5 +150,6 @@ Refactored the code by removing redundant code. Helped other team members in dea
 Discussed with team regarding the progress and started working on Health bar for scoring.
 
 ### October 28, Saturday
-Continued working on Health bar for scoring. Studied melonjs documentation for implementation.
+Continued working on Health bar for scoring. Studied melonjs documentation for implementation. 
+Worked on understanding burndown chartand modfied it.
 
