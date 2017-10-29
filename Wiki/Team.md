@@ -8,18 +8,16 @@
 
 ## Adopted Agile practices:
 
-In the spirit of Agile methodology, our team has adopted the following practices:
+In the spirit of Agile methodology, our team has adopted the following practice
 
-* Sustainable Pace Checks
-* Pair Programming
-* Iterations
-* Continuous Integration 
-* Frequent Releases
-* Collective Ownership
+* Iterations: Weekly sprints
+* Continuous Integration : Code integrated after every feature
+* Frequent Releases: Code in shippable state after every week
+* Collective Ownership: No person is alloted single module.
 
 
 ## Please visit the links below for current status:
 
 * [Task Board](https://github.com/nguyensjsu/cmpe202-oceans11/projects/1)
 * [Cumulative Flow Diagram](https://docs.google.com/spreadsheets/d/1DUSk8EHJiDXbjKezvUhB_dygtkIgzJfhuiswx0WiZTI/edit?usp=sharing)
-* [Weekly Minutes](https://github.com/nguyensjsu/cmpe202-oceans11/blob/master/Wiki/Weekly%20Minutes/Weekly%20Meeting-4.md)
+* [Weekly Minutes](https://github.com/nguyensjsu/cmpe202-oceans11/blob/master/Wiki/Weekly%20Minutes/Weekly%20Meeting-5.md)
