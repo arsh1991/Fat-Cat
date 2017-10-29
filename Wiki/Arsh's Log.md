@@ -1,6 +1,10 @@
 
 # Adopted XP Core Value - Communication
-As of week 4, team finalised a MelonJS game engines, project ideas, design patterns , and object usage in javascript. We tried to keep every one on the same page by sharing the acquired knowledge and communicating the doubts. We were constantly in touch on our team project slack to discuss the problems and solve them. 
+In this week, we started with the Scrum methodology which required changing our working habits for the project. The Scrum being more prescriptive than KANBAN requires more descipline. I tried to communicate all the changes whole week in order to keep team 
+working on a uniform pace. We have also started developing the game and have to merge it very often to keep code in shippable state every week. Communicated and co-ordinated with every one so that to minimise the merging conflicts and integration issues. We met more often this week beacuse development requires more face to face communication as conflicts could not be resolved efficiently on calls or slack.
+
+
+<b>As of week 4</b>, team finalised a MelonJS game engines, project ideas, design patterns , and object usage in javascript. We tried to keep every one on the same page by sharing the acquired knowledge and communicating the doubts. We were constantly in touch on our team project slack to discuss the problems and solve them. 
 
 
 <br></br>
