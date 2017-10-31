@@ -66,3 +66,9 @@ Worked on modifying the formula for score calculation and also worked on "end" g
 Continued work on end game sequence and developed buttons for "restart" or "quit" once the player reaches the end of the game. Communicated and provided feedback to other team members about having a "start up" splash screen for the game where I can also add the "exit" or "restart" game functionality.
 ### Oct. 27, Friday
 After some issues, I was able to get the score and time needed to complete to display to the user. There are now 2 end game screens where the user can see their performance level and decide whether to continue on with the game. The functionality is there but the pages will need to look prettier -- which is something I can work on next week.
+## Week 6
+### Oct. 28, Saturday
+
+### Oct. 29, Sunday
+
+### Oct. 30, Monday
