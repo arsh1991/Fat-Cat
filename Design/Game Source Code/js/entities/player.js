@@ -1,14 +1,14 @@
-var speed={xvel:6, yvel:18};
+
 game.PlayerEntity = me.Entity.extend({
     init: function(x, y, settings) {
         // call the constructor
         this._super(me.Entity, "init", [x, y , settings]);
-
+        this.speed={xvel:6, yvel:18};
         // player can exit the viewport (jumping, falling into a hole, etc.)
         this.alwaysUpdate = true;
 
         // walking & jumping speed
-        this.body.setVelocity(speed.xvel, speed.yvel);
+        this.body.setVelocity(this.speed.xvel, this.speed.yvel);
         this.body.setFriction(0.4,0);
 
         this.dying = false;
@@ -202,9 +202,9 @@ game.PlayerEntity = me.Entity.extend({
                 else {
 
 
-                 speed.xvel-=1;
-                 speed.yvel-=2;
-                 this.body.setVelocity(speed.xvel, speed.yvel);
+                 this.speed.xvel-=1;
+                 this.speed.yvel-=2;
+                 this.body.setVelocity(this.speed.xvel, this.speed.yvel);
                        // this.hurt();
 
                     // Not solid
@@ -214,9 +214,9 @@ game.PlayerEntity = me.Entity.extend({
 
                 case me.collision.types.COLLECTABLE_OBJECT:
 
-                speed.xvel+=0.5;
-                speed.yvel+=1;
-                this.body.setVelocity(speed.xvel, speed.yvel);
+                this.speed.xvel+=0.5;
+                this.speed.yvel+=1;
+                this.body.setVelocity(this.speed.xvel, this.speed.yvel);
                 break;
 
                 default:
