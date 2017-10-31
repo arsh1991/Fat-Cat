@@ -107,37 +107,37 @@ game.PlayerEntity = me.Entity.extend({
 
                 //<aditi>    
                // me.levelDirector.reloadLevel();
-                me.state.pause(); //aditi - prevents game from restarting.
+                //me.state.pause(); //aditi - prevents game from restarting.
 
-                    window.location.href = 'end-game.html';
-                   // document.write("<a href='end-game.html'>HELLOOOO</a>");
+                //     window.location.href = 'end-game.html';
+                //    // document.write("<a href='end-game.html'>HELLOOOO</a>");
 
-                                     healthLevel = 1;
-                if(game.data.time > "0:00"){
-                        var a = game.data.time.split(':'); // split it at the colons
+                //                      healthLevel = 1;
+                // if(game.data.time > "0:00"){
+                //         var a = game.data.time.split(':'); // split it at the colons
 
-                // minutes are worth 60 seconds. Hours are worth 60 minutes.
-                    var seconds = (+a[0]) * 60 * 60 + (+a[1]);
-                    game.data.score = (game.data.score * 1000 * healthLevel)/(300 - seconds);
+                // // minutes are worth 60 seconds. Hours are worth 60 minutes.
+                //     var seconds = (+a[0]) * 60 * 60 + (+a[1]);
+                //     game.data.score = (game.data.score * 1000 * healthLevel)/(300 - seconds);
 
-                }
-                else{ //if 0 seconds were left
-                      game.data.score = (game.data.score * 1000 * healthLevel)/(300);
+                // }
+                // else{ //if 0 seconds were left
+                //       game.data.score = (game.data.score * 1000 * healthLevel)/(300);
 
-                }
-                     game.data.score = Math.round(game.data.score);
-                    document.write("You completed the game in " + game.data.time + " seconds. \n");
-                    document.write("Your score is " + game.data.score + " points. \n");
-                    document.write("<a href='end-game.html'>Continue</a>");
+                // }
+                //      game.data.score = Math.round(game.data.score);
+                //     document.write("You completed the game in " + game.data.time + " seconds. \n");
+                //     document.write("Your score is " + game.data.score + " points. \n");
+                //     document.write("<a href='end-game.html'>Continue</a>");
             
-
-                    
+                me.state.set(me.state.GAMEOVER, new game.EndScreen());
+                me.state.change(me.state.GAMEOVER);
                 
                 //</aditi>
 
 
 
-                me.game.viewport.fadeOut("#fff", 150);
+                // me.game.viewport.fadeOut("#fff", 150);
             });
             return true;
         }

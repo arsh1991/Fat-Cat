@@ -16,7 +16,7 @@ game.UI.ButtonUI = me.GUI_Object.extend({
             image: game.texture,
             region : color + "_button04"
         } ]);
-        this.buttons = ["Play Game","Select Player"];  //Array of Buttons we have on Starting Page
+        this.buttons = ["Play Game","Select Player","Restart Game","See Leaderboard"];  //Array of Buttons we have on Starting Page
         // offset of the two used images in the texture
         this.unclicked_region = game.texture.getRegion(color + "_button04");
         this.clicked_region = game.texture.getRegion(color + "_button05");
@@ -42,12 +42,17 @@ game.UI.ButtonUI = me.GUI_Object.extend({
         // account for the different sprite size
         this.pos.y += this.height - this.clicked_region.height ;
         this.height = this.clicked_region.height;
-        console.log(this.buttons.indexOf(this.label));
-        if(this.buttons.indexOf(this.label)==0){
+        buttonClicked = this.buttons.indexOf(this.label);
+        console.log("Button clicked: " + buttonClicked);
+        if(buttonClicked==0){
              me.audio.play("cling");
              console.log("Play is clicked");
              me.state.change(me.state.PLAY);
 
+        }else if(buttonClicked==2){
+            me.audio.play("cling");
+            console.log("Restart is clicked");
+            me.state.change(me.state.PLAY);
         }
         // don't propagate the event
         return false;

@@ -8,6 +8,7 @@ game.resources = [
     { name: "tileset",         type:"image",   src: "data/img/tileset.png" },
     { name: "background",      type:"image",   src: "data/img/background.png" },
     { name: "clouds",          type:"image",   src: "data/img/clouds.png" },
+    { name: "game_over",       type:"image",   src: "data/img/gui/game_over.jpg"},
   
 
     /* Maps.
