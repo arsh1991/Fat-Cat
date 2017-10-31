@@ -16,7 +16,7 @@ game.UI.ButtonUI = me.GUI_Object.extend({
             image: game.texture,
             region : color + "_button04"
         } ]);
-        this.buttons = ["Play Game","Select Player","Restart Game","See Leaderboard"];  //Array of Buttons we have on Starting Page
+        this.buttons = ["Play Game","Select Player","Restart Game :D","See Leaderboard!"];  //Array of Buttons we have on Starting Page
         // offset of the two used images in the texture
         this.unclicked_region = game.texture.getRegion(color + "_button04");
         this.clicked_region = game.texture.getRegion(color + "_button05");

@@ -77,7 +77,7 @@ game.EndScreen.Message = me.Renderable.extend({
         ]);
 
         // create a font
-        this.font = new me.Font("kenpixel", 22, "black");
+        this.font = new me.Font("arial rounded mt bold", 22, "black");
         this.seconds = 60 - seconds;
         this.points = points;
     },
