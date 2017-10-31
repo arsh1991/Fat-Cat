@@ -136,7 +136,6 @@ game.PlayerEntity = me.Entity.extend({
                 //</aditi>
 
 
-
                 // me.game.viewport.fadeOut("#fff", 150);
             });
             return true;

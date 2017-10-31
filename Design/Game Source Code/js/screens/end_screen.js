@@ -5,7 +5,7 @@ game.EndScreen = me.ScreenObject.extend({
   onResetEvent : function () {
     // title screen
     var backgroundImage = new me.Sprite(0, 0, {
-           image: me.loader.getImage('game_over'),
+           image: me.loader.getImage('game_over2'),
        }
     );
     console.log('T R I G G E R E D');
@@ -32,9 +32,10 @@ game.EndScreen = me.ScreenObject.extend({
   backgroundImage.anchorPoint.set(0, 0);
    backgroundImage.scale(me.game.viewport.width / backgroundImage.width, me.game.viewport.height / backgroundImage.height);
     me.game.world.addChild(backgroundImage, 1);
-   
-   this.RestartButton = new game.UI.ButtonUI(500, 175, "green", "Restart Game");
-   this.LeaderboardButton = new game.UI.ButtonUI(500, 250,"blue","See Leaderboard");
+
+
+   this.RestartButton = new game.UI.ButtonUI(430, 175, "green", "Restart Game :D");
+   this.LeaderboardButton = new game.UI.ButtonUI(430, 250,"blue","See Leaderboard!");
    me.game.world.addChild(this.RestartButton);
    me.game.world.addChild(this.LeaderboardButton);
    me.game.world.addChild(new game.EndScreen.Message(seconds, game.data.score));
@@ -69,8 +70,8 @@ game.EndScreen.Message = me.Renderable.extend({
         var width = me.game.viewport.width;
         var height = me.game.viewport.height;
         this._super(me.Renderable, "init", [
-            width/2 - 100,
-            height - 100,
+            width/2 - 200,
+            height - 500,
             10,
             10
         ]);
@@ -92,7 +93,7 @@ game.EndScreen.Message = me.Renderable.extend({
      * draw the score
      */
     draw : function (renderer) {
-        this.font.draw (renderer, "You completed the game in " + this.seconds + " seconds. \n Your score is " + this.points + " points. \n", this.pos.x, this.pos.y);
+        this.font.draw (renderer, "You completed the game in " + this.seconds + " seconds! \n Your score is " + this.points + " points. \n", this.pos.x, this.pos.y);
     }
 
 });

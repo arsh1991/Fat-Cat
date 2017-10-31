@@ -24,7 +24,7 @@ game.UI.ButtonUI = me.GUI_Object.extend({
         this.anchorPoint.set(0, 0);
         this.setOpacity(0.5);
 
-        this.font = new me.Font("kenpixel", 12, "black");
+        this.font = new me.Font("arial rounded mt bold", 14, "black");
         this.font.textAlign = "center";
         this.font.textBaseline = "middle";
 
