@@ -80,3 +80,12 @@ Created timer objects within the HeadUpDisplay(HUD.js). Troubleshooting and maki
 ## Oct. 27 2017
 Timer created on game board and game ends at timer exhaustion.
 
+## Week 4
+## Oct. 28 2017
+Team Meeting
+-Discussed about various portion left in the game and I am working on startgame page.
+
+## Oct. 30 2017
+-Working how to create a leaderboard in the start page.
+
+
