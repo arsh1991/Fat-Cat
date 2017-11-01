@@ -109,3 +109,11 @@ Worked on the Health Graph feature with Dishant in order to create custom progre
 
 ## October 28, 2017:
 There was current requirement for adding new objects on the game so need to recreate a new texture and render all the objects correctly. I created the texture again and worked with Dipro to the menu screen working. Checked in all the resources for further reference. Created Burndown chart with team as part of the deliverables
+<br></br>
+
+## WEEK 6:
+
+
+## October 31, 2017:
+Researched and found a new tilesheet for the new levels and created a new tileset from it. Started designing the subsequently tough new levels with this new tileset. Create a basic layer and adding objects to it:
+https://github.com/nguyensjsu/cmpe202-oceans11/tree/master/Resources/Tileset
