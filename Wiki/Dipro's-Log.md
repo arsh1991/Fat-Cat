@@ -50,3 +50,6 @@ New texture generated for the Splash screen and button
 
 ### Oct-27 2017
 New button methods and background screen adeed for the start menu
+
+### Nov-1nd 2017
+New Background for the start menu, and more option to choose from on the UI
