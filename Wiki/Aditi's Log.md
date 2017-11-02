@@ -68,7 +68,11 @@ Continued work on end game sequence and developed buttons for "restart" or "quit
 After some issues, I was able to get the score and time needed to complete to display to the user. There are now 2 end game screens where the user can see their performance level and decide whether to continue on with the game. The functionality is there but the pages will need to look prettier -- which is something I can work on next week.
 ## Week 6
 ### Oct. 28, Saturday
-
+Held a team meeting to discuss and provide feedback on current progress. We each discussed what we completed and did not complete last week, and assigned tasks for next week. Our goal to complete the main functionality of the game by this week and spend the rest of the weeks working on improving the code structure and design patterns. 
 ### Oct. 29, Sunday
-
+Worked on creating an end game javascript page for when the player dies, time runs out, or the player completes all the levels in the game. Found new background images and worked on writing code for score calculation and end game screen buttons.
 ### Oct. 30, Monday
+Continued working on end game javascript page and added more functionality to the buttons. Changed appearance of buttons and fixed positioning. Began debugging an issue with the end game screen loading and looked for feedback online to see how to fix the issue.
+### Oct. 31, Tuesday
+
+### Nov. 1st, Wednesday
