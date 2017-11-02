@@ -153,3 +153,6 @@ Discussed with team regarding the progress and started working on Health bar for
 Continued working on Health bar for scoring. Studied melonjs documentation for implementation. 
 Worked on understanding burndown chartand modfied it.
 
+### Week 5
+### October 31, Tuesday
+Refactored the code for main player velocity on collision. Modified code for player behaviour on collision with healthy and unhealthy objects.
