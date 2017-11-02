@@ -117,3 +117,7 @@ There was current requirement for adding new objects on the game so need to recr
 ## October 31, 2017:
 Researched and found a new tilesheet for the new levels and created a new tileset from it. Started designing the subsequently tough new levels with this new tileset. Create a basic layer and adding objects to it:
 https://github.com/nguyensjsu/cmpe202-oceans11/tree/master/Resources/Tileset
+
+
+## November 1, 2017:
+Created a new tilemap using the created tileset for the new levels. Completed a new level and started with th other one. Started working on rendering the new level on screen.
