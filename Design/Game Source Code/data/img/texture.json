@@ -1,7 +1,7 @@
 {"frames": [
 
 {
-	"filename": "bar1.jpeg",
+	"filename": "bar1",
 	"frame": {"x":385,"y":511,"w":76,"h":26},
 	"rotated": false,
 	"trimmed": false,
@@ -10,7 +10,7 @@
 	"pivot": {"x":0.43,"y":0.77}
 },
 {
-	"filename": "bar2.jpeg",
+	"filename": "bar2",
 	"frame": {"x":203,"y":1183,"w":47,"h":11},
 	"rotated": false,
 	"trimmed": false,
@@ -19,7 +19,7 @@
 	"pivot": {"x":0.43,"y":0.77}
 },
 {
-	"filename": "bar3.jpeg",
+	"filename": "bar3",
 	"frame": {"x":175,"y":1196,"w":49,"h":13},
 	"rotated": false,
 	"trimmed": false,

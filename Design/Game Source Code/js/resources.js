@@ -10,6 +10,7 @@ game.resources = [
     { name: "clouds",          type:"image",   src: "data/img/clouds.png" },
     { name: "game_over1",       type:"image",   src: "data/img/gui/game_over1.jpg"},
     { name: "game_over2",       type:"image",   src: "data/img/gui/game_over2.png"},
+    { name: "hp_frame",       type:"image",   src: "data/img/hp_frame.png"},
 
     /* Maps.
      * @example
