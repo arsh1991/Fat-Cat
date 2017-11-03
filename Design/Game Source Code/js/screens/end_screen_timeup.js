@@ -46,6 +46,8 @@ game.EndScreenTimeUp = me.ScreenObject.extend({
         // this will unlock audio on mobile devices
         me.audio.play("cling");
         me.state.change(me.state.PLAY);
+        window.location.href = 'index.html';
+
       }
     });
   },
