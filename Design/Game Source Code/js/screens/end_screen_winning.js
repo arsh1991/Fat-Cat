@@ -42,8 +42,6 @@ game.EndScreenDead = me.ScreenObject.extend({
    
     this.handler = me.event.subscribe(me.event.KEYDOWN, function (action, keyCode, edge) {
       if (action === "enter") {
-        // play something on tap / enter
-        // this will unlock audio on mobile devices
         me.audio.play("cling");
         me.state.change(me.state.PLAY);
         window.location.href = 'index.html';

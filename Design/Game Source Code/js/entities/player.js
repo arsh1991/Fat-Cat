@@ -129,7 +129,7 @@ game.PlayerEntity = me.Entity.extend({
                 //     document.write("You completed the game in " + game.data.time + " seconds. \n");
                 //     document.write("Your score is " + game.data.score + " points. \n");
                 //     document.write("<a href='end-game.html'>Continue</a>");
-            
+        
                 me.state.set(me.state.GAMEOVER, new game.EndScreenDead());
                 me.state.change(me.state.GAMEOVER);
                 

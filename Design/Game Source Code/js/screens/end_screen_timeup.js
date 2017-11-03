@@ -5,7 +5,7 @@ game.EndScreenTimeUp = me.ScreenObject.extend({
   onResetEvent : function () {
     // title screen
     var backgroundImage = new me.Sprite(0, 0, {
-           image: me.loader.getImage('game_over1'),
+           image: me.loader.getImage('game_over_slow'),
        }
     );
     console.log('T R I G G E R E D');
@@ -95,7 +95,10 @@ game.EndScreenTimeUp.Message = me.Renderable.extend({
      * draw the score
      */
     draw : function (renderer) {
-        this.font.draw (renderer, "Oh no, you ran out of time and couldn't finish the level! :( \n Your score is " + this.points + " points. \n", this.pos.x, this.pos.y);
+        this.font.draw (renderer, "Oh no, you were too slow and ran out of time! :( \n Your score is " + this.points + " points. \n", this.pos.x, this.pos.y);
+        this.font.draw (renderer, "Your score is " + this.points + " points. \n", this.pos.x, this.pos.y + 30);
+        this.font.draw (renderer, "Want to try again? \n", this.pos.x, this.pos.y + 90);
+
     }
 
 });

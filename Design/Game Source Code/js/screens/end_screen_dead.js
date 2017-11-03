@@ -33,7 +33,9 @@ game.EndScreenDead = me.ScreenObject.extend({
     backgroundImage.anchorPoint.set(0, 0);
     backgroundImage.scale(me.game.viewport.width / backgroundImage.width, me.game.viewport.height / backgroundImage.height);
     me.game.world.addChild(backgroundImage, 1);
-
+    //game.HUD.removeChild(TimerObject);
+    //this.addChild(new game.HUD.ScoreItem(-10, -10));
+   // me.game.world.removeChild(game.HUD);
 
     this.RestartButton = new game.UI.ButtonUI(350, 255, "green", "Restart Game :D");
     this.LeaderboardButton = new game.UI.ButtonUI(350, 335, "blue","See Leaderboard!");

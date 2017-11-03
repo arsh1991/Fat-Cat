@@ -295,11 +295,17 @@ var TimerObject = (function() {
     }
 
     game.data.time=this.convert();
-    if(game.data.time  <= "0:00"){
-       // me.state.pause();
+    if(game.data.time  == "0:00"){
+        //me.state.pause();
         //window.location.href = 'end-game.html';
-       // timer.pause();
-       game.data.time = "0:00";
+    //   timer.pause();
+        //me.game.world.removeChild(this.HUD.TimerObject);
+
+        //me.game.play.onDestroyEvent();
+
+       //game.data.time = "0:00";
+       // me.game.world.removeChild(this);
+
         me.state.set(me.state.GAMEOVER, new game.EndScreenTimeUp());
         me.state.change(me.state.GAMEOVER);
 
