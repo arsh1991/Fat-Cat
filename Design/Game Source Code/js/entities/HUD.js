@@ -226,7 +226,7 @@ game.HUD.TimerItem = me.Renderable.extend({
         // create a font
         this.font = new me.BitmapFont(me.loader.getBinary('PressStart2P'), me.loader.getImage('PressStart2P'), 1.0, "right", "bottom");
 
-        timer = new TimerObject(1 * 60 * 1000, true, 10, 10, "timer");
+        timer = new TimerObject(1 * 60 * 10000, true, 10, 10, "timer");
     },
 
     /**
@@ -332,7 +332,7 @@ game.HUD.HPDisplay =me.GUI_Object.extend({
             region : "bar1" // ON by default
         } ]);
         this.anchorPoint.set(0, 0);
-        this.scale(2.2, 2);
+        this.scale(2.1, 2);
 
 /*
         this._super(me.GUI_Object, "init", [ x+25, y+9, {
@@ -400,8 +400,31 @@ game.HUD.HPDisplay2 =me.GUI_Object.extend({
             region : "bar2" // ON by default
         } ]);
         this.anchorPoint.set(0, 0);
-        this.scale(2.1, 2);
+        console.log(this.scale);
+     
+        this.scale(2, 2);
+
+        this.health=game.data.health;
+    },
+
+    update : function () {
+
+        if (this.health %2==0 && this.health!=0) {
+
+            this.setRegion(game.texture.getRegion("bar2")); 
+            this.health=game.data.health;
+                    
+        }
+
+
+        else if (this.health %2!=0 && this.health!=0) {
+
+            this.setRegion(game.texture.getRegion("bar3")); 
+                    this.health=game.data.health;
+        }
     }
+
+
 
 })
 
