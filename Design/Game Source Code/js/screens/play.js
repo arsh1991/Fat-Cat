@@ -3,7 +3,7 @@ game.PlayScreen = me.ScreenObject.extend({
      *  action to perform on state change
      */
     onResetEvent: function() {
-      // load a level
+        // load a level
         me.levelDirector.loadLevel("map2");
 
         // reset the score
@@ -19,6 +19,7 @@ game.PlayScreen = me.ScreenObject.extend({
 
     /**
      *  action to perform on state change
+     * change the state after on Completion of an Event
      */
     onDestroyEvent: function() {
 
