@@ -13,7 +13,7 @@ game.TitleScreen = me.ScreenObject.extend({
     //backgroundImage.anchorPoint.set(0, 0);
    // backgroundImage.scale(me.game.viewport.width / backgroundImage.width, me.game.viewport.height / backgroundImage.height);
    // clear the background
-   //me.game.world.addChild(new me.ColorLayer("background", "rgba(210, 104, 40, 255)"), 0);
+   //me.game.world.addChild(new me.ColorLayer("background", "rgba(135, 206, 235, 255)"), 0);
    var sprite = new me.ImageLayer(0, 0, {
     image : "background",
     framewidth : 64,
