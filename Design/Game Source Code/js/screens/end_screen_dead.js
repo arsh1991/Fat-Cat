@@ -1,4 +1,4 @@
-game.EndScreen = me.ScreenObject.extend({
+game.EndScreenDead = me.ScreenObject.extend({
   /**
    * action to perform on state change
    */
@@ -24,9 +24,9 @@ game.EndScreen = me.ScreenObject.extend({
     }
          game.data.score = Math.round(game.data.score);
         console.log("You completed the game in " + (60 - seconds) + " seconds. \n");
-        console.log("Your score is " + game.data.score + " points. \n");
-        console.log("<a href='end-game.html'>Continue</a>");
-        var x = "<a href='end-game.html'>HELLOOOO</a>";
+      // console.log("Your score is " + game.data.score + " points. \n");
+        //console.log("<a href='end-game.html'>Continue</a>");
+        //var x = "<a href='end-game.html'>HELLOOOO</a>";
 
     // position and scale to fit with the viewport size
   backgroundImage.anchorPoint.set(0, 0);
@@ -35,10 +35,10 @@ game.EndScreen = me.ScreenObject.extend({
 
 
    this.RestartButton = new game.UI.ButtonUI(430, 175, "green", "Restart Game :D");
-   this.LeaderboardButton = new game.UI.ButtonUI(430, 250,"blue","See Leaderboard!");
+   this.LeaderboardButton = new game.UI.ButtonUI(430, 250, "blue","See Leaderboard!");
    me.game.world.addChild(this.RestartButton);
    me.game.world.addChild(this.LeaderboardButton);
-   me.game.world.addChild(new game.EndScreen.Message(seconds, game.data.score));
+   me.game.world.addChild(new game.EndScreenDead.Message(seconds, game.data.score));
    
     this.handler = me.event.subscribe(me.event.KEYDOWN, function (action, keyCode, edge) {
       if (action === "enter") {
@@ -46,6 +46,7 @@ game.EndScreen = me.ScreenObject.extend({
         // this will unlock audio on mobile devices
         me.audio.play("cling");
         me.state.change(me.state.PLAY);
+        window.location.href = 'index.html';
       }
     });
   },
@@ -60,7 +61,7 @@ game.EndScreen = me.ScreenObject.extend({
   }
 });
 
-game.EndScreen.Message = me.Renderable.extend({
+game.EndScreenDead.Message = me.Renderable.extend({
     /**
      * constructor
      */
@@ -93,7 +94,7 @@ game.EndScreen.Message = me.Renderable.extend({
      * draw the score
      */
     draw : function (renderer) {
-        this.font.draw (renderer, "You completed the game in " + this.seconds + " seconds! \n Your score is " + this.points + " points. \n", this.pos.x, this.pos.y);
+        this.font.draw (renderer, "Oh no, you died! :( You completed the game in " + this.seconds + " seconds! \n Your score is " + this.points + " points. \n", this.pos.x, this.pos.y);
     }
 
 });

@@ -275,9 +275,9 @@ var TimerObject = (function() {
 
   TimerObject.prototype.convert = function() {
     var x = this.time / 1000;
-    var seconds = x % 60;
+    var seconds = x % 10;
     x /= 60;
-    var minutes = x % 60;
+    var minutes = x % 10;
     if(Math.floor(seconds) < 10){
         return Math.floor(minutes) + ":0" + Math.floor(seconds);
     }
@@ -295,9 +295,14 @@ var TimerObject = (function() {
     }
 
     game.data.time=this.convert();
-    if(game.data.time  < "0:00"){
-        me.state.pause();
-        window.location.href = 'end-game.html';
+    if(game.data.time  <= "0:00"){
+       // me.state.pause();
+        //window.location.href = 'end-game.html';
+       // timer.pause();
+       game.data.time = "0:00";
+        me.state.set(me.state.GAMEOVER, new game.EndScreenTimeUp());
+        me.state.change(me.state.GAMEOVER);
+
     }
 
   }

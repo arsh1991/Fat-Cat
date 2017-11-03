@@ -101,7 +101,7 @@ game.PlayerEntity = me.Entity.extend({
         if (!this.inViewport && (this.pos.y > me.video.renderer.getHeight())) {
             // if yes reset the game
             me.game.world.removeChild(this);
-            me.game.viewport.fadeIn("#fff", 150, function(){
+            me.game.viewport.fadeIn("#fff", 0, function(){
                 me.audio.play("die", false);
 
 
@@ -130,13 +130,13 @@ game.PlayerEntity = me.Entity.extend({
                 //     document.write("Your score is " + game.data.score + " points. \n");
                 //     document.write("<a href='end-game.html'>Continue</a>");
             
-                me.state.set(me.state.GAMEOVER, new game.EndScreen());
+                me.state.set(me.state.GAMEOVER, new game.EndScreenDead());
                 me.state.change(me.state.GAMEOVER);
                 
                 //</aditi>
 
 
-                // me.game.viewport.fadeOut("#fff", 150);
+                //me.game.viewport.fadeOut("#fff", 150);
             });
             return true;
         }
