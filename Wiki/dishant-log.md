@@ -156,3 +156,8 @@ Worked on understanding burndown chartand modfied it.
 ### Week 5
 ### October 31, Tuesday
 Refactored the code for main player velocity on collision. Modified code for player behaviour on collision with healthy and unhealthy objects.
+
+### November 1, Wednesday
+Added images for health bar processing. Modified code in entity collision to change thhe healh bar on each collision.
+
+
