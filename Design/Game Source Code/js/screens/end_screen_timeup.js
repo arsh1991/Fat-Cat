@@ -48,8 +48,8 @@ game.EndScreenTimeUp = me.ScreenObject.extend({
     me.game.world.addChild(backgroundImage, 1);
 
 
-   this.RestartButton = new game.UI.ButtonUI(430, 175, "green", "Restart Game :D");
-   this.LeaderboardButton = new game.UI.ButtonUI(430, 250, "blue","See Leaderboard!");
+   this.RestartButton = new game.UI.ButtonUI(430, 275, "green", "Restart Game :D");
+   this.LeaderboardButton = new game.UI.ButtonUI(430, 350, "blue","See Leaderboard!");
    me.game.world.addChild(this.RestartButton);
    me.game.world.addChild(this.LeaderboardButton);
    me.game.world.addChild(new game.EndScreenTimeUp.Message(seconds, game.data.score));
@@ -86,14 +86,14 @@ game.EndScreenTimeUp.Message = me.Renderable.extend({
         var width = me.game.viewport.width;
         var height = me.game.viewport.height;
         this._super(me.Renderable, "init", [
-            width/2 - 100,
-            height - 500,
+            width/2 -500,
+            height - 350,
             10,
             10
         ]);
 
         // create a font
-        this.font = new me.Font("arial rounded mt bold", 22, "black");
+        this.font = new me.Font("arial rounded mt bold", 22, "white");
         this.seconds = 60 - seconds;
         this.points = points;
     },
@@ -109,7 +109,7 @@ game.EndScreenTimeUp.Message = me.Renderable.extend({
      * draw the score
      */
     draw : function (renderer) {
-        this.font.draw (renderer, "Oh no, you were too slow and ran out of time! :( \n Your score is " + this.points + " points. \n", this.pos.x, this.pos.y);
+        this.font.draw (renderer, "Time's Up! You ran out of time! \n", this.pos.x, this.pos.y);
         this.font.draw (renderer, "Your score is " + this.points + " points. \n", this.pos.x, this.pos.y + 30);
         this.font.draw (renderer, "Want to try again? \n", this.pos.x, this.pos.y + 90);
 
