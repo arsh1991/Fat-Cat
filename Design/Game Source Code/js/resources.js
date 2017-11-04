@@ -12,6 +12,7 @@ game.resources = [
     { name: "game_over2",      type:"image",   src: "data/img/gui/game_over2.png"},
     { name: "game_over_died",  type:"image",   src: "data/img/gui/you_died.jpg"},
     { name: "game_over_slow",  type:"image",   src: "data/img/gui/too_slow.jpg"},
+    { name: "you_won",          type:"image",   src: "data/img/gui/you_won.jpg"},
 
     /* Maps.
      * @example

@@ -290,9 +290,11 @@ var TimerObject = (function() {
     }
 
     game.data.time=this.convert();
-    if(game.data.time  < "0:00"){
-        me.state.pause();
-        window.location.href = 'end-game.html';
+    if(game.data.time  == "0:00"){
+        //me.state.pause();
+        game.data.pause = true;
+        me.state.set(me.state.GAMEOVER, new game.EndScreenTimeUp());
+        me.state.change(me.state.GAMEOVER);
     }
 
   }
