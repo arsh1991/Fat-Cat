@@ -36,10 +36,11 @@ game.HUD.Container = me.Container.extend({
             this.addChild(new game.HUD.FSControl(10 + 48 + 10, 10));
         }
         this.addChild(new game.HUD.TimerItem(-50,-10));
-
+/*
         this.addChild(new game.HUD.HPDisplay(110, 5));
 
         this.addChild(new game.HUD.HPDisplay2(145, 15));
+        this.addChild(new game.HUD.HPDisplay3(145, 15));*/
     }
 });
 
@@ -226,7 +227,7 @@ game.HUD.TimerItem = me.Renderable.extend({
         // create a font
         this.font = new me.BitmapFont(me.loader.getBinary('PressStart2P'), me.loader.getImage('PressStart2P'), 1.0, "right", "bottom");
 
-        timer = new TimerObject(1 * 60 * 10000, true, 10, 10, "timer");
+        timer = new TimerObject(1 * 60 * 1000, true, 10, 10, "timer");
     },
 
     /**
@@ -275,9 +276,9 @@ var TimerObject = (function() {
 
   TimerObject.prototype.convert = function() {
     var x = this.time / 1000;
-    var seconds = x % 10;
+    var seconds = x % 60;
     x /= 60;
-    var minutes = x % 10;
+    var minutes = x % 60;
     if(Math.floor(seconds) < 10){
         return Math.floor(minutes) + ":0" + Math.floor(seconds);
     }
@@ -295,20 +296,9 @@ var TimerObject = (function() {
     }
 
     game.data.time=this.convert();
-    if(game.data.time  == "0:00"){
-        //me.state.pause();
-        //window.location.href = 'end-game.html';
-    //   timer.pause();
-        //me.game.world.removeChild(this.HUD.TimerObject);
-
-        //me.game.play.onDestroyEvent();
-
-       //game.data.time = "0:00";
-       // me.game.world.removeChild(this);
-
-        me.state.set(me.state.GAMEOVER, new game.EndScreenTimeUp());
-        me.state.change(me.state.GAMEOVER);
-
+    if(game.data.time  < "0:00"){
+        me.state.pause();
+        window.location.href = 'end-game.html';
     }
 
   }
@@ -319,112 +309,4 @@ var TimerObject = (function() {
 
   return TimerObject;
 })();
-
-
-
-game.HUD.HPDisplay =me.GUI_Object.extend({
-    /**
-     * constructor
-     */
-    init: function(x, y) {
-        this._super(me.GUI_Object, "init", [ x, y, {
-            image: game.texture,
-            region : "bar1" // ON by default
-        } ]);
-        this.anchorPoint.set(0, 0);
-        this.scale(2.1, 2);
-
-/*
-        this._super(me.GUI_Object, "init", [ x+25, y+9, {
-            image: game.texture,
-            region : "bar2" // ON by default
-        } ]);
-        this.anchorPoint.set(0, 0);
-        this.scale(0, 0);
-
-*/
-       /* this._super(me.GUI_Object, "init", [ x+28, y+10, {
-            image: game.texture,
-            region : "bar3" // ON by default
-        } ]);
-        this.anchorPoint.set(0, 0);
-        this.scale(0, 0);*/
-    } 
-
-
-
-
-
-
-
-
-/*me.Renderable.extend({
-   init: function(x, y) {
-        //this.relative = new me.Vector2d(5, 5);
-
-        // call the super constructor
-        // (size does not matter here)
-        this._super(me.Renderable, "init", [
-            0,
-            0,
-            0,
-            0
-        ]);
-
-    var hp_frame = new me.Sprite(0, 0, {
-           image: me.loader.getImage('hp_frame'),
-       }
-    );
-    console.log(me.game.viewport.width);
-    console.log(me.game.viewport.height);
-          // position and scale to fit with the viewport size
-    hp_frame.anchorPoint.set(-0.2, -0.05);
-    hp_frame.scale(3.5, 18);
-    me.game.world.addChild(hp_frame, 1);
-
-
-    }*/
-
-});
-
-
-game.HUD.HPDisplay2 =me.GUI_Object.extend({
-    /**
-     * constructor
-     */
-    init: function(x, y) {
-       
-
-        this._super(me.GUI_Object, "init", [ x, y, {
-            image: game.texture,
-            region : "bar2" // ON by default
-        } ]);
-        this.anchorPoint.set(0, 0);
-        console.log(this.scale);
-     
-        this.scale(2, 2);
-
-        this.health=game.data.health;
-    },
-
-    update : function () {
-
-        if (this.health %2==0 && this.health!=0) {
-
-            this.setRegion(game.texture.getRegion("bar2")); 
-            this.health=game.data.health;
-                    
-        }
-
-
-        else if (this.health %2!=0 && this.health!=0) {
-
-            this.setRegion(game.texture.getRegion("bar3")); 
-                    this.health=game.data.health;
-        }
-    }
-
-
-
-})
 
