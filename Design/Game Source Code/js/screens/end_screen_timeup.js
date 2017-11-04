@@ -4,6 +4,8 @@ game.EndScreenTimeUp = me.ScreenObject.extend({
    */
   onResetEvent : function () {
     // title screen
+    game.data.pause = true;
+    
     var backgroundImage = new me.Sprite(0, 0, {
            image: me.loader.getImage('game_over_slow'),
        }

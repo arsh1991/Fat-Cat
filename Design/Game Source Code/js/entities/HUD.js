@@ -214,7 +214,7 @@ game.HUD.TimerItem = me.Renderable.extend({
      */
     init: function(x, y) {
         this.relative = new me.Vector2d(x, y);
-
+        game.data.pause = false;
         // call the super constructor
         // (size does not matter here)
         this._super(me.Renderable, "init", [
@@ -239,7 +239,9 @@ game.HUD.TimerItem = me.Renderable.extend({
 
         // we don't draw anything fancy here, so just
         // return true if the score has been updated
-        timer.update();
+        if(!game.data.pause){
+            timer.update();
+        }
 
         return true;
     },
@@ -249,11 +251,6 @@ game.HUD.TimerItem = me.Renderable.extend({
      */
     draw : function (renderer) {
         this.font.draw (renderer, game.data.time, this.pos.x, this.pos.y);
-    },
-
-    pause : function(){
-        console.log("Paused");
-        timer.pause();
     }
 
 });
@@ -263,7 +260,6 @@ game.HUD.TimerItem = me.Renderable.extend({
 
 var TimerObject = (function() {
   function TimerObject(time, countdown, x, y, name) {
-    pause = false;
     this.time = time;
     this.countdown = countdown;
     this.x = x;
@@ -288,7 +284,7 @@ var TimerObject = (function() {
   }
 
   TimerObject.prototype.update = function() {
-    if(this.countdown && !pause) {   
+    if(this.countdown) {   
       //this.time -= 0.01*(me.timer.getTime() - this.start_time);
       for (i = 0; i < 300; i++) {
         this.time -= 0.05;
@@ -301,10 +297,6 @@ var TimerObject = (function() {
         window.location.href = 'end-game.html';
     }
 
-  }
-
-  TimerObject.prototype.pause = function(){
-    pause = !pause;
   }
 
   return TimerObject;
