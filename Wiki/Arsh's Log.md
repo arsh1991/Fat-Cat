@@ -121,3 +121,11 @@ https://github.com/nguyensjsu/cmpe202-oceans11/tree/master/Resources/Tileset
 
 ## November 1, 2017:
 Created a new tilemap using the created tileset for the new levels. Completed a new level and started with th other one. Started working on rendering the new level on screen.
+https://github.com/nguyensjsu/cmpe202-oceans11/tree/master/Design/Game%20Source%20Code/data/map
+
+
+## November 2, 2017:
+Created new textures with updated images and redesigned the initial level and layered it for new objects. Doubled width of the intial level and layered all the objects on top of that. Started rendering the updated map. Ran into errors.
+
+## November 3, 2017:
+Resolved all the errors in rendering the updated level. There were issues in front and back layer which were leading to to inconsistencies. Updated the level again to resolve the inconsistencies.
