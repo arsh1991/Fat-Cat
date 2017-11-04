@@ -76,10 +76,9 @@ Continued working on end game javascript page and added more functionality to th
 ### Oct. 31, Tuesday
 Began debugging code and found an issue with the Pause function of the timer. Worked on debugging and developing this feature, as well as adding new functionality to the end game screen. Was able to get restartGame() to work, and also added new backgrounds for each end game scenario: character dies, character does not complete game in time, or character completes all levels of the game within the time limit.
 ### Nov. 1st, Wednesday
-
-
+I used feedback from replaying the game countless times to find more errors and issues with the code and design. I found that there was an error with loading the end game screen which was linked to a callback error within MelonJS. Using this feedback, I debugged the code to fix the bug. I also worked on implementing the Pause function of the timer. 
 ### Nov. 2nd, Thursday
-
+I gave feedback to the team about the Pause function of the timer not working, and continued to improve it. I also worked on removing the extra entities on the end game screen, such as the timer and the health bar, so that the end game screen will look clean and organized. In addition, I made some fixes to the score calculation code and timer code. I also added new background images to the game to make the end game screens more entertaining for the game player.
 ### Nov. 3rd, Friday
-
+Was able to implement the pause function of the timer and pause the timer so that it would not go below "0:00" and throw a NaN error. This was able to fix timing errors that were generated as the game was running. I also began working on an animated end game screen with GIFs and MP4s to make the game more appealing and attractive to players. In addition, I worked on trying to remove the extra objects (such as the timer and health bar) from the screen, as well as fix the callback reload error. 
 ### Nov. 4th, Saturday
