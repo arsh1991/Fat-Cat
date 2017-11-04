@@ -74,5 +74,12 @@ Worked on creating an end game javascript page for when the player dies, time ru
 ### Oct. 30, Monday
 Continued working on end game javascript page and added more functionality to the buttons. Changed appearance of buttons and fixed positioning. Began debugging an issue with the end game screen loading and looked for feedback online to see how to fix the issue.
 ### Oct. 31, Tuesday
-
+Began debugging code and found an issue with the Pause function of the timer. Worked on debugging and developing this feature, as well as adding new functionality to the end game screen. Was able to get restartGame() to work, and also added new backgrounds for each end game scenario: character dies, character does not complete game in time, or character completes all levels of the game within the time limit.
 ### Nov. 1st, Wednesday
+
+
+### Nov. 2nd, Thursday
+
+### Nov. 3rd, Friday
+
+### Nov. 4th, Saturday
