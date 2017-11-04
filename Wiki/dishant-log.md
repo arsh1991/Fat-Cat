@@ -160,4 +160,9 @@ Refactored the code for main player velocity on collision. Modified code for pla
 ### November 1, Wednesday
 Added images for health bar processing. Modified code in entity collision to change thhe healh bar on each collision.
 
+## November 2, Wednesday
+Searched for images for health bar to match our requirement. Used photoshop to create 10 images for health bar for the display.
+
+## November 3, Thursday
+Explored different menthods in melonjs to fit in the images on the screen. Used scale and anchorPoint methods.
 
