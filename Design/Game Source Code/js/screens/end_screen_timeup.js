@@ -24,6 +24,18 @@ game.EndScreenTimeUp = me.ScreenObject.extend({
     }
          game.data.score = Math.round(game.data.score);
         console.log("You completed the game in " + (60 - seconds) + " seconds. \n");
+
+
+         if(me.save.hiscore<game.data.score){
+          me.save.hiscore=game.data.score;
+        }
+        else if(me.save.hiscore>game.data.score && me.save.second < game.data.score){
+          me.save.second=game.data.score;
+        }
+        else if(me.save.hiscore>game.data.score && me.save.second > game.data.score && me.save.third < game.data.score){
+          me.save.third=game.data.score;
+        }
+
       // console.log("Your score is " + game.data.score + " points. \n");
         //console.log("<a href='end-game.html'>Continue</a>");
         //var x = "<a href='end-game.html'>HELLOOOO</a>";

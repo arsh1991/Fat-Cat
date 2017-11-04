@@ -8,11 +8,10 @@ game.resources = [
     { name: "tileset",         type:"image",   src: "data/img/tileset.png" },
     { name: "background",      type:"image",   src: "data/img/background.png" },
     { name: "clouds",          type:"image",   src: "data/img/clouds.png" },
-    { name: "game_over1",       type:"image",   src: "data/img/gui/game_over1.jpg"},
-    { name: "game_over2",       type:"image",   src: "data/img/gui/game_over2.png"},
-    { name: "game_over_died",       type:"image",   src: "data/img/gui/you_died.jpg"},
-    { name: "game_over_slow",       type:"image",   src: "data/img/gui/too_slow.jpg"},
-    { name: "hp_frame",       type:"image",   src: "data/img/hp_frame.png"},
+    { name: "game_over1",      type:"image",   src: "data/img/gui/game_over1.jpg"},
+    { name: "game_over2",      type:"image",   src: "data/img/gui/game_over2.png"},
+    { name: "game_over_died",  type:"image",   src: "data/img/gui/you_died.jpg"},
+    { name: "game_over_slow",  type:"image",   src: "data/img/gui/too_slow.jpg"},
 
     /* Maps.
      * @example
