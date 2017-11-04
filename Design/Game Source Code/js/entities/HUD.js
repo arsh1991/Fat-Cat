@@ -36,11 +36,9 @@ game.HUD.Container = me.Container.extend({
             this.addChild(new game.HUD.FSControl(10 + 48 + 10, 10));
         }
         this.addChild(new game.HUD.TimerItem(-50,-10));
-/*
-        this.addChild(new game.HUD.HPDisplay(110, 5));
 
-        this.addChild(new game.HUD.HPDisplay2(145, 15));
-        this.addChild(new game.HUD.HPDisplay3(145, 15));*/
+        this.addChild(new game.HUD.HPDisplay(1300, 0));
+
     }
 });
 
@@ -302,3 +300,70 @@ var TimerObject = (function() {
   return TimerObject;
 })();
 
+
+game.HUD.HPDisplay =me.GUI_Object.extend({
+    /**
+     * constructor
+     */
+    init: function(x, y) {
+        this._super(me.GUI_Object, "init", [ x, y, {
+            image: game.texture,
+            region : "healthbar" // ON by default
+        } ]);
+        this.anchorPoint.set(0, 0);
+        this.scale(0.7,  0.5);
+        this.setOpacity(0.8);
+
+
+    },
+
+    update : function (/*dt*/) {
+
+        if(game.data.health>=10){
+            this.setRegion(game.texture.getRegion("healthbar"));
+        }
+
+        else if(game.data.health==9){
+            this.setRegion(game.texture.getRegion("healthbar1"));
+        }
+
+        else if(game.data.health==8){
+            this.setRegion(game.texture.getRegion("healthbar2"));
+        }
+
+        else if(game.data.health==7){
+            this.setRegion(game.texture.getRegion("healthbar3"));
+        }
+
+        else if(game.data.health==6){
+            this.setRegion(game.texture.getRegion("healthbar4"));
+        }
+
+        else if(game.data.health==5){
+            this.setRegion(game.texture.getRegion("healthbar5"));
+        }
+
+        else if(game.data.health==4){
+            this.setRegion(game.texture.getRegion("healthbar6"));
+        }
+
+        else if(game.data.health==3){
+            this.setRegion(game.texture.getRegion("healthbar7"));
+        }
+
+        else if(game.data.health==2){
+            this.setRegion(game.texture.getRegion("healthbar8"));
+        }
+
+        else if(game.data.health==1){
+            this.setRegion(game.texture.getRegion("healthbar9"));
+        }
+
+        else if(game.data.health<=0){
+            this.setRegion(game.texture.getRegion("healthbar10"));
+        }
+
+    }
+
+
+});
