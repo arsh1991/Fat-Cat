@@ -81,11 +81,20 @@ Created timer objects within the HeadUpDisplay(HUD.js). Troubleshooting and maki
 Timer created on game board and game ends at timer exhaustion.
 
 ## Week 4
+## XP Core Value: Courage
 ## Oct. 28 2017
 Team Meeting
 -Discussed about various portion left in the game and I am working on startgame page.
 
 ## Oct. 30 2017
 -Working how to create a leaderboard in the start page.
+
+## Nov. 2 2017
+- Able to persist data in melonJs through me.save class.
+- Passed high scores to title screeen
+
+## Nov. 4 2017
+Displayed leaderboard on the title screen of the game.
+
 
 
