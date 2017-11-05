@@ -57,3 +57,6 @@ New Background for the start menu, and more option to choose from on the UI
 ### Nov-4th 2017
 Editing Images and adding new resources to the project
 
+### Nov-5th 2017
+Completed Images modifying for all different categories with Photoshop
+
