@@ -153,7 +153,17 @@ Discussed with team regarding the progress and started working on Health bar for
 Continued working on Health bar for scoring. Studied melonjs documentation for implementation. 
 Worked on understanding burndown chartand modfied it.
 
-### Week 5
+### Week 6
+
+## XP Core Value: Simplicity
+
+Simplicity in Extreme programming refers to replacing complex tasks with simpler ones. In week 6, we divided the work by taking up one feature of the game. Each team member was assigned one functionality. 
+Dishant- Health Bar
+Aditi- End Game
+Arshdeep- Game Map
+Dipro- Photoshop images
+Suhel-Game leaderboard
+
 ### October 31, Tuesday
 Refactored the code for main player velocity on collision. Modified code for player behaviour on collision with healthy and unhealthy objects.
 
@@ -165,4 +175,10 @@ Searched for images for health bar to match our requirement. Used photoshop to c
 
 ## November 3, Thursday
 Explored different menthods in melonjs to fit in the images on the screen. Used scale and anchorPoint methods.
+
+## November 4, Friday
+Generated a new texture image for the game using texture packer and added health bar images in the texture. Modified code to complete the health bar display for the game.
+
+## November 5, Saturday
+Team meeting to discuss the pending tasks and assign tasks for next week. Provided feedback for other team mates work. Worked on updating the documentation and burdown chart for the project.
 
