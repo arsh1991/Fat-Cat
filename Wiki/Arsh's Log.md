@@ -1,8 +1,9 @@
 
 # Adopted XP Core Value - Communication
+<b>As of week 6</b>, we are now moving towards the completion of the game development. We are constantly merging our codes to see the final product which requires team co-ordination and communication. Now remaining features are interdependent on different modules, so we are meeting often so that game could be finished off. In order to avoid code overwrites, we are communicating before pushing into repository. We are constantly in touch on slack and communicating the impediments so that person who is free could work on the tasks which are with other team members and are struck.
+
 In this week, we started with the Scrum methodology which required changing our working habits for the project. The Scrum being more prescriptive than KANBAN requires more descipline. I tried to communicate all the changes whole week in order to keep team 
 working on a uniform pace. We have also started developing the game and have to merge it very often to keep code in shippable state every week. Communicated and co-ordinated with every one so that to minimise the merging conflicts and integration issues. We met more often this week beacuse development requires more face to face communication as conflicts could not be resolved efficiently on calls or slack.
-
 
 <b>As of week 4</b>, team finalised a MelonJS game engines, project ideas, design patterns , and object usage in javascript. We tried to keep every one on the same page by sharing the acquired knowledge and communicating the doubts. We were constantly in touch on our team project slack to discuss the problems and solve them. 
 
@@ -128,4 +129,7 @@ https://github.com/nguyensjsu/cmpe202-oceans11/tree/master/Design/Game%20Source%
 Created new textures with updated images and redesigned the initial level and layered it for new objects. Doubled width of the intial level and layered all the objects on top of that. Started rendering the updated map. Ran into errors.
 
 ## November 3, 2017:
-Resolved all the errors in rendering the updated level. There were issues in front and back layer which were leading to to inconsistencies. Updated the level again to resolve the inconsistencies.
+Resolved all the errors in rendering the updated level. There were issues in front and back layer which were leading to to inconsistencies. Updated the level again to resolve the inconsistencies. Made the game operational so that repo is in stable state and is shippable.
+
+## November 4, 2017:
+Tested all the merged code in repository to check all the peices are working fine when integrated. Finished off the deliverables for this week. Dipro provided the fatter images so created a new texture to render images on the game. Found a glitch at the game end which is crashing the system. There is a script running in the backend which is freezing system.
