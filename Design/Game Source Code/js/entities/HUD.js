@@ -225,7 +225,7 @@ game.HUD.TimerItem = me.Renderable.extend({
         // create a font
         this.font = new me.BitmapFont(me.loader.getBinary('PressStart2P'), me.loader.getImage('PressStart2P'), 1.0, "right", "bottom");
 
-        timer = new TimerObject(1 * 60 * 1000, true, 10, 10, "timer");
+        timer = new TimerObject(1 * 60 * 3000, true, 10, 10, "timer");
     },
 
     /**

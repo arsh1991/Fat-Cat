@@ -5,8 +5,10 @@ game.resources = [
      * { name: "example", type:"image", src: "data/img/example.png" },
      */
     { name: "title_screen",    type:"image",   src: "data/img/gui/title_screen.png"},
+    { name: "level3",         type:"image",   src: "data/img/level3.png" },
     { name: "tileset",         type:"image",   src: "data/img/tileset.png" },
     { name: "background",      type:"image",   src: "data/img/background.png" },
+    { name: "backgroundImage",      type:"image",   src: "data/img/backgroundImage.png" },
     { name: "clouds",          type:"image",   src: "data/img/clouds.png" },
     { name: "game_over1",      type:"image",   src: "data/img/gui/game_over1.jpg"},
     { name: "game_over2",      type:"image",   src: "data/img/gui/game_over2.png"},
@@ -28,7 +30,7 @@ game.resources = [
      * { name: "example01", type: "tsx", src: "data/map/example01.tsx" },
      * { name: "example01", type: "tsx", src: "data/map/example01.json" },
      */
-    { name: "tileset",         type: "tsx",    src: "data/map/tileset.json" },
+    { name: "level",         type: "tsx",    src: "data/map/level.tsx" },
 
 
     /* Background music.

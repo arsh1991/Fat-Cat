@@ -1,42 +1,12 @@
-{ "columns":18,
- "image":"..\/img\/tileset.png",
+{ "columns":28,
+ "image":"..\/img\/level.png",
  "imageheight":1120,
- "imagewidth":1440,
- "margin":5,
+ "imagewidth":1960,
+ "margin":0,
  "name":"tileset",
- "properties":
-    {
-
-    },
- "spacing":10,
- "tilecount":252,
+ "spacing":0,
+ "tilecount":448,
  "tileheight":70,
- "tiles":
-    {
-     "195":
-        {
-         "animation":[
-                {
-                 "duration":100,
-                 "tileid":195
-                }, 
-                {
-                 "duration":100,
-                 "tileid":196
-                }]
-        },
-     "216":
-        {
-         "animation":[
-                {
-                 "duration":200,
-                 "tileid":216
-                }, 
-                {
-                 "duration":200,
-                 "tileid":217
-                }]
-        }
-    },
- "tilewidth":70
+ "tilewidth":70,
+ "type":"tileset"
 }
