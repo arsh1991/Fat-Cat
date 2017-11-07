@@ -24,9 +24,9 @@ game.TitleScreen = me.ScreenObject.extend({
     anchorPoint : new me.Vector2d(0.5, 0.5)
 });
    me.game.world.addChild(sprite);
-   this.SelectPlayerButton = new game.UI.ButtonUI(500, 175, "green", "Select Player");
+   //this.SelectPlayerButton = new game.UI.ButtonUI(500, 175, "green", "Select Player");
    this.PlayButton = new game.UI.ButtonUI(500, 250,"blue","Play Game");
-   me.game.world.addChild(this.SelectPlayerButton);
+   //me.game.world.addChild(this.SelectPlayerButton);
    me.game.world.addChild(this.PlayButton);
    me.game.world.addChild(new game.TitleScreen.Message(me.save.hiscore,me.save.second,me.save.third));
     // change to play state on press Enter or click/tap
@@ -87,10 +87,10 @@ game.TitleScreen.Message = me.Renderable.extend({
      */
      draw : function (renderer) {
       //this.font.draw (renderer, "Oh no, you died! :( \n", this.pos.x, this.pos.y);
-      this.font.draw (renderer, "LEADERBOARD \n", this.pos.x, this.pos.y);
-      this.font.draw (renderer, " 1. " + this.points1 + " \n", this.pos.x+30, this.pos.y+34);
-      this.font.draw (renderer, " 2. " + this.points2 + " \n", this.pos.x+30, this.pos.y+54);
-      this.font.draw (renderer, " 3. " + this.points3 + " \n", this.pos.x+30, this.pos.y+74);
+      //this.font.draw (renderer, "LEADERBOARD \n", this.pos.x, this.pos.y);
+      //this.font.draw (renderer, " 1. " + this.points1 + " \n", this.pos.x+30, this.pos.y+34);
+      //this.font.draw (renderer, " 2. " + this.points2 + " \n", this.pos.x+30, this.pos.y+54);
+      //this.font.draw (renderer, " 3. " + this.points3 + " \n", this.pos.x+30, this.pos.y+74);
       //this.font.draw (renderer, "Want to try again? \n", this.pos.x, this.pos.y + 90);
 
     }
