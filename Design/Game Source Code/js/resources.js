@@ -30,8 +30,8 @@ game.resources = [
      * { name: "example01", type: "tsx", src: "data/map/example01.tsx" },
      * { name: "example01", type: "tsx", src: "data/map/example01.json" },
      */
+    { name: "tileset",         type: "tsx",    src: "data/map/tileset.tsx" },
     { name: "level",         type: "tsx",    src: "data/map/level.tsx" },
-
 
     /* Background music.
      * @example
