@@ -169,16 +169,19 @@ Refactored the code for main player velocity on collision. Modified code for pla
 
 ### November 1, Wednesday
 Added images for health bar processing. Modified code in entity collision to change thhe healh bar on each collision.
+Used photoshop to create 10 images for health bar for the display.
 
-## November 2, Wednesday
-Searched for images for health bar to match our requirement. Used photoshop to create 10 images for health bar for the display.
-
-## November 3, Thursday
+## November 2, Thursday
 Explored different menthods in melonjs to fit in the images on the screen. Used scale and anchorPoint methods.
 
-## November 4, Friday
+## November 3, Friday
 Generated a new texture image for the game using texture packer and added health bar images in the texture. Modified code to complete the health bar display for the game.
 
-## November 5, Saturday
+## November 4, Saturday
 Team meeting to discuss the pending tasks and assign tasks for next week. Provided feedback for other team mates work. Worked on updating the documentation and burdown chart for the project.
 
+
+### Week 7
+
+## November 5, Sunday
+worked on character images. Used photoshop to make images fat. Tried changing code to reflect the change.
