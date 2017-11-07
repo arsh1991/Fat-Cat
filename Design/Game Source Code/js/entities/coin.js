@@ -8,7 +8,7 @@ game.CoinEntity = me.CollectableEntity.extend({
         this._super(me.CollectableEntity, "init", [x, y , settings]);
 
         // add the coin sprite as renderable
-        this.renderable = game.texture.createSpriteFromName("coin");
+        this.renderable = game.texture.createSpriteFromName("apple");
 
         this.body.collisionType = me.collision.types.COLLECTABLE_OBJECT;
 
