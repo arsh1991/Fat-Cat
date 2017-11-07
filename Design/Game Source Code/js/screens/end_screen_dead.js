@@ -42,7 +42,7 @@ game.EndScreenDead = me.ScreenObject.extend({
     this.RestartButton = new game.UI.ButtonUI(350, 255, "green", "Restart Game :D");
     this.LeaderboardButton = new game.UI.ButtonUI(350, 335, "blue","See Leaderboard!");
     me.game.world.addChild(this.RestartButton);
-    me.game.world.addChild(this.LeaderboardButton);
+    //me.game.world.addChild(this.LeaderboardButton);
     me.game.world.addChild(new game.EndScreenDead.Message(seconds, game.data.score));
 
     this.handler = me.event.subscribe(me.event.KEYDOWN, function (action, keyCode, edge) {
@@ -120,9 +120,16 @@ game.EndScreenDead = me.ScreenObject.extend({
      * draw the score
      */
      draw : function (renderer) {
-      this.font.draw (renderer, "Oh no, you died! :( \n", this.pos.x, this.pos.y);
-      this.font.draw (renderer, "You completed the game in " + this.seconds + " seconds! \nYour score is " + this.points + " points. \n", this.pos.x, this.pos.y + 30);
-      this.font.draw (renderer, "Want to try again? \n", this.pos.x, this.pos.y + 90);
+      this.font.draw (renderer, "Oh no, you died! :( \n", this.pos.x -10, this.pos.y);
+      this.font.draw (renderer, "You completed the game in " + this.seconds + " seconds! \nYour score is " + this.points + " points. \n", this.pos.x -10, this.pos.y + 30);
+      this.font.draw (renderer, "Want to try again? \n", this.pos.x -10, this.pos.y + 90);
+      this.font.draw (renderer, "LEADERBOARD \n", this.pos.x-10, this.pos.y+220);
+      this.font.draw (renderer, "POSITION  SCORES\n", this.pos.x-20, this.pos.y+255);
+
+      this.font.draw (renderer, " I               " + me.save.hiscore + " \n", this.pos.x, this.pos.y+284);
+      this.font.draw (renderer, " II              " + me.save.second + " \n", this.pos.x, this.pos.y+304);
+      this.font.draw (renderer, " III             " + me.save.third + " \n", this.pos.x, this.pos.y+324);
+
 
     }
 
