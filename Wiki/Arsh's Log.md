@@ -133,3 +133,12 @@ Resolved all the errors in rendering the updated level. There were issues in fro
 
 ## November 4, 2017:
 Tested all the merged code in repository to check all the peices are working fine when integrated. Finished off the deliverables for this week. Dipro provided the fatter images so created a new texture to render images on the game. Found a glitch at the game end which is crashing the system. There is a script running in the backend which is freezing system.
+<br></br>
+
+
+## WEEK 7:
+
+
+## October 5, 2017:
+Created new tileset as well as tilemap for the game using the TILED tool. Created all the object layer and collision in map as per design. Rendered the map with all the changes and made it working.
+https://github.com/nguyensjsu/cmpe202-oceans11/tree/master/Design/Game%20Source%20Code/data/map
