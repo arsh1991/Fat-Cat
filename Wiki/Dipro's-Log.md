@@ -60,3 +60,6 @@ Editing Images and adding new resources to the project
 ### Nov-5th 2017
 Completed Images modifying for all different categories with Photoshop
 
+### Nov-6th 2017
+Completed Images modifying for all different categories and add new map
+
