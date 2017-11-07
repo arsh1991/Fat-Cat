@@ -80,7 +80,7 @@ Created timer objects within the HeadUpDisplay(HUD.js). Troubleshooting and maki
 ## Oct. 27 2017
 Timer created on game board and game ends at timer exhaustion.
 
-## Week 4
+## Week 6
 ## XP Core Value: Courage
 ## Oct. 28 2017
 Team Meeting
@@ -96,5 +96,7 @@ Team Meeting
 ## Nov. 4 2017
 Displayed leaderboard on the title screen of the game.
 
-
-
+## Week 7
+## Nov. 6 2017
+-Had team meeting today.Looked into various issues coming in timer and leaderboard
+-Will be working on implementing a design pattern this week in my code.
