@@ -24,9 +24,9 @@ game.TitleScreen = me.ScreenObject.extend({
     anchorPoint : new me.Vector2d(0.5, 0.5)
 });
    me.game.world.addChild(sprite);
-   this.SelectPlayerButton = new game.UI.ButtonUI(500, 175, "green", "Select Player");
+   //this.SelectPlayerButton = new game.UI.ButtonUI(500, 175, "green", "Select Player");
    this.PlayButton = new game.UI.ButtonUI(500, 250,"blue","Play Game");
-   me.game.world.addChild(this.SelectPlayerButton);
+   //me.game.world.addChild(this.SelectPlayerButton);
    me.game.world.addChild(this.PlayButton);
    me.game.world.addChild(new game.TitleScreen.Message(me.save.hiscore,me.save.second,me.save.third));
     // change to play state on press Enter or click/tap
