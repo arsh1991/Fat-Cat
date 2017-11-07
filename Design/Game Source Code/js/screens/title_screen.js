@@ -25,7 +25,7 @@ game.TitleScreen = me.ScreenObject.extend({
 //});
    me.game.world.addChild(backgroundImage);
    //this.SelectPlayerButton = new game.UI.ButtonUI(500, 175, "green", "Select Player");
-   this.PlayButton = new game.UI.ButtonUI(495, 500,"blue","Play Game");
+   this.PlayButton = new game.UI.ButtonUI(495, 500,"green","Play Game");
    //me.game.world.addChild(this.SelectPlayerButton);
    me.game.world.addChild(this.PlayButton);
    me.game.world.addChild(new game.TitleScreen.Message(me.save.hiscore,me.save.second,me.save.third));
@@ -87,10 +87,10 @@ game.TitleScreen.Message = me.Renderable.extend({
      */
      draw : function (renderer) {
       //this.font.draw (renderer, "Oh no, you died! :( \n", this.pos.x, this.pos.y);
-      this.font.draw (renderer, "LEADERBOARD \n", this.pos.x, this.pos.y);
-      this.font.draw (renderer, " 1. " + this.points1 + " \n", this.pos.x+30, this.pos.y+34);
-      this.font.draw (renderer, " 2. " + this.points2 + " \n", this.pos.x+30, this.pos.y+54);
-      this.font.draw (renderer, " 3. " + this.points3 + " \n", this.pos.x+30, this.pos.y+74);
+      //this.font.draw (renderer, "LEADERBOARD \n", this.pos.x-450, this.pos.y);
+      //this.font.draw (renderer, " 1. " + this.points1 + " \n", this.pos.x-450, this.pos.y+34);
+      //this.font.draw (renderer, " 2. " + this.points2 + " \n", this.pos.x-450, this.pos.y+54);
+      //this.font.draw (renderer, " 3. " + this.points3 + " \n", this.pos.x-450, this.pos.y+74);
       //this.font.draw (renderer, "Want to try again? \n", this.pos.x, this.pos.y + 90);
 
     }
