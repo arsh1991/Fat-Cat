@@ -66,27 +66,6 @@ game.EndScreenDead = me.ScreenObject.extend({
   }
 });
 
-
-//to animate background - WIP
-/*function splashScreen() {
-    var div = document.createElement('div');
-    div.appendChild(document.createTextNode("some text"));
-    div.style.position = "fixed";
-    div.style.width = "100%";
-    div.style.height = "100%";
-    div.style.left = "0";
-    div.style.top = "0";
-    div.style.zIndex = "1000";
-    div.style.background = "white url('data/img/gui/giphy.gif') no-repeat center";
-    div.style.fontSize = "x-large";
-    div.style.textAlign = "center";
-    div.style.lineHeight = "3em";
-    div.style.opacity = "0.75";
-    div.style.filter = "alpha(opacity=75)"; // fix ie
-    document.body.appendChild(div);
-    return true;
-  }*/
-
   game.EndScreenDead.Message = me.Renderable.extend({
     /**
      * constructor
@@ -123,12 +102,12 @@ game.EndScreenDead = me.ScreenObject.extend({
       this.font.draw (renderer, "Oh no, you died! :( \n", this.pos.x -10, this.pos.y);
       this.font.draw (renderer, "You completed the game in " + this.seconds + " seconds! \nYour score is " + this.points + " points. \n", this.pos.x -10, this.pos.y + 30);
       this.font.draw (renderer, "Want to try again? \n", this.pos.x -10, this.pos.y + 90);
-      this.font.draw (renderer, "LEADERBOARD \n", this.pos.x-10, this.pos.y+220);
-      this.font.draw (renderer, "POSITION  SCORES\n", this.pos.x-20, this.pos.y+255);
+      this.font.draw (renderer, "LEADERBOARD \n", this.pos.x + 40, this.pos.y+220);
+      this.font.draw (renderer, "POSITION  SCORES\n", this.pos.x + 20, this.pos.y+255);
 
-      this.font.draw (renderer, " I               " + me.save.hiscore + " \n", this.pos.x, this.pos.y+284);
-      this.font.draw (renderer, " II              " + me.save.second + " \n", this.pos.x, this.pos.y+304);
-      this.font.draw (renderer, " III             " + me.save.third + " \n", this.pos.x, this.pos.y+324);
+      this.font.draw (renderer, " I               " + me.save.hiscore + " \n", this.pos.x + 20, this.pos.y+284);
+      this.font.draw (renderer, " II              " + me.save.second + " \n", this.pos.x + 20, this.pos.y+304);
+      this.font.draw (renderer, " III             " + me.save.third + " \n", this.pos.x + 20, this.pos.y+324);
 
 
     }
