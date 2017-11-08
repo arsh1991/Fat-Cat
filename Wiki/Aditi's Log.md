@@ -82,4 +82,7 @@ I gave feedback to the team about the Pause function of the timer not working, a
 ### Nov. 3rd, Friday
 Was able to implement the pause function of the timer and pause the timer so that it would not go below "0:00" and throw a NaN error. This was able to fix timing errors that were generated as the game was running. I also began working on an animated end game screen with GIFs and MP4s to make the game more appealing and attractive to players. In addition, I worked on trying to remove the extra objects (such as the timer and health bar) from the screen, as well as fix the callback reload error. 
 ### Nov. 4th, Saturday
-Continued work on removing extra objects (timer and health bar) from end game screen and debugging of callback reload, based off of feedback from playing the game multiple times.
+Continued work on removing extra objects (timer and health bar) from end game screen and debugging of callback reload, based off of feedback from playing the game multiple times. As a team, we all provided feedback to one another about the game's progress and brainstormed the required steps for the upcoming week.
+### Nov. 6th, Monday
+Brainstormed design patterns that could be used in different aspects of the game and how to implement them. Looked online for examples of design patterns and studied them to get a better idea and feedback from other people who have done the same. Began overviewing the code to see where refactoring can take place.
+### Nov. 7th, Tuesday
