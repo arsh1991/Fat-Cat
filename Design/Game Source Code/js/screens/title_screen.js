@@ -25,7 +25,7 @@ game.TitleScreen = me.ScreenObject.extend({
 //});
    me.game.world.addChild(backgroundImage);
    //this.SelectPlayerButton = new game.UI.ButtonUI(500, 175, "green", "Select Player");
-   this.PlayButton = new game.UI.ButtonUI(495, 500,"green","Play Game");
+   this.PlayButton = new game.UI.ButtonUI(430, 525,"green","Play Game");
    //me.game.world.addChild(this.SelectPlayerButton);
    me.game.world.addChild(this.PlayButton);
    me.game.world.addChild(new game.TitleScreen.Message(me.save.hiscore,me.save.second,me.save.third));
