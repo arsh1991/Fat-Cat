@@ -185,3 +185,8 @@ Team meeting to discuss the pending tasks and assign tasks for next week. Provid
 
 ## November 5, Sunday
 worked on character images. Used photoshop to make images fat. Tried changing code to reflect the change.
+
+
+## November 6, Monday
+Modified images size to fit in the texture. Re-generated texture to include new images added for fat-cat functionality.
+Modified code to make the character run.
