@@ -142,3 +142,7 @@ Tested all the merged code in repository to check all the peices are working fin
 ## October 5, 2017:
 Created new tileset as well as tilemap for the game using the TILED tool. Created all the object layer and collision in map as per design. Rendered the map with all the changes and made it working.
 https://github.com/nguyensjsu/cmpe202-oceans11/tree/master/Design/Game%20Source%20Code/data/map
+
+
+## October 6, 2017:
+Resolved bugs in the level and game in general. We together worked on making objects more obviously healthy and unhealthy. Discussed implementation of patterns in game.
