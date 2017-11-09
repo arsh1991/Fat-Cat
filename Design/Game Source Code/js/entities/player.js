@@ -43,8 +43,9 @@ game.PlayerEntity = me.Entity.extend({
         me.input.bindGamepad(0, {type:"axes", code: me.input.GAMEPAD.AXES.LX, threshold: -0.5}, me.input.KEY.LEFT);
         me.input.bindGamepad(0, {type:"axes", code: me.input.GAMEPAD.AXES.LX, threshold: 0.5}, me.input.KEY.RIGHT);
         me.input.bindGamepad(0, {type:"axes", code: me.input.GAMEPAD.AXES.LY, threshold: -0.5}, me.input.KEY.UP);
-	console.log("Testinghealth");
-        console.log(game.data.health);
+        
+        console.log(game.data.curranimation);
+
         if(game.data.curranimation=="run"){
             // set a renderable
             this.renderable = game.texture.createAnimationFromName([
@@ -66,12 +67,60 @@ game.PlayerEntity = me.Entity.extend({
 
         }
 
-        // set as default
-	if(!game.data.curranimation)
-	{
-		game.data.curranimation="run";		
-	}
+        else if(game.data.curranimation=="walk1"){
 
+             // set a renderable
+            this.renderable = game.texture.createAnimationFromName([
+                "Walk-1_2", "Walk-2_2",
+                 "Walk-3_2", "Walk-4_2"
+                ]);
+
+            // define a basic walking animatin
+            this.renderable.addAnimation ("walk1",  [
+                { name: "Walk-1_2", delay: 100 }, 
+                { name: "Walk-2_2", delay: 100 }, 
+                { name: "Walk-3_2", delay: 100 }, 
+                { name: "Walk-4_2", delay: 100 }]);
+            
+        }
+
+        else if(game.data.curranimation=="walk2"){
+
+             // set a renderable
+            this.renderable = game.texture.createAnimationFromName([
+                "Walk-1_3", "Walk-2_3",
+                 "Walk-3_3", "Walk-4_3"
+                ]);
+
+            // define a basic walking animatin
+            this.renderable.addAnimation ("walk2",  [
+                { name: "Walk-1_3", delay: 100 }, 
+                { name: "Walk-2_3", delay: 100 }, 
+                { name: "Walk-3_3", delay: 100 }, 
+                { name: "Walk-4_3", delay: 100 }]);
+            // set as default
+            
+        }
+
+        else if(game.data.curranimation=="walk3"){
+                // set a renderable
+            this.renderable = game.texture.createAnimationFromName([
+                "Walk-1_4", "Walk-2_4",
+                 "Walk-3_4", "Walk-4_4"
+                ]);
+
+            // define a basic walking animatin
+            this.renderable.addAnimation ("walk3",  [
+                { name: "Walk-1_4", delay: 100 }, 
+                { name: "Walk-2_4", delay: 100 }, 
+                { name: "Walk-3_4", delay: 100 }, 
+                { name: "Walk-4_4", delay: 100 }]);
+            // set as default
+         
+
+        }
+
+        // set as default
         this.renderable.setCurrentAnimation(game.data.curranimation);
         
 
@@ -211,6 +260,10 @@ game.PlayerEntity = me.Entity.extend({
 
                 case me.collision.types.ENEMY_OBJECT:
 
+                if( game.data.health >0 )
+                    game.data.health -= 1;
+        
+                console.log("enemy",game.data.health);
                 if (!other.isMovingEnemy) {
 
                     // spike or any other fixed danger
@@ -225,8 +278,33 @@ game.PlayerEntity = me.Entity.extend({
                 }
 
                 this.body.setVelocity(game.data.speed.xvel, game.data.speed.yvel);
-                         
-                   if(game.data.health==8){
+                
+                     if(game.data.health>8){
+
+                                     // set a renderable
+                        this.renderable = game.texture.createAnimationFromName([
+                            "Run (1)", "Run (2)", "Run (3)",
+                            "Run (4)", "Run (5)", "Run (6)",
+                            "Run (7)", "Run (8)"
+                            ]);
+
+                    
+                        // define a basic walking animatin
+                        this.renderable.addAnimation ("run",  [{ name: "Run (1)", delay: 100 }, 
+                            { name: "Run (2)", delay: 100 }, 
+                            { name: "Run (3)", delay: 100 },
+                            { name: "Run (4)", delay: 100 }, 
+                            { name: "Run (5)", delay: 100 },
+                            { name: "Run (6)", delay: 100 }, 
+                            { name: "Run (7)", delay: 100 },
+                            { name: "Run (8)", delay: 100 }]);
+
+                                   
+                        game.data.curranimation = "run";
+                        this.renderable.setCurrentAnimation(game.data.curranimation);
+                        
+                    }     
+                   else if(game.data.health<=8 && game.data.health>5){
 
                                      // set a renderable
                         this.renderable = game.texture.createAnimationFromName([
@@ -246,7 +324,7 @@ game.PlayerEntity = me.Entity.extend({
                         this.renderable.setCurrentAnimation(game.data.curranimation);
                     }
 
-                    else  if(game.data.health==5){
+                    else  if(game.data.health<=5 && game.data.health>3){
                         // set a renderable
                         this.renderable = game.texture.createAnimationFromName([
                             "Walk-1_3", "Walk-2_3",
@@ -266,7 +344,7 @@ game.PlayerEntity = me.Entity.extend({
                     }
                     
 
-                    else  if(game.data.health==3){
+                    else  if(game.data.health<=3 && game.data.health>0){
 
                                      // set a renderable
                         this.renderable = game.texture.createAnimationFromName([
@@ -312,6 +390,9 @@ game.PlayerEntity = me.Entity.extend({
 
                 case me.collision.types.COLLECTABLE_OBJECT:
 
+        if( game.data.health <10 )
+            game.data.health += 1;
+                console.log("coinnnn",game.data.health);
                 if(game.data.speed.xvel<8 && game.data.speed.yvel<15){
                     game.data.speed.xvel+=1;
                     game.data.speed.yvel+=2;
@@ -346,7 +427,7 @@ game.PlayerEntity = me.Entity.extend({
                     }
 
 
-                    else if(game.data.health==8){
+                    else if(game.data.health<=8 && game.data.health>5){
 
                                      // set a renderable
                         this.renderable = game.texture.createAnimationFromName([
@@ -366,7 +447,7 @@ game.PlayerEntity = me.Entity.extend({
                         this.renderable.setCurrentAnimation(game.data.curranimation);
                     }
 
-                    else  if(game.data.health==5){
+                    else  if(game.data.health<=5 && game.data.health>3){
                         // set a renderable
                         this.renderable = game.texture.createAnimationFromName([
                             "Walk-1_3", "Walk-2_3",
@@ -386,7 +467,7 @@ game.PlayerEntity = me.Entity.extend({
                     }
                     
 
-                    else  if(game.data.health==3){
+                    else  if(game.data.health<=3 && game.data.health>0){
 
                                      // set a renderable
                         this.renderable = game.texture.createAnimationFromName([
