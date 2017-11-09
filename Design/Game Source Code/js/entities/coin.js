@@ -36,3 +36,33 @@ game.CoinEntity = me.CollectableEntity.extend({
         return false;
     }
 });
+
+
+game.EndEntity = me.Entity.extend({
+    /**
+     * constructor
+     */
+    init: function (x, y, settings) {
+
+        // call the super constructor
+        this._super(me.CollectableEntity, "init", [x, y , settings]);
+
+    },
+
+    /**
+     * collision handling
+     */
+    onCollision : function (/*response*/) {
+
+        // do something when collide
+        me.audio.play("cling", false);
+        var set_state = new Command("set", me.state.GAMEOVER, new game.EndScreenWinning());
+        var change_state = new Command("change", me.state.GAMEOVER, null);
+        
+        set_state.execute();
+        change_state.execute();
+        return false;
+    }
+});
+
+

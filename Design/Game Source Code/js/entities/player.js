@@ -43,7 +43,8 @@ game.PlayerEntity = me.Entity.extend({
         me.input.bindGamepad(0, {type:"axes", code: me.input.GAMEPAD.AXES.LX, threshold: -0.5}, me.input.KEY.LEFT);
         me.input.bindGamepad(0, {type:"axes", code: me.input.GAMEPAD.AXES.LX, threshold: 0.5}, me.input.KEY.RIGHT);
         me.input.bindGamepad(0, {type:"axes", code: me.input.GAMEPAD.AXES.LY, threshold: -0.5}, me.input.KEY.UP);
-
+	console.log("Testinghealth");
+        console.log(game.data.health);
         if(game.data.curranimation=="run"){
             // set a renderable
             this.renderable = game.texture.createAnimationFromName([
@@ -66,6 +67,11 @@ game.PlayerEntity = me.Entity.extend({
         }
 
         // set as default
+	if(!game.data.curranimation)
+	{
+		game.data.curranimation="run";		
+	}
+
         this.renderable.setCurrentAnimation(game.data.curranimation);
         
 

@@ -47,7 +47,7 @@
     <property name="shapes" value="json:[]"/>
    </properties>
   </object>
-  <object id="61" name="me.LevelEntity" x="3327" y="455" width="68" height="104">
+  <object id="61" name="EndEntity" x="3327" y="455" width="68" height="104">
    <properties>
     <property name="duration" value="150"/>
     <property name="fade" value="#fff"/>
