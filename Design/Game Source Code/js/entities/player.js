@@ -44,6 +44,7 @@ game.PlayerEntity = me.Entity.extend({
         me.input.bindGamepad(0, {type:"axes", code: me.input.GAMEPAD.AXES.LX, threshold: 0.5}, me.input.KEY.RIGHT);
         me.input.bindGamepad(0, {type:"axes", code: me.input.GAMEPAD.AXES.LY, threshold: -0.5}, me.input.KEY.UP);
 
+        
         // set a renderable
         this.renderable = game.texture.createAnimationFromName([
             "Run (1)", "Run (2)", "Run (3)",
@@ -54,11 +55,12 @@ game.PlayerEntity = me.Entity.extend({
         // define a basic walking animatin
         this.renderable.addAnimation ("run",  [{ name: "Run (1)", delay: 100 }, 
             { name: "Run (2)", delay: 100 }, 
-            { name: "Run (3)", delay: 100 }
-           /* { name: "walk0004", delay: 100 }, 
-            { name: "walk0005", delay: 100 },
-            { name: "walk0006", delay: 100 }, 
-            { name: "walk0007", delay: 100 }*/]);
+            { name: "Run (3)", delay: 100 },
+            { name: "Run (4)", delay: 100 }, 
+            { name: "Run (5)", delay: 100 },
+            { name: "Run (6)", delay: 100 }, 
+            { name: "Run (7)", delay: 100 },
+            { name: "Run (8)", delay: 100 }]);
         // set as default
         this.renderable.setCurrentAnimation("run");
 
