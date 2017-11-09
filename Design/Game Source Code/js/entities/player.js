@@ -315,7 +315,25 @@ game.PlayerEntity = me.Entity.extend({
 
                     if(game.data.health>8){
 
-                       
+                                     // set a renderable
+                        this.renderable = game.texture.createAnimationFromName([
+                            "Run (1)", "Run (2)", "Run (3)",
+                            "Run (4)", "Run (5)", "Run (6)",
+                            "Run (7)", "Run (8)"
+                            ]);
+
+                    
+                        // define a basic walking animatin
+                        this.renderable.addAnimation ("run",  [{ name: "Run (1)", delay: 100 }, 
+                            { name: "Run (2)", delay: 100 }, 
+                            { name: "Run (3)", delay: 100 },
+                            { name: "Run (4)", delay: 100 }, 
+                            { name: "Run (5)", delay: 100 },
+                            { name: "Run (6)", delay: 100 }, 
+                            { name: "Run (7)", delay: 100 },
+                            { name: "Run (8)", delay: 100 }]);
+
+                                   
                         game.data.curranimation = "run";
                         this.renderable.setCurrentAnimation(game.data.curranimation);
                         
