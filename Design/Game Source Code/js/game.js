@@ -88,6 +88,5 @@ var game = {
         for (var i = 0; i < commands.length; i++) {
             commands[i].execute();
         }
-        
     }
 };

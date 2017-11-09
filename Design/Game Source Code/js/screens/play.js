@@ -24,11 +24,13 @@ game.PlayScreen = me.ScreenObject.extend({
     onDestroyEvent: function() {
 
         // remove the HUD from the game world
-        me.game.world.removeChild(this.HUD);
-        var change_state = new Command("change", me.state.GAMEOVER, null);
-        change_state.execute();
+        // me.game.world.removeChild(this.HUD);
 
         // stop some music
         me.audio.stopTrack("dst-gameforest");
+
+        var change_state = new Command("change", me.state.GAMEOVER, null);
+        change_state.execute();
+
     }
 });

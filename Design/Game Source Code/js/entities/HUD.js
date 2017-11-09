@@ -254,8 +254,6 @@ game.HUD.TimerItem = me.Renderable.extend({
 });
 
 
-
-
 var TimerObject = (function() {
   function TimerObject(time, countdown, x, y, name) {
     this.time = time;
