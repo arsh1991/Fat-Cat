@@ -4,6 +4,7 @@ game.PlayScreen = me.ScreenObject.extend({
      */
     onResetEvent: function() {
         // load a level
+        console.log("load");
         me.levelDirector.loadLevel("map2");
 
         // reset the score
@@ -28,9 +29,5 @@ game.PlayScreen = me.ScreenObject.extend({
 
         // stop some music
         me.audio.stopTrack("dst-gameforest");
-
-        var change_state = new Command("change", me.state.GAMEOVER, null);
-        change_state.execute();
-
     }
 });

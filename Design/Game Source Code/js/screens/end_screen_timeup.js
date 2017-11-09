@@ -54,16 +54,6 @@ game.EndScreenTimeUp = me.ScreenObject.extend({
    me.game.world.addChild(this.LeaderboardButton);
    me.game.world.addChild(new game.EndScreenTimeUp.Message(seconds, game.data.score));
    
-    this.handler = me.event.subscribe(me.event.KEYDOWN, function (action, keyCode, edge) {
-      if (action === "enter") {
-        // play something on tap / enter
-        // this will unlock audio on mobile devices
-        me.audio.play("cling");
-        var change_state = new Command("change", me.state.PLAY, null);
-        change_state.execute();
-        window.location.href = 'index.html';
-
-      }
     });
   },
 

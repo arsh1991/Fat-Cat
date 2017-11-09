@@ -168,7 +168,7 @@ game.PlayerEntity = me.Entity.extend({
         if (!this.inViewport && (this.pos.y > me.video.renderer.getHeight())) {
             // if yes reset the game
             me.game.world.removeChild(this);
-            me.game.viewport.fadeIn("#fff", 0, function(){
+           // me.game.viewport.fadeIn("#fff", 0, function(){
                 me.audio.play("die", false);
 
 
@@ -204,7 +204,7 @@ game.PlayerEntity = me.Entity.extend({
                 
 
                 // me.game.viewport.fadeOut("#fff", 150);
-            });
+           // });
             return true;
         }
 
