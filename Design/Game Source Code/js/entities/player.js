@@ -111,7 +111,7 @@ game.PlayerEntity = me.Entity.extend({
 
 
                 //<aditi>    
-               // me.levelDirector.reloadLevel();
+                // me.levelDirector.reloadLevel();
                 //me.state.pause(); //aditi - prevents game from restarting.
 
                 //     window.location.href = 'end-game.html';
@@ -135,13 +135,18 @@ game.PlayerEntity = me.Entity.extend({
                 //     document.write("Your score is " + game.data.score + " points. \n");
                 //     document.write("<a href='end-game.html'>Continue</a>");
         
-                me.state.set(me.state.GAMEOVER, new game.EndScreenDead());
-                me.state.change(me.state.GAMEOVER);
+                // me.state.stop();
+                var set_state = new Command("set", me.state.GAMEOVER, new game.EndScreenDead());
+                var change_state = new Command("change", me.state.GAMEOVER, function(){});
                 
+                set_state.execute();
+                // me.state.restart();
+                change_state.execute();
+                // me.levelDirector.reloadLevel();
                 //</aditi>
 
 
-                //me.game.viewport.fadeOut("#fff", 150);
+                // me.game.viewport.fadeOut("#fff", 150);
             });
             return true;
         }

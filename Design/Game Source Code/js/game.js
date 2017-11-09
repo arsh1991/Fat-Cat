@@ -36,12 +36,13 @@ var game = {
      * callback when everything is loaded
      */
     loaded: function ()    {
-
-         // set the "Play/Ingame" Screen Object
-        me.state.set(me.state.MENU, new game.TitleScreen());
+        var commands = [];
 
         // set the "Play/Ingame" Screen Object
-        me.state.set(me.state.PLAY, new game.PlayScreen());
+        commands.push(new Command("set", me.state.MENU, new game.TitleScreen()))
+
+        // set the "Play/Ingame" Screen Object
+        commands.push(new Command("set", me.state.PLAY, new game.PlayScreen()));
 
         // set the fade transition effect
         me.state.transition("fade","#FFFFFF", 250);
@@ -82,7 +83,11 @@ var game = {
         });
 
          // display the menu title
-         me.state.change(me.state.MENU);
-
+        commands.push(new Command("change", me.state.MENU, null));
+        
+        for (var i = 0; i < commands.length; i++) {
+            commands[i].execute();
+        }
+        
     }
 };

@@ -47,12 +47,15 @@ game.UI.ButtonUI = me.GUI_Object.extend({
         if(buttonClicked==0){
              me.audio.play("cling");
              console.log("Play is clicked");
-             me.state.change(me.state.PLAY);
+             var change_state = new Command("change", me.state.PLAY, null);
+             change_state.execute();
+             //me.state.change(me.state.PLAY);
 
         }else if(buttonClicked==2){
             me.audio.play("cling");
             console.log("Restart is clicked");
-            me.state.change(me.state.PLAY);
+            var change_state = new Command("change", me.state.PLAY, null);
+            change_state.execute();
         }
         // don't propagate the event
         return false;

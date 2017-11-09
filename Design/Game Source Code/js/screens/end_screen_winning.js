@@ -59,7 +59,8 @@ game.EndScreenWinning = me.ScreenObject.extend({
         // play something on tap / enter
         // this will unlock audio on mobile devices
         me.audio.play("cling");
-        me.state.change(me.state.PLAY);
+        var change_state = new Command("change", me.state.PLAY, null);
+        change_state.execute();
         window.location.href = 'index.html';
 
       }

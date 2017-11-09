@@ -10,8 +10,7 @@ game.EndScreenDead = me.ScreenObject.extend({
       image: me.loader.getImage('game_over_died'),
    }
    );
-    //splashScreen();
-    console.log('T R I G G E R E D');
+    
     healthLevel = 1;
     if(game.data.time > "0:00"){
             var a = game.data.time.split(':'); // split it at the colons
@@ -45,24 +44,26 @@ game.EndScreenDead = me.ScreenObject.extend({
     //me.game.world.addChild(this.LeaderboardButton);
     me.game.world.addChild(new game.EndScreenDead.Message(seconds, game.data.score));
 
-    this.handler = me.event.subscribe(me.event.KEYDOWN, function (action, keyCode, edge) {
-      if (action === "enter") {
-        // play something on tap / enter
-        // this will unlock audio on mobile devices
-        me.audio.play("cling");
-        me.state.change(me.state.PLAY);
-        window.location.href = 'index.html';
-      }
-    });
+    // this.handler = me.event.subscribe(me.event.KEYDOWN, function (action, keyCode, edge) {
+    //   if (action === "enter") {
+    //     // play something on tap / enter
+    //     // this will unlock audio on mobile devices
+    //     me.audio.play("cling");
+    //     // me.state.change(me.state.PLAY);
+    //     var change_state = new Command("change", me.state.PLAY, null);
+    //     change_state.execute();
+    //     window.location.href = 'index.html';
+    //   }
+    // });
   },
 
   /**
    * action to perform when leaving this screen (state change)
    */
    onDestroyEvent : function () {
-    me.input.unbindKey(me.input.KEY.ENTER);
-    me.input.unbindPointer(me.input.pointer.LEFT);
-    me.event.unsubscribe(this.handler);
+    // me.input.unbindKey(me.input.KEY.ENTER);
+    // me.input.unbindPointer(me.input.pointer.LEFT);
+    // me.event.unsubscribe(this.handler);
   }
 });
 
@@ -102,7 +103,7 @@ game.EndScreenDead = me.ScreenObject.extend({
       this.font.draw (renderer, "Oh no, you died! :( \n", this.pos.x -10, this.pos.y);
       this.font.draw (renderer, "You completed the game in " + this.seconds + " seconds! \nYour score is " + this.points + " points. \n", this.pos.x -10, this.pos.y + 30);
       this.font.draw (renderer, "Want to try again? \n", this.pos.x -10, this.pos.y + 90);
-      this.font.draw (renderer, "LEADERBOARD \n", this.pos.x + 40, this.pos.y+220);
+      this.font.draw (renderer, "LEADERBOARD \n", this.pos.x + 40, this.pos.y + 220);
       this.font.draw (renderer, "POSITION  SCORES\n", this.pos.x + 20, this.pos.y+255);
 
       this.font.draw (renderer, " I               " + me.save.hiscore + " \n", this.pos.x + 20, this.pos.y+284);

@@ -293,8 +293,11 @@ var TimerObject = (function() {
     if(game.data.time  == "0:00"){
         //me.state.pause();
         game.data.pause = true;
-        me.state.set(me.state.GAMEOVER, new game.EndScreenTimeUp());
-        me.state.change(me.state.GAMEOVER);
+        var set_state = new Command("set", me.state.GAMEOVER, new game.EndScreenTimeUp());
+        var change_state = new Command("change", me.state.GAMEOVER, null);
+        
+        set_state.execute();
+        change_state.execute();
     }
 
   }
