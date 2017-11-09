@@ -7,9 +7,11 @@ var game = {
      * object where to store game global data
      */
     data : {
-    score : 0,
-	time : '',
-    health: 10
+        score : 0,
+    	time : '',
+        health: 10,
+        speed:{xvel:8, yvel:15},
+        curranimation: 'run'
     },
 
     /**

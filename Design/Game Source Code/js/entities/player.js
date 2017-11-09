@@ -3,12 +3,12 @@ game.PlayerEntity = me.Entity.extend({
     init: function(x, y, settings) {
         // call the constructor
         this._super(me.Entity, "init", [x, y , settings]);
-        this.speed={xvel:6, yvel:18};
+       // this.speed={xvel:10, yvel:18};
         // player can exit the viewport (jumping, falling into a hole, etc.)
         this.alwaysUpdate = true;
 
         // walking & jumping speed
-        this.body.setVelocity(this.speed.xvel, this.speed.yvel);
+        this.body.setVelocity(game.data.speed.xvel, game.data.speed.yvel);
         this.body.setFriction(0.4,0);
 
         this.dying = false;
@@ -44,25 +44,30 @@ game.PlayerEntity = me.Entity.extend({
         me.input.bindGamepad(0, {type:"axes", code: me.input.GAMEPAD.AXES.LX, threshold: 0.5}, me.input.KEY.RIGHT);
         me.input.bindGamepad(0, {type:"axes", code: me.input.GAMEPAD.AXES.LY, threshold: -0.5}, me.input.KEY.UP);
 
-        
-        // set a renderable
-        this.renderable = game.texture.createAnimationFromName([
-            "Run (1)", "Run (2)", "Run (3)",
-            "Run (4)", "Run (5)", "Run (6)",
-            "Run (7)", "Run (8)"
-            ]);
+        if(game.data.curranimation=="run"){
+            // set a renderable
+            this.renderable = game.texture.createAnimationFromName([
+                "Run (1)", "Run (2)", "Run (3)",
+                "Run (4)", "Run (5)", "Run (6)",
+                "Run (7)", "Run (8)"
+                ]);
 
-        // define a basic walking animatin
-        this.renderable.addAnimation ("run",  [{ name: "Run (1)", delay: 100 }, 
-            { name: "Run (2)", delay: 100 }, 
-            { name: "Run (3)", delay: 100 },
-            { name: "Run (4)", delay: 100 }, 
-            { name: "Run (5)", delay: 100 },
-            { name: "Run (6)", delay: 100 }, 
-            { name: "Run (7)", delay: 100 },
-            { name: "Run (8)", delay: 100 }]);
+        
+            // define a basic walking animatin
+            this.renderable.addAnimation ("run",  [{ name: "Run (1)", delay: 100 }, 
+                { name: "Run (2)", delay: 100 }, 
+                { name: "Run (3)", delay: 100 },
+                { name: "Run (4)", delay: 100 }, 
+                { name: "Run (5)", delay: 100 },
+                { name: "Run (6)", delay: 100 }, 
+                { name: "Run (7)", delay: 100 },
+                { name: "Run (8)", delay: 100 }]);
+
+        }
+
         // set as default
-        this.renderable.setCurrentAnimation("run");
+        this.renderable.setCurrentAnimation(game.data.curranimation);
+        
 
         // set the renderable position to bottom center
         this.anchorPoint.set(0.5, 1.0);
@@ -208,22 +213,175 @@ game.PlayerEntity = me.Entity.extend({
                 }
                 else {
 
+                if(game.data.speed.xvel>0){
+                     game.data.speed.xvel-=0.5;
+                     game.data.speed.yvel-=1;
+                }
 
-                 this.speed.xvel-=1;
-                 this.speed.yvel-=2;
-                 this.body.setVelocity(this.speed.xvel, this.speed.yvel);
-                       // this.hurt();
+                this.body.setVelocity(game.data.speed.xvel, game.data.speed.yvel);
+                         
+                   if(game.data.health==8){
 
-                    // Not solid
-                    //return false;
+                                     // set a renderable
+                        this.renderable = game.texture.createAnimationFromName([
+                            "Walk-1_2", "Walk-2_2",
+                             "Walk-3_2", "Walk-4_2"
+                            ]);
+
+                        // define a basic walking animatin
+                        this.renderable.addAnimation ("walk1",  [
+                            { name: "Walk-1_2", delay: 100 }, 
+                            { name: "Walk-2_2", delay: 100 }, 
+                            { name: "Walk-3_2", delay: 100 }, 
+                            { name: "Walk-4_2", delay: 100 }]);
+                        // set as default
+
+                        game.data.curranimation = "walk1";
+                        this.renderable.setCurrentAnimation(game.data.curranimation);
+                    }
+
+                    else  if(game.data.health==5){
+                        // set a renderable
+                        this.renderable = game.texture.createAnimationFromName([
+                            "Walk-1_3", "Walk-2_3",
+                             "Walk-3_3", "Walk-4_3"
+                            ]);
+
+                        // define a basic walking animatin
+                        this.renderable.addAnimation ("walk2",  [
+                            { name: "Walk-1_3", delay: 100 }, 
+                            { name: "Walk-2_3", delay: 100 }, 
+                            { name: "Walk-3_3", delay: 100 }, 
+                            { name: "Walk-4_3", delay: 100 }]);
+                        // set as default
+                        
+                        game.data.curranimation = "walk2";
+                        this.renderable.setCurrentAnimation(game.data.curranimation);
+                    }
+                    
+
+                    else  if(game.data.health==3){
+
+                                     // set a renderable
+                        this.renderable = game.texture.createAnimationFromName([
+                            "Walk-1_4", "Walk-2_4",
+                             "Walk-3_4", "Walk-4_4"
+                            ]);
+
+                        // define a basic walking animatin
+                        this.renderable.addAnimation ("walk3",  [
+                            { name: "Walk-1_4", delay: 100 }, 
+                            { name: "Walk-2_4", delay: 100 }, 
+                            { name: "Walk-3_4", delay: 100 }, 
+                            { name: "Walk-4_4", delay: 100 }]);
+                        // set as default
+                        
+                        game.data.curranimation = "walk3";
+                        this.renderable.setCurrentAnimation(game.data.curranimation);
+                    }
+                    
+
+                    else  if(game.data.health==0){
+
+                                     // set a renderable
+                        this.renderable = game.texture.createAnimationFromName([
+                            "Dead (1)", "Dead (3)",
+                             "Dead (6)", "Dead (8)", "Dead (10)"
+                            ]);
+
+                        // define a basic walking animatin
+                        this.renderable.addAnimation ("dead",  [
+                            { name: "Dead (1)", delay: 100 }, 
+                            { name: "Dead (3)", delay: 100 },
+                            { name: "Dead (6)", delay: 100 },
+                            { name: "Dead (8)", delay: 100 },
+                            { name: "Dead (10)", delay: 100 }  ]);
+                        // set as default
+                        
+                        game.data.curranimation = "dead";
+                        this.renderable.setCurrentAnimation(game.data.curranimation);
+                    }
                 }
                 break;
 
                 case me.collision.types.COLLECTABLE_OBJECT:
 
-                this.speed.xvel+=0.5;
-                this.speed.yvel+=1;
-                this.body.setVelocity(this.speed.xvel, this.speed.yvel);
+                if(game.data.speed.xvel<8 && game.data.speed.yvel<15){
+                    game.data.speed.xvel+=1;
+                    game.data.speed.yvel+=2;
+                }
+
+                this.body.setVelocity(game.data.speed.xvel, game.data.speed.yvel);
+
+                    if(game.data.health>8){
+
+                       
+                        game.data.curranimation = "run";
+                        this.renderable.setCurrentAnimation(game.data.curranimation);
+                        
+                    }
+
+
+                    else if(game.data.health==8){
+
+                                     // set a renderable
+                        this.renderable = game.texture.createAnimationFromName([
+                            "Walk-1_2", "Walk-2_2",
+                             "Walk-3_2", "Walk-4_2"
+                            ]);
+
+                        // define a basic walking animatin
+                        this.renderable.addAnimation ("walk1",  [
+                            { name: "Walk-1_2", delay: 100 }, 
+                            { name: "Walk-2_2", delay: 100 }, 
+                            { name: "Walk-3_2", delay: 100 }, 
+                            { name: "Walk-4_2", delay: 100 }]);
+                        // set as default
+                        
+                        game.data.curranimation = "walk1";
+                        this.renderable.setCurrentAnimation(game.data.curranimation);
+                    }
+
+                    else  if(game.data.health==5){
+                        // set a renderable
+                        this.renderable = game.texture.createAnimationFromName([
+                            "Walk-1_3", "Walk-2_3",
+                             "Walk-3_3", "Walk-4_3"
+                            ]);
+
+                        // define a basic walking animatin
+                        this.renderable.addAnimation ("walk2",  [
+                            { name: "Walk-1_3", delay: 100 }, 
+                            { name: "Walk-2_3", delay: 100 }, 
+                            { name: "Walk-3_3", delay: 100 }, 
+                            { name: "Walk-4_3", delay: 100 }]);
+                        // set as default
+                        
+                        game.data.curranimation = "walk2";
+                        this.renderable.setCurrentAnimation(game.data.curranimation);
+                    }
+                    
+
+                    else  if(game.data.health==3){
+
+                                     // set a renderable
+                        this.renderable = game.texture.createAnimationFromName([
+                            "Walk-1_4", "Walk-2_4",
+                             "Walk-3_4", "Walk-4_4"
+                            ]);
+
+                        // define a basic walking animatin
+                        this.renderable.addAnimation ("walk3",  [
+                            { name: "Walk-1_4", delay: 100 }, 
+                            { name: "Walk-2_4", delay: 100 }, 
+                            { name: "Walk-3_4", delay: 100 }, 
+                            { name: "Walk-4_4", delay: 100 }]);
+                        // set as default
+                        
+                        game.data.curranimation = "walk3";
+                        this.renderable.setCurrentAnimation(game.data.curranimation);
+                    }
+                    
                 break;
 
                 default:
