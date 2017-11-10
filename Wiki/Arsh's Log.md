@@ -146,3 +146,6 @@ https://github.com/nguyensjsu/cmpe202-oceans11/tree/master/Design/Game%20Source%
 
 ## October 6, 2017:
 Resolved bugs in the level and game in general. We together worked on making objects more obviously healthy and unhealthy. Discussed implementation of patterns in game.
+
+## October 8, 2017:
+Created the game end entity on map. Rendered the entity on game by creating a new entity in javascript and updated the collision update. Game has now the winning state and screen. Resolved existing bugs to keep the game in shippable state.
