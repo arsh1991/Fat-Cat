@@ -100,3 +100,5 @@ Displayed leaderboard on the title screen of the game.
 ## Nov. 6 2017
 -Had team meeting today.Looked into various issues coming in timer and leaderboard
 -Will be working on implementing a design pattern this week in my code.
+## Nov. 8 2017
+-Working on adding complex objects for scores from me.save melon class to iterate over various scores. But the object is not persisting the scores. When the session reloads the scores reset. WIP
