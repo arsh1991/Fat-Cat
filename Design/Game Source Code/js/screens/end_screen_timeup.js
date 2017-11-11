@@ -83,8 +83,8 @@ this.RestartButton = new game.UI.ButtonUI(430, 275, "green", "Restart Game :D");
         var width = me.game.viewport.width;
         var height = me.game.viewport.height;
         this._super(me.Renderable, "init", [
-          width/2 - 200,
-          height - 500,
+          width/2 - 500,
+          height - 350,
           10,
           10
           ]);
