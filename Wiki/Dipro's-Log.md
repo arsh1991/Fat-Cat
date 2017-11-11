@@ -1,4 +1,4 @@
-## XP Core Value: Simplicity
+## XP Core Value: Feedback
 
 Simplicity in Extreme programming refers to replacing complex tasks with simpler ones. A simple task is always easier to understand and process when compared to a complex task. We will start with a simple design and refactor the code as we move on with the project.
 
@@ -61,7 +61,7 @@ Editing Images and adding new resources to the project
 Completed Images modifying for all different categories with Photoshop
 
 ### Nov-6th 2017
-Completed Images modifying for all different categories and add new map
+I used feedback from replaying the game countless times to find more errors and issues with the code and design. Worked on the code that changes the state on button click on the landing page.
 
 ### Nov-10th 2017
-Implementing new Design pattern into the codebase
+Modified button appearance and code as well for a ice looking UI.Changed the First game screen, modified all 90 images and applied liquify tool usign photoshop to change it and also resized it using adobe photoshop.
