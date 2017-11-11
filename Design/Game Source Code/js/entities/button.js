@@ -38,6 +38,27 @@ game.UI.ButtonUI = me.GUI_Object.extend({
      * function called when the object is clicked on
      */
     onClick : function (e) {
+
+        var Iterator = function(items) {
+    this.index = 0;
+    this.items = items;
+    }
+ 
+    Iterator.prototype = {
+    first: function() {
+        this.reset();
+        return this.next();
+    },
+    next: function() {
+        return this.items[this.index++];
+    },
+    hasNext: function() {
+        return this.index <= 4;
+    },
+    reset: function() {
+        this.index = 1;
+    }
+ }
         this.setRegion(this.clicked_region);
         // account for the different sprite size
         this.pos.y += this.height - this.clicked_region.height ;
@@ -56,6 +77,17 @@ game.UI.ButtonUI = me.GUI_Object.extend({
             console.log("Restart is clicked");
             var change_state = new Command("change", me.state.PLAY, null);
             change_state.execute();
+        }
+        else if(buttonClicked==3){
+            me.audio.play("cling");
+            console.log("Leaderboard is clicked");
+                        var iter = new Iterator(print);  
+
+            alert("LEADERBOARD: \n I. " + iter.first() + "\nII. " + iter.next() + "\nIII. " + iter.next() + " \n");
+
+    // for (var item = iter.first(); iter.hasNext(); item = iter.next()) {
+    //   alert(item + " \n");
+    // }
         }
         // don't propagate the event
         return false;

@@ -54,7 +54,7 @@ game.EndScreenDead = me.ScreenObject.extend({
     this.RestartButton = new game.UI.ButtonUI(350, 255, "green", "Restart Game :D");
     this.LeaderboardButton = new game.UI.ButtonUI(350, 335, "blue","See Leaderboard!");
     me.game.world.addChild(this.RestartButton);
-    //me.game.world.addChild(this.LeaderboardButton);
+    me.game.world.addChild(this.LeaderboardButton);
     me.game.world.addChild(new game.EndScreenDead.Message(seconds, final_score));
 
    
@@ -127,22 +127,22 @@ game.EndScreenDead = me.ScreenObject.extend({
     }
  }
     this.font.draw (renderer, "Oh no, you died! :( \n", this.pos.x -10, this.pos.y);
-    this.font.draw (renderer, "You completed the game in " + this.seconds + " seconds! \nYour score is " + this.points + " points. \n", this.pos.x -10, this.pos.y + 30);
+    this.font.draw (renderer, "You completed the game in " + this.seconds + " seconds! \nYour total score is " + this.points + " points. \n", this.pos.x -10, this.pos.y + 30);
     this.font.draw (renderer, "Want to try again? \n", this.pos.x -10, this.pos.y + 90);
-    this.font.draw (renderer, "LEADERBOARD \n", this.pos.x + 40, this.pos.y + 220);
-    this.font.draw (renderer, "POSITION  SCORES\n", this.pos.x + 20, this.pos.y+255);
+    // this.font.draw (renderer, "LEADERBOARD \n", this.pos.x + 40, this.pos.y + 220);
+    // this.font.draw (renderer, "POSITION  SCORES\n", this.pos.x + 20, this.pos.y+255);
 
-    var iter = new Iterator(print);  
-    var a =0;
-    for (var item = iter.first(); iter.hasNext(); item = iter.next()) {
-      this.font.draw (renderer, item + " \n", this.pos.x + 140, this.pos.y+284+a);
-      a=a+20;
+    // var iter = new Iterator(print);  
+    // var a =0;
+    // for (var item = iter.first(); iter.hasNext(); item = iter.next()) {
+    //   this.font.draw (renderer, item + " \n", this.pos.x + 140, this.pos.y+284+a);
+    //   a=a+20;
       
-    }
+    // }
 
-    this.font.draw (renderer, " I \n", this.pos.x + 20, this.pos.y+284);
-    this.font.draw (renderer, " II \n", this.pos.x + 20, this.pos.y+304);
-    this.font.draw (renderer, " III \n", this.pos.x + 20, this.pos.y+324);
+    // this.font.draw (renderer, " I \n", this.pos.x + 20, this.pos.y+284);
+    // this.font.draw (renderer, " II \n", this.pos.x + 20, this.pos.y+304);
+    // this.font.draw (renderer, " III \n", this.pos.x + 20, this.pos.y+324);
     }
 
   });
