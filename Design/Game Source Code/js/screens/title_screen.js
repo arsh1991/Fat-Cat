@@ -38,7 +38,6 @@ game.TitleScreen = me.ScreenObject.extend({
     this.handler = me.event.subscribe(me.event.KEYDOWN, function (action, keyCode, edge) {
       if (action === "enter") {
         // play something on tap / enter
-        // this will unlock audio on mobile devices
         me.audio.play("cling");
         me.state.change(me.state.PLAY);
       }
@@ -89,12 +88,7 @@ game.TitleScreen.Message = me.Renderable.extend({
      * draw the score
      */
      draw : function (renderer) {
-      //this.font.draw (renderer, "Oh no, you died! :( \n", this.pos.x, this.pos.y);
-      //this.font.draw (renderer, "LEADERBOARD \n", this.pos.x-450, this.pos.y);
-      //this.font.draw (renderer, " 1. " + this.points1 + " \n", this.pos.x-450, this.pos.y+34);
-      //this.font.draw (renderer, " 2. " + this.points2 + " \n", this.pos.x-450, this.pos.y+54);
-      //this.font.draw (renderer, " 3. " + this.points3 + " \n", this.pos.x-450, this.pos.y+74);
-      //this.font.draw (renderer, "Want to try again? \n", this.pos.x, this.pos.y + 90);
+ 
 
     }
 

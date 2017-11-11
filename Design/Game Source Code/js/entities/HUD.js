@@ -197,7 +197,7 @@ game.HUD.ScoreItem = me.Renderable.extend({
      * draw the score
      */
     draw : function (renderer) {
-        this.font.draw (renderer, game.data.score, this.pos.x, this.pos.y);
+        this.font.draw (renderer, "Health Score: " + game.data.score, this.pos.x, this.pos.y);
     }
 
 });
@@ -218,7 +218,7 @@ game.HUD.TimerItem = me.Renderable.extend({
         this._super(me.Renderable, "init", [
             me.game.viewport.width + x,
             me.game.viewport.height + y,
-            1100,
+            850,
             1100
         ]);
 

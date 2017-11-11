@@ -3,9 +3,9 @@ function Command (method, state, callback) {
 	this.state = state;
 	this.callback = callback;
 	this.execute = function(){
-		if(this.method == "set"){
+		if (this.method == "set"){
 			me.state.set(this.state, this.callback);
-		}else if(this.method == "change"){
+		} else if(this.method == "change"){
 			me.state.change(this.state);
 		}
 	};
