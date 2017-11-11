@@ -1,3 +1,14 @@
+/*Using Proxy design Pattern for validating parameters*/
+let validator = {
+  set: function(obj, prop, value) {
+      if (!(typeof obj == 'object')) {
+        throw new TypeError('It is not a valid object!');
+      } 
+    // Indicate success
+    return true;
+  }
+};
+
 game.TitleScreen = me.ScreenObject.extend({
   /**
    * action to perform on state change
@@ -8,7 +19,7 @@ game.TitleScreen = me.ScreenObject.extend({
             image: me.loader.getImage('background'),
         }
     );
-
+  
     // position and scale to fit with the viewport size
    backgroundImage.anchorPoint.set(0, 0);
    backgroundImage.scale(me.game.viewport.width / backgroundImage.width, me.game.viewport.height / backgroundImage.height);
@@ -29,6 +40,9 @@ game.TitleScreen = me.ScreenObject.extend({
    me.game.world.addChild(backgroundImage);
    //this.SelectPlayerButton = new game.UI.ButtonUI(500, 175, "green", "Select Player");
    this.PlayButton = new game.UI.ButtonUI(430, 525,"green","Play Game");
+   /*Using Proxy Design Pattern to validate the button Object*/
+   let testPlayButton =  new Proxy(this.PlayButton,validator); 
+
    //me.game.world.addChild(this.SelectPlayerButton);
    me.game.world.addChild(this.PlayButton);
    me.game.world.addChild(new game.TitleScreen.Message(me.save.hiscore,me.save.second,me.save.third));
