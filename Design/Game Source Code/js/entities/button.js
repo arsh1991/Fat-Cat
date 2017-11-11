@@ -68,14 +68,14 @@ game.UI.ButtonUI = me.GUI_Object.extend({
         if(buttonClicked==0){
              me.audio.play("cling");
              console.log("Play is clicked");
-             var change_state = new Command("change", me.state.PLAY, null);
+             var change_state = new Command("change", me.state.PLAY, function(){});
              change_state.execute();
              //me.state.change(me.state.PLAY);
 
         }else if(buttonClicked==2){
             me.audio.play("cling");
             console.log("Restart is clicked");
-            var change_state = new Command("change", me.state.PLAY, null);
+            var change_state = new Command("change", me.state.PLAY, function(){});
             change_state.execute();
         }
         else if(buttonClicked==3){
@@ -84,10 +84,6 @@ game.UI.ButtonUI = me.GUI_Object.extend({
                         var iter = new Iterator(print);  
 
             alert("LEADERBOARD: \n I. " + iter.first() + "\nII. " + iter.next() + "\nIII. " + iter.next() + " \n");
-
-    // for (var item = iter.first(); iter.hasNext(); item = iter.next()) {
-    //   alert(item + " \n");
-    // }
         }
         // don't propagate the event
         return false;

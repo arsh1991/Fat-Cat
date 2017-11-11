@@ -19,7 +19,7 @@ game.EndScreenDead = me.ScreenObject.extend({
 
     // minutes are worth 60 seconds. Hours are worth 60 minutes.
     var seconds = (+a[0]) * 60 * 60 + (+a[1]);
-    final_score = (game.data.score * 1000 * healthLevel)/(300 - seconds);
+    final_score = (game.data.score * 1000 * healthLevel)/(30 - seconds);
 
   }
     else{ //if 0 seconds were left
@@ -27,7 +27,7 @@ game.EndScreenDead = me.ScreenObject.extend({
 
     }
     final_score = Math.round(final_score);
-    console.log("You completed the game in " + (60 - seconds) + " seconds. \n");
+    console.log("You completed the game in " + (30 - seconds) + " seconds. \n");
       // console.log("Your score is " + game.data.score + " points. \n");
         //console.log("<a href='end-game.html'>Continue</a>");
 
