@@ -63,3 +63,5 @@ Completed Images modifying for all different categories with Photoshop
 ### Nov-6th 2017
 Completed Images modifying for all different categories and add new map
 
+### Nov-10th 2017
+Implementing new Design pattern into the codebase
