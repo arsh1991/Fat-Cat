@@ -81,8 +81,18 @@ I used feedback from replaying the game countless times to find more errors and 
 I gave feedback to the team about the Pause function of the timer not working, and continued to improve it. I also worked on removing the extra entities on the end game screen, such as the timer and the health bar, so that the end game screen will look clean and organized. In addition, I made some fixes to the score calculation code and timer code. I also added new background images to the game to make the end game screens more entertaining for the game player.
 ### Nov. 3rd, Friday
 Was able to implement the pause function of the timer and pause the timer so that it would not go below "0:00" and throw a NaN error. This was able to fix timing errors that were generated as the game was running. I also began working on an animated end game screen with GIFs and MP4s to make the game more appealing and attractive to players. In addition, I worked on trying to remove the extra objects (such as the timer and health bar) from the screen, as well as fix the callback reload error. 
+## Week 7
 ### Nov. 4th, Saturday
 Continued work on removing extra objects (timer and health bar) from end game screen and debugging of callback reload, based off of feedback from playing the game multiple times. As a team, we all provided feedback to one another about the game's progress and brainstormed the required steps for the upcoming week.
 ### Nov. 6th, Monday
 Brainstormed design patterns that could be used in different aspects of the game and how to implement them. Looked online for examples of design patterns and studied them to get a better idea and feedback from other people who have done the same. Began overviewing the code to see where refactoring can take place.
 ### Nov. 7th, Tuesday
+Began work on implementing the command design pattern for all aspects of the game where a state change is required. The command design pattern function I created has 3 inputs: method, state, and callback. The method can be either "set" or "change", the state is whichever state you want your state to be changed to, and the callback is the function you want to run once the state is changed/set.
+### Nov. 8th, Wednesday
+Continued work on the command design pattern code and also began debugging bugs in the game. From receiving feedback from the game after playing it multiple times, I noticed that there was a callback error that would appear on the console at the end of the game. I began debugging this error and found it was due to the HUD being destroyed incorrectly without a defined callback function. I modified the code to fix this error and worked on the command design pattern updates.
+### Nov. 9th, Thursday
+Debugged more issues in the game, such as the multiple flashes of the end game page at the end of the game. I modified the code and found it was due to unncessarily repetitive function calls which were causing the page to load 4 times instead of just once. I finished up the command design pattern code and successfully implemented it throughout the entire game.
+### Nov. 10th, Friday
+Found issues with the score updating and the incorrect score being printed on the screen. Fixed this issue and due to feedback from my partner, found that there were issues with the end page for Time Up. Debugged this error and found it was due to a callback issue related to the command design pattern. Also, added new code for the Leaderboard so that a pop-up screen appears instead of text on the screen so that the UI looks cleaner. Future work will be needed to fix the leaderboard code with regards to saving the high scores as well as with the timer speeding up every time the "Restart" button is clicked. 
+## Week 8
+### Nov. 11th, Saturday
