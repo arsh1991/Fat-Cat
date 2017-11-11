@@ -11,7 +11,8 @@ var game = {
     	time : '',
         health: 10,
         speed:{xvel:8, yvel:15},
-        curranimation: 'run'
+        curranimation: 'run',
+        print : []
     },
 
     /**

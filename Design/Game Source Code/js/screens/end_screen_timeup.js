@@ -38,6 +38,7 @@ game.EndScreenTimeUp = me.ScreenObject.extend({
           me.save.third=game.data.score;
         }
 
+
       // console.log("Your score is " + game.data.score + " points. \n");
         //console.log("<a href='end-game.html'>Continue</a>");
         //var x = "<a href='end-game.html'>HELLOOOO</a>";

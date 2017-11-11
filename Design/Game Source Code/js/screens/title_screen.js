@@ -15,6 +15,9 @@ game.TitleScreen = me.ScreenObject.extend({
    // clear the background
    //me.game.world.addChild(new me.ColorLayer("background", "rgba(210, 104, 40, 255)"), 0);
    me.save.add({ hiscore : 0,second:0,third:0});
+ 
+
+
    console.log(JSON.stringify(me.save));
 
    //var sprite = new me.ImageLayer(0, 0, {
