@@ -195,5 +195,8 @@ Modified code to make the character run.
 Worked on implementing logic for changing animation of the player on collision with healthy and unhealthy objects. Modfied code enemy and collectable entities.
 
 ## November 8, Wednesday
+Worked on modifying the health and score attributes affected due to code change in play collision module. Tested the changes. Helped other team members in fixing their issues.
+
+## November 9, Thursday
 Completed the work on animation. Fixed issues after peer testing. 
 
