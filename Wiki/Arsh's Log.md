@@ -149,3 +149,7 @@ Resolved bugs in the level and game in general. We together worked on making obj
 
 ## October 8, 2017:
 Created the game end entity on map. Rendered the entity on game by creating a new entity in javascript and updated the collision update. Game has now the winning state and screen. Resolved existing bugs to keep the game in shippable state.
+
+## October 10, 2017:
+Refactored the code with state pattern of the main player. The code incorporates four states: StoutState, ChubbyState, PlumpState, and ObeseState. The transitions were implemented based on the current animation and change in global health variable.
+https://github.com/nguyensjsu/cmpe202-oceans11/blob/b05956b8eaaa8ab8d9ad36e00ebb99611cc198f4/Design/Game%20Source%20Code/js/entities/player.js
