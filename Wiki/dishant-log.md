@@ -190,3 +190,10 @@ worked on character images. Used photoshop to make images fat. Tried changing co
 ## November 6, Monday
 Modified images size to fit in the texture. Re-generated texture to include new images added for fat-cat functionality.
 Modified code to make the character run.
+
+## November 7, Tuesday
+Worked on implementing logic for changing animation of the player on collision with healthy and unhealthy objects. Modfied code enemy and collectable entities.
+
+## November 8, Wednesday
+Completed the work on animation. Fixed issues after peer testing. 
+
