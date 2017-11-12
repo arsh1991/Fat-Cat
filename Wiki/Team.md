@@ -20,5 +20,5 @@ In the spirit of Agile methodology, our team has adopted the following practice
 
 * [Task Board](https://github.com/nguyensjsu/cmpe202-oceans11/projects/1)
 * [Cumulative Flow Diagram- KANBAN Phase](https://docs.google.com/spreadsheets/d/1DUSk8EHJiDXbjKezvUhB_dygtkIgzJfhuiswx0WiZTI/edit?usp=sharing)
-* [Weekly Minutes](https://github.com/nguyensjsu/cmpe202-oceans11/blob/master/Wiki/Weekly%20Minutes/Weekly%20Meeting-6.md)
+* [Weekly Minutes](https://github.com/nguyensjsu/cmpe202-oceans11/blob/master/Wiki/Weekly%20Minutes/Weekly%20Meeting-7.md)
 * [Burndown Chart](https://docs.google.com/spreadsheets/d/1FjIgMo-5ygs1MUncWdux56Sz-x2LB5rapKpifeBU1bw/edit?usp=sharing)
