@@ -23,7 +23,7 @@ game.TitleScreen = me.ScreenObject.extend({
     // position and scale to fit with the viewport size
    backgroundImage.anchorPoint.set(0, 0);
    backgroundImage.scale(me.game.viewport.width / backgroundImage.width, me.game.viewport.height / backgroundImage.height);
-   // clear the background
+   //clear the background
    //me.game.world.addChild(new me.ColorLayer("background", "rgba(210, 104, 40, 255)"), 0);
    me.save.add({ hiscore : 0,second:0,third:0});
  

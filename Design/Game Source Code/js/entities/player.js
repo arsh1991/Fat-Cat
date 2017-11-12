@@ -14,7 +14,7 @@ init: function(x, y, settings) {
 
         this.dying = false;
 
-        this.mutipleJump = 1;
+        this.mutipleJump = 4;
 
         // set the display around our position
         me.game.viewport.follow(this, me.game.viewport.AXIS.BOTH);
