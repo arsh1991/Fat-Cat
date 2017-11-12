@@ -171,17 +171,17 @@ Refactored the code for main player velocity on collision. Modified code for pla
 Added images for health bar processing. Modified code in entity collision to change thhe healh bar on each collision.
 Used photoshop to create 10 images for health bar for the display.
 
-## November 2, Thursday
+### November 2, Thursday
 Explored different menthods in melonjs to fit in the images on the screen. Used scale and anchorPoint methods.
 
-## November 3, Friday
+### November 3, Friday
 Generated a new texture image for the game using texture packer and added health bar images in the texture. Modified code to complete the health bar display for the game.
 
-## November 4, Saturday
+### November 4, Saturday
 Team meeting to discuss the pending tasks and assign tasks for next week. Provided feedback for other team mates work. Worked on updating the documentation and burdown chart for the project.
 
 
-### Week 7
+## Week 7
 
 ## XP Core Value: Simplicity
 Simplicity in Extreme programming refers to replacing complex tasks with simpler ones. 
@@ -193,25 +193,26 @@ Arshdeep- State Pattern
 Dipro- Proxy pattern
 Suhel- Itertor pattern
 
-## November 5, Sunday
+### November 5, Sunday
 worked on character images. Used photoshop to make images fat. Tried changing code to reflect the change.
 
-## November 6, Monday
+### November 6, Monday
 Modified images size to fit in the texture. Re-generated texture to include new images added for fat-cat functionality.
 Modified code to make the character run.
 
-## November 7, Tuesday
+### November 7, Tuesday
 Worked on implementing logic for changing animation of the player on collision with healthy and unhealthy objects. Modfied code enemy and collectable entities.
 
-## November 8, Wednesday
+### November 8, Wednesday
 Worked on modifying the health and score attributes affected due to code change in play collision module. Tested the changes. Helped other team members in fixing their issues.
 
-## November 9, Thursday
+### November 9, Thursday
 Completed the work on animation. Fixed issues after peer testing. 
 
-## November 10, Friday
+### November 10, Friday
 Fixed minor issues in game. Worked on implementing decorator pattern in game.
 
-## November 11, Saturday
-Updated burndown chart, wiki with my tasks. Explored decorator pattern for implementing in the game.
+### November 11, Saturday
+Updated burndown chart, wiki with my tasks. Explored decorator pattern for implementing in the game. 
+Team meeting for week 8. Discussion on tasks pending for next week and feedback on work done.
 
