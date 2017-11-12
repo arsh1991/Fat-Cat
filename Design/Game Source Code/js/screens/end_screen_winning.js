@@ -48,8 +48,8 @@ game.EndScreenWinning = me.ScreenObject.extend({
     me.game.world.addChild(backgroundImage, 1);
 
 
-   this.RestartButton = new game.UI.ButtonUI(310, 250, "green", "Restart Game :D");
-   this.LeaderboardButton = new game.UI.ButtonUI(310, 330, "blue","See Leaderboard!");
+   this.RestartButton = new game.UI.ButtonUI(350, 250, "green", "Restart Game :D");
+   this.LeaderboardButton = new game.UI.ButtonUI(350, 330, "blue","See Leaderboard!");
    me.game.world.addChild(this.RestartButton);
    me.game.world.addChild(this.LeaderboardButton);
    me.game.world.addChild(new game.EndScreenWinning.Message(seconds, game.data.score));
