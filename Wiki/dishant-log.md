@@ -183,9 +183,18 @@ Team meeting to discuss the pending tasks and assign tasks for next week. Provid
 
 ### Week 7
 
+## XP Core Value: Simplicity
+Simplicity in Extreme programming refers to replacing complex tasks with simpler ones. 
+
+In week 7, the team divided the work in simpler tasks. Each team member was assigned one task. 
+Dishant- Anatomy of main player
+Aditi- Command Pattern
+Arshdeep- State Pattern
+Dipro- Proxy pattern
+Suhel- Itertor pattern
+
 ## November 5, Sunday
 worked on character images. Used photoshop to make images fat. Tried changing code to reflect the change.
-
 
 ## November 6, Monday
 Modified images size to fit in the texture. Re-generated texture to include new images added for fat-cat functionality.
@@ -199,4 +208,10 @@ Worked on modifying the health and score attributes affected due to code change 
 
 ## November 9, Thursday
 Completed the work on animation. Fixed issues after peer testing. 
+
+## November 10, Friday
+Fixed minor issues in game. Worked on implementing decorator pattern in game.
+
+## November 11, Saturday
+Updated burndown chart, wiki with my tasks. Explored decorator pattern for implementing in the game.
 
