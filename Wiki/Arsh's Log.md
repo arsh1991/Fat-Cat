@@ -1,5 +1,7 @@
 
 # Adopted XP Core Value - Communication
+<b>As of week 7</b>, we have nearly completed the game development and have started testing the game. We communicated and  re-merged our codes, refactored with patterns. As we tested each other's code, communication is required to find and fix bugs. I tried to keep everyone on same page by communicating the progress and bugs so that fix could be performed swiftly. We are constantly communicating the impediments/bugs which were created due to design problems and sat together to decide an approach to fix them. I am trying my best to keep the code in shippable state by communicate and following up on the changes.
+
 <b>As of week 6</b>, we are now moving towards the completion of the game development. We are constantly merging our codes to see the final product which requires team co-ordination and communication. Now remaining features are interdependent on different modules, so we are meeting often so that game could be finished off. In order to avoid code overwrites, we are communicating before pushing into repository. We are constantly in touch on slack and communicating the impediments so that person who is free could work on the tasks which are with other team members and are struck.
 
 In this week, we started with the Scrum methodology which required changing our working habits for the project. The Scrum being more prescriptive than KANBAN requires more descipline. I tried to communicate all the changes whole week in order to keep team 
@@ -139,17 +141,21 @@ Tested all the merged code in repository to check all the peices are working fin
 ## WEEK 7:
 
 
-## October 5, 2017:
+## November 5, 2017:
 Created new tileset as well as tilemap for the game using the TILED tool. Created all the object layer and collision in map as per design. Rendered the map with all the changes and made it working.
 https://github.com/nguyensjsu/cmpe202-oceans11/tree/master/Design/Game%20Source%20Code/data/map
 
 
-## October 6, 2017:
+## November 6, 2017:
 Resolved bugs in the level and game in general. We together worked on making objects more obviously healthy and unhealthy. Discussed implementation of patterns in game.
 
-## October 8, 2017:
+## November 8, 2017:
 Created the game end entity on map. Rendered the entity on game by creating a new entity in javascript and updated the collision update. Game has now the winning state and screen. Resolved existing bugs to keep the game in shippable state.
 
-## October 10, 2017:
+## November 10, 2017:
 Refactored the code with state pattern of the main player. The code incorporates four states: StoutState, ChubbyState, PlumpState, and ObeseState. The transitions were implemented based on the current animation and change in global health variable.
 https://github.com/nguyensjsu/cmpe202-oceans11/blob/b05956b8eaaa8ab8d9ad36e00ebb99611cc198f4/Design/Game%20Source%20Code/js/entities/player.js
+
+
+## November 11, 2017:
+Tested all the merged code in repository to check all the peices are working fine when integrated. Completed the weekly minutes and got it reveiwed. Finished off the deliverables for this week. Worked on the different gliteches in the game introduced by patterns and tried to resolve them.
