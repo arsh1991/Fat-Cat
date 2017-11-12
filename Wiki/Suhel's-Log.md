@@ -81,7 +81,8 @@ Created timer objects within the HeadUpDisplay(HUD.js). Troubleshooting and maki
 Timer created on game board and game ends at timer exhaustion.
 
 ## Week 6
-## XP Core Value: Courage
+## XP Core Value: Courage (Raised the issue of timers in different screens which was not assigned and then segregated the issue to every team member)
+
 ## Oct. 28 2017
 Team Meeting
 -Discussed about various portion left in the game and I am working on startgame page.
@@ -94,11 +95,15 @@ Team Meeting
 - Passed high scores to title screeen
 
 ## Nov. 4 2017
-Displayed leaderboard on the title screen of the game.
+- Displayed leaderboard on the title screen of the game.
 
 ## Week 7
 ## Nov. 6 2017
--Had team meeting today.Looked into various issues coming in timer and leaderboard
--Will be working on implementing a design pattern this week in my code.
+- Had team meeting today.Looked into various issues coming in timer and leaderboard
+- Will be working on implementing a design pattern this week in my code.
+
 ## Nov. 8 2017
--Working on adding complex objects for scores from me.save melon class to iterate over various scores. But the object is not persisting the scores. When the session reloads the scores reset. WIP
+- Working on adding complex objects for scores from me.save melon class to iterate over various scores. But the object is not persisting the scores. When the session reloads the scores reset. WIP
+
+## Nov. 10 2017
+- Created iterator pattern on leaderboard scores. Looking how to tune the scoring formula to get better numbers.
