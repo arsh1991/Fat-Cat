@@ -96,3 +96,7 @@ Debugged more issues in the game, such as the multiple flashes of the end game p
 Found issues with the score updating and the incorrect score being printed on the screen. Fixed this issue and due to feedback from my partner, found that there were issues with the end page for Time Up. Debugged this error and found it was due to a callback issue related to the command design pattern. Also, added new code for the Leaderboard so that a pop-up screen appears instead of text on the screen so that the UI looks cleaner. Future work will be needed to fix the leaderboard code with regards to saving the high scores as well as with the timer speeding up every time the "Restart" button is clicked. 
 ## Week 8
 ### Nov. 11th, Saturday
+Continued debugging of game issues and brainstormed a list for what else is rest in the game. As a team, we provided each other feedback about what our game is still having issues with, and what else is left to do within the upcoming short timeframe. 
+### Nov. 12th, Sunday
+
+### Nov. 13th, Monday
