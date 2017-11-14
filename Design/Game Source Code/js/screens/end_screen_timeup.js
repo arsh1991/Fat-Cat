@@ -131,7 +131,7 @@ this.RestartButton = new game.UI.ButtonUI(430, 275, "green", "Restart Game :D");
         this.font.draw (renderer, "Your score is " + this.points + " points. \n", this.pos.x, this.pos.y + 30);
         this.font.draw (renderer, "Want to try again? \n", this.pos.x, this.pos.y + 90);
     // this.font.draw (renderer, "LEADERBOARD \n", this.pos.x + 40, this.pos.y + 220);
-    // this.font.draw (renderer, "POSITION  SCORES\n", this.pos.x + 20, this.pos.y+255);
+    // this.font.draw (renderer,"POSITION  SCORES\n", this.pos.x + 20, this.pos.y+255);
 
     // var iter = new Iterator(print);  
     // var a =0;
