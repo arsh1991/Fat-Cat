@@ -8,7 +8,14 @@ game.PlayScreen = me.ScreenObject.extend({
         me.levelDirector.loadLevel("map2");
 
         // reset the score
-        game.data.score = 0;
+        game.data= {
+        score : 0,
+        time : '',
+        health: 10,
+        speed:{xvel:8, yvel:15},
+        curranimation: 'run',
+        print : []
+        }
 
         // add our HUD to the game world
         this.HUD = new game.HUD.Container();
