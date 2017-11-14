@@ -34,16 +34,18 @@ var HealthDecorator = function(score) {
     ScoreDecorator.call(this, score);
     
 }
+
+
 HealthDecorator.prototype = new ScoreDecorator();
 HealthDecorator.prototype.collisionWithHealthyObj = function() {
-    game.data.score =  this.score.collisionWithHealthyObj()+game.data.health;
+    game.data.score =  this.score.collisionWithHealthyObj()+(game.data.health*10);
     
 }
 
 HealthDecorator.prototype.collisionWithUnhealthyObj = function() {
-    if(this.score.collisionWithUnhealthyObj()-(game.data.health<0)
+    if(this.score.collisionWithUnhealthyObj()-(game.data.health*10)<0)
         game.data.score=0;
     else
-    game.data.score =  this.score.collisionWithUnhealthyObj()-game.data.health;
+    game.data.score =  this.score.collisionWithUnhealthyObj()-(game.data.health*10);
     
 }
