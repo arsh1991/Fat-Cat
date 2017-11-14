@@ -1,3 +1,4 @@
+
 game.PlayerEntity = me.Entity.extend({
     
 init: function(x, y, settings) {
@@ -260,9 +261,18 @@ var StoutState = function (player) {
         {
 		        case me.collision.types.ENEMY_OBJECT:
 
+                    
+
 		             if( game.data.health >0 )
 		                  game.data.health -= 1;
-			
+			         
+                     if(game.data.score>0){
+
+                        var score = new Score();  
+                        var scoreWithHealth = new HealthDecorator(score);
+                        scoreWithHealth.collisionWithUnhealthyObj();
+                    }
+
 			         if (!other.isMovingEnemy) {
     		            // spike or any other fixed danger
     		            this.player.body.vel.y -= this.player.body.maxVel.y * me.timer.tick;
@@ -288,9 +298,15 @@ var StoutState = function (player) {
 
 		        case me.collision.types.COLLECTABLE_OBJECT:
 
+                       
 			        if( game.data.health <10 )
 		    		    game.data.health += 1;
                     
+                     var score = new Score();  
+                        var scoreWithHealth = new HealthDecorator(score);
+                        scoreWithHealth.collisionWithHealthyObj();
+                    
+
                     if(game.data.speed.xvel<8 && game.data.speed.yvel<15){
 		              game.data.speed.xvel+=1;
 		              game.data.speed.yvel+=2;
@@ -334,9 +350,19 @@ var ChubbyState = function (player) {
 		        
             case me.collision.types.ENEMY_OBJECT:
 
+                   
+
 		        if( game.data.health >0 )
 		            game.data.health -= 1;
 			
+                 if(game.data.score>0){
+
+                        var score = new Score();  
+                        var scoreWithHealth = new HealthDecorator(score);
+                        scoreWithHealth.collisionWithUnhealthyObj();
+                    
+                }
+
 			     if (!other.isMovingEnemy) {
 		            // spike or any other fixed danger
 		            this.player.body.vel.y -= this.player.body.maxVel.y * me.timer.tick;
@@ -361,9 +387,16 @@ var ChubbyState = function (player) {
 
 		    case me.collision.types.COLLECTABLE_OBJECT:
 
+                
+                       
+
 			    if( game.data.health <10 )
 		    		game.data.health += 1;
-		        
+
+		        var score = new Score();  
+                var scoreWithHealth = new HealthDecorator(score);
+                scoreWithHealth.collisionWithHealthyObj();
+                
                 if(game.data.speed.xvel<8 && game.data.speed.yvel<15){
 		            game.data.speed.xvel+=1;
 		            game.data.speed.yvel+=2;
@@ -415,9 +448,18 @@ var PlumpState = function (player) {
 		        
             case me.collision.types.ENEMY_OBJECT:
 
+
 		        if( game.data.health >0 )
 		            game.data.health -= 1;
 			
+
+                if(game.data.score>0){
+
+                        var score = new Score();  
+                        var scoreWithHealth = new HealthDecorator(score);
+                        scoreWithHealth.collisionWithUnhealthyObj();
+                }
+
 			    if (!other.isMovingEnemy) {
 		            // spike or any other fixed danger
 		            this.player.body.vel.y -= this.player.body.maxVel.y * me.timer.tick;
@@ -442,9 +484,15 @@ var PlumpState = function (player) {
 
 		    case me.collision.types.COLLECTABLE_OBJECT:
 
+                        
+
 			    if( game.data.health <10 )
 		    		game.data.health += 1;
-		        
+
+		        var score = new Score();  
+                var scoreWithHealth = new HealthDecorator(score);
+                scoreWithHealth.collisionWithHealthyObj();
+                    
                 if(game.data.speed.xvel<8 && game.data.speed.yvel<15){
 		            game.data.speed.xvel+=1;
 		            game.data.speed.yvel+=2;
@@ -495,9 +543,18 @@ var ObeseState = function (player) {
 		  
             case me.collision.types.ENEMY_OBJECT:
 
+               
+
 		        if( game.data.health >0 )
 		            game.data.health -= 1;
 			
+                 if(game.data.score>0){
+
+                        var score = new Score();  
+                        var scoreWithHealth = new HealthDecorator(score);
+                        scoreWithHealth.collisionWithUnhealthyObj();
+                }
+
 			    if (!other.isMovingEnemy) {
 		            // spike or any other fixed danger
 		            this.player.body.vel.y -= this.player.body.maxVel.y * me.timer.tick;
@@ -518,8 +575,15 @@ var ObeseState = function (player) {
 
 		    case me.collision.types.COLLECTABLE_OBJECT:
 
+                        
+
 			    if( game.data.health <10 )
 		    		game.data.health += 1;
+
+                var score = new Score();  
+                var scoreWithHealth = new HealthDecorator(score);
+                scoreWithHealth.collisionWithHealthyObj();
+                    
 		        if(game.data.speed.xvel<8 && game.data.speed.yvel<15){
 		            game.data.speed.xvel+=1;
 		            game.data.speed.yvel+=2;

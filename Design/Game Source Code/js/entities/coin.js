@@ -24,7 +24,7 @@ game.CoinEntity = me.CollectableEntity.extend({
         // do something when collide
         me.audio.play("cling", false);
         // give some score
-        game.data.score += 250;
+      //  game.data.score += 250;
         
         //avoid further collision and delete it
         this.body.setCollisionMask(me.collision.types.NO_OBJECT);

@@ -39,6 +39,7 @@ var game = {
      * callback when everything is loaded
      */
     loaded: function ()    {
+       
         var commands = [];
 
         // set the "Play/Ingame" Screen Object

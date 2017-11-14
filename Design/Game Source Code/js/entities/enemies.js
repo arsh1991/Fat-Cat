@@ -80,7 +80,7 @@ game.PathEnemyEntity = me.Entity.extend({
           // do something when collide
         me.audio.play("enemykill", false);
         // give some score
-        game.data.score -= 150;
+      //  game.data.score -= 150;
         
         //avoid further collision and delete it
         this.body.setCollisionMask(me.collision.types.NO_OBJECT);

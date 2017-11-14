@@ -10,3 +10,6 @@ function Command (method, state, callback) {
 		}
 	};
 }
+
+
+
