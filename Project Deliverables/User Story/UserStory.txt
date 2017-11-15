@@ -1,0 +1,3 @@
+User Story with BDD Scenarios - Aditi
+//A User Story along with the supporting requirements specifications as BDD Scenarios.  Make sure to use the User Voice format discussed in class and identity at least five scenarios (one for "happy path" and additional "error" scenarios).
+
