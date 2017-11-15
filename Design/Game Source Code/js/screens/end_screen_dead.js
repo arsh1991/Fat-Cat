@@ -10,8 +10,8 @@ game.EndScreenDead = me.ScreenObject.extend({
     
     var backgroundImage = new me.Sprite(0, 0, {
       image: me.loader.getImage('game_over_died'),
-   }
-   );
+    }
+    );
     
     healthLevel = 1;
     if(game.data.time > "0:00"){
@@ -28,59 +28,53 @@ game.EndScreenDead = me.ScreenObject.extend({
     }
     final_score = Math.round(final_score);
     console.log("You completed the game in " + (60 - seconds) + " seconds. \n");
-      // console.log("Your score is " + game.data.score + " points. \n");
-        //console.log("<a href='end-game.html'>Continue</a>");
 
-         if (me.device.localStorage === true) {
-                    var i=0;
-                    var keys = JSON.parse(localStorage.getItem("me.save")) || [];
-                    keys.forEach(function (key) {
-                        print[i]=JSON.parse(localStorage.getItem("me.save." + key));
+    if (me.device.localStorage === true) {
+      var i=0;
+      var keys = JSON.parse(localStorage.getItem("me.save")) || [];
+      keys.forEach(function (key) {
+        print[i]=JSON.parse(localStorage.getItem("me.save." + key));
 
-                        console.log(i+":"+print[i]);
-                        i=i+1;
-                    });
-                }
-        if(me.save.hiscore<final_score){
-          me.save.hiscore=final_score;
-        }
-        else if(me.save.hiscore>final_score && me.save.second < final_score){
-          me.save.second=final_score;
-        }
-        else if(me.save.hiscore>final_score && me.save.second > final_score && me.save.third < final_score){
-          me.save.third=final_score;
-        }
+        console.log(i+":"+print[i]);
+        i=i+1;
+      });
+    }
+    if (me.save.hiscore<final_score){
+      me.save.hiscore=final_score;
+    }
+    else if(me.save.hiscore>final_score && me.save.second < final_score){
+      me.save.second=final_score;
+    }
+    else if(me.save.hiscore>final_score && me.save.second > final_score && me.save.third < final_score){
+      me.save.third=final_score;
+    }
 
 
-    // position and scale to fit with the viewport size
+    // position and scale to fit with the viewport size. add buttons and background images
     backgroundImage.anchorPoint.set(0, 0);
     backgroundImage.scale(me.game.viewport.width / backgroundImage.width, me.game.viewport.height / backgroundImage.height);
     me.game.world.addChild(backgroundImage, 1);
-    //game.HUD.removeChild(TimerObject);
-    //this.addChild(new game.HUD.ScoreItem(-10, -10));
-   // me.game.world.removeChild(game.HUD);
-
     this.RestartButton = new game.UI.ButtonUI(350, 255, "green", "Restart Game :D");
     this.LeaderboardButton = new game.UI.ButtonUI(350, 335, "blue","See Leaderboard!");
     me.game.world.addChild(this.RestartButton);
     me.game.world.addChild(this.LeaderboardButton);
     me.game.world.addChild(new game.EndScreenDead.Message(seconds, final_score));
 
-   
-                
+
+
   },
 
   /**
    * action to perform when leaving this screen (state change)
    */
    onDestroyEvent : function () {
-    // me.input.unbindKey(me.input.KEY.ENTER);
-    // me.input.unbindPointer(me.input.pointer.LEFT);
-    // me.event.unsubscribe(this.handler);
+    me.input.unbindKey(me.input.KEY.ENTER);
+    me.input.unbindPointer(me.input.pointer.LEFT);
+    me.event.unsubscribe(this.handler);
   }
 });
 
-  game.EndScreenDead.Message = me.Renderable.extend({
+game.EndScreenDead.Message = me.Renderable.extend({
     /**
      * constructor
      */
@@ -115,29 +109,29 @@ game.EndScreenDead = me.ScreenObject.extend({
      */
      draw : function (renderer) {
 
-    var Iterator = function(items) {
-    this.index = 0;
-    this.items = items;
-    }
- 
-    Iterator.prototype = {
-    first: function() {
-        this.reset();
-        return this.next();
-    },
-    next: function() {
-        return this.items[this.index++];
-    },
-    hasNext: function() {
-        return this.index <= 4;
-    },
-    reset: function() {
-        this.index = 1;
-    }
- }
-    this.font.draw (renderer, "Oh no, you died! :( \n", this.pos.x -10, this.pos.y);
-    this.font.draw (renderer, "You completed the game in " + this.seconds + " seconds! \nYour total score is " + this.points + " points. \n", this.pos.x -10, this.pos.y + 30);
-    this.font.draw (renderer, "Want to try again? \n", this.pos.x -10, this.pos.y + 90);
+      var Iterator = function(items) {
+        this.index = 0;
+        this.items = items;
+      }
+
+      Iterator.prototype = {
+        first: function() {
+          this.reset();
+          return this.next();
+        },
+        next: function() {
+          return this.items[this.index++];
+        },
+        hasNext: function() {
+          return this.index <= 4;
+        },
+        reset: function() {
+          this.index = 1;
+        }
+      }
+      this.font.draw (renderer, "Oh no, you died! :( \n", this.pos.x -10, this.pos.y);
+      this.font.draw (renderer, "You completed the game in " + this.seconds + " seconds! \nYour total score is " + this.points + " points. \n", this.pos.x -10, this.pos.y + 30);
+      this.font.draw (renderer, "Want to try again? \n", this.pos.x -10, this.pos.y + 90);
    // this.font.draw (renderer, "LEADERBOARD \n", this.pos.x + 40, this.pos.y + 220);
     //this.font.draw (renderer, "POSITION  SCORES\n", this.pos.x + 20, this.pos.y+255);
 /*
@@ -152,6 +146,7 @@ game.EndScreenDead = me.ScreenObject.extend({
      this.font.draw (renderer, " I \n", this.pos.x + 20, this.pos.y+284);
      this.font.draw (renderer, " II \n", this.pos.x + 20, this.pos.y+304);
      this.font.draw (renderer, " III \n", this.pos.x + 20, this.pos.y+324);*/
-    }
 
-  });
+   }
+
+ });

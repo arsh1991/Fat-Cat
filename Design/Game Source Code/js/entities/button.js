@@ -2,16 +2,16 @@
  * UI Objects
  */
 
-game.UI = game.UI || {};
+ game.UI = game.UI || {};
 
 /**
  * a basic button control
  */
-game.UI.ButtonUI = me.GUI_Object.extend({
+ game.UI.ButtonUI = me.GUI_Object.extend({
     /**
      * constructor
      */
-    init: function(x, y, color, label) {
+     init: function(x, y, color, label) {
         this._super(me.GUI_Object, "init", [ x, y, {
             image: game.texture,
             region : color + "_button04"
@@ -37,28 +37,28 @@ game.UI.ButtonUI = me.GUI_Object.extend({
     /**
      * function called when the object is clicked on
      */
-    onClick : function (e) {
+     onClick : function (e) {
 
         var Iterator = function(items) {
-    this.index = 0;
-    this.items = items;
-    }
- 
-    Iterator.prototype = {
-    first: function() {
-        this.reset();
-        return this.next();
-    },
-    next: function() {
-        return this.items[this.index++];
-    },
-    hasNext: function() {
-        return this.index <= 4;
-    },
-    reset: function() {
-        this.index = 1;
-    }
- }
+            this.index = 0;
+            this.items = items;
+        }
+
+        Iterator.prototype = {
+            first: function() {
+                this.reset();
+                return this.next();
+            },
+            next: function() {
+                return this.items[this.index++];
+            },
+            hasNext: function() {
+                return this.index <= 4;
+            },
+            reset: function() {
+                this.index = 1;
+            }
+        }
         this.setRegion(this.clicked_region);
         // account for the different sprite size
         this.pos.y += this.height - this.clicked_region.height ;
@@ -66,25 +66,25 @@ game.UI.ButtonUI = me.GUI_Object.extend({
         buttonClicked = this.buttons.indexOf(this.label);
         console.log("Button clicked: " + buttonClicked);
         if(buttonClicked==0){
-             me.audio.play("cling");
-             console.log("Play is clicked");
-             var change_state = new Command("change", me.state.PLAY, function(){});
-             change_state.execute();
-             //me.state.change(me.state.PLAY);
+           me.audio.play("cling");
+           console.log("Play is clicked");
+           var change_state = new Command("change", me.state.PLAY, function(){});
+           change_state.execute();
+           
 
-        }else if(buttonClicked==2){
-            me.audio.play("cling");
-            console.log("Restart is clicked");
-            var change_state = new Command("change", me.state.PLAY, function(){});
-            change_state.execute();
-        }
-        else if(buttonClicked==3){
-            me.audio.play("cling");
-            console.log("Leaderboard is clicked");
-                        var iter = new Iterator(print);  
+       }else if(buttonClicked==2){
+        me.audio.play("cling");
+        console.log("Restart is clicked");
+        var change_state = new Command("change", me.state.PLAY, function(){});
+        change_state.execute();
+    }
+    else if(buttonClicked==3){
+        me.audio.play("cling");
+        console.log("Leaderboard is clicked");
+        var iter = new Iterator(print);  
 
-            alert("LEADERBOARD: \n I. " + iter.first() + "\nII. " + iter.next() + "\nIII. " + iter.next() + " \n");
-        }
+        alert("LEADERBOARD: \n I. " + iter.first() + "\nII. " + iter.next() + "\nIII. " + iter.next() + " \n");
+    }
         // don't propagate the event
         return false;
     },
@@ -92,7 +92,7 @@ game.UI.ButtonUI = me.GUI_Object.extend({
     /**
      * function called when the pointer button is released
      */
-    onRelease : function (/* event */) {
+     onRelease : function (/* event */) {
         this.setRegion(this.unclicked_region);
         // account for the different sprite size
         this.pos.y -= this.unclicked_region.height - this.height;
@@ -107,18 +107,18 @@ game.UI.ButtonUI = me.GUI_Object.extend({
             this.label,
             this.pos.x + this.width / 2,
             this.pos.y + this.height / 2
-        );
+            );
     }
 });
 
 /**
  * a basic checkbox control
  */
-game.UI.CheckBoxUI = me.GUI_Object.extend({
+ game.UI.CheckBoxUI = me.GUI_Object.extend({
     /**
      * constructor
      */
-    init: function(x, y, texture, on_icon, off_icon, on_label, off_label) {
+     init: function(x, y, texture, on_icon, off_icon, on_label, off_label) {
 
         // call the parent constructor
         this._super(me.GUI_Object, "init", [ x, y, {
@@ -149,21 +149,21 @@ game.UI.CheckBoxUI = me.GUI_Object.extend({
     /**
      * function called when the pointer is over the object
      */
-    onOver : function (/* event */) {
+     onOver : function (/* event */) {
         this.setOpacity(1.0);
     },
 
     /**
      * function called when the pointer is leaving the object area
      */
-    onOut : function (/* event */) {
+     onOut : function (/* event */) {
         this.setOpacity(0.5);
     },
 
     /**
      * change the checkbox state
      */
-    setSelected : function (selected) {
+     setSelected : function (selected) {
         if (selected) {
             this.setRegion(this.on_icon_region);
             this.isSelected = true;
@@ -176,7 +176,7 @@ game.UI.CheckBoxUI = me.GUI_Object.extend({
     /**
      * function called when the object is clicked on
      */
-    onClick : function (/* event */) {
+     onClick : function (/* event */) {
         this.setSelected(!this.isSelected);
         // don't propagate the event
         return false;
@@ -194,7 +194,7 @@ game.UI.CheckBoxUI = me.GUI_Object.extend({
             " " + (this.isSelected ? this.label_on : this.label_off),
             this.pos.x + this.width,
             this.pos.y + this.height / 2
-        );
+            );
 
         // restore global alpha
         renderer.setGlobalAlpha(alpha);

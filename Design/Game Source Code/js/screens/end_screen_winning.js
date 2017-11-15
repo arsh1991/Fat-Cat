@@ -26,22 +26,7 @@ game.EndScreenWinning = me.ScreenObject.extend({
     }
          game.data.score = Math.round(game.data.score);
         console.log("You completed the game in " + (60 - seconds) + " seconds. \n");
-
-
-        //  if(me.save.hiscore<game.data.score){
-        //   me.save.hiscore=game.data.score;
-        // }
-        // else if(me.save.hiscore>game.data.score && me.save.second < game.data.score){
-        //   me.save.second=game.data.score;
-        // }
-        // else if(me.save.hiscore>game.data.score && me.save.second > game.data.score && me.save.third < game.data.score){
-        //   me.save.third=game.data.score;
-        // }
-
-      // console.log("Your score is " + game.data.score + " points. \n");
-        //console.log("<a href='end-game.html'>Continue</a>");
-        //var x = "<a href='end-game.html'>HELLOOOO</a>";
-
+ 
     // position and scale to fit with the viewport size
   backgroundImage.anchorPoint.set(0, 0);
    backgroundImage.scale(me.game.viewport.width / backgroundImage.width, me.game.viewport.height / backgroundImage.height);
@@ -105,15 +90,6 @@ game.EndScreenWinning.Message = me.Renderable.extend({
         this.font.draw (renderer, "Wow! You're a winner! \n", this.pos.x, this.pos.y);
         this.font.draw (renderer, "Your score is " + this.points + " points. \n", this.pos.x, this.pos.y + 30);
         this.font.draw (renderer, "Want to beat your score? \n", this.pos.x, this.pos.y + 90);
-
-      // this.font.draw (renderer, "LEADERBOARD \n", this.pos.x + 40, this.pos.y + 220);
-      // this.font.draw (renderer, "POSITION  SCORES\n", this.pos.x + 20, this.pos.y+255);
-
-      // this.font.draw (renderer, " I               " + me.save.hiscore + " \n", this.pos.x + 20, this.pos.y+284);
-      // this.font.draw (renderer, " II              " + me.save.second + " \n", this.pos.x + 20, this.pos.y+304);
-      // this.font.draw (renderer, " III             " + me.save.third + " \n", this.pos.x + 20, this.pos.y+324);
-
-
     }
 
 });
