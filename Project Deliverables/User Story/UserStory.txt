@@ -1,3 +1,23 @@
 User Story with BDD Scenarios - Aditi
+
 //A User Story along with the supporting requirements specifications as BDD Scenarios.  Make sure to use the User Voice format discussed in class and identity at least five scenarios (one for "happy path" and additional "error" scenarios).
 
+As a game player,
+I want to be able to navigate the main character
+When obstacles and bonuses appear
+So that I can complete a game level within the time limit.
+
+As a game player,
+I want to be able to view the high score leaderboard
+When the game completes
+So that I can see where my current score stands in comparison.
+
+As a game player,
+I want to be able to restart the game
+When the game completes
+So that I can continue playing. 
+
+As a food entity 
+I want to be able to disappear and update the character's health
+When the main character collides with me
+So that my impact on health is visible to the player through the score and speed of the character.
