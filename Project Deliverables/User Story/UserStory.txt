@@ -15,9 +15,17 @@ So that I can see where my current score stands in comparison.
 As a game player,
 I want to be able to restart the game
 When the game completes
-So that I can continue playing. 
+So that I can continue playing.
+
+As a game player,
+I should be able to see my health decresing and eventually die
+When I touch the harmful obstacles
+So that the game remains challenging
 
 As a food entity 
 I want to be able to disappear and update the character's health
 When the main character collides with me
 So that my impact on health is visible to the player through the score and speed of the character.
+
+
+
