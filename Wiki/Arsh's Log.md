@@ -159,3 +159,13 @@ https://github.com/nguyensjsu/cmpe202-oceans11/blob/b05956b8eaaa8ab8d9ad36e00ebb
 
 ## November 11, 2017:
 Tested all the merged code in repository to check all the peices are working fine when integrated. Completed the weekly minutes and got it reveiwed. Finished off the deliverables for this week. Worked on the different gliteches in the game introduced by patterns and tried to resolve them.
+
+
+<br></br>
+
+## WEEK 8:
+
+
+
+## November 14, 2017:
+Looked into game and listed all the bugs present in the game and communicated to everyone about the same. There are couple of bugs in timing , score and final score section. Asked everyone to work on one bug each and start pushing the fixes. Designed the classes to create a general healthy object and create a set of concrete healthy objects from it.
