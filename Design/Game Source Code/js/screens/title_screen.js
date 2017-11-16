@@ -42,9 +42,13 @@ game.TitleScreen = me.ScreenObject.extend({
    this.PlayButton = new game.UI.ButtonUI(430, 525,"green","Play Game");
    /*Using Proxy Design Pattern to validate the button Object*/
    let testPlayButton =  new Proxy(this.PlayButton,validator); 
-
+   
    //me.game.world.addChild(this.SelectPlayerButton);
-   me.game.world.addChild(this.PlayButton);
+   //Check if the HUD object is created using proxy pattern
+   if(this.PlayButton == null){
+      this.PlayButton = new game.UI.ButtonUI(430, 525,"green","Play Game");
+    }
+   me.game.world.addChild(this.PlayButton); //PlayButton is added to the UI
    me.game.world.addChild(new game.TitleScreen.Message(me.save.hiscore,me.save.second,me.save.third));
     // change to play state on press Enter or click/tap
     // me.input.bindKey(me.input.KEY.ENTER, "enter", true);

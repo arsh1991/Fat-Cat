@@ -13,7 +13,7 @@ game.EndScreenWinning = me.ScreenObject.extend({
     console.log('T R I G G E R E D');
     healthLevel = 1;
     if(game.data.time > "0:00"){
-            var a = game.data.time.split(':'); // split it at the colons
+    var a = game.data.time.split(':'); // split it at the colons
 
     // minutes are worth 60 seconds. Hours are worth 60 minutes.
         var seconds = (+a[0]) * 60 * 60 + (+a[1]);
@@ -24,8 +24,8 @@ game.EndScreenWinning = me.ScreenObject.extend({
           game.data.score = (game.data.score * 1000 * healthLevel)/(300);
 
     }
-         game.data.score = Math.round(game.data.score);
-        console.log("You completed the game in " + (60 - seconds) + " seconds. \n");
+    game.data.score = Math.round(game.data.score);
+    console.log("You completed the game in " + (60 - seconds) + " seconds. \n");
  
     // position and scale to fit with the viewport size
   backgroundImage.anchorPoint.set(0, 0);
@@ -35,6 +35,12 @@ game.EndScreenWinning = me.ScreenObject.extend({
 
    this.RestartButton = new game.UI.ButtonUI(350, 250, "green", "Restart Game :D");
    this.LeaderboardButton = new game.UI.ButtonUI(350, 330, "blue","See Leaderboard!");
+   if (this.RestartButton == null){
+      this.RestartButton = new game.UI.ButtonUI(350, 250, "green", "Restart Game :D");
+   }
+   if (this.LeaderboardButton == null){
+      this.LeaderboardButton = new game.UI.ButtonUI(350, 330, "blue","See Leaderboard!");
+   }
    me.game.world.addChild(this.RestartButton);
    me.game.world.addChild(this.LeaderboardButton);
    me.game.world.addChild(new game.EndScreenWinning.Message(seconds, game.data.score));
@@ -88,7 +94,7 @@ game.EndScreenWinning.Message = me.Renderable.extend({
      */
     draw : function (renderer) {
         this.font.draw (renderer, "Wow! You're a winner! \n", this.pos.x, this.pos.y);
-        this.font.draw (renderer, "Your score is " + this.points + " points. \n", this.pos.x, this.pos.y + 30);
+        this.font.draw (renderer, "Your score is " + this.points + " points. \n", this.pos.x-10, this.pos.y + 30);
         this.font.draw (renderer, "Want to beat your score? \n", this.pos.x, this.pos.y + 90);
     }
 

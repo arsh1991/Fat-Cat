@@ -19,6 +19,10 @@ game.PlayScreen = me.ScreenObject.extend({
 
         // add our HUD to the game world
         this.HUD = new game.HUD.Container();
+        //Check if the HUD object is created using proxy pattern
+        if (this.HUD == null){
+          this.HUD = new game.HUD.Container();
+        }
         me.game.world.addChild(this.HUD);
 
         // play some music

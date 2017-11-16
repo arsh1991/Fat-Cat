@@ -10,3 +10,9 @@ let validator = {
 };
 
 export default validator();
+
+
+//Check if the an object is created using proxy pattern
+//if (object == null){
+   //this.object = new Object(); create new object
+//}
