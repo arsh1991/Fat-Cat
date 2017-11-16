@@ -216,3 +216,14 @@ Fixed minor issues in game. Worked on implementing decorator pattern in game.
 Updated burndown chart, wiki with my tasks. Explored decorator pattern for implementing in the game. 
 Team meeting for week 8. Discussion on tasks pending for next week and feedback on work done.
 
+
+## Week 8
+
+### November 13, Monday
+Worked on implementing decorator pattern in the game.
+
+### November 14, Tuesday
+Finished work on decorator pattern. Fixed issues on re-starting the game.
+
+
+
