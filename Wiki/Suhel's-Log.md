@@ -98,6 +98,7 @@ Team Meeting
 - Displayed leaderboard on the title screen of the game.
 
 ## Week 7
+## XP Core Value: Courage
 ## Nov. 6 2017
 - Had team meeting today.Looked into various issues coming in timer and leaderboard
 - Will be working on implementing a design pattern this week in my code.
@@ -107,3 +108,14 @@ Team Meeting
 
 ## Nov. 10 2017
 - Created iterator pattern on leaderboard scores. Looking how to tune the scoring formula to get better numbers.
+
+## Week 7
+## Nov.11 2017
+- Had meeting today. Decided to work on fixing some bugs and one of the deliverable allocated to each team member.
+
+## Nov.13 2017
+- Fixed end screens as leaderbutton was not working properly and scores were not getting updated. 
+
+## Nov.15 2017
+- Moved iterator pattern to central position.
+
