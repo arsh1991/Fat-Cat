@@ -57,6 +57,8 @@ var game = {
         me.pool.register("FlyEntity", game.FlyEnemyEntity);
         me.pool.register("CoinEntity", game.CoinEntity);
 	    me.pool.register("EndEntity", game.EndEntity);
+        me.pool.register("ChickenEntity", game.ChickenEntity);
+
 
         // load the texture atlas file
         // this will be used by object entities later

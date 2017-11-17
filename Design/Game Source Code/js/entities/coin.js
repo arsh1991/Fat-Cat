@@ -1,4 +1,4 @@
-game.CoinEntity = me.CollectableEntity.extend({
+game.HealthyEntity = me.CollectableEntity.extend({
     /**
      * constructor
      */
@@ -8,12 +8,8 @@ game.CoinEntity = me.CollectableEntity.extend({
         this._super(me.CollectableEntity, "init", [x, y , settings]);
 
         // add the coin sprite as renderable
-        this.renderable = game.texture.createSpriteFromName("apple");
-
         this.body.collisionType = me.collision.types.COLLECTABLE_OBJECT;
 
-        // set the renderable position to center
-        this.anchorPoint.set(0.5, 0.5);
     },
 
     /**
@@ -34,6 +30,41 @@ game.CoinEntity = me.CollectableEntity.extend({
         return false;
     }
 });
+
+
+game.CoinEntity = game.HealthyEntity.extend({
+    /**
+     * constructor
+     */
+    init: function (x, y, settings) {
+
+        this._super(game.HealthyEntity, "init", [x, y, settings]);
+        // add the coin sprite as renderable
+        this.renderable = game.texture.createSpriteFromName("apple");
+        // set the renderable position to center
+        this.anchorPoint.set(0.5, 0.5);
+    },
+
+    
+});
+
+game.ChickenEntity = game.HealthyEntity.extend({
+    /**
+     * constructor
+     */
+    init: function (x, y, settings) {
+        this._super(game.HealthyEntity, "init", [x, y, settings]);
+        // add the coin sprite as renderable
+        this.renderable = game.texture.createSpriteFromName("fly_normal");
+        // set the renderable position to center
+        this.anchorPoint.set(0.5, 0.5);
+    },
+
+    
+});
+
+
+
 
 
 game.EndEntity = me.Entity.extend({
