@@ -98,26 +98,6 @@ game.EndScreenTimeUp.Message = me.Renderable.extend({
      */
      draw : function (renderer) {
 
-      var Iterator = function(items) {
-        this.index = 0;
-        this.items = items;
-      }
-
-      Iterator.prototype = {
-        first: function() {
-          this.reset();
-          return this.next();
-        },
-        next: function() {
-          return this.items[this.index++];
-        },
-        hasNext: function() {
-          return this.index <= 4;
-        },
-        reset: function() {
-          this.index = 1;
-        }
-      }
       this.font.draw (renderer, "Time's Up! You ran out of time! \n", this.pos.x, this.pos.y);
       this.font.draw (renderer, "Your score is " + this.points + " points. \n", this.pos.x, this.pos.y + 30);
       this.font.draw (renderer, "Want to try again? \n", this.pos.x, this.pos.y + 90);
