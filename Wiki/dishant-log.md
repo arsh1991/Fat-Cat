@@ -223,7 +223,10 @@ Team meeting for week 8. Discussion on tasks pending for next week and feedback 
 Worked on implementing decorator pattern in the game.
 
 ### November 14, Tuesday
-Finished work on decorator pattern. Fixed issues on re-starting the game.
+Finished work on decorator pattern. Fixed issues on game re-start.
+
+### November 14, Tuesday
+Refactored the code and fixed pending issues in the game.
 
 
 
