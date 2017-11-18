@@ -29,7 +29,7 @@
   </layer>
  </group>
  <objectgroup color="#00ff00" name="Player">
-  <object id="16" name="mainPlayer" x="105" y="892" width="35" height="88"/>
+  <object id="16" name="mainPlayer" x="39" y="889" width="35" height="88"/>
   <object id="25" name="me.Entity" gid="46" x="910" y="1050" width="70" height="70">
    <properties>
     <property name="anchorPoint" value="json:{&quot;x&quot;:0.5,&quot;y&quot;:1}"/>
@@ -56,7 +56,7 @@
   </object>
  </objectgroup>
  <objectgroup color="#ff0000" name="Slimes">
-  <object id="5" name="SlimeEntity" x="140" y="595" width="210" height="35">
+  <object id="5" name="SlimeEntity" x="114" y="942" width="153" height="33">
    <properties>
     <property name="frameheight" value="35"/>
     <property name="framewidth" value="55"/>
@@ -89,9 +89,9 @@
  </objectgroup>
  <objectgroup color="#ffff00" name="Coins">
   <object id="3" name="CoinEntity" x="700" y="801" width="35" height="35"/>
-  <object id="52" name="CoinEntity" x="2259" y="867" width="39" height="35"/>
+  <object id="52" name="ChickenEntity" x="2259" y="867" width="39" height="35"/>
   <object id="56" name="CoinEntity" x="2665" y="941" width="33" height="31"/>
-  <object id="57" name="CoinEntity" x="3450" y="941" width="30" height="29"/>
+  <object id="57" name="ChickenEntity" x="3450" y="941" width="30" height="29"/>
  </objectgroup>
  <layer name="Front Layer" width="100" height="30">
   <data encoding="base64">
@@ -99,7 +99,7 @@
   </data>
  </layer>
  <objectgroup color="#ff0000" name="Flies">
-  <object id="4" name="FlyEntity" x="770" y="490" width="560" height="35">
+  <object id="4" name="FlyEntity" x="807" y="700" width="274" height="32">
    <properties>
     <property name="animationspeed" value="200"/>
     <property name="frameheight" value="35"/>

@@ -253,7 +253,7 @@
                 {
                  "height":35,
                  "id":12,
-                 "name":"ChickenEntity",
+                 "name":"CoinEntity",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -264,7 +264,7 @@
                 {
                  "height":35,
                  "id":19,
-                 "name":"CoinEntity",
+                 "name":"ChickenEntity",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -275,7 +275,7 @@
                 {
                  "height":35,
                  "id":21,
-                 "name":"CoinEntity",
+                 "name":"ChickenEntity",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -308,7 +308,7 @@
                 {
                  "height":35,
                  "id":83,
-                 "name":"CoinEntity",
+                 "name":"ChickenEntity",
                  "rotation":0,
                  "type":"",
                  "visible":true,
