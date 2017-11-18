@@ -195,7 +195,7 @@ game.HUD.ScoreItem = me.Renderable.extend({
      * draw the score
      */
     draw : function (renderer) {
-        this.font.draw (renderer, "Health: " + game.data.score, this.pos.x, this.pos.y);
+        this.font.draw (renderer, "Score: " +Math.round(game.data.score), this.pos.x, this.pos.y);
     }
 
 });

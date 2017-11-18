@@ -13,22 +13,14 @@ game.EndScreenDead = me.ScreenObject.extend({
     }
     );
     
-    healthLevel = 1;
-    if(game.data.time > "0:00"){
-            var a = game.data.time.split(':'); // split it at the colons
-
-    // minutes are worth 60 seconds. Hours are worth 60 minutes.
-    var seconds = (+a[0]) * 60 * 60 + (+a[1]);
-    final_score = (game.data.score * 1000 * healthLevel)/(6000 - seconds);
-
-  }
-    else{ //if 0 seconds were left
-      final_score = (game.data.score * 1000 * healthLevel)/(300);
-
-    }
+   
+    var score = new Score();  
+    var scoreWithTime = new TimeDecorator(score);
+    scoreWithTime.gameEnd();
+    final_score = game.data.score;
+    console.log(final_score);
     final_score = Math.round(final_score);
-    console.log("You completed the game in " + (60 - seconds) + " seconds. \n");
-
+   
     if (me.device.localStorage === true) {
       var i=0;
       var keys = JSON.parse(localStorage.getItem("me.save")) || [];
@@ -58,7 +50,7 @@ game.EndScreenDead = me.ScreenObject.extend({
     this.LeaderboardButton = new game.UI.ButtonUI(350, 335, "blue","See Leaderboard!");
     me.game.world.addChild(this.RestartButton);
     me.game.world.addChild(this.LeaderboardButton);
-    me.game.world.addChild(new game.EndScreenDead.Message(seconds, final_score));
+    me.game.world.addChild(new game.EndScreenDead.Message(final_score));
 
 
 
@@ -79,7 +71,7 @@ game.EndScreenDead.Message = me.Renderable.extend({
      * constructor
      */
      
-     init: function(seconds, points) {
+     init: function(points) {
         // call the super constructor
         // (size does not matter here)
         var width = me.game.viewport.width;
@@ -93,7 +85,7 @@ game.EndScreenDead.Message = me.Renderable.extend({
 
         // create a font
         this.font = new me.Font("arial rounded mt bold", 22, "white");
-        this.seconds = 60 - seconds;
+        
         this.points = points;
       },
 
@@ -109,7 +101,7 @@ game.EndScreenDead.Message = me.Renderable.extend({
      */
      draw : function (renderer) {
       this.font.draw (renderer, "Oh no, you died! :( \n", this.pos.x -10, this.pos.y);
-      this.font.draw (renderer, "You completed the game in " + this.seconds + " seconds! \nYour total score is " + this.points + " points. \n", this.pos.x -10, this.pos.y + 30);
+      this.font.draw (renderer, "Your total score is " + this.points + " points. \n", this.pos.x -10, this.pos.y + 30);
       this.font.draw (renderer, "Want to try again? \n", this.pos.x -10, this.pos.y + 90);
    // this.font.draw (renderer, "LEADERBOARD \n", this.pos.x + 40, this.pos.y + 220);
     //this.font.draw (renderer, "POSITION  SCORES\n", this.pos.x + 20, this.pos.y+255);

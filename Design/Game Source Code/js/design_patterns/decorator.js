@@ -11,6 +11,9 @@ Score.prototype = {
         if(game.data.score-100<0)
             return 0;
         return game.data.score - 100;
+    },
+    gameEnd: function() {
+        return game.data.score;
     }
 }
 
@@ -27,6 +30,9 @@ ScoreDecorator.prototype = {
     },
     collisionWithUnhealthyObj: function() {
         return this.score.collisionWithUnhealthyObj();
+    },
+    gameEnd: function() {
+        return this.score.gameEnd();
     }
 }
 
@@ -47,5 +53,25 @@ HealthDecorator.prototype.collisionWithUnhealthyObj = function() {
         game.data.score=0;
     else
     game.data.score =  this.score.collisionWithUnhealthyObj()-(game.data.health*10);
+    
+}
+
+
+var TimeDecorator = function(score) {
+    ScoreDecorator.call(this, score);
+    
+}
+
+
+TimeDecorator.prototype = new ScoreDecorator();
+TimeDecorator.prototype.gameEnd = function() {
+
+    
+    var a = game.data.time.split(':'); // split it at the colons
+
+    // minutes are worth 60 seconds. Hours are worth 60 minutes.
+    var seconds = (+a[0]) * 60 * 60 + (+a[1]);
+    game.data.score = (game.data.score * 100)/(60 - seconds);
+
     
 }

@@ -13,20 +13,13 @@ game.EndScreenTimeUp = me.ScreenObject.extend({
     }
     );
     
-    healthLevel = 1;
-    if(game.data.time > "0:00"){
-            var a = game.data.time.split(':'); // split it at the colons
-
-    // minutes are worth 60 seconds. Hours are worth 60 minutes.
-    var seconds = (+a[0]) * 60 * 60 + (+a[1]);
-    final_score = (game.data.score * 1000 * healthLevel)/(30 - seconds);
-  }
-    else{ //if 0 seconds were left
-      final_score = (game.data.score * 1000 * healthLevel)/(300);
-
-    }
+   
+    var score = new Score();  
+    var scoreWithTime = new TimeDecorator(score);
+    scoreWithTime.gameEnd();
+    final_score = game.data.score;
+    console.log(final_score);
     final_score = Math.round(final_score);
-    console.log("You completed the game in " + (30 - seconds) + " seconds. \n");
 
         if (me.device.localStorage === true) {
           var i=0;
@@ -48,7 +41,7 @@ game.EndScreenTimeUp = me.ScreenObject.extend({
    this.LeaderboardButton = new game.UI.ButtonUI(430, 350, "blue","See Leaderboard!");
    me.game.world.addChild(this.RestartButton);
    me.game.world.addChild(this.LeaderboardButton);
-   me.game.world.addChild(new game.EndScreenTimeUp.Message(seconds, final_score));
+   me.game.world.addChild(new game.EndScreenTimeUp.Message(final_score));
 
    
 
@@ -69,7 +62,7 @@ game.EndScreenTimeUp.Message = me.Renderable.extend({
      * constructor
      */
      
-     init: function(seconds, points) {
+     init: function(points) {
         // call the super constructor
         // (size does not matter here)
         var width = me.game.viewport.width;
@@ -83,7 +76,7 @@ game.EndScreenTimeUp.Message = me.Renderable.extend({
 
         // create a font
         this.font = new me.Font("arial rounded mt bold", 22, "white");
-        this.seconds = 60 - seconds;
+        
         this.points = points;
       },
 
