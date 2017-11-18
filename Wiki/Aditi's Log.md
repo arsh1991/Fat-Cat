@@ -96,7 +96,16 @@ Debugged more issues in the game, such as the multiple flashes of the end game p
 Found issues with the score updating and the incorrect score being printed on the screen. Fixed this issue and due to feedback from my partner, found that there were issues with the end page for Time Up. Debugged this error and found it was due to a callback issue related to the command design pattern. Also, added new code for the Leaderboard so that a pop-up screen appears instead of text on the screen so that the UI looks cleaner. Future work will be needed to fix the leaderboard code with regards to saving the high scores as well as with the timer speeding up every time the "Restart" button is clicked. 
 ## Week 8
 ### Nov. 11th, Saturday
-Continued debugging of game issues and brainstormed a list for what else is rest in the game. As a team, we provided each other feedback about what our game is still having issues with, and what else is left to do within the upcoming short timeframe. 
-### Nov. 12th, Sunday
-
+Continued debugging of game issues and brainstormed a list for what else is rest in the game. As a team, we provided each other feedback about what our game is still having issues with, and what else is left to do within the upcoming short timeframe. Looked over the team deliverables we have left for the project and assigned the remaining to every body.
 ### Nov. 13th, Monday
+Began work on the Use Case deliverable as well as finding and fixing other remaining bugs in the game. Did some research online and reviewed the class's previous lecture notes for the correct format and guidelines for a User Story and began developing some. Created a structure for the other deliverables and assigned deliverables to teammates.
+### Nov. 14th, Tuesday
+Continued work on the Use Case deliverable and found that the Restart button in the game would speed up the timer everytime it was pressed. Due to this, the amount of actual time a user was able to play would continue decreasing after every restart. Provided feedback to my team to get this bug fixed.
+### Nov. 15th, Wednesday
+
+### Nov. 16th, Thursday
+
+### Nov. 17th, Friday
+
+## Week 8
+### Nov. 18th, Saturday
