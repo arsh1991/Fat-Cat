@@ -36,32 +36,59 @@ Run MelonJs Library - Rendred images and created MVP with the customized Mario G
 ### Oct-10 2017
 Uml diagrams created. Mockups created.
 
-### Oct-13 2017
-Uml diagrams finalized. Team Meeting, hands on coding.
+## Oct. 18 2017
+Debugged issues in the exiting sample game project created. Looked for design patterns on the documentation and found proxy dsign  pattern suitable for the game because it is useful to check for the valid parameters as well as creatino of any expensive object.
 
-### Oct-20 2017
-Mario js running on Boilerplate created and tested.
+## Week5
+## XP Core Value: Courage
+## Oct. 21 2017
+Participitated in the group meeting. Different UML diagram were created and distributed among the team members.
 
-### Oct-22 2017
-UI sprite created for the splash screen
+## Oct. 23 2017
+Working on the images of the cat using photoshop and liquify tool to make the cat fat. Changed 30 images for each state and we have 4 different states for the character.
 
-### Oct-24 2017
-New texture generated for the Splash screen and button
+## Oct. 25 2017
+Working on the the UI/ main screena dn changing the screen and positioning buttons and drawing texts on proper place using the render functions.
 
-### Oct-27 2017
-New button methods and background screen adeed for the start menu
+## Week 6
+## XP Core Value: Courage 
 
-### Nov-1nd 2017
-New Background for the start menu, and more option to choose from on the UI
+## Oct. 28 2017
+Team Meeting
+-Discussed about various portion left in the game and I am working on endgame page.
 
-### Nov-4th 2017
-Editing Images and adding new resources to the project
+## Oct. 30 2017
+-working on the show score part and leaderboard display
 
-### Nov-5th 2017
-Completed Images modifying for all different categories with Photoshop
+## Week 7
+## XP Core Value: Courage
 
-### Nov-6th 2017
-I used feedback from replaying the game countless times to find more errors and issues with the code and design. Worked on the code that changes the state on button click on the landing page.
 
-### Nov-10th 2017
-Modified button appearance and code as well for a ice looking UI.Changed the First game screen, modified all 90 images and applied liquify tool usign photoshop to change it and also resized it using adobe photoshop.
+## Nov. 2 2017
+- Working on implementation of the proxy pattern
+
+
+## Nov. 4 2017
+- Changing the UI of the start page .
+
+## Nov. 6 2017
+- Had team meeting today.Reviews the code and it and saw issues with the timer
+- Will working on proxy design pattern with es6 js code.
+
+## Nov. 8 2017
+- Creating a seprate file to save the proxy js code and tryting to integrate the code with the play.js code.
+
+## Nov. 10 2017
+- Created proxy.js file and implemented proxy pattern that integrates with the code.
+
+## Week 8
+## Nov.11 2017
+- Attended Team meeting. 
+- Working on  fixing some bugs and one of the deliverable allocated to each team member.
+
+## Nov.13 2017
+- Fixed the end page by positioning the button and change the draw function for the texts 
+
+## Nov.15 2017
+- Moded the proxy pattern code to the cetral code.
+
