@@ -14,15 +14,15 @@ In the last week, we completed the following tasks:
 ## What is the team going to do next week?
 Next week, our primary focus will be on refactoring the code to refactor code to implement observer pattern and decorator pattern in the game. We will continue to fix bugs in the functionalities and pitch the final product for presentation. Furthermore, we need to start cleaning the code and start creating the documentation of the game . Every team member will pick one bug each and start creating the project deliverables. We will also add more healthy objects in the game and will render them on tilemaps.
  
-**Aditi:**  Work on Use Cases document, refactor code for end game screens, debug leaderboard updating bug and other small bugs.
+**Aditi:**  Work on User Story document, refactor code for end game screens, debug leaderboard-updating issue and other small bugs.
 
-**Suhel:**   
+**Suhel:**   Work on debugging leaderboard-updating issue and other small bugs in game.
 
-**Dipro:**  Work on 
+**Dipro:**  Work on Use Cases document and finish Proxy decorator pattern implementation.
 
 **Arsh:** Create a general healthy object entity and create two healthy objects from it. Start class diagram for the game and fix one of the bugs. 
 
-**Dishant:**   
+**Dishant:**   Work on debugging Restart timing issue and other small bugs in game.
  
 
 ## What are the current blockers/challenges the team is facing?
