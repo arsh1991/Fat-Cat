@@ -237,9 +237,10 @@ game.HUD.TimerItem = me.Renderable.extend({
         // return true if the score has been updated
         if(!game.data.pause){
             timer.update();
+            return true;
         }
 
-        return true;
+        return false;
     },
 
     /**
@@ -281,7 +282,8 @@ var TimerObject = (function() {
     if(this.countdown) {   
       //this.time -= 0.01*(me.timer.getTime() - this.start_time);
       for (i = 0; i < 300; i++) {
-        this.time -= 0.05;
+            this.time -= 0.05;
+            //console.log(i);
         } 
     }
 
@@ -289,6 +291,7 @@ var TimerObject = (function() {
     if(game.data.time  == "0:00"){
         //me.state.pause();
         game.data.pause = true;
+        this.countdown = false;
         //timer.pause(); 
         var set_state = new Command("set", me.state.GAMEOVER, new game.EndScreenTimeUp());
         var change_state = new Command("change", me.state.GAMEOVER, function(){});

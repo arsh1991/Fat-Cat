@@ -55,7 +55,7 @@ game.ChickenEntity = game.HealthyEntity.extend({
     init: function (x, y, settings) {
         this._super(game.HealthyEntity, "init", [x, y, settings]);
         // add the coin sprite as renderable
-        this.renderable = game.texture.createSpriteFromName("fly_normal");
+        this.renderable = game.texture.createSpriteFromName("spinach");
         // set the renderable position to center
         this.anchorPoint.set(0.5, 0.5);
     },
