@@ -102,10 +102,8 @@ Began work on the Use Case deliverable as well as finding and fixing other remai
 ### Nov. 14th, Tuesday
 Continued work on the Use Case deliverable and found that the Restart button in the game would speed up the timer everytime it was pressed. Due to this, the amount of actual time a user was able to play would continue decreasing after every restart. Provided feedback to my team to get this bug fixed.
 ### Nov. 15th, Wednesday
-
-### Nov. 16th, Thursday
-
+Began debugging issue with the leaderboard where new values were not being updated or saved. Provided feedback to my team about this issue so that we can work on it to get it resolved. Refactored the end game code so that it is easier to read and understand.
 ### Nov. 17th, Friday
-
+Continued work on Use Cases and also began work on the UML Class Diagram that we will be working on as a team. Currently, we are waiting for all the design patterns to be implemented by the rest of the team so that we can provide feedback on these and then work on all diagrams for our final presentation. Also, began brainstorming ideas for our extra credit project video that we will be filiming soon.
 ## Week 8
 ### Nov. 18th, Saturday
