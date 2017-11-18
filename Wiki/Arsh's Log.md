@@ -169,3 +169,10 @@ Tested all the merged code in repository to check all the peices are working fin
 
 ## November 14, 2017:
 Looked into game and listed all the bugs present in the game and communicated to everyone about the same. There are couple of bugs in timing , score and final score section. Asked everyone to work on one bug each and start pushing the fixes. Designed the classes to create a general healthy object and create a set of concrete healthy objects from it.
+
+## November 16, 2017:
+Created model for healthy objects, created javascript objects for Chicken object and apple object. Completed the intyegration of the entities with the game and resolved all the errors.
+https://github.com/nguyensjsu/cmpe202-oceans11/blob/master/Design/Game%20Source%20Code/js/entities/coin.js
+
+
+
