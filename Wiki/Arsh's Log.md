@@ -165,14 +165,20 @@ Tested all the merged code in repository to check all the peices are working fin
 
 ## WEEK 8:
 
-
+## November 13, 2017:
+Looked into the pending tasks and and overviewed all the required deliverables. Met everyone regarding seggration of the tasks for next week and see how to proceed further on the project. Started Testing the game and tries listing all the bugs and communicated to the team.
 
 ## November 14, 2017:
 Looked into game and listed all the bugs present in the game and communicated to everyone about the same. There are couple of bugs in timing , score and final score section. Asked everyone to work on one bug each and start pushing the fixes. Designed the classes to create a general healthy object and create a set of concrete healthy objects from it.
 
 ## November 16, 2017:
-Created model for healthy objects, created javascript objects for Chicken object and apple object. Completed the intyegration of the entities with the game and resolved all the errors.
+Created model for healthy objects, created javascript objects for Chicken object and apple object. Completed the integration of the entities with the game and resolved all the errors.
 https://github.com/nguyensjsu/cmpe202-oceans11/blob/master/Design/Game%20Source%20Code/js/entities/coin.js
 
 
+## November 17, 2017:
+Changed map with new healthy objects and rendered it on the game . Fixed the hanging screen bug in the game and chnaged the code accordingly. Adjusted the timing functioanlity of the game. Resolved all the screen command errors so that there is no issuw in any command.
 
+
+## November 18, 2017:
+Resolved the player state bug in the game which was carrying forward the player state in our game on restart. The game has now just one bug left which is timer getting fast on restart. Team meeting regarding the refinements of the project and creation of the deliverables.
