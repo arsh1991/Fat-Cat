@@ -7,10 +7,11 @@ game.TitleScreen = me.ScreenObject.extend({
     
     var factory = new Factory();
     // title screen
-    var backgroundImage = new me.Sprite(0, 0, {
-            image: me.loader.getImage('background'),
-        }
-    );
+    //var backgroundImage = new me.Sprite(0, 0, {
+            //image: me.loader.getImage('background'),
+       // }
+    //);
+  var backgroundImage = factory.createImageObject(0,0,'background');
     
     // position and scale to fit with the viewport size
    backgroundImage.anchorPoint.set(0, 0);
