@@ -219,14 +219,34 @@ Team meeting for week 8. Discussion on tasks pending for next week and feedback 
 
 ## Week 8
 
+Simplicity in Extreme programming refers to replacing complex tasks with simpler ones. In week 8, we divided the work by taking up one feature of the game. Each team member was assigned one functionality.
+Dishant- Decorator Pattern
+Aditi- User Story
+Arshdeep- Add healthy objects in game
+Dipro- Use Case
+Suhel-Fix defects
+
 ### November 13, Monday
-Worked on implementing decorator pattern in the game.
+Worked on implementing decorator pattern in the game. Added a decorator pattern on score calculation.
 
 ### November 14, Tuesday
 Finished work on decorator pattern. Fixed issues on game re-start.
 
-### November 14, Tuesday
-Refactored the code and fixed pending issues in the game.
+### November 15, Tuesday
+Refactored the code. Added time attribute in score calculation. 
+
+### November 16, Wednesday
+Fixed blank screen on game re-start.
+
+### November 17, Thursday
+Worked on speed and health changes on player collision. Refactored the code.
+
+### November 18, Friday
+Generated new texture for adding a healthy object in game.
+
+### November 19, Saturday
+Fixed texture issues. Updated burndown chart. Team meeting to provide feedback.
+
 
 
 
