@@ -90,5 +90,13 @@ Team Meeting
 - Fixed the end page by positioning the button and change the draw function for the texts 
 
 ## Nov.15 2017
-- Moded the proxy pattern code to the cetral code.
+- Added the proxy pattern code to the cetral code.
 
+## Nov.16 2017
+- Added the proxy pattern code to the cetral code.
+
+## Nov.17 2017
+- Removed the proxy pattern and decoupled the unnecessary code from the codebase
+
+## Nov.18 2017
+- Added new Design pattern and integrated with the code (Facotory Design Pattern)
