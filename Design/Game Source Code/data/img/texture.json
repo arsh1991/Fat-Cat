@@ -587,7 +587,7 @@
 },
 {
 	"filename": "Walk-3_3",
-	"frame": {"x":552,"y":1000,"w":67,"h":99},
+	"frame": {"x":139,"y":1001,"w":67,"h":99},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":20,"y":4,"w":67,"h":99},

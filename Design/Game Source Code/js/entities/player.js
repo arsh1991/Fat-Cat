@@ -117,6 +117,7 @@ init: function(x, y, settings) {
  
 changeState : function (state) {
         this.currentState = state;
+        console.log(state.animation);
         game.data.curranimation = state.animation;
         this.renderable.setCurrentAnimation(state.animation);
 },
