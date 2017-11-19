@@ -5,7 +5,7 @@ game.TitleScreen = me.ScreenObject.extend({
    */
   onResetEvent : function () {
     
-
+     var factory = new Factory();
     // title screen
     var backgroundImage = new me.Sprite(0, 0, {
             image: me.loader.getImage('background'),
@@ -24,8 +24,7 @@ game.TitleScreen = me.ScreenObject.extend({
    console.log(JSON.stringify(me.save));
    me.game.world.addChild(backgroundImage);
    //this.SelectPlayerButton = new game.UI.ButtonUI(500, 175, "green", "Select Player");
-   this.PlayButton = new game.UI.ButtonUI(430, 525,"green","Play Game");
-   //this.PlayButton = new game.Factory("play",430,535,"green","Play Game");
+   this.PlayButton = factory.createButtonObject("play",430,535,"green","Play Game");
 
    
    //me.game.world.addChild(this.SelectPlayerButton);
