@@ -5,7 +5,8 @@ game.EndScreenWinning = me.ScreenObject.extend({
   onResetEvent : function () {
     // title screen
     game.data.pause = true;
-    
+
+
     var backgroundImage = new me.Sprite(0, 0, {
            image: me.loader.getImage('you_won'),
        }
@@ -31,8 +32,11 @@ game.EndScreenWinning = me.ScreenObject.extend({
     me.game.world.addChild(backgroundImage, 1);
 
 
-   this.RestartButton = new game.UI.ButtonUI(350, 250, "green", "Restart Game :D");
-   this.LeaderboardButton = new game.UI.ButtonUI(350, 330, "blue","See Leaderboard!");
+   //this.RestartButton = new game.UI.ButtonUI(350, 250, "green", "Restart Game :D");
+   //this.LeaderboardButton = new game.UI.ButtonUI(350, 330, "blue","See Leaderboard!");
+   this.RestartButton = factory.createButtonObject("restart",350, 250, "green", "Restart Game :D");
+   this.LeaderboardButton = factory.createButtonObject("leader",350, 330, "blue","See Leaderboard!");
+
    if (this.RestartButton == null){
       this.RestartButton = new game.UI.ButtonUI(350, 250, "green", "Restart Game :D");
    }
