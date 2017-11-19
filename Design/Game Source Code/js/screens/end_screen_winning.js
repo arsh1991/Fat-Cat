@@ -7,10 +7,12 @@ game.EndScreenWinning = me.ScreenObject.extend({
     game.data.pause = true;
 
 
-    var backgroundImage = new me.Sprite(0, 0, {
-           image: me.loader.getImage('you_won'),
-       }
-    );
+    //var backgroundImage = new me.Sprite(0, 0, {
+           //image: me.loader.getImage('you_won'),
+       //}
+    //);
+
+    var backgroundImage = factory.createImageObject(0,0,'you_won');
     console.log('T R I G G E R E D');
 
 

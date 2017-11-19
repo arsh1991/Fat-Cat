@@ -8,11 +8,11 @@ game.EndScreenTimeUp = me.ScreenObject.extend({
     game.data.pause = true;
     var final_score;
     
-    var backgroundImage = new me.Sprite(0, 0, {
-      image: me.loader.getImage('game_over_slow'),
-    }
-    );
-    
+    //var backgroundImage = new me.Sprite(0, 0, {
+     // image: me.loader.getImage('game_over_slow'),
+    //}
+    //);
+    var backgroundImage = factory.createImageObject(0,0,'game_over_slow');
    
     var score = new Score();  
     var scoreWithTime = new TimeDecorator(score);
