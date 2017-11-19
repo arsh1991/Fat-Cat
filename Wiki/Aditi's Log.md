@@ -105,5 +105,6 @@ Continued work on the User Story deliverable and found that the Restart button i
 Began debugging issue with the leaderboard where new values were not being updated or saved. Provided feedback to my team about this issue so that we can work on it to get it resolved. Refactored the end game code so that it is easier to read and understand.
 ### Nov. 17th, Friday
 Continued work on User Story and also began work on the UML Class Diagram that we will be working on as a team. Currently, we are waiting for all the design patterns to be implemented by the rest of the team so that we can provide feedback on these and then work on all diagrams for our final presentation. Also, began brainstorming ideas for our extra credit project video that we will be filiming soon.
-## Week 8
+## Week 9
 ### Nov. 18th, Saturday
+Team meeting for consolidating all small and remaining tasks for completing deliverables. All team members provided feedback on game progress to one another and agreed on deliverable completion times for next week.
