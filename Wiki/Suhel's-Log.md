@@ -109,7 +109,8 @@ Team Meeting
 ## Nov. 10 2017
 - Created iterator pattern on leaderboard scores. Looking how to tune the scoring formula to get better numbers.
 
-## Week 7
+## Week 8
+## XP Core Value: Courage(Decided to allocate deliverables which were not included in this week work according to meeting and completed the diagrams as a part of deliverables.)
 ## Nov.11 2017
 - Had meeting today. Decided to work on fixing some bugs and one of the deliverable allocated to each team member.
 
