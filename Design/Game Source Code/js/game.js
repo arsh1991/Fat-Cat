@@ -20,13 +20,13 @@ var game = {
      * Initialize the application
      */
     onload: function() {
-
+        
         // init the video
         if (!me.video.init(800, 600, {wrapper : "screen", scale : "auto", scaleMethod : "flex-width", renderer : me.video.AUTO, subPixel : false })) {
             alert("Your browser does not support HTML5 canvas.");
             return;
         }
-
+   
         // initialize the "sound engine"
         me.audio.init("mp3,ogg");
 
