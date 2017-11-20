@@ -218,7 +218,7 @@ Team meeting for week 8. Discussion on tasks pending for next week and feedback 
 
 
 ## Week 8
-
+## XP Core Value: Simplicity
 Simplicity in Extreme programming refers to replacing complex tasks with simpler ones. In week 8, we divided the work by taking up one feature of the game. Each team member was assigned one functionality.
 Dishant- Decorator Pattern
 Aditi- User Story
