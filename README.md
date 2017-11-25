@@ -22,7 +22,7 @@ Fat Cat is a JavaScript game inspired by Mario and is built using MelonJS. The m
 * Weekly Meeting Minutes: [View here](https://github.com/nguyensjsu/cmpe202-oceans11/tree/master/Wiki/Weekly%20Minutes)
 * Team Member Logs: [View here](https://github.com/nguyensjsu/cmpe202-oceans11/tree/master/Wiki)
 * Burndown Chart: [View Here](https://docs.google.com/spreadsheets/d/1FjIgMo-5ygs1MUncWdux56Sz-x2LB5rapKpifeBU1bw/edit?usp=sharing)
-* Presentation Slides: TBA
+* Presentation Slides: [View Here](https://github.com/nguyensjsu/cmpe202-oceans11/blob/master/Project%20Deliverables/Presentation-FatCat.pdf)
 * Extra Credit: TBA
 
 ## Adopted Agile Practices:
