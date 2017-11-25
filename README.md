@@ -38,3 +38,9 @@ Our team has adopted the following Agile practices:
 ![CFD](https://github.com/nguyensjsu/cmpe202-oceans11/blob/master/Images/Lifecycle%20Charts/CFD.png)
 ### Scrum: Burndown Chart
 ![Burndown](https://github.com/nguyensjsu/cmpe202-oceans11/blob/master/Images/Lifecycle%20Charts/burndown.png)
+
+## Run our game on localhost
+1. Clone our git repository. 
+2. Download and install [MelonJS](https://github.com/melonjs/melonJS)
+3. Using the command line, enter the directory where the game is cloned. 
+4. Run "git serve" and open http://localhost:8000/ in your browser.
