@@ -5,7 +5,8 @@
 <br></br>
 
 ## Game Overview
-Fat Cat is a JavaScript game inspired by Mario and is built using MelonJS. The main objective of the game is to avoid obstacles and finish all levels as fast as possible for a highest possible score. 
+Fat Cat is a JavaScript game inspired by Mario and is built using MelonJS. The main objective of the game is to avoid obstacles and finish all levels as fast as possible for a highest possible score. All movement is mapped to the up, down, right, and left keys: press a key multiple times to run or jump higher. Unhealthy food items, such as pizza and hamburgers, should be avoided as they reduce character speed, health and score. Healthy food items, such as apples and spinach, should be eaten as they increases character speed, health, and score. All obstacles, such as rivers, metal spikes, and holes, must be avoided since they kill the character and end the game. To see current and previous high scores, click "View Leaderboard" at the end of the game. Happy playing!
+
 ## Project Deliverables
 * UI Wireframe: [View here](https://github.com/nguyensjsu/cmpe202-oceans11/tree/master/Project%20Deliverables/UI%20Wireframes)
 * Activity Diagram: [View here](https://github.com/nguyensjsu/cmpe202-oceans11/tree/master/Project%20Deliverables/Activity%20Diagram)
