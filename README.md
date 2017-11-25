@@ -30,3 +30,8 @@ Our team has adopted the following Agile practices:
 * Continuous Integration: Code is integrated after every feature.
 * Frequent Releases: Code is in a shippable state after every week.
 * Collective Ownership: No person is alloted single module.
+
+## Development Lifecycle Charts
+### Kanban Flow Diagram
+
+### Scrum Burndown Chart
