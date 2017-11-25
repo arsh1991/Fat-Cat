@@ -3,7 +3,7 @@
 //A User Story along with the supporting requirements specifications as BDD Scenarios.  Make sure to use the User Voice format discussed in class and identity at least five scenarios (one for "happy path" and additional "error" scenarios).
 
 # 1
-_As_ a game player,
+_As_ a game player,  
 _I want_ to be able to "win" the game  
 _When_ the game is running  
 _So that_ my name is at the top of the leaderboard.  
@@ -95,10 +95,10 @@ _Then_ the health, speed, and score will remain the same.
 
 
 # 4
-As an end screen,  
-I want to appear  
-When the game ends  
-So that the game can be ended, restarted, or the leaderboard can be viewed.  
+_As_ an end screen,  
+_I want_ to appear  
+_When_ the game ends  
+_So that_ the game can be ended, restarted, or the leaderboard can be viewed.  
 
 **Scenario 1:**  
 _Given_ that the Fat Cat game is running   
@@ -116,10 +116,10 @@ _Then_ the end screen associated with winning the game will appear.
 
 
 # 5
-As a game character,  
-I want to be able to die  
-When I fall into an obstacle  
-So that the game ends.  
+_As_ a game character,  
+_I want_ to be able to die  
+_When_ I fall into an obstacle  
+_So that_ the game ends.  
 
 **Scenario 1:**  
 _Given_ that the Fat Cat game is running   
@@ -144,10 +144,10 @@ _Then_ the main character will not die and will continue the game.
 
 
 # 6
-As a health bar, 
-I want to be able to display and update the character’s current health
-When the game is in progress
-So that the player knows how healthy or unhealthy the character is.
+_As_ a health bar,  
+_I want_ to be able to display and update the character’s current health  
+_When_ the game is in progress  
+_So that_ the player knows how healthy or unhealthy the character is.  
 
 **Scenario 1:**  
 _Given_ that the Fat Cat game is running   
@@ -159,6 +159,6 @@ _When_ the main character runs into an unhealthy food object
 _Then_ the health bar will decrease the character's health visually.  
 **Scenario 3:**  
 _Given_ that the Fat Cat game is running   
-_When_ the main character does not run into a food object
+_When_ the main character does not run into a food object  
 _Then_ the health bar will not change visually.  
  
