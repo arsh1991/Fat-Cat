@@ -33,8 +33,8 @@ _And_ will continue at its normal pace.
 # 2
 _As_ a game player,  
 _I want_ to be able to see my health, speed, and score changing  
-_When_ I touch the food objects
-_So that_ the game remains challenging.  
+_When_ I touch the food objects  
+_So that_ the game remains challenging.  
 
 **Scenario 1:**  
 _Given_ that the Fat Cat game is running   
@@ -87,24 +87,24 @@ So that the game ends.
 
 **Scenario 1:**  
 _Given_ that the Fat Cat game is running   
-_When_ the main character falls into a river   
-_Then_ the main character will die and end the game.  
-**Scenario 2:**  
-_Given_ that the Fat Cat game is running   
-_When_ the main character falls into a spike bed   
-_Then_ the main character will die and end the game. 
+_When_ the main character falls into a river     
+_Then_ the main character will die and end the game.    
+**Scenario 2:**   
+_Given_ that the Fat Cat game is running  
+_When_ the main character falls into a spike bed    
+_Then_ the main character will die and end the game.    
 **Scenario 3:**  
-_Given_ that the Fat Cat game is running   
-_When_ the main character falls into a hole   
-_Then_ the main character will die and end the game.   
+_Given_ that the Fat Cat game is running     
+_When_ the main character falls into a hole  
+_Then_ the main character will die and end the game.  
 **Scenario 4:**  
 _Given_ that the Fat Cat game is running   
 _When_ the main character jumps over an obstacle  
-_Then_ the main character will not die and will continue the game.  
+_Then_ the main character will not die and will continue the game.     
 **Scenario 5:**  
 _Given_ that the Fat Cat game is running   
 _When_ the main character does not reach an obstacle or cannot view an obstacle  
-_Then_ the main character will not die and will continue the game.    
+_Then_ the main character will not die and will continue the game.  
 
 
 
