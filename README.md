@@ -23,11 +23,11 @@ Task Board [View here](https://github.com/nguyensjsu/cmpe202-oceans11/projects/1
 
 Cumulative Flow Diagram [View here](https://docs.google.com/spreadsheets/d/1DUSk8EHJiDXbjKezvUhB_dygtkIgzJfhuiswx0WiZTI/edit?usp=sharing)
 
-Weekly Minutes [Weekly Minutes](https://github.com/nguyensjsu/cmpe202-oceans11/blob/master/Wiki/Weekly%20Minutes/Weekly%20Meeting-8.md)
+Weekly Minutes [View here](https://github.com/nguyensjsu/cmpe202-oceans11/tree/master/Wiki/Weekly%20Minutes)
 
-Burndown Chart [Burndown Chart](https://docs.google.com/spreadsheets/d/1FjIgMo-5ygs1MUncWdux56Sz-x2LB5rapKpifeBU1bw/edit?usp=sharing)
+Burndown Chart [View Here](https://docs.google.com/spreadsheets/d/1FjIgMo-5ygs1MUncWdux56Sz-x2LB5rapKpifeBU1bw/edit?usp=sharing)
 
-## Adopted Agile practices:
+## Adopted Agile Practices:
 Our team has adopted the following Agile practices:
 
 * Iterations: Weekly sprints.
