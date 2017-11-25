@@ -34,6 +34,7 @@ Our team has adopted the following Agile practices:
 * Collective Ownership: No person is alloted single module.
 
 ## Development Lifecycle Charts
-### Kanban Flow Diagram
-
-### Scrum Burndown Chart
+### Kanban: Cumulative Flow Diagram)
+![CFD](https://github.com/nguyensjsu/cmpe202-oceans11/blob/master/Images/Lifecycle%20Charts/CFD.png)
+### Scrum: Burndown Chart
+![Burndown](https://github.com/nguyensjsu/cmpe202-oceans11/blob/master/Images/Lifecycle%20Charts/burndown.png)
