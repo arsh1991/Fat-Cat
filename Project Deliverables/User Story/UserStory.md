@@ -31,10 +31,10 @@ _Then_ the main character will not speed up
 _And_ will continue at its normal pace.  
 
 # 2
-As a game player,  
-I should be able to see my health, speed, and score changing
-When I touch the food objects
-So that the game remains challenging.  
+_As_ a game player,  
+_I want_ to be able to see my health, speed, and score changing  
+_When_ I touch the food objects
+_So that_ the game remains challenging.  
 
 **Scenario 1:**  
 _Given_ that the Fat Cat game is running   
@@ -59,13 +59,60 @@ _Then_ the health, speed, and score will remain the same.
 
 
 # 3
+As an end screen,  
+I want to appear  
+When the game ends  
+So that the game can be ended, restarted, or the leaderboard can be viewed.  
+
+**Scenario 1:**  
+_Given_ that the Fat Cat game is running   
+_When_ the main character dies  
+_Then_ the end screen associated with character death will appear.    
+**Scenario 2:**  
+_Given_ that the Fat Cat game is running   
+_When_ the main character runs out of time before completing the full game  
+_Then_ the end screen associated with time's up will appear.  
+**Scenario 3:**  
+_Given_ that the Fat Cat game is running   
+_When_ the main character completes the entire game within the time limit  
+_Then_ the end screen associated with winning the game will appear.   
+
+
+
+# 4
+As a game character,  
+I want to be able to die  
+When I fall into an obstacle  
+So that the game ends.  
+
+**Scenario 1:**  
+_Given_ that the Fat Cat game is running   
+_When_ the main character falls into a river   
+_Then_ the main character will die and end the game.  
+**Scenario 2:**  
+_Given_ that the Fat Cat game is running   
+_When_ the main character falls into a spike bed   
+_Then_ the main character will die and end the game. 
+**Scenario 3:**  
+_Given_ that the Fat Cat game is running   
+_When_ the main character falls into a hole   
+_Then_ the main character will die and end the game.   
+**Scenario 4:**  
+_Given_ that the Fat Cat game is running   
+_When_ the main character jumps over an obstacle  
+_Then_ the main character will not die and will continue the game.  
+**Scenario 5:**  
+_Given_ that the Fat Cat game is running   
+_When_ the main character does not reach an obstacle or cannot view an obstacle  
+_Then_ the main character will not die and will continue the game.    
+
+
+
 
 As a game player,
 I want to be able to view the high score leaderboard
 When the game completes
 So that I can see where my current score stands in comparison to other scores.
-
-
 
 
 As a food entity,
@@ -83,10 +130,6 @@ I want to be able to restart the game
 When the game completes
 So that I can continue playing and try the game again.
 
-As an end screen, 
-I want to appear whenever the game ends
-When the player dies, runs out of time, or wins the game by completing all the levels within the time limit
-So that the game can be ended, restarted, or the leaderboard can be viewed.
 
 As a health bar and health score, 
 I want to be able to display and update the character’s current health
