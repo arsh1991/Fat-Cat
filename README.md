@@ -23,7 +23,9 @@ Task Board: [View here](https://github.com/nguyensjsu/cmpe202-oceans11/projects/
 
 Cumulative Flow Diagram: [View here](https://docs.google.com/spreadsheets/d/1DUSk8EHJiDXbjKezvUhB_dygtkIgzJfhuiswx0WiZTI/edit?usp=sharing)
 
-Weekly Minutes: [View here](https://github.com/nguyensjsu/cmpe202-oceans11/tree/master/Wiki/Weekly%20Minutes)
+Weekly Meeting Minutes: [View here](https://github.com/nguyensjsu/cmpe202-oceans11/tree/master/Wiki/Weekly%20Minutes)
+
+Team Member Logs: [View here](https://github.com/nguyensjsu/cmpe202-oceans11/tree/master/Wiki)
 
 Burndown Chart: [View Here](https://docs.google.com/spreadsheets/d/1FjIgMo-5ygs1MUncWdux56Sz-x2LB5rapKpifeBU1bw/edit?usp=sharing)
 
