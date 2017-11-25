@@ -31,15 +31,42 @@ _Then_ the main character will not speed up
 _And_ will continue at its normal pace.  
 
 # 2
+As a game player,  
+I should be able to see my health, speed, and score changing
+When I touch the food objects
+So that the game remains challenging.  
+
+**Scenario 1:**  
+_Given_ that the Fat Cat game is running   
+_When_ the main character runs into a healthy food object  
+_Then_ the health, speed, and score will increase.  
+**Scenario 2:**  
+_Given_ that the Fat Cat game is running    
+_When_ the main character runs into an unhealthy food object  
+_Then_ the health, speed, and score will decrease.  
+**Scenario 3:**   
+_Given_ that the Fat Cat game is running  
+_When_ the main character does not run into any food object  
+_Then_ the health, speed, and score will remain the same.  
+**Scenario 4:**  
+_Given_ that the Fat Cat game is running   
+_When_ the main character jumps above or avoids a food object   
+_Then_ the health, speed, and score will remain the same.  
+**Scenario 5:**  
+_Given_ that the Fat Cat game is running   
+_When_ the main character has no visible food objects in the game play view  
+_Then_ the health, speed, and score will remain the same.   
+
+
+# 3
+
 As a game player,
 I want to be able to view the high score leaderboard
 When the game completes
 So that I can see where my current score stands in comparison to other scores.
 
-As a game player,
-I should be able to see my health decreasing and speed decreasing
-When I touch the harmful food items
-So that the game remains challenging.
+
+
 
 As a food entity,
 I want to be able to disappear and update the character's health
