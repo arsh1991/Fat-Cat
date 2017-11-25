@@ -3,6 +3,42 @@
 //A User Story along with the supporting requirements specifications as BDD Scenarios.  Make sure to use the User Voice format discussed in class and identity at least five scenarios (one for "happy path" and additional "error" scenarios).
 
 # 1
+_As_ a game player,
+_I want_ to be able to "win" the game  
+_When_ the game is running  
+_So that_ my name is at the top of the leaderboard.  
+
+**Scenario 1:**  
+_Given_ that the Fat Cat game is running  
+_When_ a high score is achieved after completing all obstacles  
+_Then_ the player will win and be placed on the leaderboard.  
+**Scenario 2:**  
+_Given_ that the Fat Cat game is running  
+_When_ the player dies from an obstacle but a high score is achieved  
+_Then_ the player will win and be placed on the leaderboard.  
+**Scenario 3:**  
+_Given_ that the Fat Cat game is running  
+_When_ the time runs out but a high score is achieved  
+_Then_ the player will win and be placed on the leaderboard.  
+**Scenario 4:**  
+_Given_ that the Fat Cat game is running    
+_When_ all obstacles are completed and a high score is not achieved  
+_Then_ the player will not win.  
+**Scenario 5:**  
+_Given_ that the Fat Cat game is running  
+_When_ time runs out and a high score is not achieved  
+_Then_ the player will not win.  
+**Scenario 6:**  
+_Given_ that the Fat Cat game is running  
+_When_ the player dies from an obstacle and a high score is not achieved  
+_Then_ the player will not win.  
+**Scenario 7:**  
+_Given_ that the Fat Cat game is running   
+_When_ a high score achieved has already been achieved earlier and is already on the leaderboard  
+_Then_ the player will not win.  
+
+
+# 2
 _As_ a game player,  
 _I want_ to be able to navigate the main character  
 _When_ obstacles and bonuses appear  
@@ -30,7 +66,7 @@ _When_ the right, left, down, A, S, or D buttons are pressed more than once
 _Then_ the main character will not speed up  
 _And_ will continue at its normal pace.  
 
-# 2
+# 3
 _As_ a game player,  
 _I want_ to be able to see my health, speed, and score changing  
 _When_ I touch the food objects  
@@ -58,7 +94,7 @@ _When_ the main character has no visible food objects in the game play view
 _Then_ the health, speed, and score will remain the same.   
 
 
-# 3
+# 4
 As an end screen,  
 I want to appear  
 When the game ends  
@@ -79,7 +115,7 @@ _Then_ the end screen associated with winning the game will appear.
 
 
 
-# 4
+# 5
 As a game character,  
 I want to be able to die  
 When I fall into an obstacle  
@@ -107,39 +143,22 @@ _When_ the main character does not reach an obstacle or cannot view an obstacle
 _Then_ the main character will not die and will continue the game.  
 
 
-
-
-As a game player,
-I want to be able to view the high score leaderboard
-When the game completes
-So that I can see where my current score stands in comparison to other scores.
-
-
-As a food entity,
-I want to be able to disappear and update the character's health
-When the main character collides with me
-So that my impact on health is visible to the player through the score and speed of the character.
-
-As an underground obstacle,
-I should make the main character die and cause the game to end
-When the main character falls into an obstacle
-So that the game can conclude and also remains challenging.
-
-As an end screen, 
-I want to be able to restart the game
-When the game completes
-So that I can continue playing and try the game again.
-
-
-As a health bar and health score, 
+# 6
+As a health bar, 
 I want to be able to display and update the character’s current health
 When the game is in progress
 So that the player knows how healthy or unhealthy the character is.
 
-As a game timer, 
-I want to be able to display the amount of time left in the game
-While the game is in progress
-So that the player knows how much longer they have available to complete the game.
-
-
-
+**Scenario 1:**  
+_Given_ that the Fat Cat game is running   
+_When_ the main character runs into a healthy food object  
+_Then_ the health bar will increase the character's health visually.  
+**Scenario 2:**  
+_Given_ that the Fat Cat game is running   
+_When_ the main character runs into an unhealthy food object  
+_Then_ the health bar will decrease the character's health visually.  
+**Scenario 3:**  
+_Given_ that the Fat Cat game is running   
+_When_ the main character does not run into a food object
+_Then_ the health bar will not change visually.  
+ 
