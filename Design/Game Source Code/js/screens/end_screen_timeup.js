@@ -8,11 +8,11 @@ game.EndScreenTimeUp = me.ScreenObject.extend({
     game.data.pause = true;
     var final_score;
     
-    //var backgroundImage = new me.Sprite(0, 0, {
-     // image: me.loader.getImage('game_over_slow'),
-    //}
-    //);
-    var backgroundImage = factory.createImageObject(0,0,'game_over_slow');
+    var backgroundImage = new me.Sprite(0, 0, {
+      image: me.loader.getImage('game_over_slow'),
+    }
+    );
+    //var backgroundImage = factory.createImageObject(0,0,'game_over_slow');
    
     var score = new Score();  
     var scoreWithTime = new TimeDecorator(score);
@@ -39,6 +39,8 @@ game.EndScreenTimeUp = me.ScreenObject.extend({
     me.game.world.addChild(backgroundImage, 1);
    this.RestartButton = new game.UI.ButtonUI(430, 275, "green", "Restart Game :D");
    this.LeaderboardButton = new game.UI.ButtonUI(430, 350, "blue","See Leaderboard!");
+   //this.RestartButton = factory.createButtonObject("restart",430, 275, "green", "Restart Game :D");
+   //this.LeaderboardButton = factory.createButtonObject("leader",430, 350,"blue","See Leaderboard!");
    me.game.world.addChild(this.RestartButton);
    me.game.world.addChild(this.LeaderboardButton);
    me.game.world.addChild(new game.EndScreenTimeUp.Message(final_score));

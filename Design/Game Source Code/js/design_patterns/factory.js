@@ -8,7 +8,7 @@ function Factory() {
         return object;
     }
     //Methods for new Image Objects
-     this.createImageObject = function (x,y,name){
+    this.createImageObject = function (x,y,name){
         
         return new me.Sprite(x, y, 
         {
