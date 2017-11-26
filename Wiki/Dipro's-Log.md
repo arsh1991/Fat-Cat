@@ -100,3 +100,6 @@ Team Meeting
 
 ## Nov.18 2017
 - Added new Design pattern and integrated with the code (Facotory Design Pattern)
+
+## Nov.25 2017
+- Fixed bug for factory pattern

@@ -1,1 +1,35 @@
-Activity Diagram
+USE CASE SPECIFICAION – Dipro 
+
+Primary actors: 
+•	Game Players
+•	Burger
+•	Glass Spikes
+•	Pizza etc.
+
+Pre-Condition: 
+•	Latest Web Browser (Chrome, Firefox, safari)
+•	Internet connection
+•	Platforms: 
+ Laptop
+ Desktop
+ Mobile Browser
+
+
+Basic Flow of Events:
+1.	Player goes to the Url from browser
+2.	Player presses the Play button
+3.	Player starts controlling the cat character using up, left, down and right arrow keys in the keyboard
+4.	Player tries to avoid harmful obstacles (Pizza, Burger) that will get the cat fat and slow.
+5.	Player also tries to avoid the empty space and glass spikes that is harmful for its health.
+6.	Player tries to move forward as fast as possible while avoiding the obstacles to finish the level on time.
+7.	If Player consumes the harmful objects, it can consume good objects like apple or spinach to get it previous health back.
+8.	Consuming harmful objects will decrease the overall score of the player as well as health bar.
+9.	Consuming beneficial objects like apple and spinach will increase the score as well as health bar.
+10.	If the timer runs out before the player finish a level, player will see a screen that says ‘you lose’ with the highest score 
+11.	Player will also have options to see highest score for the game.
+12.	If player can complete all levels on time, then a new screen will show up saying ‘you win’ with leaderboard option as well.
+
+
+ 
+
+
