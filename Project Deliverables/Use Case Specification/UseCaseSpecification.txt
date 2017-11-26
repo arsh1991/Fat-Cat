@@ -1,4 +1,4 @@
-USE CASE SPECIFICAION – Dipro 
+USE CASE SPECIFICATION – Dipro 
 
 Primary actors: 
 •	Game Players
